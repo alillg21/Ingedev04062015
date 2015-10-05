@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:record uta:id='app' uta:comment='application parameters record' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='appCmpDat'
+             uta:type='ASCII'
+             uta:length='lenCmpDat'
+             uta:comment='compile date' />
+  <uta:field uta:id='appCmpTim'
+             uta:type='ASCII'
+             uta:length='lenCmpTim'
+             uta:comment='compile time' />
+  <uta:field uta:id='appChn'
+             uta:type='ASCII'
+             uta:length='lenChn'
+             uta:data='"H8N12400"'
+             uta:comment='Communication channel settings' />
+  <uta:field uta:id='appPabx'
+             uta:type='ASCII'
+             uta:length='lenPabx'
+             uta:data='"0"'
+             uta:comment='Phone PABX' />
+  <uta:field uta:id='appPrefix'
+             uta:type='ASCII'
+             uta:length='lenPrefix'
+             uta:data='"00"'
+             uta:comment='Phone Prefix' />
+  <uta:field uta:id='appPhone'
+             uta:type='ASCII'
+             uta:length='lenPhone'
+             uta:data='"123456789"'
+             uta:comment='Authorisation server phone number' />
+  <uta:field uta:id='appMrcPwd'
+             uta:type='ASCII'
+             uta:length='lenPwd'
+             uta:data='"0000"'
+             uta:comment='Merchant password' />
+  <uta:field uta:id='appAdmPwd'
+             uta:type='ASCII'
+             uta:length='lenPwd'
+             uta:data='"0000"'
+             uta:comment='Administrator password' />
+  <uta:field uta:id='appExp'
+             uta:type='byte'
+             uta:data='2'
+             uta:comment='Currency exponent' />
+</uta:record>

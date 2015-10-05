@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:table uta:id="mnu" uta:type='ASCII' uta:length="lenMnu" uta:cache="yes" uta:comment="menu tree"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:row uta:id="mnuMainMenu" uta:data='"0 APP TPL         "' />
+  <uta:row uta:id="mnuCustomer" uta:data='"1 CUSTOMER>       "' />
+  <uta:row uta:id="mnuMerchant" uta:data='"1 MERCHANT>       "' />
+  <uta:row uta:id="mnuAdmin"    uta:data='"1aADMIN>          "' />
+  <uta:row uta:id="mnuTest"     uta:data='__mnuTEST__' />
+  <uta:row uta:id="mnuTestReq"  uta:data='"2 Request         "' />
+</uta:table>

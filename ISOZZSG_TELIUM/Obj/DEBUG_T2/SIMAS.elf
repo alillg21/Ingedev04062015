@@ -1,0 +1,20 @@
+Obj/DEBUG_T2/SIMAS.axf  :
+section              size      addr
+.text              774796         0
+.ctors                  0    774796
+.dtors                  0    774796
+.rodata            108440    774796
+.data               49488   2097152
+.bss               178932   2146640
+.debug_abbrev       36192         0
+.debug_info        379025         0
+.debug_line         74238         0
+.debug_frame        42512         0
+.debug_pubnames     24061         0
+.debug_aranges       3456         0
+.debug_str          16022         0
+.comment             3348         0
+.debug_ranges         456         0
+Total             1690966
+
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/log.xml $
+$Id: log.xml 1333 2009-01-19 10:11:26Z jelemia $
+-->
+<uta:record uta:id='logTemp'
+            uta:dim='dimLogTemp'
+            uta:cache="no"
+            uta:comment='Transaction log table'
+            xmlns:uta="http://www.ingenico.com/xml/uta">
+            
+    <uta:field uta:id='logVoidFlagTemp'
+               uta:type='byte'
+               uta:comment='Void flag' />
+
+    <uta:field uta:id='logTipFlagTemp' 	uta:type='byte'    uta:comment='Tip indicator' />
+
+    <uta:field uta:id='logMTITemp'      uta:type='ASCII'      uta:length='lenMti'        uta:comment='Message Type' />
+               
+    <uta:field uta:id='logMnuItmTemp'
+               uta:type='word'
+               uta:comment='menu item selected' />
+    <uta:field uta:id='logDatTimTemp'
+               uta:type='ASCII'
+               uta:length='lenDatTim'
+               uta:comment='transaction date and time CCYYMMDDhhmmss' />
+    <uta:field uta:id='logBinIdxTemp' 
+               uta:type='byte' 
+               uta:comment='index in Bin multirecord' />
+    <uta:field uta:id='logAcqIdxTemp' 
+               uta:type='byte' 
+               uta:comment='index in Acq multirecord' />
+    <uta:field uta:id='logIssIdxTemp' 
+               uta:type='byte' 
+               uta:comment='index in Iss multirecord' />
+    <uta:field uta:id='logPanTemp'
+               uta:type='ASCII'
+               uta:length='lenPan'
+               uta:comment='PAN' />
+  <uta:field uta:id='logExpDatTemp' 
+               uta:type='ASCII'
+               uta:length='lenExpDat'
+               uta:comment='Expiry Date' />
+
+  <uta:field uta:id='logExpDatFmtTemp'        uta:type='ASCII'      uta:length='lenExpDat'         uta:comment='Expiry Date' />
+               
+  <uta:field uta:id='logTrk2Temp'
+               uta:type='ASCII'
+               uta:length='lenTrk2'
+               uta:comment='track 2 of the card' />
+  <uta:field uta:id='logAutCodTemp'
+               uta:type='ASCII'
+               uta:length='lenAutCod'
+               uta:comment='Authorization code' />
+
+  <uta:field uta:id='logAutCodOffTemp' uta:type='ASCII' uta:length='lenAutCod' uta:comment='Authorization (approval) code' />
+               
+  <uta:field uta:id='logBatNumTemp' 
+               uta:type='ASCII'
+               uta:length='lenBatNum'
+               uta:comment='Batch Number' />
+ <uta:field uta:id='logTraAmtTemp' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Transaction Amount' />
+
+  <uta:field uta:id='logFmtAmtTemp'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Amount'/>
+               
+ <uta:field uta:id='logTipAmtTemp' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Tip Amount' />
+
+ <uta:field uta:id='logFmtTipTemp'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Tip'/>
+
+<uta:field uta:id='logEmvICCTemp' uta:type='ASCII' uta:length='lenEmvICC' uta:comment='message of bit 55' />
+               
+ <uta:field uta:id='logSTANTemp'
+               uta:type='card'
+               uta:comment='system trace audit number' />
+ <uta:field uta:id='logRrnTemp'
+               uta:type='ASCII'
+               uta:length='lenRrn'
+               uta:comment='Retrieval Reference Number' />
+
+  <uta:field uta:id='logRspCodTemp' uta:type='ASCII' uta:length='lenRspCod' uta:comment='Response code' />
+ <uta:field uta:id='logPinBlkTemp' uta:type='binary' uta:length='lenPinBlk' uta:comment='Pin block' />                              
+  <uta:field uta:id='logROCTemp'
+               uta:type='card'
+               uta:comment='ROC/Invoice' />
+  <uta:field uta:id='logEntModTemp'
+               uta:type='byte'
+               uta:comment='POS Entry Mode' />
+  <uta:field uta:id='logConCodeTemp'
+               uta:type='byte'
+               uta:comment='POS Condition Code' />
+  <uta:field uta:id='logCardTypeTemp'
+               uta:type='ASCII'
+               uta:length='lenCardTransType'
+               uta:comment='Card Type' />  
+<!--[[ @agmr - BRI -->    
+  <uta:field uta:id='logTraTrk1Temp' uta:type='ASCII' uta:length='lenTrk2' uta:comment='track 1 of the card' />
+  <uta:field uta:id='logEmvAppPrfNamTemp'  uta:type='binary' uta:length='lenAppPrfNam' uta:comment='9F12 Application Preferred Name' />
+  <uta:field uta:id="logEmvAidTemp" uta:type="binary" uta:length="lenAID" uta:comment='4F Application Identifier' />
+  <uta:field uta:id='logEmvTrk2Temp'      uta:type='binary' uta:length='lenEmvTrk2'   uta:comment='57   Track2 equivalent data' />
+  <uta:field uta:id='logTraEmvFullFlagTemp' uta:type='byte'  uta:comment='is full emv process..?' />
+  <uta:field uta:id='logEmvTVRTemp'       uta:type='binary' uta:length='lenTVR'       uta:comment='95   Terminal verification results' />
+  <uta:field uta:id='logEmvIssTrnCrtTemp' uta:type='binary' uta:length='lenIssTrnCrt' uta:comment='9F26 Issuer Transaction Certificate' />  
+
+  <uta:field uta:id='logInstallmentPlanTemp'        uta:comment='Installment plan'     uta:type='ASCII' uta:length='lenInstallmentPlan' />
+  <uta:field uta:id='logInstallmentTermTemp'        uta:comment='Installment term'     uta:type='ASCII' uta:length='lenInstallmentTerm' />
+  <uta:field uta:id='logInstallmentCicilanTemp'     uta:comment='Installment term'     uta:type='ASCII' uta:length='lenInstallmentCicilan' />
+  <uta:field uta:id='logSisaSaldoTemp'              uta:comment='Sisa saldo brizzi'    uta:type='ASCII' uta:length='lenSisaSaldo' />
+  <uta:field uta:id='logRefNumberTemp'              uta:comment='Ref Number brizzi'    uta:type='ASCII' uta:length='lenPasswordPetugas' />
+  <uta:field uta:id='logHashTemp'                   uta:comment='HASH brizzi'          uta:type='ASCII' uta:length='lenPeriode' />
+  <uta:field uta:id='logSaldoAwalTemp'              uta:comment='Saldo awal'           uta:type='ASCII' uta:length='lenUserId' />
+  <uta:field uta:id='logSisaSaldoDepositTemp'       uta:comment='Sisa saldo deposit'   uta:type='ASCII' uta:length='lenPokokHutang' />
+  <uta:field uta:id='logNomorKartuBrizziTemp'       uta:comment='Nomor kartu Brizzi'   uta:type='ASCII' uta:length='lenNoVoucher' />
+  <uta:field uta:id='logBuffer1Temp'                uta:comment='BUFFER 1'             uta:type='ASCII' uta:length='lenBuffer1'  />   
+  <uta:field uta:id='logBuffer2Temp'                uta:comment='BUFFER 2'             uta:type='ASCII' uta:length='lenBuffer2'  />
+   
+  <uta:field uta:id='logIsUnusedRecTemp'    uta:comment='Flag apakah record ini dihapus atau tidak'     uta:type='byte' /> <!-- @agmr - multi settle -->
+  <uta:field uta:id='logIsUploadedTemp'     uta:comment='Flag apakah record ini sudah terunggah'     uta:type='byte' /> <!-- @agmr prpaid payment upload flag -->  
+  
+  <uta:field uta:id='logKategoriKartuTemp'    uta:comment='Kategori kartu'     uta:type='byte' /> <!-- @agmr -->
+
+  <uta:field uta:id='logtraTotalAmountTemp'    uta:comment='Value Before Discount Brizzi'     uta:type='ASCII' uta:length='lenAmt' />
+  <uta:field uta:id='logBrizziDiscFlagTemp'    uta:comment='Flag Discount Brizzi'     uta:type='byte' /> <!-- @agmr -->
+  <uta:field uta:id='logBrizziDiscValTemp'    uta:comment='Value Discount Brizzi'     uta:type='ASCII' uta:length='lenAmt' /> <!-- @agmr -->
+
+<!--]] @agmr - BRI -->      
+
+<!--]] @agmr - BRI -->                        
+</uta:record>

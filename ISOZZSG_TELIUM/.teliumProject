@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?teliumProject version="3.0"?><?ingedev version="7.22.2.1"?><projectDescription activeConfig="DEBUG_T2" applicationType="0x6e" binaryName="SIMAS" descr="ISO EMV Template" enableUsingCpp="false" projectFamily="V1_00_" projectType="APP" useDataFileNamingConvention="true">
+<virtualFolders>
+<virtualFolder name="Source Files" sources="true">
+<file generated="false" name="sys\trc.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tbx.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlm.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlmhmi.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlmmem.c" parentProject="uta100407"/>
+<file generated="false" name="pri\std.c" parentProject="uta100407"/>
+<file generated="false" name="pri\fmt.c" parentProject="uta100407"/>
+<file generated="false" name="pri\dba.c" parentProject="uta100407"/>
+<file generated="false" name="pri\drv.c" parentProject="uta100407"/>
+<file generated="false" name="pri\dlg.c" parentProject="uta100407"/>
+<file generated="false" name="uta\Main.c" parentProject=""/>
+<file generated="false" name="uta\sgm.c" parentProject=""/>
+<file generated="false" name="str\map.c" parentProject="ISOZZSG"/>
+<file generated="false" name="str\dft.c" parentProject="ISOZZSG"/>
+<file generated="false" name="str\rpt.c" parentProject="ISOZZSG"/>
+<file generated="false" name="str\scr.c" parentProject="ISOZZSG"/>
+<file generated="false" name="str\str.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\hdl.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\val.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\adm.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\emv.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\function.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\iso.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\log.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\onl.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\pmt.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\req.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\rev.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\rsp.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\tle.c" parentProject="ISOZZSG"/>
+<file generated="false" name="sys\cmm.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlmchn.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlmcry.c" parentProject="uta100407"/>
+<file generated="false" name="sys\tlmemv.c" parentProject="uta100407"/>
+<file generated="false" name="tst\an\tcan0020.c" parentProject="uta100407"/>
+<file generated="false" name="log\BRI.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\LineEncryption.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\AES.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\keyinject.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\prepaid.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\logon.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\rsagen.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\prsa.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\bignum.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\havege.c" parentProject="ISOZZSG"/>
+<file generated="false" name="log\timing.c" parentProject="ISOZZSG"/>
+</virtualFolder>
+<virtualFolder name="Other Files" sources="false">
+<file generated="false" name="str\dbs.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\enum.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\app.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\mnu.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\msg.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\rpt.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\reg.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\scr.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\tra.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\cLog.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\mLog.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\tLog.xml" parentProject="ISOZZSG"/>
+<file generated="false" name="str\logTemp.xml" parentProject="ISOZZSG"/>
+</virtualFolder>
+<dataFilesVirtualFolder name="Data Files"/>
+<archiveFilesVirtualFolder name="Archive Files"/>
+</virtualFolders>
+<configs>
+<config armSdtOptim="-O2" armSdtOptimPriority="-Ospace" codeBaseAddr="0x0" compiler="armSdt" compilerCustomOpt="" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 1" linkerCustomOpt="" name="ARM_SDT_RELEASE" sign="true">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="eft30" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trap" package="Telium SDK" version="7.5.1"/>
+<packageLib name="PinLib" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IAPP" package="Telium SDK" version="7.5.1"/>
+<packageLib name="AVL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SEC" package="Telium SDK" version="7.5.1"/>
+<packageLib name="dll_wifi" package="Telium SDK" version="7.5.1"/>
+<packageLib name="FTP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SSL_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SNMP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IMG_" package="Telium SDK" version="7.5.1"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Telium SDK" version="7.5.1"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Telium SDK" version="7.5.1"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_RELEASE\RSA.lib"/>
+</simpleLibraries>
+<externalSchemes/>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 1"/>
+</teliumCompatibilities>
+</config>
+<config codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 1" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="DEBUG_EFT_930S" sign="false">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+<userDefine value="__DEBUG__"/>
+<userDefine value="SSB"/>
+<userDefine value="DUMP_ISO_MESSAGE"/>
+<userDefine value="CONN_LAN"/>
+<userDefine value="SAMBUNG_KE_NAC_NOT"/>
+<userDefine value="LINE_ENCRYPTION_NOT"/>
+<userDefine value="_TELIUM_2__NOT"/>
+<userDefine value="PREPAID"/>
+<userDefine value="ABSENSI"/>
+<userDefine value="DEBUG_PREPAID_DATA"/>
+<userDefine value="TEST_PREPAID_SETTLEMENT_NOT"/>
+<userDefine value="TEST_PREPAID_REVERSAL_NOT"/>
+<userDefine value="TEST_REVERSAL_NOT"/>
+<userDefine value="TEST_BRI_NOT"/>
+<userDefine value="_DEBUG_TLE_NOT"/>
+<userDefine value="DEBUG_TLE_GAGAL_NOT"/>
+<userDefine value="TEST_BATCH_UPLOAD"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="DEL" package="Easy Path to EMV" version="19"/>
+<packageLib name="eft30" package="Telium SDK" version="7.5.1"/>
+<packageLib name="eft30cpp" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trap" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trapcpp" package="Telium SDK" version="7.5.1"/>
+<packageLib name="PinLib" package="Telium SDK" version="7.5.1"/>
+<packageLib name="AVL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IAPP" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface_Script" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SEC" package="Telium SDK" version="7.5.1"/>
+<packageLib name="FTP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SSL_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SNMP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="EmvDcInterface" package="Easy Path to EMV" version="19"/>
+<packageLib name="EngineInterface" package="Easy Path to EMV" version="19"/>
+<packageLib name="IMG_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface_DEL" package="Telium SDK" version="7.5.1"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Easy Path to EMV" version="19"/>
+<packageDefine package="Telium SDK" version="7.5.1"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Easy Path to EMV" version="19"/>
+<packageInc package="Telium SDK" version="7.5.1"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<packageSchemes>
+<packageScheme name="DEBUGSigned\T1\SchCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchCipherPR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchIso9564o.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchMacIcvDu.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchutilTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchXOR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SloadKeyTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvIso9564.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadKey.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadTR31.sgn" package="Telium SDK" version="7.5.1"/>
+</packageSchemes>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_DEBUG\RSA.lib"/>
+</simpleLibraries>
+<externalSchemes/>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 1"/>
+</teliumCompatibilities>
+</config>
+<config codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 1" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="DEBUG_T1" sign="false">
+<packageLibraries>
+<packageLib name="eft30" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trap" package="Telium SDK" version="7.5.1"/>
+<packageLib name="PinLib" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IAPP" package="Telium SDK" version="7.5.1"/>
+<packageLib name="AVL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SEC" package="Telium SDK" version="7.5.1"/>
+<packageLib name="dll_wifi" package="Telium SDK" version="7.5.1"/>
+<packageLib name="FTP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SSL_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SNMP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IMG_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="DEL" package="Easy Path to EMV" version="19"/>
+<packageLib name="LinkLayerExeInterface_DEL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface_Script" package="Telium SDK" version="7.5.1"/>
+<packageLib name="EmvDcInterface" package="Easy Path to EMV" version="19"/>
+<packageLib name="EngineInterface" package="Easy Path to EMV" version="19"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Telium SDK" version="7.5.1"/>
+<packageDefine package="Easy Path to EMV" version="19"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Telium SDK" version="7.5.1"/>
+<packageInc package="Easy Path to EMV" version="19"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="USE_DIAL_UP"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="SSB_NOT"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+<userDefine value="__DEBUG__"/>
+<userDefine value="DUMP_ISO_MESSAGE"/>
+<userDefine value="SAMBUNG_KE_NAC"/>
+<userDefine value="LINE_ENCRYPTION"/>
+<userDefine value="_TELIUM_2__NOT"/>
+<userDefine value="PREPAID"/>
+<userDefine value="ABSENSI_NOT"/>
+<userDefine value="DEBUG_PREPAID_DATA"/>
+<userDefine value="TEST_PREPAID_SETTLEMENT_NOT"/>
+<userDefine value="TEST_PREPAID_REVERSAL_NOT"/>
+<userDefine value="TEST_REVERSAL_NOT"/>
+<userDefine value="TEST_BRI_NOT"/>
+<userDefine value="_DEBUG_TLE_NOT"/>
+<userDefine value="DEBUG_TLE_GAGAL_NOT"/>
+<userDefine value="TEST_BATCH_UPLOAD_NOT"/>
+<userDefine value="BRIZI_DISCOUNT"/>
+<userDefine value="_USE_ECR"/>
+<userDefine value="T_BANK_NOT"/>
+<userDefine value="USING_USSD_NOT"/>
+<userDefine value="SSB_NOT"/>
+<userDefine value="KEY_TEST"/>
+<userDefine value="_DEBUG_MK_NOT"/>
+</userDefines>
+<packageSchemes>
+<packageScheme name="DEBUGSigned\T1\SchCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchCipherPR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchIso9564o.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchMacIcvDu.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchutilTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SchXOR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\SloadKeyTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvIso9564.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadKey.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="DEBUGSigned\T1\TlvLoadTR31.sgn" package="Telium SDK" version="7.5.1"/>
+</packageSchemes>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_DEBUG\RSA.lib"/>
+</simpleLibraries>
+<externalSchemes/>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 1"/>
+</teliumCompatibilities>
+</config>
+<config applicationType="0x6e" binaryName="SIMAS" codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="" cpuMode="thumb" crc="false" dataBaseAddr="0x200000" dataBinaryFileBaseName="DATA006E" defaultTeliumCompatibility="Telium 2" descr="ISO EMV SIMAS" disassembler="false" enableCPPExceptions="false" gnu4StackProtectionMode="ProPolice" gnuOptim="-O0" linkerCustomOpt="" name="DEBUG_T2" projectFamily="SIMAS" sign="false" useDataFileNamingConvention="true" zip="false">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="_DEPRECATED_TRAP_SDK091000_"/>
+<userDefine value="USE_SEC_AREA"/>
+<userDefine value="_DEPRECATED_MANAGER_SDK980_"/>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="SIMAS_TMS"/>
+<userDefine value="KEY_TEST"/>
+<userDefine value="_DEBUG_MK_NOT"/>
+<userDefine value="T_BANK_NOT"/>
+<userDefine value="USING_USSD_NOT"/>
+<userDefine value="SSB_NOT"/>
+<userDefine value="USE_DIAL_UP_NOT"/>
+<userDefine value="_USE_ECR"/>
+<userDefine value="BRIZI_DISCOUNT"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+<userDefine value="__DEBUG__"/>
+<userDefine value="DUMP_ISO_MESSAGE"/>
+<userDefine value="SAMBUNG_KE_NAC_NOT"/>
+<userDefine value="LINE_ENCRYPTION_NOT"/>
+<userDefine value="_TELIUM_2_"/>
+<userDefine value="PREPAID"/>
+<userDefine value="ABSENSI_NOT"/>
+<userDefine value="DEBUG_PREPAID_DATA"/>
+<userDefine value="TEST_REVERSAL_NOT"/>
+<userDefine value="TEST_BRI_NOT"/>
+<userDefine value="_DEBUG_TLE_NOT"/>
+<userDefine value="DEBUG_TLE_GAGAL_NOT"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="DEL" package="Easy Path to EMV" version="22.4.1"/>
+<packageLib name="GTL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="TPass" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="eft30" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="trap" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="PinLib_Deprecated" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="AVL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SEC" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="E2EE_DLL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SEC_extend" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="IMG_" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="IP_" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SSL_" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="9.20.0.01"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Easy Path to EMV" version="22.4.1"/>
+<packageDefine package="Telium SDK" version="9.20.0.01"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Easy Path to EMV" version="22.4.1"/>
+<packageInc package="Telium SDK" version="9.20.0.01"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<packageSchemes>
+<packageScheme name="DEBUGSigned\T2\IngeCrypt.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\ScCplutlTlv.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\STLList_Tlv.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvAESCiph.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvCipherDa.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvDukpTDes.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvFirstKey.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvFree.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvHaMcS224.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvHMac.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvIso9564.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvKeyVerif.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvLoadData.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvLoadHMAC.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvLoadKey.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvLoadTR31.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvMacTDes.sgn" package="Telium SDK" version="9.20.0.01"/>
+<packageScheme name="DEBUGSigned\T2\TlvMAKeyGen.sgn" package="Telium SDK" version="9.20.0.01"/>
+</packageSchemes>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_DEBUG\RSA.lib"/>
+</simpleLibraries>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 2"/>
+</teliumCompatibilities>
+<externalSchemes/>
+<dataFiles/>
+</config>
+<config codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 1" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="RELEASE_T1" sign="true">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+<userDefine value="DUMP_ISO_MESSAGE"/>
+<userDefine value="SAMBUNG_KE_NAC"/>
+<userDefine value="LINE_ENCRYPTION_NOT"/>
+<userDefine value="PREPAID"/>
+<userDefine value="ABSENSI"/>
+<userDefine value="DEBUG_PREPAID_DATA"/>
+<userDefine value="TEST_REVERSAL_NOT"/>
+<userDefine value="TEST_BRI_NOT"/>
+<userDefine value="_DEBUG_TLE_NOT"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="DEL" package="Easy Path to EMV" version="19"/>
+<packageLib name="eft30" package="Telium SDK" version="7.5.1"/>
+<packageLib name="eft30cpp" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trap" package="Telium SDK" version="7.5.1"/>
+<packageLib name="trapcpp" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IAPP" package="Telium SDK" version="7.5.1"/>
+<packageLib name="AVL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface_DEL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface_Script" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SEC" package="Telium SDK" version="7.5.1"/>
+<packageLib name="dll_wifi" package="Telium SDK" version="7.5.1"/>
+<packageLib name="FTP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SSL_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="SNMP_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IMG_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="WGUI_" package="Telium SDK" version="7.5.1"/>
+<packageLib name="PinLib" package="Telium SDK" version="7.5.1"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Easy Path to EMV" version="19"/>
+<packageDefine package="Telium SDK" version="7.5.1"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Easy Path to EMV" version="19"/>
+<packageInc package="Telium SDK" version="7.5.1"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<packageSchemes>
+<packageScheme name="NYRA\T1\SchCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchCipherPR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchIso9564o.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchMacIcvDu.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchutilTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SchXOR.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\SloadKeyTlv.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvCipherDa.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvDukpt.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvDukpTDes.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvFree.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvIso9564.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvLoadData.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvLoadKey.sgn" package="Telium SDK" version="7.5.1"/>
+<packageScheme name="NYRA\T1\TlvLoadTR31.sgn" package="Telium SDK" version="7.5.1"/>
+</packageSchemes>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_RELEASE\RSA.lib"/>
+</simpleLibraries>
+<externalSchemes/>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 1"/>
+</teliumCompatibilities>
+</config>
+<config applicationType="0x6e" binaryName="SIMAS" codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="" cpuMode="thumb" crc="false" dataBaseAddr="0x200000" dataBinaryFileBaseName="DATA006E" defaultTeliumCompatibility="Telium 2" descr="SIMAS EMV" disassembler="false" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="RELEASE_T2" projectFamily="SIMAS" sign="false" useDataFileNamingConvention="true" zip="false">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="_DEPRECATED_TRAP_SDK091000_"/>
+<userDefine value="_DEPRECATED_MANAGER_SDK980_"/>
+<userDefine value="SIMAS_TMS"/>
+<userDefine value="_USE_ECR"/>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+<userDefine value="DUMP_ISO_MESSAGE"/>
+<userDefine value="SAMBUNG_KE_NAC"/>
+<userDefine value="LINE_ENCRYPTION"/>
+<userDefine value="_TELIUM_2_"/>
+<userDefine value="PREPAID"/>
+<userDefine value="ABSENSI_NOT"/>
+<userDefine value="DEBUG_PREPAID_DATA_NOT"/>
+<userDefine value="TEST_REVERSAL_NOT"/>
+<userDefine value="TEST_BRI_NOT"/>
+<userDefine value="_DEBUG_TLE_NOT"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="DEL" package="Easy Path to EMV" version="22.4.1"/>
+<packageLib name="GTL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="eft30" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="TPass" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="PinLib_Deprecated" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="trap" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="AVL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="E2EE_DLL" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SEC" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="IMG_" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="IP_" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SEC_extend" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="9.20.0.01"/>
+<packageLib name="SSL_" package="Telium SDK" version="9.20.0.01"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Easy Path to EMV" version="22.4.1"/>
+<packageDefine package="Telium SDK" version="9.20.0.01"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Easy Path to EMV" version="22.4.1"/>
+<packageInc package="Telium SDK" version="9.20.0.01"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<simpleLibraries>
+<simpleLib name="libs\GNU_ARM_RELEASE\RSA.lib"/>
+</simpleLibraries>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 2"/>
+</teliumCompatibilities>
+<dataFiles/>
+<externalSchemes/>
+</config>
+<config compiler="gnuWin32" defaultTeliumCompatibility="Telium 1" enableCPPExceptions="false" name="SIMULATION" sign="false">
+<userIncs>
+<userInc value="Inc"/>
+<userInc value="uta"/>
+<userInc value="${workspace_loc:/ISOZZSG/str}"/>
+<userInc value="${workspace_loc:/ISOZZSG/log}"/>
+<userInc value="${workspace_loc:/ISOZZSG/tst}"/>
+<userInc value="${workspace_loc:/uta100407/sys}"/>
+<userInc value="${workspace_loc:/uta100407/pri}"/>
+</userIncs>
+<userDefines>
+<userDefine value="__ISOZZSG__"/>
+<userDefine value="__TELIUM__"/>
+<userDefine value="_ING_APPLI_BINARY_NAME=&quot;${appli_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_FAMILY=&quot;${appli_family}&quot;"/>
+<userDefine value="_ING_APPLI_TYPE=${appli_type}"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_NAME=&quot;${appli_current_config_name}&quot;"/>
+<userDefine value="_ING_APPLI_FULL_BINARY_NAME=&quot;${appli_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM1_FULL_BINARY_NAME=&quot;${appli_telium1_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM2_FULL_BINARY_NAME=&quot;${appli_telium2_full_binary_name}&quot;"/>
+<userDefine value="_ING_APPLI_TELIUM_COMPATIBILITY=&quot;${appli_telium_compatibility}&quot;"/>
+<userDefine value="_ING_APPLI_SIGN_MODE=&quot;${appli_sign_mode}&quot;"/>
+<userDefine value="_ING_APPLI_CATALOG_FILE_EXTENSION=&quot;${appli_catalog_file_extension}&quot;"/>
+<userDefine value="_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION=&quot;${appli_current_config_toolchain_root_location}&quot;"/>
+</userDefines>
+<packageLibraries>
+<packageLib name="eft30" package="Telium SDK" version="7.5.1"/>
+<packageLib name="IAPP" package="Telium SDK" version="7.5.1"/>
+<packageLib name="AVL" package="Telium SDK" version="7.5.1"/>
+<packageLib name="LinkLayerExeInterface" package="Telium SDK" version="7.5.1"/>
+</packageLibraries>
+<packageDefines>
+<packageDefine package="Telium SDK" version="7.5.1"/>
+</packageDefines>
+<packageIncs>
+<packageInc package="Telium SDK" version="7.5.1"/>
+</packageIncs>
+<prebuild command="" description=""/>
+<postbuild command="" description=""/>
+<externalSchemes/>
+<teliumCompatibilities>
+<teliumCompatibility value="Telium 1"/>
+</teliumCompatibilities>
+</config>
+</configs>
+<groupConfigs/>
+</projectDescription>

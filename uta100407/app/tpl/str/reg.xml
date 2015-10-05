@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:record uta:id='reg' uta:comment='registry record' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='regTrxNo' uta:type='word' uta:comment='transaction number' />
+</uta:record>

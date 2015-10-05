@@ -1,0 +1,1734 @@
+#ifndef __DFT_H
+
+//this file is included in dft.c only
+//it is not visible for other source files
+
+#define dftAppEndTime "2000"
+#define dftAppGprsApn __DFTAPN__
+#define dftAppChn __DFTCHN__
+#define dftAppSrv __DFTSRV__
+#define dftAppSrvAtt 2
+#define dftAppPabx "9"
+#define dftAppTonePulse 1
+#define dftAppToneDetect 1
+#define dftAppPrefix ""
+#define dftAppMrcPwd "0000"
+#define dftAppAdmPwd "0000"
+#define dftAppExp 0
+#define dftAppTid "10000002"
+#define dftAppMid "000001019100001"
+#define dftAppAmtFmt 0x03
+#define dftAppDefTra 0
+#define dftAppTermOpt1 0x02
+#define dftAppTermOpt2 0x22
+#define dftAppTermOpt5 0xC0
+#define dftAppLocOpt 0x0F
+#define dftAppCurrSign "Rp."
+
+#ifdef TELIUM_2_
+#define dftAppConnType 4
+#else
+#define dftAppConnType 4
+#endif //TELIUM_2_
+
+#define dftAppComType 1
+#define dftAppVoidPwd "0000"
+#define dftAppRefPwd "0000"
+#define dftAppSetlPwd "0000"
+#define dftAppEMSale 0xF7
+#define dftAppEMRefund 0xF7
+#define dftAppEMOffline 0xF7
+#define dftAppEMCash 0xF7
+#define dftAppEMPreAuth 0xF7
+#define dftAppEMCrdVrfy 0xF7
+#define dftAppEMBalance 0xF7
+#define dftAppGPRSFlag 0
+#define dftAppNII "997"
+#define dftAppPriSrv __DFTSRV__
+#define dftAppPriAtt 2
+#define dftAppSecSrv __DFTSRV__
+#define dftAppSecAtt 2
+#define dftAppDialOpt 2
+#define dftAppBaudRate 1
+#define dftAppTmsBufSize 1
+#define dftAppIpAdd __DFTSRV__
+#define dftAppSecIpAdd __DFTSRV__
+#define dftAppCrdInpCtl "mck"
+#define dftAppPinKeyLoc __appPinKeyLoc__
+#define dftAppMKeyLoc __appMKeyLoc__
+#define dftAppDefRxTO 30
+#define dftAppDefICTO 3
+#define dftAppDefConTO 180
+#define dftApptraSale "SALE"
+#define dftApptraOSale "O/SALE"
+#define dftApptraOffline "OFFLINE"
+#define dftApptraPreAuth "PREAUTH"
+#define dftApptraVoid "VOID"
+#define dftApptraRefund "REFUND"
+#define dftApptraAdjust "ADJUST"
+#define dftApptraManual "MANUAL"
+#define dftApptpduHead "\x60"
+#define dftApptpduModem "\x30\x00"
+#define dftApptpduTCPIP "\x30\x00"
+#define dftApptpduRS232 "\x06\x65"
+#define dftEmvTrnCurCod "\x02\x03\x60"
+#define dftEmvTrnCurExp "\x01\x03"
+#define dftEmvMrcCatCod "\x02\x53\x11"
+#define dftEmvTrmCntCod "\x02\x03\x60"
+#define dftEmvTrmId "\x08""00000211"
+#define dftEmvTrmCap "\x03\xE0\xB8\xC8"
+#define dftEmvTrmTyp "\x01\x22"
+#define dftEmvAddTrmCap "\x05\xF0\x00\xF0\xA0\x01"
+#define dftEmvVlpSupInd "\x01\x00"
+#define dftEmvVlpTrmLim "\x06\x00\x00\x00\x00\x00\x00"
+#define dftEmvLstRspCod "\x14""Y1Z1Y2Z2Y3Z300050104"
+#define dftEmvIFDSerNum "\x08""28725422"
+#define dftEmvTRMOverpassAIP "\x01\x01"
+#define dftAppServiceCode 1
+#define dftAppFallBackMod 0
+#define dftAppPPPNbr __DFTPPP__
+#define dftAppBfKey "3333333333333333"
+#define dftAppBlowFish 1
+#define dftAppICT220 0
+#define dftAppBf "0"
+#define dftAppPANBlockBegin 12
+#define dftAppPANBlockEnd 0
+#define dftAppCurrSignSpaces "Rp.  "
+#define dftAppPassTel "1210"
+#define dftAppDumpIsoMessageFlag 0
+#define dftAppDebugDataFlag 0
+#define dftAppMinPrepaid __DFTMINPREPAIDINIT__
+#define dftAppMaxPrepaid __DFTMAXPREPAIDINIT__
+#define dftAppPublicKeyModulus __DFTMODULUS__
+#define dftAppPublicKeyExponent "000"
+#define dftAppPrivateKeyModulus __DFTMODULUS__
+#define dftAppPrivateKeyExponent "000"
+#define dftAppBriRevIndex 0
+#define dftAppNeedToBatchCopy 0
+#define dftAppAcqSettlementIdx 0
+#define dftAppPrintLastTransIdx 0
+#define dftAppPrepaidPrintLastTransIdx 0
+
+static char *dftMnu[DIM(mnuBeg,mnuEnd)]={
+    "0 EDC BRI         ", //mnuMainMenu
+    "1 CARD SERVICES>       ", //mnuCardService
+    "2 AKTIVASI KARTU  ", //mnuAktivasiKartu
+    "2 RENEWAL CARD  ", //mnuRenewalKartu
+    "2 REISSUE PIN     ", //mnuReissuePIN
+    "2 UBAH PIN     ", //mnuGantiPIN
+    "2 UBAH PASS SPV  ", //mnuGantiPasswordSPV
+    "2 REPRINT>", //mnuCReprint
+    "3aLAST TRANSACTION", //mnuCLastTrx
+    "3aANY TRANSACTION", //mnuCAnyTrx
+    "2 REPORT>", //mnuCReport
+    "3aTODAY SUMMARY", //mnuCTodaySummary
+    "3aTODAY DETAIL", //mnuCTodayDetail
+    "3aPAST SUMMARY", //mnuCPastSummary
+    "3aPAST DETAIL", //mnuCPastDetail
+    "1 TUNAI>       ", //mnuTunai
+    "2 TARIK TUNAI     ", //mnuTarikTunai
+    "2 VOID TRK TUNAI", //mnuVoidTarikTunai
+    "2 SETOR SIMPANAN ", //mnuSetorSimpanan
+    "2 SETOR PINJAMAN ", //mnuSetorPinjaman
+    "2 REPRINT>", //mnuTReprint
+    "3aLAST TRANSACTION", //mnuTLastTrx
+    "3aANY TRANSACTION", //mnuTAnyTrx
+    "2 REPORT>", //mnuTReport
+    "3aTODAY SUMMARY", //mnuTTodaySummary
+    "3aTODAY DETAIL", //mnuTTodayDetail
+    "3aPAST SUMMARY", //mnuTPastSummary
+    "3aPAST DETAIL", //mnuTPastDetail
+    "1 PEMBELIAN>      ", //mnuPembelian
+    "2 SALE            ", //mnuSale
+    "2 CICILAN BRING   ", //mnuInstallment
+    "2 VOID            ", //mnuVoid
+    "2 REFUND          ", //mnuRefund
+    "2 CARD VER        ", //mnuAut
+    "2 SETTLEMENT      ", //mnuSettlement
+    "2 REPRINT>     ", //mnuPReprint
+    "3 LAST TRANSACTION", //mnuMrcReprint
+    "3 ANY TRANSACTION ", //mnuMrcPrnTra
+    "2 LOG>           ", //mnuMrcLog
+    "3 VIEW TXN        ", //mnuMrcViewTxn
+    "3 VIEW BATCH      ", //mnuMrcViewBat
+    "3 SETTLE DUPLICATE", //mnuMrcSetDup
+    "3 HOST TOTALS     ", //mnuMrcHostTot
+    "3 PRINT LOG       ", //mnuMrcDetails
+    "3 BATCH TOTALS    ", //mnuMrcBatTot
+    "1 Mini ATM>       ", //mnuMiniATM
+    "2 INFORMASI>     ", //mnuInformasi
+    "3 SALDO       ", //mnuInfoSaldo
+    "3 SALDO BANK LAIN", //mnuInfoSaldoBankLain
+    "? KODE BANK   ", //mnuInfoKodeBank1
+    "2 TRANSFER>     ", //mnuTransfer
+    "3 SESAMA BRI     ", //mnuTransferSesamaBRI
+    "3 ANTAR BANK     ", //mnuTransferAntarBank
+    "3 KODE BANK ", //mnuInfoKodeBank
+    "2 PEMBAYARAN>     ", //mnuPembayaran
+    "? TELKOM            ", //mnuPembayaranTelkom
+    "3 PASCA BAYAR>            ", //mnuPembayaranPostPaid
+    "4 KARTU HALO         ", //mnuPembayaranHalo
+    "4 KARTU MATRIX         ", //mnuPembayaranMatrix
+    "3 TV BERLANGGANAN>            ", //mnuPembayaranTvBerlangganan
+    "4 INDOVISION         ", //mnuPembayaranTvInd
+    "4 OK TV         ", //mnuPembayaranTvOkTv
+    "4 TOP TV         ", //mnuPembayaranTvTopTv
+    "3 PLN            ", //mnuPembayaranPLN
+    "? KARTU KREDIT/KTA            ", //mnuPembayaranKK
+    "? UNIV. TERBUKA   ", //mnuPembayaranUT
+    "3 CICILAN>     ", //mnuPembayaranCicilan
+    "4 FIF            ", //mnuPembayaranCicilanFIF
+    "4 BAF            ", //mnuPembayaranCicilanBAF
+    "4 OTO            ", //mnuPembayaranCicilanOTO
+    "4 FINANSIA", //mnuPembayaranCicilanFinansia
+    "4 VERENA         ", //mnuPembayaranCicilanVerena
+    "4 WOM            ", //mnuPembayaranCicilanWOM
+    "3 ZAKAT>     ", //mnuPembayaranZakat
+    "4 DOMPET DHUAFA", //mnuPembayaranZakatDhuafa
+    "4 YBM          ", //mnuPembayaranZakatYBM
+    "3 INFAQ>     ", //mnuPembayaranInfaq
+    "4 DOMPET DHUAFA", //mnuPembayaranInfaqDhuafa
+    "4 YBM          ", //mnuPembayaranInfaqYBM
+    "? DPLK>      ", //mnuPembayaranDPLK
+    "? DOMPET DHUAFA", //mnuPembayaranDPLKDhuafa
+    "? YBM          ", //mnuPembayaranDPLKYBM
+    "2 ISI ULANG>     ", //mnuIsiUlang
+    "3 SIMPATI/AS>     ", //mnuPembayaranSimpati
+    "4 50.000         ", //mnuPembayaranSimpati50
+    "4 100.000        ", //mnuPembayaranSimpati100
+    "4 150.000        ", //mnuPembayaranSimpati150
+    "4 200.000        ", //mnuPembayaranSimpati200
+    "4 300.000        ", //mnuPembayaranSimpati300
+    "4 500.000        ", //mnuPembayaranSimpati500
+    "4 1.000.000      ", //mnuPembayaranSimpati1000
+    "3 MENTARI>     ", //mnuPembayaranMentari
+    "4 50.000         ", //mnuPembayaranMentari50
+    "4 100.000        ", //mnuPembayaranMentari100
+    "4 250.000        ", //mnuPembayaranMentari250
+    "4 500.000        ", //mnuPembayaranMentari500
+    "4 1.000.000      ", //mnuPembayaranMentari1000
+    "3 IM3>     ", //mnuPembayaranIm3
+    "4 25.000         ", //mnuPembayaranIm325
+    "4 50.000         ", //mnuPembayaranIm350
+    "4 75.000         ", //mnuPembayaranIm375
+    "4 100.000        ", //mnuPembayaranIm3100
+    "4 150.000        ", //mnuPembayaranIm3150
+    "4 200.000        ", //mnuPembayaranIm3200
+    "4 500.000        ", //mnuPembayaranIm3500
+    "4 1.000.000      ", //mnuPembayaranIm31000
+    "3 XL>     ", //mnuPembayaranXl
+    "4 25.000         ", //mnuPembayaranXl25
+    "4 50.000         ", //mnuPembayaranXl50
+    "4 75.000         ", //mnuPembayaranXl75
+    "4 100.000        ", //mnuPembayaranXl100
+    "4 150.000        ", //mnuPembayaranXl150
+    "4 200.000        ", //mnuPembayaranXl200
+    "4 300.000        ", //mnuPembayaranXl300
+    "4 500.000        ", //mnuPembayaranXl500
+    "2 REGISTRASI>     ", //mnuRegistrasi
+    "3 INTERNET BANKING", //mnuRegistrasiInternetBanking
+    "? PhoneBanking", //mnuRegistrasiPhoneBanking
+    "2 REPRINT/REVIEW>", //mnuMReprintReview
+    "3 REPRINT>     ", //mnuMReprint
+    "4aLAST TRANSACTION", //mnuMLastTrx
+    "4aANY TRANSACTION", //mnuMAnyTrx
+    "3 REVIEW>     ", //mnuMReview
+    "4aLAST TRANSACTION", //mnuMVLastTrx
+    "4aANY TRANSACTION", //mnuMVAnyTrx
+    "2 REPORT>", //mnuMReport
+    "3aTODAY SUMMARY", //mnuMTodaySummary
+    "3aTODAY DETAIL", //mnuMTodayDetail
+    "3aPAST SUMMARY", //mnuMPastSummary
+    "3aPAST DETAIL", //mnuMPastDetail
+    "?", //mnuMReportEnd
+    "? KEY DOWNLOAD", //mnuTLEKeyDownload
+    "? LOGON", //mnuDebitLogon
+    "1 BRIZZI>", //mnuBrizzi
+    "2 INITIALIZE", //mnuInitialize
+    "2 INFO SALDO", //mnuPrepaidInfoSaldo
+    "2 INFO DEPOSIT", //mnuInfoDeposit
+    "2 PAYMENT", //mnuPrepaidPayment
+    "2 TOP UP ONLINE", //mnuTopUpOnline
+    "2 TOP UP DEPOSIT", //mnuTopUpDeposit
+    "2 AKTIVASI DEPOSIT", //mnuAktivasiDeposit
+    "2 SETTLEMENT", //mnuPrepaidSettlement
+    "2 REDEEM KARTU", //mnuPrepaidRedeem
+    "2 INFO KARTU", //mnuPrepaidInfoKartu
+    "2 PRINT LOG", //mnuPrepaidPrintLog
+    "2 REPRINT>", //mnuPrepaidReprint
+    "3aLAST TRANSACTION", //mnuPRLastTrx
+    "3aANY TRANSACTION", //mnuPRAnyTrx
+    "2 REPORT>", //mnuPrepaidReport
+    "3aDATE SUMMARY", //mnuPDateSummary
+    "3aALL SUMMARY", //mnuPAllSummary
+    "3aDATE DETAIL>", //mnuPDateDetail
+    "4 PEMBAYARAN TRX", //mnuPDateDetailPayment
+    "4 SEMUA TRX", //mnuPDateDetailAll
+    "3aALL DETAIL>", //mnuPAllDetail
+    "4 PEMBAYARAN TRX", //mnuPAllDetailPayment
+    "4 SEMUA TRX", //mnuPAllDetailAll
+    "?", //mnuBrizziEnd
+    "1 ABSENSI>       ", //mnuAbsen
+    "2 DATANG  ", //mnuDatang
+    "2 PULANG  ", //mnuPulangs
+    "2 ISTIRAHAT MULAI  ", //mnuIstirahatA
+    "2 ISTIRAHAT SELESAI  ", //mnuIstirahatB
+    "2 LEMBUR MULAI  ", //mnuLemburA
+    "2 LEMBUR SELESAI  ", //mnuLemburB
+    "2 SHIFT>  ", //mnuShifts
+    "3 SHIFT I>", //mnuShiftsI
+    "4 DATANG", //mnuShiftsIA
+    "4 PULANG", //mnuShiftsIB
+    "3 SHIFT II>", //mnuShiftsII
+    "4 DATANG", //mnuShiftsIIA
+    "4 PULANG", //mnuShiftsIIB
+    "3 SHIFT III>", //mnuShiftsIII
+    "4 DATANG", //mnuShiftsIIIA
+    "4 PULANG", //mnuShiftsIIIB
+    "?", //mnuAbsenEnd
+    "? CUSTOMER>       ", //mnuCustomer
+    "2 PREAUTHORIZATION", //mnuPreaut
+    "2 OFFLINE         ", //mnuOffline
+    "2 ADJUST          ", //mnuAdjust
+    "2 BALANCE          ", //mnuBalance
+    "? REVERSAL          ", //mnuReversal
+    "? REVERSAL          ", //mnuTCUpload
+    "? LOG ON         ", //mnuLogOn
+    "? LOGON", //mnuLogon
+    "? ECHO TEST> ", //mnuEchoTest
+    "? MERCHANT>       ", //mnuMerchant
+    "2 INFO>            ", //mnuMrcInfo
+    "3 INIT RECEIPT    ", //mnuMrcInitRpt
+    "3 VIEW TOTALS     ", //mnuMrcViewTot
+    "3mSOFTWARE VERSION", //mnuMrcSWver
+    "2 BATCH STAN>      ", //mnuMrcBatStan
+    "3 VIEW ROC        ", //mnuMrcViewRoc
+    "3mSET ROC         ", //mnuMrcSetRoc
+    "3 VIEW BATCH NUM  ", //mnuMrcViewBatNum
+    "3mSET BATCH NUM   ", //mnuMrcSetBatNum
+    "3 VIEW STAN       ", //mnuMrcViewSTAN
+    "3mSET STAN        ", //mnuMrcSetSTAN
+    "? SETTLEMENT      ", //mnuSettlementMain
+    "2 CHANGE PASSWORD ", //mnuMrcChgPwd
+    "? TOGGLE DEBUG    ", //mnuMrcTogDBG
+    "? DELETE BATCH    ", //mnuMrcReset
+    "? DELETE REVERSAL ", //mnuMrcResetRev
+    "? ADMIN>          ", //mnuAdmin
+    "2aTMS>            ", //mnuTMS
+    "3 LOAD PARAMETERS", //mnuTMSLP
+    "? LOAD SOFTWARE", //mnuTMSLS
+    "3 VIEW CONFIG", //mnuTMSVC
+    "3 PRINT CONFIG", //mnuTMSPC
+    "3 CONFIGURE", //mnuTMSConfig
+    "2 Terminal>       ", //mnuTerm
+    "2aTerminal>       ", //mnuTerm2
+    "3 Date time       ", //mnuTDT
+    "? Application     ", //mnuTermAppli
+    "3 Master key load ", //mnuTMKey
+    "3 EDC Function ", //mnuEDCFunction
+    "2aCommunications> ", //mnuCmm
+    "2aCommunications> ", //mnuCmm2
+    "3 View Setting    ", //mnuCmmVS
+    "3 Print Setting   ", //mnuCmmPS
+    "3 Line Setup      ", //mnuCmmLS
+    "3 GPRS Setup      ", //mnuCmmGS
+    "3aConn. Setting   ", //mnuCmmCS
+    "2aSUPERVISOR MENU", //mnuFn99
+    "3 DELETE BATCH    ", //mnuFn99MrcReset
+    "3 DELETE REVERSAL ", //mnuFn99MrcResetRev
+    "3 CLEAR CARD SERV ", //mnuDeleteCLog
+    "3 CLEAR MINI ATM  ", //mnuDeleteMLog
+    "3 CLEAR TUNAI     ", //mnuDeleteTLog
+    "3 Master key load ", //mnuFn99TMKey
+    "?", //mnuFn99End
+    "2aVIEW LOG", //mnuViewLog
+    "3 CARD SERVICE    ", //mnuViewCardService
+    "3 MINI ATM        ", //mnuViewMiniAtm
+    "3 TUNAI           ", //mnuViewTunai
+    __mnuTEST__, //mnuTest
+    "2 DATA>            ", //mnuTestData
+    "3 RECEIPTS        ", //mnuTestReceipts
+    "3 CVT CMB         ", //mnuTestCvtCmb
+    "3 INFO SCREENS    ", //mnuTestUsrInf
+    "3 TRA LOG SAVE ", //mnuTestSaveLog
+    "3 TRA LOG PRINT", //mnuTestPrintLog
+    "3 TOT LOG CALC", //mnuTestAppTotalsLog
+    "3 LOG VOID", //mnuTestVoidLog
+    "3 REVERSAL", //mnuTestReversal
+    "2 ISO>             ", //mnuTestIso
+    "3 BUILD REQUEST>   ", //mnuTestIsoRqs
+    "4 SALE    ", //mnuTestIsoSale
+    "4 PREAUTH         ", //mnuTestIsoPreAuth
+    "4 REFUND    ", //mnuTestIsoRefund
+    "4 CASH ADV       ", //mnuTestIsoCashAdv
+    "4 BALANCE       ", //mnuTestIsoBalance
+    "4 VERIFY       ", //mnuTestIsoVerify
+    "4 LOG ON       ", //mnuTestIsoLogOn
+    "4 EMV SALE        ", //mnuTestIsoEMVSale
+    "4 EMV REFUND      ", //mnuTestIsoEMVRefund
+    "4 SETTLEMENT      ", //mnuTestIsoSettlement
+    "3 PARSE RESPONSE>   ", //mnuTestIsoRsp
+    "4 SALE      ", //mnuTestIsoParseSale
+    "4 PREAUTH   ", //mnuTestIsoParsePreAut
+    "4 LOG ON    ", //mnuTestIsoParseLogOn
+    "4 SETTLEMENT", //mnuTestIsoParseSettlement
+    "4 ADVICES ", //mnuTestIsoOflBfrStl
+    "4 DOWNLOAD ", //mnuTestIsoParseDnl
+    "3 TMS LOGON       ", //mnuTestIsoTMSLOGON
+    "2 Communications>  ", //mnuTestCmm
+    "3 SALE    ", //mnuTestCmmSale
+    "3 SALE IP   ", //mnuTestCmmSaleIP
+    "3 TMS LP TEST     ", //mnuTestCmmTMSLP
+    "3 TMS Full LP TEST", //mnuTestCmmTMSDnl
+    "3 GPRS TEST", //mnuTestCmmMpGprs
+};
+
+static char *dftMsg[DIM(msgBeg,msgEnd)]={
+    "                ", //msgSpaces
+    " Are you sure?  ", //msgAreYouSure
+    "  Memory reset  ", //msgMemoryReset
+    "Processing error", //msgProcessingError
+    "  Data Access", //msgDataAccess
+    "      Error", //msgError
+    "  Crypto. Error ", //msgCryptoPeriphError
+    " Out Of Memory ", //msgMemoryError
+    "  Not Accepted  ", //msgNotAccepted
+    "PIN:           ", //msgLastPin
+    "PIN:            ", //msgPinPrompt
+    "Invalid PIN code", //msgWrongPin
+    "   Valid Pin    ", //msgValidPin
+    "  LAST ATTEMPT  ", //msgLastAttempt
+    " ENTER PASSWORD ", //msgPwdInput
+    "           12.34", //msgPadAmt
+    "   Dialing...   ", //msgDialing
+    " Please Wait... ", //msgWait
+    "  Connecting..  ", //msgConnecting
+    "    Sending...  ", //msgSend
+    "    RECEIVING   ", //msgReceive
+    "ENTER AMOUNT:   ", //msgEnterAmount
+    "ENTER CARD:     ", //msgEnterCard
+    "   SWIPE CARD   ", //msgSwipeCard
+    "  SWIPE/INSERT  ", //msgSwipeInsert
+    "      CARD      ", //msgCard
+    "FUNCTION ?", //msgEnterFunction
+    "    FUNCTION    ", //msgFunction
+    "       TMS      ", //msgTMS
+    "    TERMINAL    ", //msgTerminal
+    "  COMMUNICATION ", //msgCommunication
+    "    CONFIGURE   ", //msgConfigure
+    " LOAD PARAMETERS", //msgLoadParam
+    "  LOAD SOFTWARE ", //msgLoadSoft
+    "TMS CONFIG", //msgTMSConfig
+    "TMS REFERENCE NO", //msgTMSRefNo
+    "TMS NII :", //msgTMSNii
+    "LINK SETUP(1-4)?", //msgLinkSetup
+    "MODEM PARAMETER", //msgModemParam
+    "PRIMARY NO. :", //msgPriNo
+    "SECONDARY NO. :", //msgSecNo
+    "BAUD RATE (1-7)?", //msgBaudRate
+    "BUFFER SIZE(1-3)", //msgBufferSize
+    "LOAD PARAMETERS", //msgLoadParamNow
+    "NOW ?", //msgNow
+    "HOST LINK(1-4)?", //msgHostLink 
+    "   EMV CREDIT   ", //msgEMVCredit
+    "TERMINAL  CONFIG", //msgTerminalConfig
+    "   CARD RANGES  ", //msgCardRanges
+    "     ISSUER     ", //msgIssuer
+    "    ACQUIRER    ", //msgAcquirer
+    "  EMV PARAMETER ", //msgEMVParam
+    "    COMPLETED   ", //msgCompleted
+    "      MASTERCARD", //msgMasterCard
+    "      VISACARDS", //msgVisaCard
+    "      SALE", //msgSale
+    "5972037641051717", //msgMCardNo
+    "4972037641051717", //msgVCardNo
+    "=0812", //msgExpDate
+    "AMT?", //msgAmount
+    "TIP?", //msgTip
+    "PIN?", //msgPin
+    "TOTAL", //msgTotal
+    "            Y/N?", //msgYesNo
+    "VISACARDS   SALE", //msgVisaCardSale
+    "   TRANSACTION  ", //msgTransaction
+    "  TRANSMITTING  ", //msgTransmitting
+    "    RECEIVING   ", //msgReceiving
+    "VERIFY SIGNATURE", //msgVerifySign
+    "  MERCHANT COPY ", //msgMerchantCopy
+    "  CUSTOMER COPY ", //msgCustomerCopy
+    "    BANK COPY   ", //msgBankCopy
+    "   PRESS ENTER  ", //msgPressEnter
+    "  PRESS CANCEL  ", //msgPressCancel
+    "   PRESS STOP   ", //msgPressStop
+    "    PRINTING", //msgPrinting
+    "", //msgEmpty
+    "Sending..", //msgTleGo
+    "RS232", //msgRs232
+    "PORT (1-2)?", //msgPort
+    "TCP/IP PARAMETER", //msgTCPIPprm
+    "PRI. HOST IP:", //msgPriIP
+    "PRI. HOST PORT:", //msgPriHostPort
+    "SEC. HOST IP:", //msgSecIP
+    "SEC. HOST PORT:", //msgSecHostPort
+    "LINE PARAMETERS", //msgLineParam
+    "1-TONE 2-PULSE?", //msgTonePulse
+    "PABX NUMBER", //msgPabx
+    "TONE DETECT", //msgToneDetect
+    "   VIEW BATCH   ", //msgViewBatch
+    "LOG:", //msgLog
+    "O/SALE", //msgOsale
+    "PREV  MORE  NEXT", //msgPrevNext
+    "      MORE      ", //msgMore
+    "CURRENT TRACE #", //msgCurrentTrace
+    "SET TRACE #", //msgSetTrace
+    "ENTER TRACE #", //msgEnterTrace
+    "  CURRENT BATCH ", //msgCurrentBatchNum
+    "   VIEW STAN #  ", //msgViewStan
+    "SET STAN #", //msgSetStan
+    "VIEW CONFIG", //msgViewConfig
+    "TERMINAL CONFIG", //msgTermConfig
+    "SELECT ACQUIRER", //msgSelectAcq
+    "APPLI. SELECT...", //msgApplicationSelect
+    "  NOT ACCEPTED  ", //msgAidListEmpty
+    "    Confirm     ", //msgConfirm
+    "   YES = ENTER  ", //msgYesVal
+    "   NO  = CLEAR  ", //msgNoAnn
+    " APP BLOCK...", //msgEmvAppBlock
+    " CARD BLOCK...", //msgEmvCrdBlock
+    "TO BE PROCESSED ", //msgShouldBeProcessed
+    "  AS CHIP CARD  ", //msgEmvCard
+    "New password:   ", //msgNewPwdInput
+    "Confirm pwd:    ", //msgConfPwdInput
+    "INVALID PASSWORD", //msgPwdInvalid
+    "LOAD TEST KEY   ", //msgTestKeyLoad
+    "IP ADDRESS :    ", //msgIpAdd
+    "SUBNET MASK :   ", //msgSubMask
+    "GATEWAY :       ", //msgGateway
+    "ENABLE EDH      ", //msgEnableEdh
+    "GPRS APN?       ", //msgGprsApn
+    "GPRS PIN?       ", //msgGprsPin
+    "GPRS USERNAME?  ", //msgGprsUsername
+    "GPRS PASSWORD?  ", //msgGprsPassword
+    "GPRS PHONE?     ", //msgGprsPhone
+    "GPRS", //msgGprs
+    "1-OFF 2-ON ?", //msgOnOff
+    "GPRS PARAMETER", //msgGprsParameter
+    "TCP/IP", //msgTCPIP
+    "DIAL UP", //msgDIALUP
+    "Not defined", //msgNotDef
+    "      DONE      ", //msgDone
+    " EMV CONTEXT... ", //msgEmvContext
+    " 1200bps", //msg1200
+    " 2400bps", //msg2400
+    " 9600bps", //msg9600
+    " 14400bps", //msg14400
+    " 19200bps", //msg19200
+    " 28800bps", //msg28800
+    " 33600bps", //msg33600
+    " 38400bps", //msg38400
+    " 57600bps", //msg57600
+    " 115200bps", //msg115200
+    "500", //msg500
+    "1000", //msg1000
+    "1400", //msg1400
+    "   USER CANCEL", //msgUserCancel
+    "  INVALID BIN   ", //msgBinNotFound
+    "  Card Refused  ", //msgCardRefused
+    "  INVALID CARD  ", //msgInvalidPan
+    "  INVALID LUHN  ", //msgInvalidLuhn
+    "  CARD EXPIRED  ", //msgCardExpired
+    " INVALID INPUT  ", //msgInvalidInput
+    "Resp. code:  ???", //msgRspCodBgd
+    "ABCDEFGHIJKLMabc", //msgRspCodCtl
+    "    Connected   ", //msgConnConnected
+    "    LINE BUSY   ", //msgConnBusy
+    "  NO DIAL TONE  ", //msgConnNoDialTone
+    "   NO CARRIER   ", //msgConnNoCarrier
+    "     TIMEOUT    ", //msgConnTimeout
+    "CONNECTION FAIL", //msgConnFail
+    "    REDIALING   ", //msgRedialing
+    "  RECONNECTING  ", //msgReConnecting
+    " SENDING FAILED ", //msgSendingFailed
+    "RECEIVING FAILED", //msgReceivingFailed
+    "   REVERSAL", //msgReversal
+    "    APPROVE", //msgApprove
+    "VOID", //msgVoid
+    " ALREADY VOIDED", //msgAlreadyVoid
+    " REF# NOT FOUND", //msgRefNotFound
+    "TRACE# NOT FOUND", //msgTraceNotFound
+    "TRAN DATE/  TIME", //msgLogTraDatTim
+    "NO TRANSACTIONS", //msgNoTran
+    "OFF", //msgOff
+    "ON", //msgOn
+    "   BATCH EMPTY", //msgLogEmpty
+    "    BATCH FULL", //msgLogFull
+    "   SETTLEMENT   ", //msgStl
+    "  BATCH UPLOAD  ", //msgBatUpl
+    "   CARD RANGES  ", //msgCrdRng
+    "     ISSUER     ", //msgIss
+    "    ACQUIRER    ", //msgAcq
+    " EMV PARAMETER ", //msgEmvPrm
+    "", //msgVar
+    "ENTER DATE:", //msgEntDat
+    "ENTER TIME:", //msgEntTim
+    "Load Master Key", //msgLodMstKey
+    "Load Working Key", //msgLodWrkKey
+    "Enter password: ", //msgEntPwd
+    " TERMINAL RESET ", //msgTerReset
+    "Offline Txns", //msgOfltxn
+    "   Enter PAN    ", //msgPanInput
+    "Enter Exp. date ", //msgExpDatInput
+    "ENABLE BLOWFISH?", //msgEnableBlowfish
+    "ENABLE DHCP", //msgEnableDhcp
+    " INVALID TRACK  ", //msgInvalidTrack
+    "Approval Code?", //msgEnterAppCod
+    "  REMOVE CARD  ", //msgRmvCrd
+    "EMV AUTHENTICATE", //msgEmvAuthenticate
+    "   EMV CVM...   ", //msgEmvAppCvm
+    "    DUPLICATE   ", //msgDuplicata
+    "APPROVED", //msgApproved
+    "    DECLINED    ", //msgDeclined
+    "TONE", //msgTone
+    "PULSE", //msgPulse
+    " MANUAL BARRED", //msgManBarred
+    "  CONNECTION:  ", //msgConnection
+    "APP CRYPT : ", //msgEmvTc
+    "TVR VALUE : ", //msgEmvTvr
+    "TSI : ", //msgEmvTsi
+    " INVALID AMOUNT ", //msgInvalidAmount
+    "   TMS ERROR    ", //msgTMSError
+    "  FILE MISSING  ", //msgFileMiss
+    "     SERVER     ", //msgServer
+    "  UNAVAILABLE   ", //msgUnavailable
+    "  QUERY FAILED  ", //msgQueryFailed
+    "  DL TOO LARGE  ", //msgDLLarge
+    "   VER. ERROR   ", //msgInvVer
+    "   BUF OVRFLW   ", //msgBufOvrFlw
+    "   INVALID REQ  ", //msgInvReq
+    "   INV REF NUM  ", //msgInvRefNum
+    "   UNKNOWN REQ  ", //msgUnknownReq
+    " OUT OF BOUNDS  ", //msgOutBounds
+    "  ERROR IN REQ  ", //msgErrorReq
+    " UNDEFINED ERR  ", //msgUndefError
+    "      PRINT", //msgPrint
+    "BATCH NOT EMPTY", //msgBatNotEmpty
+    "  DO SETTLEMENT", //msgPerformStl
+    "DELETE REVERSAL", //msgDeleteRev
+    "  DELETE BATCH  ", //msgDeleteBat
+    "  BATCH DELETED ", //msgBatDelete
+    "   DELETE TC    ", //msgDeleteTC
+    "REVERSAL DELETED", //msgRevDelete
+    "  TC DELETED   ", //msgTCDelete
+    "COM 1", //msgComPort1
+    "COM 2", //msgComPort2
+    "GPRS PARAMETER", //msgGPRSprm
+    "NOT INITIALIZED", //msgNotInit
+    "  NO EMV PARAM", //msgNoEmvFile
+    " LOADED IN TMS", //msgLoadedTms
+    " DEF PARAM USED", //msgDefaultEMVParam
+    "ENABLE BLOWFISH?", //msgEnableBlowfish
+    "ON BLOWFISH", //msgOnBf
+    "OFF BLOWFISH", //msgOffBf
+    "  1=OFF ; 2=ON  ", //msgSetBf
+    "EMV OFFLINE DEC", //msgOfflineDeclined
+    " CARD PROC ERR ", //msgCardProcErr
+    " PRESS ANY KEY  ", //msgPressAnyKey
+    "CHIP MALFUNCTION", //msgChipMalfunction
+    "    FALLBACK   ", //msgFallback1
+    " USE MAG STRIPE ", //msgFallback2
+    "  EMV DETECTED  ", //msgChipDetect1
+    "PLS INSERT CARD ", //msgChipDetect2
+    "  UNKNOWN AID   ", //msgUnknownAID
+    " CARD PROC ERR  ", //msgCardErr
+    "STARTING GPRS...", //msgStartingGPRS
+    "COMSTART KO     ", //msgComStartKO
+    "COMSET KO       ", //msgComSetKO
+    "COMDIAL KO      ", //msgComDialKO
+    "SUCCESSFULLY    ", //msgSuccessfully
+    "CONFIGURED    ", //msgConfigured
+    "CALL YOUR BANK", //msg01Declined1
+    " INSUFF. FUNDS  ", //msg51Declined1
+    "  OVER LIMIT    ", //msg51Declined2
+    " USE MAGSTRIPE  ", //msgUseMag
+    " DO NOT HONOUR  ", //msgDoNotHonour
+    "  LAST PIN TRY  ", //msgLastPrintTry
+    "APPLICATION NOT ", //msgAppNot
+    "   AVAILABLE    ", //msgAvailable
+    "  PIN BLOCKED   ", //msgPinBlocked
+    "  EMV OFFLINE   ", //msgEmvOffline
+    " CARD PROC ERR  ", //msgCardProcErr
+    "  EMV DECLINED  ", //msgEmvDeclined
+    "   PROC. ERROR   ", //msgProcErr
+    "TERM CAP : ", //msgTermCap
+    "ADD TERM CAP : ", //msgAddTermCap
+    "Txt : ", //msgTxt
+    "Code Table : ", //msgCodeTable
+    "APP NAME  : ", //msgEmvAppType
+    "APPL AID  : ", //msgEmvAID
+    "API : ", //msgEmvApi
+    "PAN : ", //msgPAN
+    "DEN : ", //msgDen
+    "ONL : ", //msgOnl
+    "DEF : ", //msgDef
+    "CVMR : ", //msgEmvCvmr
+    "9F53 :", //msg9F53
+    "Gen AC", //msgGenAC
+    "AC :", //msgAC
+    "ATC :", //msgATC
+    "TCC : ", //msgTCC
+    "Amount =  ", //msgEmvAmount
+    "PrevAmt =  ", //msgPrevAmount
+    "TotAmt = ", //msgTotAmt
+    "Floor  = ", //msgFloor
+    "AIP : ", //msgAIP
+    "CID : ", //msgCid
+    "IFD SER NUM : ", //msgIFDSerNum
+    "Term Type  : ", //msgTermType
+    "EXP DATE : ", //msgExpDate
+    "1st : ", //msgFirst
+    "2nd : ", //msgSecond
+    "SEARCHING SIGNAL", //msgSearchingSignal
+    "PLEASE WAIT", //msgPleaseWait
+    "    NOMOR HP    ", //msgNoHp
+    "     SALAH      ", //msgSalah
+    " NOMOR KONTRAK  ", //msgNoKontrak
+    "TIDAK DITEMUKAN ", //msgNotFound
+    "   TIDAK ADA    ", //msgTdkAda
+    "    TAGIHAN     ", //msgTghTrx
+    "  PIN SALAH 3X  ", //msgPinSalah3x
+    " KARTU DIBLOKIR ", //msgKartuBlocked
+    " NOMOR REKENING ", //msgNoRek
+    "     AMOUNT     ", //msgErrAmount
+    "AKTIFASI SUKSES ", //msgAktifasiBerhasil
+    "KONEKSI TERPUTUS", //msgConnTerputus
+    "      DATA      ", //msgData
+    "     KARTU      ", //msgKartu
+    "  TIDAK AKTIF   ", //msgTdkAktif
+    " KARTU DITUTUP  ", //msgKartuDitutup
+    "   PIN SALAH    ", //msgPinSalah
+    " BILLER TIMEOUT ", //msgBillerTO
+    "KONEKSI KE PIHAK", //msgConnPihak
+    "  KETIGA PUTUS  ", //msgKetigaPutus
+    "INVALID PASSWORD", //msgInvalidPass
+    "   ANDA TIDAK   ", //msgAndaTidak
+    " MILIKI OTORITAS", //msgMilikiOtor
+    "KARTU BARU TIDAK", //msgKartuBaruTdk
+    "DAPAT DI-REISSUE", //msgDapatReissue
+    "  DI UKER ANDA  ", //msgUkerAnda
+    "   ANDA SUDAH   ", //msgAndaSudah
+    "   REGISTRASI   ", //msgRegistrasi
+    "INTERNET BANKING", //msgInternetBank
+    " KARTU EXPIRED  ", //msgKartuExpired
+    "TRANSAKSI SEDANG", //msgTrxSedang
+    "    DIPROSES    ", //msgDiproses
+    " REKENING SALAH ", //msgRekeningSalah
+    "PEMBAYARAN GAGAL", //msgPembayaranGagal
+    " IDPEL YANG ANDA", //msgRsp04Pln1
+    " MASUKKAN SALAH ", //msgRsp04Pln2
+    " MOHON DITELITI ", //msgRsp04Pln3
+    " TAGIHAN BULAN  ", //msgRsp08Pln1
+    " BERJALAN       ", //msgRsp08Pln2
+    " TIDAK TERSEDIA ", //msgRsp08Pln3
+    " INVALID AMOUNT ", //msgInvalidAmount
+    "     ID PLN     ", //msgRsp14Pln1
+    "TIDAK DITEMUKAN ", //msgRsp14Pln2
+    "GSM PIN?        ", //msgGprsPin
+    "JUMLAH", //msgInquiryAmt
+    "BATAL     BAYAR", //msgBatalBayar
+    "Jumlah Saldo:", //msgJumlahSaldo
+    "   Informasi", //msgInformasi
+    "Jenis Rekening", //msgJenisRekening
+    "1. Tabungan", //msgTabungan
+    "2. Giro", //msgGiro
+    "   PPP Config", //msgPPPConfig
+    "Phone Number :", //msgPPPPhoneNumber
+    "User name :", //msgPPPUserName
+    "Password :", //msgPPPPassword
+    "PPP Destination", //msgPPPDest
+    "Ip Address :", //msgPPPIpAddress
+    "Port :", //msgPPPPort
+    "PPP", //msgPPP
+    " PIN TIDAK SAMA ", //msgPinNotMatch
+    " SILAHKAN ULANGI", //msgTryAgain
+    "PIN NOT REQUIRED", //msgPinNotRequired
+    "USE OTHER CARD", //msgUseOtherCard
+    " PASSWORD HARUS ", //msgPassword6Digit1
+    "    6 ANGKA     ", //msgPassword6Digit2
+    " PASSWORD TIDAK ", //msgPasswordNotMatch1
+    "      SAMA      ", //msgPasswordNotMatch2
+    " KARTU PENGAWAS ", //msgKartuPengawas
+    " KARTU PETUGAS  ", //msgKartuPetugas
+    " KARTU NASABAH  ", //msgKartuNasabah
+    "   KARTU LAMA   ", //msgKartuLamaNasabah
+    "   KARTU BARU   ", //msgKartuBaruNasabah
+    "   OTORISASI    ", //msgOtorisasiBerhasil1
+    "   BERHASIL     ", //msgOtorisasiBerhasil2
+    "RENEWAL BERHASIL", //msgRenewalBerhasil
+    "CREATE PIN GAGAL", //msgCreatePINGagal
+    "CARD SERVICE", //msgCardServicesLog
+    "MINI ATM", //msgMiniATMLog
+    "TUNAI", //msgTunaiLog
+    "SELECT CARD", //msgSelectCardType
+    "CREDIT     DEBIT", //msgCreditDebit
+    " ACQ NOT FOUND  ", //msgAcqNotFound
+    "CLEAR CARD S LOG", //msgClearClog
+    " CLEAR MATM LOG ", //msgClearMlog
+    "CLEAR TUNAI LOG ", //msgClearTlog
+    "CONFIRM    (Y/N)", //msgConfirmYN
+    "                ", //msgBuffer
+    "   DATA ERROR   ", //msgDataError
+    "   PLEASE TRY   ", //msgPlsTryAgain1
+    "     AGAIN      ", //msgPlsTryAgain2
+    "   CHIP ENTRY   ", //msgChipEntryBarred1
+    "     BARRED     ", //msgChipEntryBarred2
+    "    REKENING    ", //msgRsp53_1
+    "TIDAK DITEMUKAN ", //msgRsp53_2
+    "  TEST KONEKSI  ", //msgTestBerhasil_1
+    "    BERHASIL    ", //msgTestBerhasil_2
+    " SAM INIT FAIL  ", //msgSamInitFail
+    "SAM INIT SUCCESS", //msgSamInitSuccess
+    "  PLEASE RETRY  ", //msgRetrySettlement1
+    "     SETTLE     ", //msgRetrySettlement2
+    " DEKATKAN KARTU ", //msgDekatkanKartu1
+    "   KE READER    ", //msgDekatkanKartu2
+    " PROCESSING...  ", //msgProcessing
+    "RESP FROM READER", //ProcessToReaderFail1
+    "      FAIL      ", //ProcessToReaderFail2
+    "BATCH PROCESSING", //msgBatchError1
+    "      FAIL      ", //msgBatchError2
+    "  TID ATAU MID  ", //msgRspPrepaid05_1
+    "TIDAK TERDAFTAR ", //msgRspPrepaid05_2
+    "  KARTU BRIZZI  ", //msgRspPrepaidNF_1
+    "TIDAK DITEMUKAN ", //msgRspPrepaidNF_2
+    "UID KARTU BRIZZI", //msgRspPrepaidUI_1
+    "  TIDAK VALID   ", //msgRspPrepaidUI_2
+    "  KARTU BRIZZI  ", //msgRspPrepaid62_1
+    "  TIDAK AKTIF   ", //msgRspPrepaid62_2
+    " TOPUP MELEBIHI ", //msgRspPrepaidOV_1
+    "  LIMIT SALDO   ", //msgRspPrepaidOV_2
+    "   TIDAK ADA    ", //msgRspPrepaidZB_1
+    " SALDO DEPOSIT  ", //msgRspPrepaidZB_2
+    "LOAD MASTER KEY ", //msgLoadMKOK1
+    "    SUCCESS     ", //msgLoadMKOK2
+    "LOAD SESSION KEY", //msgLoadWKOK1
+    "    SUCCESS     ", //msgLoadWKOK2
+    "LOAD MASTER KEY ", //msgLoadMKError1
+    "      FAIL      ", //msgLoadMKError2
+    "LOAD SESSION KEY", //msgLoadWKError1
+    "      FAIL      ", //msgLoadWKError2
+    " LOAD KEY FAIL  ", //msgLoadKeyError
+    "   LOGON FAIL   ", //msgLogonFail
+    " LOGON SUCCESS  ", //msgLogonSuccess
+    "ENTER BATCH #", //msgEnterBatchNum
+    " KETIGA TIMEOUT ", //msgKetigaTimeOut
+    "SYST MALFUNCTION", //msgSysMal
+    " MASUKKAN TIDAK ", //msgTidak
+    "   DI TEMUKAN   ", //msgDiTemukan
+    "AIRLINE HOST ERR", //msgAirlineErr
+    "Print   (Yes/No)", //msgPrintYesNo
+};
+
+static char *dftRpt[DIM(rptBeg,rptEnd)]={
+    "                                                ", //rptSpaces
+    "SIGN X___________________________________________", //rptSep0
+    "________________________________________________", //rptSep01
+    "------------------------------------------------", //rptSep1
+    "================================================", //rptSep2
+    "--------------------========--------------------", //rptSep3
+    "--------========--------", //rptSep4
+    "***   GRAND TOTALS   ***", //rptGrandTot
+    "TOTALS BY HOST", //rptTotByHost
+    "***    HOST TOTALS   ***", //rptHostTot
+    "**  TRANSACTION LOG   **", //rptTxnLog
+    "TOTALS BY CARD", //rptTotByCard
+    "  TMS CONFIGURATION   ", //rptTmsConfig
+    "  COMMS CONFIGURATION  ", //rptCmmConfig
+    "DIALUP SETTINGS", //rptTmsDialup
+    "---------------", //rptTmsDialupSep
+    "IP SETTINGS", //rptHeaderIp
+    "-----------", //rptHeaderIpSep
+    "RS232 SETTINGS", //rptTmsRS232
+    "--------------", //rptTmsRS232Sep
+    "GPRS IP SETTINGS", //rptHeaderGprsIp
+    "----------------", //rptHeaderGprsIpSep
+    "LINE SETTINGS", //rptHeaderLine
+    "-------------", //rptHeaderLineSep
+    "      CONFIGURATION     ", //rptConfig
+    "MEMORY", //rptMemory
+    "TOTAL", //rptTotal
+    "TOTAL          : ", //rptTotal2
+    "TRANSFER KE    : BRI", //rptTransferKeBRI
+    " FREE", //rptFree
+    "***    SETTLEMENT    ***", //rptSettlement
+    "  SETTLEMENT CONFIRMED", //rptSetConfirm
+    "BANK BRI", //rptNameVersion
+    "Sudirman", //rptHdrSiteAddr1
+    "Jakarta", //rptHdrSiteAddr2
+    "Salcedo Village", //rptHdrSiteAddr3
+    "Makati City", //rptHdrSiteAddr4
+    "Gedung BRI I", //rptHdrSiteName
+    "***    INITIALISE    ***", //rptInitTitle
+    "DD/MM/CCYY hh:mm:ss", //rptDatTimBgd
+    "ghCefFabcdKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKijNklQmn", //rptDatTimCtl
+    "DD/MM/CCYY hh:mm:ss", //rptDatTimBgdBRI
+    "ghCefFabcdKijNklQmn", //rptDatTimCtlBRI
+    "DATETIME:/ ", //rptDatTimBgdBRIDetail
+    "ABCDKIKghJefJabcdKKKKKKKEFGHKIKKKKKKKKKKijIklImn", //rptDatTimCtlBRIDetail
+    "REPORTDATE:  ", //rptDatTimBgdBRIReportHdr
+    "ABCDEFLGHIJLKLdeLabcLfghiLLjkKlm", //rptDatTimCtlBRIReportHdr
+    "TRANSACTIONDATE: ", //rptDatTimBgdBRIDetailDay
+    "ABCDEFGHIJKQLMNOQPQdeQabcQfghi", //rptDatTimCtlBRIDetailDay
+    "DATETIME:  ", //rptTrxDatTimBgd
+    "ABCDIKdeJabcKfghiKKKKKKKKKKKKKEFGHKKKKKKIKKjkIlm", //rptTrxDatTimCtl
+    ", :", //rptStlDatTimBgd
+    "deABabcBfghiBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBjkClm", //rptStlDatTimCtl
+    "HOST  0069  TestAcq                             ", //rptAcquirerDetails
+    "HOST  %s  %s", //rptFmtAcquirerDetails
+    "    TID: %s", //rptFmtInitTid
+    "CARD: %s", //rptFmtCardPanBRI
+    "NO.REK      : %s", //rptFmtNoRekBRI
+    "NAMA        : %s", //rptFmtNamaBRI
+    "STAN : %s", //rptFmtStanBRI
+    "TRACE :           %s", //rptFmtTraceBRI
+    "%s", //rptFmtCardPanBRI2
+    "TID: %s", //rptFmtTid
+    "MID: %s", //rptFmtMid
+    "    PRI# : %s", //rptFmtPriSrv
+    "    SEC# : %s", //rptFmtSecSrv
+    "    PRI IP   : %s", //rptFmtPriIP
+    "    SEC IP   : %s", //rptFmtSecIP
+    "EMV CREDIT", //rptEmvDet1
+    "----EMV PARAMATERS-----", //rptEmvDet2
+    "LOADED AIDS", //rptEmvDet3
+    "%s %s", //rptFmtCardTranType
+    "%s", //rptCardName
+    "INV#  : %s                       BATCH#: %03d", //rptFmtTraceBatchNum
+    "INV#  : %s", //rptFmtTraceNum
+    "BATCH#: %s", //rptFmtBatchNum
+    "REF NO: %s  APRV  : %s", //rptFmtRefNumApprvCde
+    "REF NO: %s", //rptFmtRefNum
+    "APRV      : %s", //rptFmtApprvCde
+    "                              APRV      : %s", //rptFmtApprvCde2
+    "TIP                                      $100.00", //rptTipAmt
+    "              ----------", //rptEqualAmt
+    "TOTAL                                   $1100.00", //rptTotAmt
+    "TOTAL \x1B\x18 %s", //rptFmtTotAmt
+    "CARDHOLDER SIGNATURE", //rptCrdSig
+    "-- MERCHANT COPY --", //rptMerCpy
+    "-- DUPLICATE COPY --", //rptDupCpy
+    "-- CUSTOMER COPY --", //rptCusCpy
+    "-- BANK COPY --", //rptBankCpy
+    "     %s", //rptFmtInvNum
+    "     %s", //rptFmtStanNum
+    "     %s", //rptFmtBatNum
+    "%s", //rptFmtNii
+    "%s", //rptTmsPriNumber
+    "%s", //rptTmsSecNumber
+    "%s", //rptPan
+    "%s", //rptTransType
+    "CARD TYPE : %s", //rptCardType
+    "=%s", //rptExpDat
+    "SALE ", //rptSale
+    "VOID SALE", //rptVoidSale
+    "VOID %s", //rptVoid
+    "REFUND", //rptRefund
+    "VOID REFUND", //rptVoidRefund
+    "O/SALE", //rptOffline
+    "VOID O/SALE", //rptVoidOffline
+    "Rp.", //rptPhpPlus
+    "-Rp.", //rptPhpMinus
+    "-", //rptMinus
+    "Auth#", //rptAutCodLbl
+    "TRACE NO  : %s", //rptTrace
+    "TRACE NO: ", //rptTrace2
+    "abCcd", //rptExpDatCtl
+    "       SALE       ", //rptTotalSale
+    "       REFUND     ", //rptTotalRefund
+    "       TIP        ", //rptTotalTip
+    "TERMINAL ", //rptTerminal
+    "HOST ", //rptHost
+    " ", //rptSpace
+    "TIP", //rptTip
+    "REF NO:  ", //rptRefNo
+    "APRV :  ", //rptAprvCod
+    "INV #  :  ", //rptInvNum
+    "BATCH # : ", //rptBatNum
+    "LOG: REF  ", //rptLogRef
+    "APPROVAL""\x1B\x18""%s", //rptLogApproval
+    "APPROVAL", //rptApproval
+    "/: ", //rptFmtLogDatTim
+    "ghAefAabcdCijBkl", //rptLogDatTim
+    "\x1B\x18""%s%s", //rptFmtTxnTtlAmt
+    "EMV CREDIT", //rptAppName
+    "00.02", //rptCurVer
+    "BATCH ", //rptBatch
+    "CLOSED", //rptClosed
+    "SOC # ", //rptSOC
+    "%s", //rptString
+    "AMOUNT", //rptAmount
+    "TOTALS BY CARD", //rptSetTotalsByCard
+    "%s", //rptPabx
+    "TYPE        :  ", //rptPrtType
+    "TONE DETECT :  ", //rptPrtToneDet
+    "PABX #      :  ", //rptPrtPabx
+    "DHCP   : ", //rptPrtDHCP
+    "IP     : ", //rptPrtIP
+    "PRI IP : %s", //rptPrtPriIP
+    "SEC IP : %s", //rptPrtSecIP
+    "SUBNET : ", //rptPrtSubnet
+    "GATEWAY: ", //rptPrtGateway
+    "IP     : ", //rptPrtGPRSIP
+    "SUBNET : ", //rptPrtGPRSSubnet
+    "GATEWAY: ", //rptPrtGPRSGateway
+    "TRN  : ", //rptPrtTMSTrn
+    "NII  : ", //rptPrtTMSNii
+    "LINK : ", //rptPrtTMSLink
+    "DIAL UP", //rptPrtTMSDialUpOpt
+    "TCP/IP", //rptPrtTMSTCPIPOpt
+    "RS232 ", //rptPrtTMSRS232Opt
+    "GPRS ", //rptPrtTMSGPRSOpt
+    "UNKNOWN ", //rptPrtTMSUndefOpt
+    " BYTES", //rptPrtTMSBytes
+    "PRI# : ", //rptPrtTMSPriNum
+    "SEC# : ", //rptPrtTMSSecNum
+    "BAUD : ", //rptPrtTMSBaud
+    "BUFF : ", //rptPrtTMSBuff
+    "BUFF : 500 BYTES", //rptPrtTMSBuff500
+    "PRI  : ", //rptPrtTMSPriIP
+    "SEC  : ", //rptPrtTMSSecIP
+    "PORT : ", //rptPrtTMSPort
+    " 1200bps", //rptPrtTMS1200
+    " 2400bps", //rptPrtTMS2400
+    " 9600bps", //rptPrtTMS9600
+    " 14400bps", //rptPrtTMS14400
+    " 19200bps", //rptPrtTMS19200
+    " 28800bps", //rptPrtTMS28800
+    " 33600bps", //rptPrtTMS33600
+    "%s %s", //rptFmtTotalAmt
+    "%s", //rptFmtRspCod
+    "", //rptEmpty
+    "I AGREE TO PAY THE ABOVE TOTAL AMOUNT", //rptAcknow1
+    "ACCORDING TO CARD ISSUER AGGREMENT", //rptAcknow2
+    "MERCHANT AGGREMENT IF CREDIT VOUCHER", //rptAcknow3
+    "MERCHANT ID : ", //rptMidBRI
+    "TERMINAL ID : ", //rptTidBRI
+    "Sudirman", //rptHdrSiteAddr1BRI
+    "Jakarta", //rptHdrSiteAddr2BRI
+    "Gedung BRI I", //rptHdrSiteNameBRI
+    "EXPY DATE: %s", //rptExpDat
+    "%s", //rptAllString
+    "TERMINAL ID : ", //rptTerm
+    "MERCHANT ID : ", //rptMer
+    "BATCH : %s", //rptBatchNo
+    "BASE", //rptBase
+    "** PIN VERIFICATION SUCCESS **", //rptPinVer
+    "GEN AC Req CID: ", //rptRequest
+    "GEN AC Rsp CID: ", //rptResponse
+    "Scheme spesifics tags :", //rptScheme
+    "Risk Management Info : ", //rptRiskMng
+    "Unpredictable Num. : ", //rptUnpNum
+    "Terminal Action Codes : ", //rptTerminalAction
+    "Issuer Action Codes : (* = default)", //rptIssuerAction
+    "Transaction Date : ", //msgTrnDate
+    "Transaction Type : ", //msgTrnType
+    "Trans Curr Code : ", //msgCurrCode
+    "Term Country Code : ", //msgCouCode
+    "Amount Authorized : ", //msgAmtAuthNum
+    "Amount Other : ", //msgAmtOherNum
+    "PAN Sequence No : ", //msgPanSequence
+    "Cert Auth Public Key Index : ", //msgCertAuth
+    "Auth Response Code :", //msgAuthRspCd
+    "Issuer App Data : ", //msgIAD
+    "Final SW1SW2 =  ", //msgFinalSW1Sw2
+    "V/CICILAN", //rptVoidInstallment
+    "CICILAN", //rptInstallment
+    "Saldo                                   Rp100.00", //rptSaldo
+    "Nama: %s", //rptNama
+    "Informasi lebih lanjut, silahkan hubungi Call", //rptBawah1
+    "      BRI di 14017, 021-500017, atau 021-    ", //rptBawah2
+    "                  57987400                   ", //rptBawah3
+    "           *** Terima Kasih ***              ", //rptBawah4
+    "    BRI menyatakan struk ini sebagai bukti   ", //rptBawah11
+    "            pembayaran yang sah              ", //rptBawah12
+    "    BRI menyatakan bahwa struk ini sebagai   ", //rptBawah13
+    "       Bukti Setoran Simpanan yang sah       ", //rptBawah14
+    "     pembayaran setoran simpanan yang sah    ", //rptBawah15
+    "     pembayaran setoran pinjaman yang sah    ", //rptBawah16
+    "INFORMASI SALDO", //rptJudul1
+    "                 ", //rptJudul2
+    "Dari Tabungan", //rptDariTabungan
+    "Dari Giro", //rptDariGiro
+    "INFORMASI SALDO", //rptJudulInfoSaldo
+    "                                                    ", //rptNamaNasabah
+    "INFO SALDO BANK LAIN", //rptJudulInfoSaldoBankLain
+    "                                                    ", //rptNamaNasabahBank
+    "                                                    ", //rptJenisRekening
+    "TRANSFER SESAMA BRI", //rptJudulTransferSesamaBRI
+    "                                                    ", //rptNomorRekeningPenerima
+    "                                                    ", //rptNamaPenerima
+    "       Berhasil", //rptBerhasil
+    "Jumlah             :", //rptJumlah
+    "TRANSFER ANTARBANK", //rptJudulTransferSesamaAntarBank1
+    "                                                    ", //rptJenisTransfer
+    "Asal", //rptAsal
+    "                                                    ", //rptBankAsal
+    "                                                    ", //rptNamaPengirim
+    "                                                    ", //rptNomorRekeningPengirim
+    "Tujuan", //rptTujuan
+    "                                                    ", //rptBankTujuan
+    "                                                    ", //rptCustomerRef
+    "Setoran Zakat", //rptJudulPembayaranZakat
+    "JUDUL                                        ", //rptJudul
+    "Buffer 1                                         ", //rptBuf1
+    "Buffer 2                                         ", //rptBuf2
+    "Buffer 3                                         ", //rptBuf3
+    "Buffer 4                                         ", //rptBuf4
+    "Buffer 5                                         ", //rptBuf5
+    "Buffer 6                                         ", //rptBuf6
+    "Buffer 7                                         ", //rptBuf7
+    "Buffer 8                                         ", //rptBuf8
+    "Buffer 9                                         ", //rptBuf9
+    "Buffer 10                                        ", //rptBuf10
+    "Buffer 11                                        ", //rptBuf11
+    "Buffer 12                                        ", //rptBuf12
+    "Buffer 13                                        ", //rptBuf13
+    "Buffer 14                                        ", //rptBuf14
+    "Buffer 15                                        ", //rptBuf15
+    "Buffer 16                                        ", //rptBuf16
+    "Buffer 17                                        ", //rptBuf17
+    "     PLN MENYATAKAN STRUK INI SEBAGAI BUKTI      ", //rptPLNMsg1
+    "              PEMBAYARAN YANG SAH,               ", //rptPLNMsg2
+    "TELKOMSEL Menyatakan struk ini", //rptBawahHalo
+    "INDOSAT Menyatakan struk ini", //rptBawahMatrix
+    "sebagai bukti pembayaran yang sah", //rptBawahPascaBayar
+    "Silahkan Cek Saldo Anda", //rptBawahCekSaldo
+};
+
+static char *dftMon[DIM(monBeg,monEnd)]={
+    "-: ", //monSpr
+    "JAN", //monJan
+    "FEB", //monFeb
+    "MAR", //monMar
+    "APR", //monApr
+    "MAY", //monMay
+    "JUN", //monJun
+    "JUL", //monJul
+    "AUG", //monAug
+    "SEP", //monSep
+    "OCT", //monOct
+    "NOV", //monNov
+    "DEC", //monDec
+};
+
+typedef struct sScrRecord{
+    char _scrCmd;
+    word _scrMsg0[4];
+    byte _scrDly;
+}tScrRecord;
+
+static tScrRecord dftScr[DIM(infBeg,infEnd)]={
+    {'b',{msgSpaces,msgDeleteBat,msgAreYouSure,msgSpaces},5}, //infConfirmReset
+    {'b',{msgSpaces,msgProcessingError,msgSpaces,msgSpaces},5}, //infProcessingError
+    {'b',{msgEmpty,msgEmpty,msgDataAccess,msgError},5}, //infDataAccessError
+    {'b',{msgSpaces,msgCryptoPeriphError,msgSpaces,msgSpaces},5}, //infCryptoPeriphError
+    {'b',{msgEmpty,msgMemoryError,msgSpaces,msgSpaces},5}, //infMemoryError
+    {'b',{msgEmpty,msgNotAccepted,msgSpaces,msgSpaces},5}, //infNotAccepted
+    {'b',{msgEmpty,msgWrongPin,msgSpaces,msgSpaces},5}, //infWrongPin
+    {'s',{msgEmpty,msgValidPin,msgEmpty,msgEmpty},1}, //infValidPin
+    {'s',{msgEmpty,msgEmpty,msgLastAttempt,msgEmpty},2}, //infLastAttempt
+    {'s',{msgSpaces,msgPwdInput,msgSpaces,msgSpaces},0}, //infPwdInput
+    {'s',{traCtx,msgDialing,msgWait,msgSpaces},0}, //infDialing
+    {'s',{traCtx,msgConnecting,msgWait,msgSpaces},0}, //infConnecting
+    {'s',{traCtx,msgEmpty,msgEmpty,msgSend},0}, //infSendReq
+    {'s',{traCtx,msgEmpty,msgEmpty,msgReceive},0}, //infRecvRsp
+    {'s',{cmbCardType,cmbTransType,cmbMsgAmtInput,msgSpaces},0}, //infAmtInput
+    {'s',{cmbCardType,cmbTransType,cmbMsgTipInput,msgSpaces},0}, //infTipInput
+    {'s',{traIssName,cmbAmt,msgPin,msgSpaces},0}, //infPinInput
+    {'s',{msgSpaces,cmbTxnType,msgSwipeInsert,msgCard},0}, //infCardInput
+    {'s',{msgSpaces,msgSpaces,msgEnterFunction,msgSpaces},0}, //infFunction
+    {'s',{msgFunction,msgTMS,msgTerminal,msgCommunication},0}, //infFunctionMenu
+    {'s',{msgTMS,msgConfigure,msgLoadParam,msgLoadSoft},0}, //infTMSMenu
+    {'s',{msgSpaces,msgTMSConfig,msgTMSRefNo,regTmsRefNum},5}, //infTMSRefNum
+    {'s',{msgSpaces,msgTMSConfig,msgTMSNii,appNII},5}, //infTMSNii
+    {'s',{msgSpaces,msgTMSConfig,msgLinkSetup,cmbIfDialOpt},10}, //infTMSHostLink
+    {'s',{msgSpaces,msgModemParam,msgPriNo,cmbPriNo},0}, //infTMSPrimaryPhone
+    {'s',{msgSpaces,msgModemParam,msgSecNo,cmbSecNo},0}, //infTMSSecondaryPhone
+    {'s',{msgSpaces,msgModemParam,msgBaudRate,cmbIfBaudRate},10}, //infTMSBaudRate
+    {'s',{msgSpaces,msgModemParam,msgBufferSize,cmbIfBufSize},10}, //infTMSBufferSize
+    {'s',{msgSpaces,msgModemParam,msgBufferSize,msgSpaces},5}, //infViewTMSBufferSize
+    {'s',{msgSpaces,msgLoadParamNow,msgNow,msgSpaces},10}, //infTMSLoadParams
+    {'s',{msgSpaces,msgSpaces,msgHostLink,msgSpaces},0}, //infHostLink
+    {'s',{msgSpaces,msgEMVCredit,msgTerminalConfig,msgSpaces},0}, //infTermConfig
+    {'s',{msgSpaces,msgEMVCredit,msgCardRanges,msgSpaces},0}, //infCardRanges
+    {'s',{msgSpaces,msgEMVCredit,msgIssuer,msgSpaces},0}, //infIssuer
+    {'s',{msgSpaces,msgEMVCredit,msgAcquirer,msgSpaces},0}, //infScrAcquirer
+    {'s',{msgSpaces,msgEMVCredit,msgEMVParam,msgSpaces},0}, //infScrEMVParams
+    {'s',{msgSpaces,msgSpaces,msgCompleted,msgSpaces},0}, //infScrCompleted
+    {'s',{cmbCardType,cmbTransType,traTrk21,traTrk22},10}, //infConfirmPan
+    {'s',{msgVisaCardSale,msgTotal,msgTransaction,msgTransmitting},0}, //infScrTxnTransmitting
+    {'s',{msgVisaCardSale,msgTotal,msgTransaction,msgReceiving},0}, //infScrTxnReceiving
+    {'s',{traCtx,msgTleGo,msgSpaces,msgSpaces},0}, //infTleGo
+    {'s',{traCtx,msgSpaces,msgPrinting,msgSpaces},0}, //infInitPrinting
+    {'s',{msgSpaces,msgRs232,msgPort,msgSpaces},0}, //infTMSRsPort
+    {'s',{msgTCPIPprm,msgPriIP,msgSpaces,msgSpaces},10}, //infTMSPriIP
+    {'s',{msgSpaces,msgTCPIPprm,msgPriHostPort,msgSpaces},10}, //infTMSPriPort
+    {'s',{msgTCPIPprm,msgSecIP,msgSpaces,msgSpaces},10}, //infTMSSecIP
+    {'s',{msgSpaces,msgTCPIPprm,msgSecHostPort,msgSpaces},10}, //infTMSSecPort
+    {'s',{msgTCPIPprm,msgPriIP,msgSpaces,cmbSrv},10}, //infVTMSPriIP
+    {'s',{msgSpaces,msgTCPIPprm,msgPriHostPort,cmbSrv},10}, //infVTMSPriPort
+    {'s',{msgTCPIPprm,msgSecIP,msgSpaces,cmbSrv},10}, //infVTMSSecIP
+    {'s',{msgSpaces,msgTCPIPprm,msgSecHostPort,cmbSrv},10}, //infVTMSSecPort
+    {'s',{msgSpaces,msgTCPIPprm,msgBufferSize,msgSpaces},0}, //infTMSIPBuffSize
+    {'s',{traCtx,msgSpaces,msgPrinting,msgSpaces},1}, //infConfigPrinting
+    {'s',{msgSpaces,msgLineParam,msgTonePulse,cmbIfTonePulse},60}, //infScrTonePulse
+    {'s',{msgSpaces,msgLineParam,msgPabx,cmbPabx},60}, //infPabx
+    {'s',{msgSpaces,msgLineParam,msgToneDetect,cmbToneDetect},10}, //infScrToneDetect
+    {'s',{msgViewBatch,cmbLogRef,cmbLogAmt,msgPrevNext},10}, //infViewBatch
+    {'s',{msgViewBatch,cmbLogRef,cmbLogAmt,msgMore},10}, //infViewBatchTxn
+    {'s',{msgViewBatch,cmbApproval,cmbPan,msgPrevNext},10}, //infViewBatch2
+    {'s',{msgViewBatch,cmbApproval,cmbPan,msgMore},10}, //infViewBatchTxn2
+    {'s',{msgViewBatch,msgLogTraDatTim,cmbLogTraDatTim,msgPrevNext},10}, //infViewBatch3
+    {'s',{msgViewBatch,msgLogTraDatTim,cmbLogTraDatTim,msgMore},10}, //infViewBatchTxn3
+    {'s',{msgSpaces,msgSpaces,msgCurrentTrace,cmbInvNum},5}, //infViewCurrentTrace
+    {'s',{msgSpaces,msgSpaces,msgSetTrace,cmbSetInvNum},5}, //infSetTraceNum
+    {'s',{msgSpaces,msgSpaces,msgEnterTrace,msgSpaces},0}, //infEnterTrace
+    {'s',{msgSpaces,msgSpaces,msgCurrentBatchNum,cmbBatNum},5}, //infViewBatchNum
+    {'s',{msgSpaces,msgSpaces,msgViewStan,cmbStanNum},5}, //infViewStan
+    {'s',{msgSpaces,msgSpaces,msgSetStan,cmbSetStanNum},5}, //infSetStan
+    {'s',{msgSpaces,cmbTxnTypeCount,cmbTxnTypeTotal,msgSpaces},10}, //infViewTotal
+    {'b',{msgEmpty,msgAidListEmpty,msgSpaces,msgSpaces},5}, //infAidListEmpty
+    {'b',{msgEmpty,msgConfirm,msgYesVal,msgNoAnn},20}, //infApplicationConfirm
+    {'s',{msgEmpty,msgApplicationSelect,msgSpaces,msgSpaces},0}, //infApplicationSelect
+    {'s',{traCtx,msgEmvAppBlock,msgSpaces,msgSpaces},12}, //infEmvAppBlock
+    {'s',{traCtx,msgEmvCrdBlock,msgSpaces,msgSpaces},12}, //infEmvCrdBlock
+    {'b',{msgSpaces,msgShouldBeProcessed,msgEmvCard,msgSpaces},20}, //infFallBack2
+    {'b',{msgSpaces,msgSpaces,msgFallback1,msgFallback2},20}, //infFallBack
+    {'b',{msgSpaces,msgSpaces,msgFallback1,msgFallback2},0}, //infCardInputFB
+    {'s',{traCtx,msgNewPwdInput,msgSpaces,msgSpaces},0}, //infNewPwdInput
+    {'s',{traCtx,msgConfPwdInput,msgSpaces,msgSpaces},0}, //infConfPwdInput
+    {'b',{traCtx,msgSpaces,msgPwdInvalid,msgSpaces},3}, //infPwdInvalid
+    {'s',{traCtx,msgSpaces,msgTestKeyLoad,msgSpaces},3}, //infTestKeyLoad
+    {'s',{msgSpaces,msgTCPIPprm,msgIpAdd,msgSpaces},0}, //infScrIpAdd
+    {'s',{msgSpaces,msgTCPIPprm,msgSubMask,msgSpaces},0}, //infScrSubMask
+    {'s',{msgSpaces,msgTCPIPprm,msgGateway,msgSpaces},0}, //infScrGateway
+    {'s',{msgSpaces,msgEnableEdh,msgOnOff,msgSpaces},5}, //infScrEnableEdh
+    {'s',{msgSpaces,msgGprsApn,msgSpaces,msgSpaces},0}, //infScrGprsApn
+    {'s',{msgSpaces,msgGprsUsername,msgSpaces,msgSpaces},0}, //infScrGprsUsername
+    {'s',{msgSpaces,msgSpaces,msgGprsPin,msgSpaces},0}, //infScrGprsPin
+    {'s',{msgSpaces,msgGprsPassword,msgSpaces,msgSpaces},0}, //infScrGprsPassword
+    {'s',{msgSpaces,msgSpaces,msgGprsPhone,msgSpaces},5}, //infScrGprsPhone
+    {'s',{msgSpaces,msgGprs,msgOnOff,msgSpaces},5}, //infScrGprsOnOff
+    {'s',{msgSpaces,msgModemParam,msgPriNo,cmbTmsPriNumber},5}, //infViewTMSPrimaryPhone
+    {'s',{msgSpaces,msgModemParam,msgSecNo,cmbTmsSecNumber},5}, //infViewTMSSecondaryPhone
+    {'s',{msgEmpty,msgEmpty,msgEmpty,msgDone},0}, //infTleDone
+    {'s',{traCtx,msgEmvContext,msgSpaces,msgSpaces},0}, //infEmvContext
+    {'s',{msgEmpty,msgEmvAuthenticate,msgSpaces,msgSpaces},0}, //infEmvAuthenticate
+    {'b',{traCtx,msgUserCancel,msgSpaces,msgSpaces},5}, //infUserCancel
+    {'b',{msgSpaces,msgCardRefused,msgBinNotFound,msgSpaces},3}, //infBinNotFound
+    {'b',{msgSpaces,msgInvalidPan,msgSpaces,msgSpaces},3}, //infInvalidPan
+    {'b',{msgSpaces,msgCardRefused,msgInvalidLuhn,msgSpaces},5}, //infInvalidLuhn
+    {'b',{msgSpaces,msgCardRefused,msgCardExpired,msgSpaces},5}, //infCardExpired
+    {'b',{msgEmpty,msgEmpty,msgInvalidInput,msgSpaces},5}, //infInvalidInput
+    {'b',{msgEmpty,cmbDlgRspCod,traRspDspLin1,traRspDspLin2},30}, //infOnlineResult
+    {'s',{msgSpaces,msgConnConnected,msgSpaces,msgSpaces},1}, //infConnConnected
+    {'s',{msgSpaces,msgConnBusy,msgSpaces,msgSpaces},3}, //infConnBusy
+    {'s',{msgSpaces,msgConnNoDialTone,msgSpaces,msgSpaces},3}, //infConnNoDialTone
+    {'s',{msgSpaces,msgConnNoCarrier,msgSpaces,msgSpaces},3}, //infConnNoCarrier
+    {'s',{msgSpaces,msgConnTimeout,msgSpaces,msgSpaces},3}, //infConnTimeout
+    {'s',{msgSpaces,msgSendingFailed,msgSpaces,msgSpaces},1}, //infSendingFailed
+    {'b',{msgSpaces,msgReceivingFailed,msgSpaces,msgSpaces},1}, //infReceivingFailed
+    {'s',{msgSpaces,msgConnFail,msgSpaces,msgSpaces},2}, //infConnFail
+    {'s',{msgSpaces,msgSpaces,msgSpaces,msgSpaces},1}, //infBlank
+    {'s',{msgSpaces,msgRedialing,msgSpaces,msgSpaces},2}, //infRedialing
+    {'s',{msgSpaces,msgReConnecting,msgSpaces,msgSpaces},2}, //infReConnecting
+    {'s',{cmbCardTransType,cmbTraTotAmount,msgTransaction,msgTransmitting},0}, //infTxnTransmitting
+    {'s',{msgSpaces,msgSpaces,msgTransmitting,msgSpaces},0}, //infTrans
+    {'s',{cmbCardTransType,cmbTraTotAmount,msgTransaction,msgReceive},0}, //infTxnRcving
+    {'s',{msgSpaces,msgSpaces,msgReceive,msgSpaces},0}, //infRcving
+    {'s',{msgSpaces,msgVerifySign,msgMerchantCopy,msgPrinting},0}, //infMerCopyPrinting
+    {'s',{msgSpaces,msgSpaces,msgDuplicata,msgPrinting},0}, //infDuplicatePrinting
+    {'s',{msgSpaces,msgPrint,msgCustomerCopy,msgConfirmYN,},5}, //infCustCopyConfirm
+    {'s',{msgSpaces,msgSpaces,msgCustomerCopy,msgPrinting},3}, //infCustCopyPrinting
+    {'s',{msgSpaces,msgPrint,msgBankCopy,msgConfirmYN,},5}, //infBankCopyConfirm
+    {'s',{msgSpaces,msgSpaces,msgBankCopy,msgPrinting},3}, //infBankCopyPrinting
+    {'s',{cmbCardTransType,cmbTraTotAmount,msgReversal,msgTransmitting},3}, //infReversalTransmitting
+    {'s',{cmbCardType,cmbTransType,cmbTraTotAmount,msgYesNo},60}, //infTotal
+    {'s',{msgSpaces,msgSpaces,cmbVoidTotAmount,msgYesNo},10}, //infVoidTotal
+    {'s',{cmbCardTransType,cmbTraTotAmount,msgReversal,msgTransmitting},3}, //infReversalRcving
+    {'s',{cmbIfTraRspCod,cmbTraRspCodDsp,cmbIfTraRspCodMsgDsp,msgSpaces},1}, //infApprove
+    {'b',{traCtx,msgEmpty,msgAlreadyVoid,msgPressCancel},10}, //infAlreadyVoided
+    {'b',{traCtx,msgEmpty,msgRefNotFound,msgPressCancel},3}, //infRefNotFound
+    {'s',{msgSpaces,msgSpaces,cmbAppName,cmbCurVer},3}, //infSoftwareVersion
+    {'s',{msgViewConfig,msgSpaces,msgSelectAcq,cmbAcqName},10}, //infSelectAcq
+    {'s',{msgTermConfig,cmbAcqNameNii,cmbTID,cmbMID},10}, //infAcqDetails
+    {'b',{msgSpaces,msgSpaces,msgNoTran,msgPressStop},10}, //infNoTran
+    {'b',{msgEMVCredit,msgSpaces,msgTraceNotFound,msgPressStop},10}, //infTraceNotFound
+    {'s',{msgSpaces,msgEMVCredit,msgSpaces,msgSpaces},1}, //infEMVCredit
+    {'b',{msgSpaces,msgSpaces,msgLogEmpty,msgPressStop},10}, //infLogEmpty
+    {'b',{msgSpaces,msgSpaces,msgLogFull,msgPressStop},10}, //infLogFull
+    {'s',{msgStl,msgSpaces,msgSpaces,msgSpaces},0}, //infSettlement
+    {'s',{msgBatUpl,msgSpaces,msgSpaces,msgSpaces},0}, //infBatUpl
+    {'s',{msgEmpty,msgEmpty,msgTermConfig,msgEmpty},0}, //infTrmCon
+    {'s',{msgEmpty,msgEmpty,msgCrdRng,msgEmpty},0}, //infCrdRng
+    {'s',{msgEmpty,msgEmpty,msgIss,msgEmpty},0}, //infIss
+    {'s',{msgEmpty,msgEmpty,msgAcq,msgEmpty},0}, //infAcq
+    {'s',{msgEmpty,msgEmpty,msgEmvPrm,msgEmpty},0}, //infEmvPrm
+    {'s',{msgVar,msgEmpty,msgEmpty,msgEmpty},0}, //infVarLin0
+    {'s',{msgEmpty,msgVar,msgEmpty,msgEmpty},0}, //infVarLin1
+    {'s',{msgEmpty,msgEmpty,msgVar,msgEmpty},5}, //infVarLin2
+    {'s',{msgEmpty,msgEmpty,msgEmpty,msgVar},0}, //infVarLin3
+    {'s',{msgEntDat,msgSpaces,msgSpaces,msgSpaces},0}, //infEntDat
+    {'s',{msgEntTim,msgSpaces,msgSpaces,msgSpaces},0}, //infEntTim
+    {'s',{msgEmpty,msgEmpty,msgLodMstKey,msgEmpty},0}, //infLodMstKey
+    {'s',{msgEmpty,msgEmpty,msgLodWrkKey,msgEmpty},0}, //infLodWrkKey
+    {'s',{msgSpaces,msgSpaces,msgCompleted,msgSpaces},1}, //infCompleted
+    {'s',{msgSpaces,msgEntPwd,msgSpaces,msgSpaces},0}, //infEntPwd
+    {'s',{traCtx,msgTerReset,msgYesNo,msgSpaces},10}, //infTerminalResetQ
+    {'s',{msgSpaces,msgSpaces,msgBatDelete,msgSpaces},5}, //infTerminalReset
+    {'s',{msgSpaces,msgTleGo,msgOfltxn,msgSpaces},5}, //infOflSend
+    {'s',{traCtx,msgPanInput,msgSpaces,msgSpaces},0}, //infPanInput
+    {'s',{traCtx,msgExpDatInput,msgSpaces,msgSpaces},0}, //infExpDatInput
+    {'b',{msgSpaces,msgCardRefused,msgInvalidTrack,msgSpaces},5}, //infInvalidTrack
+    {'s',{msgSpaces,msgEnableDhcp,msgOnOff,cmbIfDhcp},5}, //infScrEnableDhcp
+    {'s',{msgSpaces,msgGprsParameter,msgEnableBlowfish,msgSpaces},5}, //infScrGprsEncryption
+    {'b',{msgSpaces,msgRmvCrd,msgSpaces,msgSpaces},5}, //infRemoveCard
+    {'s',{msgSpaces,msgDeclined,msgRmvCrd,msgSpaces},5}, //infDeclinedRemove
+    {'b',{msgSpaces,msgRmvCrd,msgUseMag,msgSpaces},5}, //infUseMagStripe
+    {'s',{msgEmpty,msgEmvAppCvm,msgSpaces,msgSpaces},0}, //infEmvAppCvm
+    {'s',{msgSpaces,msgSpaces,msgEnterAppCod,msgSpaces},0}, //infEnterAppCod
+    {'b',{msgSpaces,msgSpaces,msgManBarred,msgSpaces},5}, //infManualBarred
+    {'s',{msgSpaces,msgSpaces,msgConnection,cmbIfConnSet},10}, //infConnMethod
+    {'b',{msgSpaces,msgInvalidAmount,msgSpaces,msgSpaces},5}, //infInvalidAmount
+    {'b',{msgTMSError,msgFileMiss,msgSpaces,msgSpaces},5}, //infFileMiss
+    {'b',{msgTMSError,msgServer,msgUnavailable,msgSpaces},5}, //infTMSUnAvail
+    {'b',{msgTMSError,msgQueryFailed,msgSpaces,msgSpaces},5}, //infTMSQueryFailed
+    {'b',{msgTMSError,msgDLLarge,msgSpaces,msgSpaces},5}, //infTMSDLTooLarge
+    {'b',{msgTMSError,msgInvVer,msgSpaces,msgSpaces},5}, //infTMSVerErr
+    {'b',{msgTMSError,msgBufOvrFlw,msgSpaces,msgSpaces},5}, //infTMSBufOvrFlw
+    {'b',{msgTMSError,msgInvReq,msgSpaces,msgSpaces},5}, //infTMSInvDLReq
+    {'b',{msgTMSError,msgInvRefNum,msgSpaces,msgSpaces},5}, //infTMSRefNumInv
+    {'b',{msgTMSError,msgUnknownReq,msgSpaces,msgSpaces},5}, //infTMSUnknwnReq
+    {'b',{msgTMSError,msgOutBounds,msgSpaces,msgSpaces},5}, //infTMSOutofBounds
+    {'b',{msgTMSError,msgErrorReq,msgSpaces,msgSpaces},5}, //infTMSFileError
+    {'b',{msgTMSError,msgUndefError,msgSpaces,msgSpaces},5}, //infTMSUndefError
+    {'b',{msgSpaces,msgBatNotEmpty,msgPerformStl,msgSpaces},5}, //infPerformStl
+    {'b',{msgSpaces,msgDeleteRev,msgAreYouSure,msgSpaces},5}, //infConfirmResetRev
+    {'s',{msgSpaces,msgSpaces,msgRevDelete,msgSpaces},5}, //infTerminalResetRev
+    {'s',{msgSpaces,msgRs232,msgPort,cmbIfPortCom1},5}, //infPortSetting
+    {'s',{msgSpaces,msgRs232,msgBaudRate,cmbIfRs232BaudRate},10}, //infRs232BaudRate
+    {'s',{msgGPRSprm,msgPriIP,msgSpaces,msgSpaces},10}, //infTMSGPRSPriIP
+    {'s',{msgSpaces,msgGPRSprm,msgPriHostPort,msgSpaces},10}, //infTMSGPRSPriPort
+    {'s',{msgGPRSprm,msgSecIP,msgSpaces,msgSpaces},10}, //infTMSGPRSSecIP
+    {'s',{msgSpaces,msgGPRSprm,msgSecHostPort,msgSpaces},10}, //infTMSGPRSSecPort
+    {'s',{msgGPRSprm,msgPriIP,msgSpaces,cmbSrv},10}, //infVTMSGprsPriIP
+    {'s',{msgSpaces,msgGPRSprm,msgPriHostPort,cmbSrv},10}, //infVTMSGprsPriPort
+    {'s',{msgGPRSprm,msgSecIP,msgSpaces,cmbSrv},10}, //infVTMSGprsSecIP
+    {'s',{msgSpaces,msgGPRSprm,msgSecHostPort,cmbSrv},10}, //infVTMSGprsSecPort
+    {'b',{msgSpaces,msgNotInit,msgSpaces,msgSpaces},5}, //infNotInitialized
+    {'b',{msgSpaces,msgNoEmvFile,msgLoadedTms,msgDefaultEMVParam},3}, //infEmvFileNotFound
+    {'b',{msgSpaces,msgTransaction,msgDeclined,msgSpaces},30}, //infDeclinedEMV
+    {'b',{msgSpaces,msgOfflineDeclined,msgCardProcErr,msgSpaces},30}, //infEMVProcErr
+    {'b',{msgEmpty,msgSpaces,msgChipMalfunction,msgSpaces},30}, //infChipMalfunction
+    {'b',{msgSpaces,msgChipDetect1,msgChipDetect2,msgSpaces},2}, //infEMVChipDetect
+    {'b',{msgSpaces,msgOfflineDeclined,msgCardErr,msgSpaces},30}, //infEMVCardDatErr
+    {'s',{msgSpaces,msgGprsParameter,msgEnableBlowfish,msgSpaces},5}, //infScrGprsEncryption
+    {'s',{msgSpaces,msgSpaces,msgSetBf,cmbIfBlowfishSet},10}, //infBlowfishMethod
+    {'b',{msgSpaces,msgStartingGPRS,msgComStartKO,msgSpaces},5}, //infComStartKO
+    {'b',{msgSpaces,msgStartingGPRS,msgComSetKO,msgSpaces},5}, //infComSetKO
+    {'b',{msgSpaces,msgStartingGPRS,msgComDialKO,msgSpaces},5}, //infComDialKO
+    {'s',{msgSpaces,msgSpaces,msgSuccessfully,msgConfigured},5}, //infSuccConfig
+    {'s',{msgSpaces,msg01Declined1,msgEmpty,msgSpaces},30}, //inf01Declined
+    {'s',{msgSpaces,msg51Declined1,msg51Declined2,cmbDlgRspCod},30}, //inf51Declined
+    {'b',{msgSpaces,msgDoNotHonour,msgSpaces,cmbDlgRspCod},30}, //infRsp05
+    {'b',{msgSpaces,msgNoHp,msgSalah,cmbDlgRspCod},30}, //infRsp14Pulsa
+    {'b',{msgSpaces,msgNoKontrak,msgNotFound,cmbDlgRspCod},30}, //infRsp14Cicilan
+    {'b',{msgSpaces,msgSpaces,msgKartuExpired,cmbDlgRspCod},30}, //infRsp34
+    {'b',{msgSpaces,msgPinSalah3x,msgKartuBlocked,cmbDlgRspCod},30}, //infRsp38
+    {'b',{msgSpaces,msgNoRek,msgTdkAda,cmbDlgRspCod},30}, //infRsp53Tunai
+    {'b',{msgSpaces,msgErrAmount,msg51Declined2,cmbDlgRspCod},30}, //infRsp61OverLimit
+    {'b',{msgSpaces,msgTdkAda,msgTghTrx,cmbDlgRspCod},30}, //infRsp88
+    {'b',{msgSpaces,msgSpaces,msgConnTimeout,cmbDlgRspCod},30}, //infRspQ4
+    {'b',{msgSpaces,msgSpaces,msgConnTerputus,cmbDlgRspCod},30}, //infRspQ1
+    {'b',{msgSpaces,msgKartu,msgTdkAktif,cmbDlgRspCod},30}, //infRsp59
+    {'b',{msgSpaces,msgSpaces,msgKartuDitutup,cmbDlgRspCod},30}, //infRsp10
+    {'b',{msgSpaces,msgData,msgNotFound,cmbDlgRspCod},30}, //infRsp25
+    {'b',{msgSpaces,msgSpaces,msgKartuBlocked,cmbDlgRspCod},30}, //infRsp41
+    {'b',{msgSpaces,msgSpaces,msgPinSalah,cmbDlgRspCod},30}, //infRsp50
+    {'b',{msgAndaSudah,msgRegistrasi,msgInternetBank,cmbDlgRspCod},30}, //infRsp64IBank
+    {'b',{msgAndaSudah,msgRegistrasi,msgInternetBank,cmbDlgRspCod},30}, //infRsp64IBank
+    {'b',{msgSpaces,msgSpaces,msgBillerTO,cmbDlgRspCod},30}, //infRsp68PascaByr
+    {'b',{msgSpaces,msgSpaces,msgRekeningSalah,cmbDlgRspCod},30}, //infRsp60RekeningSalah
+    {'b',{msgSpaces,msgConnPihak,msgKetigaPutus,cmbDlgRspCod},30}, //infRsp89PascaByr
+    {'b',{msgSpaces,msgSpaces,msgInvalidPass,cmbDlgRspCod},30}, //infRspIP
+    {'b',{msgSpaces,msgAndaTidak,msgMilikiOtor,cmbDlgRspCod},30}, //infRsp09
+    {'b',{msgKartuBaruTdk,msgDapatReissue,msgUkerAnda,cmbDlgRspCod},30}, //infRsp16CardServ
+    {'b',{msgSpaces,msgTrxSedang,msgDiproses,cmbDlgRspCod},30}, //infRsp68Transfer
+    {'b',{msgSpaces,msgSpaces,msgPembayaranGagal,cmbDlgRspCod},30}, //infRsp06TV
+    {'b',{msgSpaces,msgSpaces,msgInvalidAmount,cmbDlgRspCod},30}, //infRsp13TV
+    {'b',{msgRsp04Pln1,msgTidak,msgDiTemukan,cmbDlgRspCod},30}, //infRsp14TV
+    {'b',{msgSpaces,msgTdkAda,msgTghTrx,cmbDlgRspCod},30}, //infRsp88TV
+    {'b',{msgSpaces,msgConnPihak,msgKetigaPutus,cmbDlgRspCod},30}, //infRsp89TV
+    {'b',{msgSpaces,msgConnPihak,msgKetigaTimeOut,cmbDlgRspCod},30}, //infRsp68TV
+    {'b',{msgSpaces,msgSysMal,msgAirlineErr,cmbDlgRspCod},30}, //infRsp96TV
+    {'b',{msgRsp04Pln1,msgRsp04Pln2,msgRsp04Pln3,cmbDlgRspCod},30}, //infRsp04Pln
+    {'b',{msgSpaces,msgSpaces,msgPembayaranGagal,cmbDlgRspCod},30}, //infRsp06Pln
+    {'b',{msgRsp08Pln1,msgEmpty,msgRsp08Pln3,cmbDlgRspCod},30}, //infRsp08Pln
+    {'b',{msgSpaces,msgSpaces,msgInvalidAmount,cmbDlgRspCod},30}, //infRsp13Pln
+    {'b',{msgSpaces,msgRsp14Pln1,msgRsp14Pln2,cmbDlgRspCod},30}, //infRsp14Pln
+    {'s',{msgEmpty,msgEmpty,msgLastPrintTry,msgEmpty},2}, //infLastPinTry
+    {'s',{msgEmpty,msgAppNot,msgAvailable,msgEmpty},2}, //infNotAvailable
+    {'s',{msgEmpty,msgPinBlocked,msgEmpty,msgEmpty},2}, //infPinBlocked
+    {'s',{msgEmvOffline,msgDeclined,msgEmpty,msgCardProcErr},3}, //infCardErr
+    {'b',{msgEmvOffline,msgDeclined,msgEmpty,msgAidListEmpty},3}, //infCardNotAccepted
+    {'b',{msgEmpty,msgEmvDeclined,msgProcErr,msgEmpty},3}, //infEmvError
+    {'s',{cmbCardType,cmbTransType,cmbTotalAmt,msgYesNo},60}, //infTotalAmt
+    {'s',{msgSpaces,msgUnknownAID,msgCardErr,msgSpaces},20}, //infUnknownAID
+    {'s',{msgSpaces,msgDeclined,msgSpaces,msgSpaces},20}, //infTrxDeclined
+    {'b',{msgSpaces,msgDeleteTC,msgAreYouSure,msgSpaces},5}, //infConfirmResetTC
+    {'s',{msgSpaces,msgSpaces,msgTCDelete,msgSpaces},5}, //infTerminalResetTC
+    {'s',{msgSpaces,msgSearchingSignal,msgPleaseWait,msgSpaces},1}, //infSearchingDisplay
+    {'s',{msgInformasi,msgJenisRekening,msgTabungan,msgGiro},30}, //infInfoSaldoBankLain
+    {'s',{cmbTransType,msgJumlahSaldo,cmbInquiryAmt,msgSpaces},30}, //infSaldoBalance
+    {'s',{cmbTransType,msgSpaces,cmbInquiryAmt,cmbMsgConfirm},0}, //infConfirmPayment
+    {'s',{msgPPPConfig,msgPPPPhoneNumber,msgSpaces,msgSpaces},0}, //infScrPPPphoneNumber
+    {'s',{msgPPPConfig,msgPPPUserName,msgSpaces,msgSpaces},0}, //infScrPPPUserName
+    {'s',{msgPPPConfig,msgPPPPassword,msgSpaces,msgSpaces},0}, //infScrPPPPassword
+    {'s',{msgPPPDest,msgPPPIpAddress,msgSpaces,msgSpaces},0}, //infScrPPPIpAddress
+    {'s',{msgPPPDest,msgPPPPort,msgSpaces,msgSpaces},0}, //infScrPPPPort
+    {'s',{msgSpaces,msgSpaces,msgPinNotMatch,msgTryAgain},30}, //infPINNotMatch
+    {'s',{msgSpaces,msgSpaces,msgPinNotRequired,msgUseOtherCard},30}, //infCardPinNotRequired
+    {'s',{msgSpaces,msgPassword6Digit1,msgPassword6Digit2,msgTryAgain},30}, //infPassword6Digit
+    {'s',{msgSpaces,msgPasswordNotMatch1,msgPasswordNotMatch2,msgTryAgain},30}, //infPasswordNotMatch
+    {'s',{cmbTxnType,msgKartuPetugas,msgSwipeCard,msgSpaces,},0}, //infCardPengawasInput
+    {'s',{cmbTxnType,msgKartuNasabah,msgSwipeInsert,msgCard},0}, //infCardNasabahInput
+    {'s',{cmbTxnType,msgKartuLamaNasabah,msgSwipeInsert,msgCard},0}, //infCardNasabahLamaInput
+    {'s',{cmbTxnType,msgKartuBaruNasabah,msgSwipeInsert,msgCard},0}, //infCardNasabahBaruInput
+    {'s',{msgSpaces,msgOtorisasiBerhasil1,msgOtorisasiBerhasil2,msgSpaces},5}, //infOtorisasiBerhasil
+    {'b',{msgSpaces,msgRenewalBerhasil,msgCreatePINGagal,msgSpaces},2}, //infRenewalBerhasilPINGagal
+    {'b',{msgSpaces,msgAktifasiBerhasil,msgCreatePINGagal,msgSpaces},2}, //infAktifasiBerhasilPINGagal
+    {'s',{msgSpaces,msgSpaces,msgSelectCardType,msgCreditDebit},20}, //infSelectCardType
+    {'b',{msgSpaces,msgCardRefused,msgAcqNotFound,msgSpaces},3}, //infAcqNotFound
+    {'s',{msgSpaces,msgSpaces,msgPrinting,msgSpaces},0}, //infPrinting
+    {'b',{msgSpaces,msgClearClog,msgAreYouSure,msgSpaces},5}, //infConfirmClearClog
+    {'b',{msgSpaces,msgClearMlog,msgAreYouSure,msgSpaces},5}, //infConfirmClearMlog
+    {'b',{msgSpaces,msgClearTlog,msgAreYouSure,msgSpaces},5}, //infConfirmClearTlog
+    {'s',{msgSpaces,cmbMsgVoidAmtDisplay,msgBuffer,msgYesNo},30}, //infVoidTotal2
+    {'s',{cmbCardType,cmbTransType,msgBuffer,msgYesNo},30}, //infTotal2
+    {'b',{msgSpaces,msgSpaces,msgDataError,msgSpaces},5}, //infDataError
+    {'b',{msgSpaces,msgSpaces,msgPlsTryAgain1,msgPlsTryAgain2},5}, //infPlsTryAgain
+    {'b',{msgSpaces,msgSpaces,msgChipEntryBarred1,msgChipEntryBarred2},5}, //infChipEntryBarred
+    {'b',{msgSpaces,msgRsp53_1,msgRsp53_2,cmbDlgRspCod},30}, //infRsp53
+    {'b',{msgSpaces,msgTestBerhasil_1,msgTestBerhasil_2,cmbDlgRspCod},30}, //infTestKoneksiBerhasil
+    {'b',{msgEmpty,msgEmpty,msgEmpty,msgPressAnyKey},30}, //infPressAnyKey
+    {'b',{msgSpaces,msgSamInitFail,msgSpaces,msgPressAnyKey},30}, //infSamInitFail
+    {'b',{msgSpaces,msgSamInitSuccess,msgSpaces,msgPressAnyKey},30}, //infSamInitSuccess
+    {'s',{msgSpaces,msgDekatkanKartu1,msgDekatkanKartu2,msgSpaces},0}, //infDekatkanKartu
+    {'b',{msgSpaces,ProcessToReaderFail1,ProcessToReaderFail2,msgSpaces},30}, //infProcessToReaderFail
+    {'b',{msgSpaces,msgRetrySettlement1,msgRetrySettlement2,msgPressAnyKey},30}, //infRetrySettle
+    {'s',{msgSpaces,msgSpaces,msgProcessing,msgSpaces},0}, //infProcessing
+    {'b',{msgSpaces,msgBatchError1,msgBatchError2,msgPressAnyKey},30}, //infBatchError
+    {'b',{msgSpaces,msgRspPrepaid05_1,msgRspPrepaid05_2,cmbDlgRspCod},30}, //infRspPrepaid05
+    {'b',{msgSpaces,msgRspPrepaidNF_1,msgRspPrepaidNF_2,cmbDlgRspCod},30}, //infRspPrepaidNF
+    {'b',{msgSpaces,msgRspPrepaidUI_1,msgRspPrepaidUI_2,cmbDlgRspCod},30}, //infRspPrepaidUI
+    {'b',{msgSpaces,msgRspPrepaid62_1,msgRspPrepaid62_2,cmbDlgRspCod},30}, //infRspPrepaid62
+    {'b',{msgSpaces,msgRspPrepaidOV_1,msgRspPrepaidOV_2,cmbDlgRspCod},30}, //infRspPrepaidOV
+    {'b',{msgSpaces,msgRspPrepaidZB_1,msgRspPrepaidZB_2,cmbDlgRspCod},30}, //infRspPrepaidZB
+    {'s',{msgSpaces,msgSpaces,msgEnterTrace,msgSpaces},0}, //infEnterTrace
+    {'s',{msgSpaces,msgSpaces,msgEnterBatchNum,cmbSetBatchNum},5}, //infSetBatchNum
+    {'b',{msgEmpty,msgEmpty,msgEmpty,msgPrintYesNo},5}, //infConfirmPrint
+    {'s',{msgEmpty,msgLoadMKOK1,msgLoadMKOK2,msgPressAnyKey},5}, //infLodMstKeyOK
+    {'s',{msgEmpty,msgLoadWKOK1,msgLoadWKOK2,msgPressAnyKey},5}, //infLodWrkKeyOK
+    {'b',{msgEmpty,msgLoadMKError1,msgLoadMKError1,msgPressAnyKey},15}, //infLodMstKeyFail
+    {'b',{msgEmpty,msgLoadWKError1,msgLoadWKError2,msgPressAnyKey},15}, //infLodWrkKeyFail
+    {'b',{msgEmpty,msgEmpty,msgLoadKeyError,msgPressAnyKey},15}, //infLodKeyFail
+    {'b',{msgEmpty,msgLogonSuccess,msgEmpty,msgPressAnyKey},15}, //infLogonSuccess
+    {'b',{msgEmpty,msgLogonFail,msgEmpty,msgPressAnyKey},15}, //infLogonFail
+};
+
+#define dftRegSTAN 0
+#define dftRegInvNum 1
+#define dftRegBatNum "000001"
+#define dftRegBinCnt 1
+#define dftRegIssCnt 1
+#define dftRegAcqCnt 1
+#define dftRegReqSent 0
+#define dftRegLocType 84
+#define dftRegAidCnt 0
+#define dftRegPubCnt 0
+#define dftRegTmsRefNum ""
+#define dftRegToneDetect "ON "
+#define dftRegTonePulse "TONE "
+#define dftRegDHCP "OFF"
+#define dftRegOfflineCnt 0
+#define dftRegAutCodOff 0
+#define dftRegCLogIdx 0
+#define dftRegCLogSize 0
+#define dftRegMLogIdx 0
+#define dftRegMLogSize 0
+#define dftRegTLogIdx 0
+#define dftRegTLogSize 0
+#define dftRegPrepaidRefNum 1
+#define dftRegPrepaidBatchNum 1
+
+
+typedef struct sRqsRecord{
+    byte *_rqsMti;
+    byte *_rqsBitmap;
+    byte _rqsDbCr;
+    char *_rqsRpt;
+    char *_rqsDisp;
+    char *_rqsVDisp;
+    char *_rqsEntMod;
+    byte *_rqsPrcCod;
+}tRqsRecord;
+
+static tRqsRecord dftRqs[DIM(rqtBeg,rqtEnd)]={
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04",'D',"SALE","SALE","V/SALE","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtSale
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04",' ',"PREAUTH","PREAUTH"," ","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtPreAuth
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04",' ',"AUTH","AUTH"," ","cmk",(byte*)"\x03\x00\x00\x00"}, //rqtAuth
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x00\x20\xC0\x00\x04",'C',"REFUND","REFUND","V/REFUND","cmk",(byte*)"\x03\x20\x00\x00",}, //rqtRefund
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04",'D',"CASH ADV","CASH ADV","V/CASHADV","cmk",(byte*)"\x03\x01\x00\x00",}, //rqtCash
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x22\x38\x05\x80\x20\xC0\x10\x00",' ',"BALANCE","BALANCE"," ","cmk",(byte*)"\x03\x31\x10\x00",}, //rqtBalance
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04",' ',"VERIFY","VERIFY"," ","cmk",(byte*)"\x03\x38\x00\x00",}, //rqtVerify
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x05\x80\x28\xC0\x00\x04",'d',"VOID","VOID"," ","cmk",(byte*)"\x03\x02\x00\x00"}, //rqtVoid
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x05\x80\x28\xC0\x80\x02",'D',"Completion","Completion"," ","cmk",(byte*)"\x03\x02\x02\x10"}, //rqtCompletion
+    {(byte*)"\x02\x05\x00",(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x12",' ',"\x1B""\x1C""SETTLEMENT","SETTLEMENT"," ","cmk",(byte*)"\x03\x92\x00\x00"}, //rqtReconcilInit
+    {(byte*)"\x02\x05\x00",(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x12",' ',"\x1B""\x1C""SETTLEMENT","SETTLEMENT"," ","cmk",(byte*)"\x03\x96\x00\x00"}, //rqtReconcilSubs
+    {(byte*)"\x02\x03\x20",(byte*)"\x08\x70\x3C\x05\x80\x0E\xC0\x00\x14",' ',"\x1B""\x1C""BATCH UPLOAD","BATCH UPLOAD"," ","cmk",(byte*)"\x03\x00\x00\x00"}, //rqtBatchUpload
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10",' ',"TMS LOGON","TMS LOGON"," ","cmk",(byte*)"\x03\x01\x00\x00",}, //rqtTMSLogon
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10",' ',"TMS Dnl Tables","TMS Dnl Tables"," ","cmk",(byte*)"\x03\x01\x01\x01",}, //rqtTMSDnlTbl
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10",' ',"TMS LOGOFF","TMS LOGOFF"," ","cmk",(byte*)"\x03\x01\x10\x00",}, //rqtTMSLogoff
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10",' ',"TMS EMV REQUEST","TMS EMV REQUEST"," ","cmk",(byte*)"\x03\x01\x01\x02",}, //rqtTMSEmv
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10",' ',"TMS EMV FILE REQUEST","TMS EMV FILE REQUEST"," ","cmk",(byte*)"\x03\x01\x06\x00",}, //rqtTMSFileDnl
+    {(byte*)"\x02\x02\x20",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04",'D',"O/SALE","O/SALE","V/OSALE","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtOflSale
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04",'D',"MANUAL","MANUAL","V/MSALE","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtManual
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04",'D',"ADJUST","ADJUST"," ","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtAdjust
+    {(byte*)"\x02\x04\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x00\x86",'D',"REVERSAL","REVERSAL"," ","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtReversal
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x20\x18\x01\x00\x00\x80\x00\x00",' ',"LOG ON","LOG ON"," ","cmk",(byte*)"\x03\x90\x00\x00",}, //rqtLogOn
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x20\x20\x01\x00\x00\x80\x00\x00",' ',"TES KONEKSI","TES KONEKSI","V/TES KONEKSI","cmk",(byte*)"\x03\x99\x00\x00",}, //rqtEchoTest
+    {(byte*)"\x02\x03\x20",(byte*)"\x08\x70\x3C\x07\x80\x0E\xC0\x02\x14",' ',"\x1B""\x1C""TC UPLOAD","TC UPLOAD"," ","cmk",(byte*)"\x03\x94\x00\x00"}, //rqtTCUpload
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x05\x80\x20\xC0\x10\x86",'D',"INFO SALDO","INFO SALDO","V/INFO SALDO","cmk",(byte*)"\x03\x30\x30\x00",}, //rqtInfoSaldo
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x3C\x01\x00\x28\xC0\x14\x82",'D',"INFO SALDO","INFO SALDO","V/INFO SALDO","cmk",(byte*)"\x03\x30\x10\x00",}, //rqtInfoSaldoBankLain
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"TRANSFER SESAMA BRI","TRANSFER SESAMA BRI","V/INQUIRY","cmk",(byte*)"\x03\x30\x40\x00",}, //rqtTransferSesamaBRIInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"TRANSFER SESAMA BRI","TRANSFER SESAMA BRI","V/TRANSFER","cmk",(byte*)"\x03\x40\x10\x00",}, //rqtTransferSesamaBRI
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86",'D',"TRANSFER ANTAR BANK","TRANSFER ANTAR BANK","V/INQUIRY","cmk",(byte*)"\x03\x30\x40\x00",}, //rqtTransferAntarBankInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x05\x80\x28\xC1\x10\x86",'D',"TRANSFER ANTAR BANK","TRANSFER ANTAR BANK","V/TRANSFER","cmk",(byte*)"\x03\x40\x10\x00",}, //rqtTransferAntarBank
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x00\x82",'D',"PEMBAYARAN TV BERLANGGAN","PEMBAYARAN TV BERLANGGAN","V/INQUIRY","cmk",(byte*)"\x03\x33\x10\x30",}, //rqtPembayaranTVBerlanggananInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82",'D',"PEMBAYARAN TV BERLANGGAN","PEMBAYARAN TV BERLANGGAN","V/PEMBAYARAN TV BERLANGGAN","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtPembayaranTVBerlangganan
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"PEMBAYARAN PLN","PEMBAYARAN PLN","V/INQUIRY","cmk",(byte*)"\x03\x33\x10\x30",}, //rqtPembayaranPLNInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"PEMBAYARAN PLN","PEMBAYARAN PLN","V/PEMBAYARAN PLN","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtPembayaranPLN
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x30\x05\x00\x20\xC1\x14\x86",'D',"PEMBAYARAN CICILAN","PEMBAYARAN CICILAN","V/INQUIRY","cmk",(byte*)"\x03\x38\x10\x00",}, //rqtPembayaranCicilanInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x05\x00\x28\xC1\x10\x86",'D',"PEMBAYARAN CICILAN","PEMBAYARAN CICILAN","V/PEMBAYARAN CICILAN","cmk",(byte*)"\x03\x17\x10\x00",}, //rqtPembayaranCicilan
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86",'D',"ISI ULANG","ISI ULANG","V/ISI ULANG","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtPembayaranPulsa
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86",'D',"ZAKAT","ZAKAT","V/ZAKAT","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtPembayaranZakat
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"SETOR PINJAMAN","SETOR PINJAMAN","V/INQUIRY","cmk",(byte*)"\x03\x30\x50\x00",}, //rqtSetorPinjamanInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"SETOR PINJAMAN","SETOR PINJAMAN","V/SETOR PINJAMAN","cmk",(byte*)"\x03\x02\x10\x00",}, //rqtSetorPinjaman
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"SETOR SIMPANAN","SETOR SIMPANAN","V/INQUIRY","cmk",(byte*)"\x03\x30\x40\x00",}, //rqtSetorSimpananInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"SETOR SIMPANAN","SETOR SIMPANAN","V/SETOR SIMPANAN","cmk",(byte*)"\x03\x02\x20\x00",}, //rqtSetorSimpanan
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"TARIK TUNAI","TARIK TUNAI","V/TARIK TUNAI","cmk",(byte*)"\x03\x01\x10\x00",}, //rqtTarikTunai
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x05\x80\x20\xC1\x00\x86",'D',"VOID TARIK TUNAI","VOID TARIK TUNAI","V/VOID TARIK TUNAI","cmk",(byte*)"\x03\x21\x10\x00",}, //rqtVoidTarikTunai
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"REG INTERNET BANKING","REG INTERNET BANKING","V/REG INTERNET BANKING","cmk",(byte*)"\x03\x50\x00\x00",}, //rqtRegistrasiInternetBanking
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"REG PHONE BANKING","REG PHONE BANKING","V/REG PHONE BANKING","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtRegistrasiPhoneBanking
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"UBAH PIN","UBAH PIN","V/UBAH PIN","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtGantiPIN
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"UBAH PASS","UBAH PASS","V/UBAH PASS","cmk",(byte*)"\x03\x50\x00\x01",}, //rqtGantiPasswordSPV
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"OTORISASI","OTORISASI","V/OTORISASI","cmk",(byte*)"\x03\x50\x00\x00",}, //rqtOtorisasi
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC0\x10\x02",'D',"AKTIVASI KARTU","AKTIVASI KARTU","V/INQUIRY","cmk",(byte*)"\x03\x30\x10\x90",}, //rqtAktivasiKartuInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"AKTIVASI KARTU","AKTIVASI KARTU","V/AKTIVASI KARTU","cmk",(byte*)"\x03\x10\x10\x90",}, //rqtAktivasiKartu
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"OTORISASI","OTORISASI","V/OTORISASI","cmk",(byte*)"\x03\x50\x00\x00",}, //rqtOtorisasi1
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC0\x10\x02",'D',"RENEWAL KARTU","RENEWAL KARTU","V/INQUIRY","cmk",(byte*)"\x03\x30\x10\x90",}, //rqtRenewalKartuInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"RENEWAL KARTU","RENEWAL KARTU","V/RENEWAL KARTU","cmk",(byte*)"\x03\x10\x10\x90",}, //rqtRenewalKartu
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"OTORISASI","OTORISASI","V/OTORISASI","cmk",(byte*)"\x03\x50\x00\x00",}, //rqtOtorisasi2
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02",'D',"REISSUE PIN","REISSUE PIN","V/REISSUE PIN","cmk",(byte*)"\x03\x30\x10\x90",}, //rqtReissuePIN
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x07\x00\x20\xC0\x00\x0C",'D',"CICILAN","CICILAN","V/CICILAN BRING","cmk",(byte*)"\x03\x00\x00\x00",}, //rqtInstallment
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86",'D',"PASCA BAYAR","PASCA BAYAR","V/PASCA BAYAR","cmk",(byte*)"\x03\x33\x10\x30",}, //rqtPembayaranPascaBayarInquiry
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86",'D',"PASCA BAYAR","PASCA BAYAR","V/PASCA BAYAR","cmk",(byte*)"\x03\x11\x10\x00",}, //rqtPembayaranPascaBayar
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x30\x05\x80\x00\xC1\x00\x86",'D',"INFO DEPOSIT","INFO DEPOSIT","V/INFO DEPOSIT","cmkt",(byte*)"\x03\x30\x80\x00",}, //rqtInfoDeposit
+    {(byte*)"\x02\x00\x00",(byte*)"\x08\x00\x00\x00\x00\x00\x00\x00\x00",' ',"PEMBAYARAN","PEMBAYARAN","V/PEMBAYARAN","cmkt",(byte*)"\x03\x00\x00\x00",}, //rqtPrepaidPayment
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86",' ',"TOP UP","TOP UP","V/TOP UP","cmk",(byte*)"\x03\x81\x80\x00",}, //rqtTopUp
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86",' ',"DEPOSIT","DEPOSIT","V/DEPOSIT","cmkt",(byte*)"\x03\x81\x81\x00",}, //rqtDeposit
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x30\x05\x80\x00\xC1\x00\x86",' ',"AKTIVASI","AKTIVASI","V/AKTIVASI","cmk",(byte*)"\x03\x81\x82\x00",}, //rqtAktivasi
+    {(byte*)"\x02\x02\x00",(byte*)"\x08\x30\x38\x01\x00\x00\xC1\x00\x82",' ',"REDEEM","REDEEM","V/REDEEM","cmk",(byte*)"\x03\x81\x83\x00",}, //rqtPrepaidRedeem
+    {(byte*)"\x02\x05\x00",(byte*)"\x08\x20\x38\x01\x00\x00\xC0\x00\x82",' ',"SETTLEMENT","SETTLEMENT","V/SETTLEMENT","cmk",(byte*)"\x03\x80\x82\x00",}, //rqtPrepaidSettlement
+    {(byte*)"\x02\x01\x00",(byte*)"\x08\x30\x38\x05\x80\x20\xC1\x14\x82",' ',"ABSENSI","ABSENSI","V/DATANG","cmk",(byte*)"\x03\x31\x10\x00"}, //rqtAbsensi
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x00",' ',"LOGON","LOGON","V/LOGON","cmk",(byte*)"\x03\x92\x00\x00",}, //rqtDebitLogon
+    {(byte*)"\x02\x08\x00",(byte*)"\x08\x20\x38\x01\x00\x00\x81\x00\x10",' ',"KEY DOWNLOAD","KEY DOWNLOAD","V/KEY DOWNLOAD","cmk",(byte*)"\x03\x97\x00\x00",}, //rqtTLEKeyDownload
+};
+
+#define dftTCFlag 0x00
+
+typedef struct sBinRecord{
+    byte _binID;
+    char *_binName;
+    byte *_binLo;
+    byte *_binHi;
+    byte _binCrIssID;
+    byte _binCrAcqID;
+    byte _binPanLen;
+    byte _binDbIssID;
+    byte _binDbAcqID;
+    byte _binLogoID;
+    char *_binTotAppDbAmt;
+    word _binTotAppDbCnt;
+    char *_binTotAppCrAmt;
+    word _binTotAppCrCnt;
+    char *_binTotAppTpAmt;
+    word _binTotAppTpCnt;
+}tBinRecord;
+
+static tBinRecord dftBin[]={
+    {1,"BRIDEBIT",(byte *)"\x05\x52\x21\x84\x00\x00",(byte *)"\x05\x52\x21\x84\x99\x99",0,0,0,1,2,2,"0",0,"0",0,"0",0,}, //
+    {2,"PRIORITAS",(byte *)"\x05\x53\x26\x59\x00\x00",(byte *)"\x05\x53\x26\x59\x99\x99",0,0,0,1,2,1,"0",0,"0",0,"0",0,}, //
+    {3,"PRIVATE",(byte *)"\x05\x60\x13\x01\x00\x00",(byte *)"\x05\x60\x13\x01\x99\x99",0,0,0,1,2,1,"0",0,"0",0,"0",0,}, //
+    {4,"MASTER1STAFF",(byte *)"\x05\x51\x88\x28\x01\x00",(byte *)"\x05\x51\x88\x28\x01\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {5,"MASTER1",(byte *)"\x05\x51\x88\x28\x02\x00",(byte *)"\x05\x51\x88\x28\x02\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {6,"MASTER2STAFF",(byte *)"\x05\x51\x88\x28\x21\x00",(byte *)"\x05\x51\x88\x28\x21\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {7,"MASTER2",(byte *)"\x05\x51\x88\x28\x22\x00",(byte *)"\x05\x51\x88\x28\x22\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {8,"MASTER3STAFF",(byte *)"\x05\x51\x88\x28\x41\x00",(byte *)"\x05\x51\x88\x28\x41\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {9,"MASTER3",(byte *)"\x05\x51\x88\x28\x42\x00",(byte *)"\x05\x51\x88\x28\x42\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {10,"MCHYUNDAI",(byte *)"\x05\x51\x88\x28\x91\x00",(byte *)"\x05\x51\x88\x28\x91\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {11,"MCHIPMI",(byte *)"\x05\x51\x88\x56\x13\x00",(byte *)"\x05\x51\x88\x56\x13\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {12,"MCTELKOM",(byte *)"\x05\x51\x88\x56\x03\x00",(byte *)"\x05\x51\x88\x56\x03\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {13,"MCGOLD1STAFF",(byte *)"\x05\x51\x88\x56\x01\x00",(byte *)"\x05\x51\x88\x56\x01\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {14,"MCGOLD1",(byte *)"\x05\x51\x88\x56\x02\x00",(byte *)"\x05\x51\x88\x56\x02\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {15,"MCGOLD2STAFF",(byte *)"\x05\x51\x88\x56\x21\x00",(byte *)"\x05\x51\x88\x56\x21\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {16,"MCGOLD2",(byte *)"\x05\x51\x88\x56\x22\x00",(byte *)"\x05\x51\x88\x56\x22\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {17,"MCPLATSTAFF",(byte *)"\x05\x55\x20\x02\x01\x00",(byte *)"\x05\x55\x20\x02\x01\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {18,"MCPLAT",(byte *)"\x05\x51\x88\x56\x02\x00",(byte *)"\x05\x51\x88\x56\x02\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+    {19,"VISASTAFF",(byte *)"\x05\x43\x65\x02\x01\x00",(byte *)"\x05\x43\x65\x02\x01\x99",0,0,0,1,2,1,"0",0,"0",0,"0",0,}, //
+    {20,"VISA",(byte *)"\x05\x43\x65\x02\x02\x00",(byte *)"\x05\x43\x65\x02\x02\x99",0,0,0,1,2,1,"0",0,"0",0,"0",0,}, //
+    {21,"VISACARDS",(byte *)"\x05\x40\x00\x00\x00\x00",(byte *)"\x05\x49\x99\x99\x99\x99",1,1,0,1,2,1,"0",0,"0",0,"0",0,}, //
+    {22,"MASTERCARD",(byte *)"\x05\x50\x00\x00\x00\x00",(byte *)"\x05\x59\x99\x99\x99\x99",1,1,0,2,1,1,"0",0,"0",0,"0",0,}, //
+    {23,"VISA2",(byte *)"\x05\x60\x34\x39\x90\x00",(byte *)"\x05\x60\x34\x39\x90\x99",0,0,0,1,1,1,"0",0,"0",0,"0",0,}, //
+    {24,"BRIZZI",(byte *)"\x05\x60\x13\x50\x00\x00",(byte *)"\x05\x60\x13\x50\x99\x99",0,0,0,1,7,1,"0",0,"0",0,"0",0,}, //
+    {6,"ALL CARD",(byte *)"\x05\x00\x00\x00\x00\x00",(byte *)"\x09\x99\x99\x99\x99\x99",1,1,0,0,0,1,"0",0,"0",0,"0",0,}, //
+};
+
+typedef struct sAcqRecord{
+    byte _acqID;
+    char *_acqName;
+    char *_acqPriTxnSrv;
+    byte _acqPriTxnAtt;
+    char *_acqSecTxnSrv;
+    byte _acqSecTxnAtt;
+    char *_acqPriStlSrv;
+    byte _acqPriStlAtt;
+    char *_acqSecStlSrv;
+    byte _acqSecStlAtt;
+    byte _acqTxnDialOpt;
+    byte _acqStlDialOpt;
+    byte _acqTxnOpt;
+    byte _acqStlOpt;
+    word _acqTxnRxTO;
+    word _acqTxnICTO;
+    word _acqTxnConTO;
+    word _acqStlRxTO;
+    word _acqStlICTO;
+    word _acqStlConTO;
+    byte _acqOpt2;
+    char *_acqNII;
+    char *_acqTID;
+    char *_acqMID;
+    char *_acqCurBat;
+    char *_acqTotAppDbAmt;
+    word _acqTotAppDbCnt;
+    char *_acqTotAppCrAmt;
+    word _acqTotAppCrCnt;
+    char *_acqTotAppTpAmt;
+    word _acqTotAppTpCnt;
+    char *_acqTotAppSaleAmt;
+    word _acqTotAppSaleCnt;
+    char *_acqTotAppRefundAmt;
+    word _acqTotAppRefundCnt;
+    char *_acqTotAppOfflineAmt;
+    word _acqTotAppOfflineCnt;
+    char *_acqTotAppManualAmt;
+    word _acqTotAppManualCnt;
+    char *_acqTotAppVoidAmt;
+    word _acqTotAppVoidCnt;
+    char *_acqPriTxnPhnSrv;
+    char *_acqSecTxnPhnSrv;
+    char *_acqPriStlPhnSrv;
+    char *_acqSecStlPhnSrv;
+    char *_acqPriTxnIPSrv;
+    char *_acqSecTxnIPSrv;
+    char *_acqPriStlIPSrv;
+    char *_acqSecStlIPSrv;
+    char *_acqUMK;
+    byte _acqIsPendingSettlement;
+}tAcqRecord;
+
+static tAcqRecord dftAcq[]={
+    {1,"CREDITBRI",__DFTSRV__,3,__DFTSRV__,3,__DFTSRV__,2,__DFTSRV__,2,0,0,0,0,300,300,3000,3000,300,3000,0,"015",__DFT_TID_CREDIT__,__DFT_MID_CREDIT__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {2,"DEBITBRI",__DFTSRV__,1,__DFTSRV__,1,__DFTSRV__,2,__DFTSRV__,2,0,0,0,0,300,300,3000,3000,300,3000,0,"006",__DFT_TID__,__DFT_MID__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {3,"MINI ATM D",__DFTSRV__,1,__DFTSRV__,1,__DFTSRV__,1,__DFTSRV__,1,0,0,0,0,300,300,3000,3000,300,3000,0,"007",__DFT_TID__,__DFT_MID__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {4,"MINI ATM C",__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,0,0,0,0,300,300,3000,3000,300,3000,0,"008",__DFT_TID__,__DFT_MID__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {5,"TUNAI D",__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,0,0,0,0,300,300,3000,3000,300,3000,0,"011",__DFT_TID__,__DFT_MID__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {6,"TUNAI C",__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,__DFTSRV__,2,0,0,0,0,300,300,3000,3000,300,3000,0,"012",__DFT_TID__,__DFT_MID__,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+    {7,"BRIZZI",__DFTSRV__,1,__DFTSRV__,1,__DFTSRV__,1,__DFTSRV__,1,0,0,0,0,300,300,3000,3000,300,3000,0,"007",__DFT_BRIZZI_TID,__DFT_BRIZZI_MID,"000001","0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"0",0,"7519220","7519206","7519220","7519206",__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTSRV__,__DFTUMK__,0}, //
+};
+
+typedef struct sIssRecord{
+    byte _issID;
+    char *_issRef;
+    byte _issOpt1;
+    byte _issOpt2;
+    byte _issOpt3;
+    byte _issOpt4;
+    byte _issDefAcct;
+    word _issFloorLimit;
+    byte _issOpt5;
+    byte _issPinOpt;
+}tIssRecord;
+
+static tIssRecord dftIss[]={
+    {0,"7519206",0x9E,0xDC,0xD1,0x01,0,0,0xF0,0x31,}, //issIssuer1
+};
+
+typedef struct sAidRecord{
+    byte *_emvAid;
+    byte *_emvTACDft;
+    byte *_emvTACDen;
+    byte *_emvTACOnl;
+    byte *_emvThrVal;
+    byte *_emvTarPer;
+    byte *_emvMaxTarPer;
+    byte *_emvDftValDDOL;
+    byte *_emvDftValTDOL;
+    byte *_emvTrmAvn;
+    byte *_emvAcqId;
+    byte *_emvTrmFlrLim;
+    byte *_emvTCC;
+    byte *_emvAidTxnType;
+}tAidRecord;
+
+static tAidRecord dftAid[]={
+    {(byte*)"\x07\xA0\x00\x00\x00\x03\x30\x10",(byte*)"\x05\xFC\x50\xAC\xA0\x00",(byte*)"\x05\x04\x00\x00\x00\x00",(byte*)"\x05\xF8\x50\xAC\xF8\x00",(byte*)"\x04\x00\x00\x00\x00",(byte*)"\x01\x14",(byte*)"\x01\x32",(byte*)"\x03\x9F\x37\x04",(byte*)"\x0F\x9F\x02\x06\x5F\x2A\x02\x9A\x03\x9C\x01\x95\x05\x9F\x37\x04",(byte*)"\x02\x00\x8C",(byte*)"\x05\x99\x99\x99\x99\x99",(byte*)"\x04\x00\x00\x01\x00",(byte*)"\x01\x52",(byte*)"\x01\x00",}, //
+    {(byte*)"\x07\xA0\x00\x00\x00\x03\x10\x10",(byte*)"\x05\xFC\x50\xAC\xA0\x00",(byte*)"\x05\x04\x00\x00\x00\x00",(byte*)"\x05\xF8\x50\xAC\xF8\x00",(byte*)"\x04\x00\x00\x00\x00",(byte*)"\x01\x14",(byte*)"\x01\x32",(byte*)"\x03\x9F\x37\x04",(byte*)"\x0F\x9F\x02\x06\x5F\x2A\x02\x9A\x03\x9C\x01\x95\x05\x9F\x37\x04",(byte*)"\x02\x00\x8C",(byte*)"\x05\x99\x99\x99\x99\x99",(byte*)"\x04\x00\x00\x01\x00",(byte*)"\x01\x52",(byte*)"\x01\x00",}, //
+    {(byte*)"\x07\xA0\x00\x00\x00\x04\x10\x10",(byte*)"\x05\xFC\x50\xA8\xA0\x00",(byte*)"\x05\x04\x00\x00\x00\x00",(byte*)"\x05\xF8\x50\xA8\xF8\x00",(byte*)"\x04\x00\x00\x00\x00",(byte*)"\x02\x00\x01",(byte*)"\x02\x00\x01",(byte*)"\x03\x9F\x37\x04",(byte*)"\x0F\x9F\x02\x06\x5F\x2A\x02\x9A\x03\x9C\x01\x95\x05\x9F\x37\x04",(byte*)"\x02\x00\x02",(byte*)"\x05\x99\x99\x99\x99\x99",(byte*)"\x04\x00\x00\x01\xF4",(byte*)"\x01\x52",(byte*)"\x01\x00",}, //
+};
+
+typedef struct sPubRecord{
+    byte *_pubRid;
+    byte _pubIdx;
+    byte *_pubkeyData;
+    card _pubExp;
+    byte _pubAlgo;
+}tPubRecord;
+
+static tPubRecord dftPub[]={
+    {(byte*)"\x05\xA0\x00\x00\x00\x04",0xF8,(byte*) "\x80"               "\xA1\xF5\xE1\xC9\xBD\x86\x50\xBD" "\x43\xAB\x6E\xE5\x6B\x89\x1E\xF7"               "\x45\x9C\x0A\x24\xFA\x84\xF9\x12" "\x7D\x1A\x6C\x79\xD4\x93\x0F\x6D"         "\xB1\x85\x2E\x25\x10\xF1\x8B\x61" "\xCD\x35\x4D\xB8\x3A\x35\x6B\xD1"         "\x90\xB8\x8A\xB8\xDF\x04\x28\x4D" "\x02\xA4\x20\x4A\x7B\x6C\xB7\xC5"         "\x55\x19\x77\xA9\xB3\x63\x79\xCA" "\x3D\xE1\xA0\x8E\x69\xF3\x01\xC9"         "\x5C\xC1\xC2\x05\x06\x95\x92\x75" "\xF4\x17\x23\xDD\x5D\x29\x25\x29"         "\x05\x79\xE5\xA9\x5B\x0D\xF6\x32" "\x3F\xC8\xE9\x27\x3D\x6F\x84\x91"         "\x98\xC4\x99\x62\x09\x16\x6D\x9B" "\xFC\x97\x3C\x36\x1C\xC8\x26\xE1",0x03,0x01,}, //
+    {(byte*)"\x05\xA0\x00\x00\x00\x04",0xFA,(byte*) "\x90"                "\xA9\x0F\xCD\x55\xAA\x2D\x5D\x99" "\x63\xE3\x5E\xD0\xF4\x40\x17\x76"                "\x99\x83\x2F\x49\xC6\xBA\xB1\x5C" "\xDA\xE5\x79\x4B\xE9\x3F\x93\x4D"                "\x44\x62\xD5\xD1\x27\x62\xE4\x8C" "\x38\xBA\x83\xD8\x44\x5D\xEA\xA7"                "\x41\x95\xA3\x01\xA1\x02\xB2\xF1" "\x14\xEA\xDA\x0D\x18\x0E\xE5\xE7"                "\xA5\xC7\x3E\x0C\x4E\x11\xF6\x7Ax" "\xA5\xDD\xAB\x5D\x55\x68\x3B\x14"                "\x74\xCC\x06\x27\xF4\x4B\x8D\x30" "\x88\xA4\x92\xFF\xAA\xDA\xD4\xF4"                "\x24\x22\xD0\xE7\x01\x35\x36\xC3" "\xC4\x9A\xD3\xD0\xFA\xE9\x64\x59"                "\xB0\xF6\xB1\xB6\x05\x65\x38\xA3" "\xD6\xD4\x46\x40\xF9\x44\x67\xB1"                "\x08\x86\x7D\xEC\x40\xFA\xAE\xCD" "\x74\x0C\x00\xE2\xB7\xA8\x85\x2D",0x03,0x01}, //
+    {(byte*)"\x05\xA0\x00\x00\x00\x04",0xFE,(byte*) "\x80"                "\xA6\x53\xEA\xC1\xC0\xF7\x86\xC8" "\x72\x4F\x73\x7F\x17\x29\x97\xD6"                "\x3D\x1C\x32\x51\xC4\x44\x02\x04" "\x9B\x86\x5B\xAE\x87\x7D\x0F\x39"                "\x8C\xBF\xBE\x8A\x60\x35\xE2\x4A" "\xFA\x08\x6B\xEF\xDE\x93\x51\xE5"                "\x4B\x95\x70\x8E\xE6\x72\xF0\x96" "\x8B\xCD\x50\xDC\xE4\x0F\x78\x33"                "\x22\xB2\xAB\xA0\x4E\xF1\x37\xEF" "\x18\xAB\xF0\x3C\x7D\xBC\x58\x13"                "\xAE\xAE\xF3\xAA\x77\x97\xBA\x15" "\xDF\x7D\x5B\xA1\xCB\xAF\x7F\xD5"                "\x20\xB5\xA4\x82\xD8\xD3\xFE\xE1" "\x05\x07\x78\x71\x11\x3E\x23\xA4"                "\x9A\xF3\x92\x65\x54\xA7\x0F\xE1" "\x0E\xD7\x28\xCF\x79\x3B\x62\xA1",0x03,0x01}, //pubtKey3
+    {(byte*)"\x05\xA0\x00\x00\x00\x10",0xF8,(byte*) "\x80"                "\xA1\xF5\xE1\xC9\xBD\x86\x50\xBD" "\x43\xAB\x6E\xE5\x6B\x89\x1E\xF7"                "\x45\x9C\x0A\x24\xFA\x84\xF9\x12" "\x7D\x1A\x6C\x79\xD4\x93\x0F\x6D"                "\xB1\x85\x2E\x25\x10\xF1\x8B\x61" "\xCD\x35\x4D\xB8\x3A\x35\x6B\xD1"                "\x90\xB8\x8A\xB8\xDF\x04\x28\x4D" "\x02\xA4\x20\x4A\x7B\x6C\xB7\xC5"                "\x55\x19\x77\xA9\xB3\x63\x79\xCA" "\x3D\xE1\xA0\x8E\x69\xF3\x01\xC9"                "\x5C\xC1\xC2\x05\x06\x95\x92\x75" "\xF4\x17\x23\xDD\x5D\x29\x25\x29"                "\x05\x79\xE5\xA9\x5B\x0D\xF6\x32" "\x3F\xC8\xE9\x27\x3D\x6F\x84\x91"                "\x98\xC4\x99\x62\x09\x16\x6D\x9B" "\xFC\x97\x3C\x36\x1C\xC8\x26\xE1",0x03,0x01}, //pubtKey4
+    {(byte*)"\x05\xA0\x00\x00\x00\x04",0xF3,(byte*)  "\x90"                                                             "\x98\xF0\xC7\x70\xF2\x38\x64\xC2" "\xE7\x66\xDF\x02\xD1\xE8\x33\xDF"                    "\xF4\xFF\xE9\x2D\x69\x6E\x16\x42" "\xF0\xA8\x8C\x56\x94\xC6\x47\x9D"                    "\x16\xDB\x15\x37\xBF\xE2\x9E\x4F" "\xDC\x6E\x6E\x8A\xFD\x1B\x0E\xB7"                    "\xEA\x01\x24\x72\x3C\x33\x31\x79" "\xBF\x19\xE9\x3F\x10\x65\x8B\x2F"                    "\x77\x6E\x82\x9E\x87\xDA\xED\xA9" "\xC9\x4A\x8B\x33\x82\x19\x9A\x35"                    "\x0C\x07\x79\x77\xC9\x7A\xFF\x08" "\xFD\x11\x31\x0A\xC9\x50\xA7\x2C"                    "\x3C\xA5\x00\x2E\xF5\x13\xFC\xCC" "\x28\x6E\x64\x6E\x3C\x53\x87\x53"                    "\x5D\x50\x95\x14\xB3\xB3\x26\xE1" "\x23\x4F\x9C\xB4\x8C\x36\xDD\xD4"                    "\x4B\x41\x6D\x23\x65\x40\x34\xA6" "\x6F\x40\x3B\xA5\x11\xC5\xEF\xA3",0x03,0x01}, //pubtKey5
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x70,(byte*)  "\xB3"                                                             "\xE5\xE6\x67\x50\x6C\x47\xCA\xAF" "\xB1\x2A\x26\x33\x81\x93\x50\x84"                    "\x66\x97\xDD\x65\xA7\x96\xE5\xCE" "\x77\xC5\x7C\x62\x6A\x66\xF7\x0B"                    "\xB6\x30\x91\x16\x12\xAD\x28\x32" "\x90\x9B\x80\x62\x29\x1B\xEC\xA4"                    "\x6C\xD3\x3B\x66\xA6\xF9\xC9\xD4" "\x8C\xED\x8B\x4F\xC8\x56\x1C\x8A"                    "\x1D\x8F\xB1\x58\x62\xC9\xEB\x60" "\x17\x8D\xEA\x2B\xE1\xF8\x22\x36"                    "\xFF\xCF\xF4\xF3\x84\x3C\x27\x21" "\x79\xDC\xDD\x38\x4D\x54\x10\x53"                    "\xDA\x6A\x6A\x0D\x3C\xE4\x8F\xDC" "\x2D\xC4\xE3\xE0\xEE\xE1\x5F\x00"                    "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                    "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                    "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                    "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                    "\x00\x00\x00",0x03,0x01}, //pubtKey6
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x80,(byte*)  "\xC6"                                                            "\x96\x03\x42\x13\xD7\xD8\x54\x69" "\x84\x51\x9D\x1D\x0F\x0E\xA5\x19"                   "\xCF\xF8\xDE\xFF\xC4\x29\x35\x4C" "\xF3\xA8\x71\xA6\xF7\x18\x3F\x12"                   "\x28\xDA\x5C\x74\x70\xC0\x55\x38" "\x71\x00\xCB\x93\x5A\x71\x2C\x4E"                   "\x28\x64\xDF\x5D\x64\xBA\x93\xFE" "\x7E\x63\xE7\x1F\x25\xB1\xE5\xF5"                   "\x29\x85\x75\xEB\xE1\xC6\x3A\xA6" "\x17\x70\x69\x17\x91\x1D\xC2\xA7"                   "\x5A\xC2\x8B\x25\x1C\x7E\xF4\x0F" "\x23\x65\x91\x24\x90\xB9\x39\xBC"                   "\xA2\x12\x4A\x30\xA2\x8F\x54\x40" "\x2C\x34\xAE\xCA\x33\x1A\xB6\x7E"                   "\x1E\x79\xB2\x85\xDD\x57\x71\xB5" "\xD9\xFF\x79\xEA\x63\x0B\x75\x00"                   "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                   "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                   "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                   "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                   "\x00\x00\x00\x00\x00\x00",0x03,0x01}, //pubtKey7
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x90,(byte*)  "\xA8"               "\x9F\x25\xA5\x6F\xA6\xDA\x25\x8C" "\x8C\xA8\xB4\x04\x27\xD9\x27\xB4"                "\xA1\xEB\x4D\x7E\xA3\x26\xBB\xB1" "\x2F\x97\xDE\xD7\x0A\xE5\xE4\x48"                "\x0F\xC9\xC5\xE8\xA9\x72\x17\x71" "\x10\xA1\xCC\x31\x8D\x06\xD2\xF8"                "\xF5\xC4\x84\x4A\xC5\xFA\x79\xA4" "\xDC\x47\x0B\xB1\x1E\xD6\x35\x69"                "\x9C\x17\x08\x1B\x90\xF1\xB9\x84" "\xF1\x2E\x92\xC1\xC5\x29\x27\x6D"                "\x8A\xF8\xEC\x7F\x28\x49\x20\x97" "\xD8\xCD\x5B\xEC\xEA\x16\xFE\x40"                "\x88\xF6\xCF\xAB\x4A\x1B\x42\x32" "\x8A\x1B\x99\x6F\x92\x78\xB0\xB7"                "\xE3\x31\x1C\xA5\xEF\x85\x6C\x2F" "\x88\x84\x74\xB8\x36\x12\xA8\x2E"                "\x4E\x00\xD0\xCD\x40\x69\xA6\x78" "\x31\x40\x43\x3D\x50\x72\x5F\x00"                "\x00\x00\x00\x00\x00\x00\x00\x00" "\x00\x00\x00\x00\x00\x00\x00\x00"                "\x00\x00\x00\x00\x00\x00\x00\x00",0x03,0x01}, //pubtKey8
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x95,(byte*)  "\x90"                                                             "\xBE\x9E\x1F\xA5\xE9\xA8\x03\x85" "\x29\x99\xC4\xAB\x43\x2D\xB2\x86"                    "\x00\xDC\xD9\xDA\xB7\x6D\xFA\xAA" "\x47\x35\x5A\x0F\xE3\x7B\x15\x08"                    "\xAC\x6B\xF3\x88\x60\xD3\xC6\xC2" "\xE5\xB1\x2A\x3C\xAA\xF2\xA7\x00"                    "\x5A\x72\x41\xEB\xAA\x77\x71\x11" "\x2C\x74\xCF\x9A\x06\x34\x65\x2F"                    "\xBC\xA0\xE5\x98\x0C\x54\xA6\x47" "\x61\xEA\x10\x1A\x11\x4E\x0F\x0B"                    "\x55\x72\xAD\xD5\x7D\x01\x0B\x7C" "\x9C\x88\x7E\x10\x4C\xA4\xEE\x12"                    "\x72\xDA\x66\xD9\x97\xB9\xA9\x0B" "\x5A\x6D\x62\x4A\xB6\xC5\x7E\x73"                    "\xC8\xF9\x19\x00\x0E\xB5\xF6\x84" "\x89\x8E\xF8\xC3\xDB\xEF\xB3\x30"                    "\xC6\x26\x60\xBE\xD8\x8E\xA7\x8E" "\x90\x9A\xFF\x05\xF6\xDA\x62\x7B",0x03,0x01}, //pubtKey9
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x97,(byte*)  "\x60"                                                             "\xAF\x07\x54\xEA\xED\x97\x70\x43" "\xAB\x6F\x41\xD6\x31\x2A\xB1\xE2"                    "\x2A\x68\x09\x17\x5B\xEB\x28\xE7" "\x0D\x5F\x99\xB2\xDF\x18\xCA\xE7"                    "\x35\x19\x34\x1B\xBB\xD3\x27\xD0" "\xB8\xBE\x9D\x4D\x0E\x15\xF0\x7D"                    "\x36\xEA\x3E\x3A\x05\xC8\x92\xF5" "\xB1\x9A\x3E\x9D\x34\x13\xB0\xD9"                    "\x7E\x7A\xD1\x0A\x5F\x5D\xE8\xE3" "\x88\x60\xC0\xAD\x00\x4B\x1E\x06"                    "\xF4\x04\x0C\x29\x5A\xCB\x45\x7A" "\x78\x85\x51\xB6\x12\x7C\x0B\x29",0x03,0x01}, //pubtKey10
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x98,(byte*)  "\x70"                                                              "\xCA\x02\x6E\x52\xA6\x95\xE7\x2B" "\xD3\x0A\xF9\x28\x19\x6E\xED\xC9"                     "\xFA\xF4\xA6\x19\xF2\x49\x2E\x3F" "\xB3\x11\x69\x78\x9C\x27\x6F\xFB"                     "\xB7\xD4\x31\x16\x64\x7B\xA9\xE0" "\xD1\x06\xA3\x54\x2E\x39\x65\x29"                     "\x2C\xF7\x78\x23\xDD\x34\xCA\x8E" "\xEC\x7D\xE3\x67 \xE0\x80\x70\x80"                    "9\x5\x77\xC7\xEF\xAD\x93\x99\x24" "\xCB\x18\x70\x67\xDB\xF9\x2C\xB1"                     "\xE7\x85\x91\x7B\xD3\x8B\xAC\xE0" "\xC1\x94\xCA\x12\xDF\x0C\xE5\xB7"                     "\xA5\x02\x75\xAC\x61\xBE\x7C\x3B" "\x43\x68\x87\xCA\x98\xC9\xFD\x39",0x03,0x01}, //pubtKey11
+    {(byte*)"\x05\xA0\x00\x00\x00\x03",0x99,(byte*)  "\x80"                                                              "\xAB\x79\xFC\xC9\x52\x08\x96\x96" "\x7E\x77\x6E\x64\x44\x4E\x5D\xCD"                    "\xD6\xE1\x36\x11\x87\x4F\x39\x85" "\x72\x25\x20\x42\x52\x95\xEE\xA4"                    "\xBD\x0C\x27\x81\xDE\x7F\x31\xCD" "\x3D\x04\x1F\x56\x5F\x74\x73\x06"                    "\xEE\xD6\x29\x54\xB1\x7E\xDA\xBA" "\x3A\x6C\x5B\x85\xA1\xDE\x1B\xEB"                    "\x9A\x34\x14\x1A\xF3\x8F\xCF\x82" "\x79\xC9\xDE\xA0\xD5\xA6\x71\x0D"                    "\x08\xDB\x41\x24\xF0\x41\x94\x55" "\x87\xE2\x03\x59\xBA\xB4\x7B\x75"                    "\x75\xAD\x94\x26\x2D\x4B\x25\xF2" "\x64\xAF\x33\xDE\xDC\xF2\x8E\x09"                    "\x61\x5E\x93\x7D\xE3\x2E\xDC\x03" "\xC5\x44\x45\xFE\x7E\x38\x27\x77",0x03,0x01}, //pubtKey12
+};
+
+#define __DFT_H
+#endif
+

@@ -1,0 +1,2690 @@
+<?xml version="1.0" encoding="us-ascii" ?>
+<!-- 
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rlo.xml $
+$Id: rlo.xml 1883 2009-04-16 14:03:09Z ajloreto $
+-->
+
+<uta:rptLayout uta:default="rloPrint" xmlns:uta="http://www.ingenico.com/xml/uta">
+
+	<uta:section uta:id="rloFeed" uta:comment="feed line to cut off the receipt">
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+        	<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<!--<uta:line uta:comment="                                                ">rptSpaces</uta:line>		adrian_rx	-->
+	</uta:section>
+
+
+	<uta:section uta:id="rloHeader" uta:cperomment="Receipt Header">
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+    		<uta:block uta:comment="     BRI Logo      ">rloEnd</uta:block>
+		<uta:line uta:comment="INGENICO"	uta:esc='__COMPR_CENTER__'>        rptHdrSiteName</uta:line>
+		<uta:line uta:comment="GEDUNG BRI"	uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr1</uta:line>
+		<uta:line uta:comment="RAGUNAN"		uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr2</uta:line>
+		<uta:line uta:comment="               "          uta:esc='__BOLD_CENTER__'>rptDuplicate</uta:line>
+	</uta:section>
+<!--
+	<uta:section uta:id="rloHeader" uta:cperomment="Receipt Header">
+    		<uta:block uta:comment="     BRI Logo      ">rloEnd</uta:block>
+		<uta:line uta:comment="               "          uta:esc='__BOLD_CENTER__'>rptDuplicate</uta:line>
+	</uta:section>
+
+-->
+	<uta:section uta:id="rloHeader2" uta:cperomment="Receipt Header">
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+              <uta:block uta:comment="     INGENICO Logo      ">rloEnd</uta:block>
+		<uta:line uta:comment="Gedung BRI I"	uta:esc='__COMPR_CENTER__'>        rptHdrSiteNameBRI</uta:line>
+		<uta:line uta:comment="Sudirman"		uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr1BRI</uta:line>
+		<uta:line uta:comment="Jakarta"			uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr2BRI</uta:line>
+	</uta:section>
+
+<!--
+
+	<uta:section uta:id="rloHeader2" uta:cperomment="Receipt Header">
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+              <uta:block uta:comment="     INGENICO Logo      ">rloEnd</uta:block>
+	</uta:section>
+-->	
+	<uta:section uta:id="rloInitHeader" uta:comment="Receipt Header">
+		<uta:line uta:comment="EMV CREDIT 00.02						"   uta:esc='__COMPR_CENTER__'> 		rptNameVersion</uta:line>
+		<uta:line uta:comment="** INITIALISE **           										 "   uta:esc='__COMPR_CENTER__'>    rptInitTitle</uta:line>
+		<uta:line uta:comment="Ingenico Template                               "   uta:esc='__COMPR_CENTER__'>        rptHdrSiteName</uta:line>
+		<uta:line uta:comment="17F Pearl Bank Center                           "   uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr1</uta:line>
+		<uta:line uta:comment="146 Valero							           "   uta:esc='__COMPR_CENTER__'>        rptHdrSiteAddr2</uta:line>
+		<uta:line uta:comment="                                                ">  rptSpaces</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        cmbRptDatTim</uta:line>
+		<uta:line uta:comment="                                                " uta:esc='__SPACES__'>	 rptSpaces</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloInitBody" uta:comment="Init Receipt Body">
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>        cmbAcqDet</uta:line>
+		<uta:line uta:comment="      TID  :00000000    MID  :000000000000000   "   uta:esc='__COMPRESSED__'>        cmbTidMidInit</uta:line>
+		<uta:line uta:comment="      PRI# :7519206                SEC# :7519220"   uta:esc='__COMPRESSED__'>        cmbPhoneSrv</uta:line>
+		<uta:line uta:comment="    Pri IP   :010.017.032.215                     "   uta:esc='__COMPRESSED__'>        cmbPriIpSrv</uta:line>
+		<uta:line uta:comment="    Sec IP   :010.017.032.215                     "   uta:esc='__COMPRESSED__'>        cmbSecIpSrv</uta:line>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloSignatureLine" uta:comment="Signature Details">
+		<uta:line uta:comment="                                                ">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="________________________________________________"    uta:esc='__COMPRESSED__'>rptSep0</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloPinVerTypeMerchant" uta:comment="Receipt Type Merchant">
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptCusNoSig</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+      <uta:section uta:id="rloPinVerTypeCustomer" uta:comment="Receipt Type Merchant">
+      		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptCusNoSig</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptCusCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	<uta:section uta:id="rloPinVerTypeBank" uta:comment="Receipt Type Merchant">
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptCusNoSig</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>rptBankCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeMerchant" uta:comment="Receipt Type Merchant">
+	    <uta:block>rloSignatureLine</uta:block>
+	    <uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+<!--		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow3</uta:line> --> <!--@agmr -->
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeMerchantNoSignature" uta:comment="Receipt Type Merchant No Signature">
+	    <!--<uta:block>rloSignatureLine</uta:block>
+	    <uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>-->
+	    <uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+<!--		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line> --> <!--@agmr -->
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPR_CENTER__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloReceiptTypeCustomer" uta:comment="Receipt Type Customer">
+		<!--
+	       <uta:block>rloSignatureLine</uta:block>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow3</uta:line> --> <!--@agmr -->
+		<uta:line uta:comment="* CUSTOMER COPY *															 "    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* CUSTOMER COPY *															 "    uta:esc='__COMPR_CENTER__'>   rptCusCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeBank" uta:comment="Receipt Type Bank">
+	       <uta:block>rloSignatureLine</uta:block>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+<!--		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow3</uta:line> --> <!--@agmr -->
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* CUSTOMER COPY *			 "    uta:esc='__COMPR_CENTER__'>rptBankCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeBankNoSignature" uta:comment="Receipt Type Bank">
+<!--	<uta:block>rloSignatureLine</uta:block>  
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>-->
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+<!--		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow3</uta:line> --> <!--@agmr -->
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* CUSTOMER COPY *			 "    uta:esc='__COMPR_CENTER__'>rptBankCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+
+	<uta:section uta:id="rloDuplicateLine" uta:comment="Signature Details">
+		<uta:line uta:comment="                                                ">                               rptSpaces</uta:line>
+		<uta:line uta:comment="* DUPLICATE COPY *"                               uta:esc='__COMPR_CENTER__'>        rptDupCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+<!--		<uta:block>rloFeed</uta:block> -->
+	</uta:section>
+	
+	<uta:section uta:id="rloInitEmvHeader" uta:comment="Init Receipt Body">
+		<uta:line uta:comment="EMV CREDIT"   >        rptEmvDet1</uta:line>
+		<uta:line uta:comment="----EMV PARAMATERS-----"   >        rptEmvDet2</uta:line>
+		<uta:line uta:comment="LOADED AIDS"   >        rptEmvDet3</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloInitEmvBody" uta:comment="Init Receipt Body">
+		<uta:line uta:comment="A000000004"   >        cvtAid</uta:line>
+	</uta:section>
+<!--	
+	<uta:section uta:id="rloEmvTags" uta:comment="EMV tags">
+	  <uta:line uta:comment="                                                ">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TC   :09CDFA2DAF4B0D2F                    "   uta:esc='__COMPRESSED__'> cmbEmvTc</uta:line>
+		<uta:line uta:comment="TVR  :400000E040                                "   uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line>
+		<uta:line uta:comment="TSI  :F800                                           "   uta:esc='__COMPRESSED__'> cmbEmvTsi</uta:line>
+	</uta:section>		
+-->
+	<uta:section uta:id="rloEmvDebug" uta:comment="EMV tags">
+		<uta:line uta:comment="Terminal Capabilities                            "   uta:esc='__COMPRESSED__'> cmbTermCap</uta:line>
+		<uta:line uta:comment="Additional Terminal Capabilities             "   uta:esc='__COMPRESSED__'> cmbAddTermCap</uta:line>
+		<uta:line uta:comment="App Name	                                      "   uta:esc='__COMPRESSED__'> cmbTxt</uta:line>
+		<uta:line uta:comment="AID		                                      "   uta:esc='__COMPRESSED__'> cmbEmvAid</uta:line>
+		<uta:line uta:comment="CAPK Index 	                                      "   uta:esc='__COMPRESSED__'> cmbCAPKIdx</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="PAN		                                      "   uta:esc='__COMPRESSED__'> cmbEmvPAN</uta:line>
+		<uta:line uta:comment="Transaction Date                                 "   uta:esc='__COMPRESSED__'> cmbEmvTrnDate</uta:line>
+		<uta:line uta:comment="Transaction Type                                 "   uta:esc='__COMPRESSED__'> cmbEmvTrnType</uta:line>
+		<uta:line uta:comment="Currency Code                                    "   uta:esc='__COMPRESSED__'> cmbEmvCurrCode</uta:line>
+		<uta:line uta:comment="Country Code                                      "   uta:esc='__COMPRESSED__'> cmbEmvCouCode</uta:line>
+		<uta:line uta:comment="Amount		                                      "   uta:esc='__COMPRESSED__'> cmbEmvAmtNum</uta:line>
+		<uta:line uta:comment="Other Amount                                      "   uta:esc='__COMPRESSED__'> cmbEmvOtherNum</uta:line>
+		<uta:line uta:comment="Pan Sequence                                     "   uta:esc='__COMPRESSED__'> cmbEmvPANSeq</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="TACDef		                                      "   uta:esc='__COMPRESSED__'> rptTerminalAction</uta:line>
+		<uta:line uta:comment="TACDen		                                      "   uta:esc='__COMPRESSED__'> cmbEmvTACDen</uta:line>
+		<uta:line uta:comment="TACOnl		                                      "   uta:esc='__COMPRESSED__'> cmbEmvTACOnl</uta:line>
+		<uta:line uta:comment="TACDef		                                      "   uta:esc='__COMPRESSED__'> cmbEmvTACDef</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="			                                      "   uta:esc='__COMPRESSED__'> rptIssuerAction</uta:line>
+		<uta:line uta:comment="IACDen		                                      "   uta:esc='__COMPRESSED__'> cmbEmvIACDen</uta:line>
+		<uta:line uta:comment="IACOnl		                                      "   uta:esc='__COMPRESSED__'> cmbEmvIACOnl</uta:line>
+		<uta:line uta:comment="IACDef		                                      "   uta:esc='__COMPRESSED__'> cmbEmvIACDef</uta:line>
+		<uta:line uta:comment="AIP			                                      "   uta:esc='__COMPRESSED__'> cmbEmvAIP</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="TVR		                                      "   uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line>
+		<uta:line uta:comment="CVM			                                "   uta:esc='__COMPRESSED__'> cmbEmvCvmr</uta:line>
+		<uta:line uta:comment="TSI  :F800                                           "   uta:esc='__COMPRESSED__'> cmbEmvTsi</uta:line>
+		<uta:line uta:comment="IAD	                                             "   uta:esc='__COMPRESSED__'> msgIAD</uta:line>
+		<uta:line uta:comment="IAD	                                             "   uta:esc='__COMPRESSED__'> cvtIAD</uta:line>
+		<uta:line uta:comment="Auth Response Code                            "   uta:esc='__COMPRESSED__'> cmbEmvAuthRspCd</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="TSI  :F800                                           "   uta:esc='__COMPRESSED__'> rptScheme</uta:line>
+		<uta:line uta:comment="Scheme		                                       "   uta:esc='__COMPRESSED__'> cmbScheme</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> rptRequest</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> cmbACReq1</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> cmbACReq2</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> rptResponse</uta:line>	
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> cmbACRsp1</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> cmbACRsp2</uta:line>
+		<uta:line uta:comment="AC		                                             "   uta:esc='__COMPRESSED__'> cmbEmvAC</uta:line>
+		<uta:line uta:comment="ATC		                                       "   uta:esc='__COMPRESSED__'> cmbEmvATC</uta:line>
+		<uta:line uta:comment="Unpredictable Number                           "   uta:esc='__COMPRESSED__'> cmbEmvUnpNum</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="TSI  :F800                                           "   uta:esc='__COMPRESSED__'> cmbLstCmdRsp</uta:line>
+		<uta:line uta:comment="                                               		   "	uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="TSI  :F800                                           "   uta:esc='__COMPRESSED__'> rptRiskMng</uta:line>
+		<uta:line uta:comment="Amount		   	                                "   uta:esc='__COMPRESSED__'> cmbEmvAmt</uta:line>
+		<uta:line uta:comment="Previous Amount		                          "   uta:esc='__COMPRESSED__'> cmbEmvPrevAmt</uta:line>
+		<uta:line uta:comment="Total Amount		                               "   uta:esc='__COMPRESSED__'> cmbEmvTotAmt</uta:line>
+		<uta:line uta:comment="Floor Limit		                            "   uta:esc='__COMPRESSED__'> cmbEmvFlrLim</uta:line>
+	</uta:section>		
+
+
+	<uta:section uta:id="rloEmvTags" uta:comment="EMV tags">
+		<uta:line uta:comment="AID  :A000000000031010                   "   uta:esc='__COMPRESSED__'> cmbEmvAid</uta:line>
+		<uta:line uta:comment="APP  :CREDITO DE VISA                    "   uta:esc='__COMPRESSED__'> cmbEmvAppType</uta:line>
+		<uta:line uta:comment="TC   :09CDFA2DAF4B0D2F                   "   uta:esc='__COMPRESSED__'> cmbEmvTc</uta:line>
+		<uta:line uta:comment="TVR  :0000080000                         "   uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line>
+		
+	</uta:section>		
+
+<!--
+	<uta:section uta:id="rloTrxBody2" uta:comment="Transaction Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>      	cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>     	    cmbAcqDet</uta:line>
+		        <uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>         	rptAcquirerDetails</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>       		rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"   	   uta:esc='__BOLD__'>        	  cmbCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'>					cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'>					traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>					cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        	cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>					cmbTrxRefApprv</uta:line>
+		<uta:line uta:comment="SALE                                    $1000.00"   uta:esc='__BOLD__'>			      cmbTraAmt</uta:line>
+		<uta:line uta:comment="TIP                                      $100.00"   uta:esc='__BOLD__'>			      cmbTipAmt</uta:line>
+		<uta:line uta:comment="                                  ______________"   uta:esc='__DBLHEIGHT__'>			      rptEqualAmt</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>			      cmbTotAmt</uta:line>
+	</uta:section>	
+-->
+	<uta:section uta:id="rloTrxBody" uta:comment="Transaction Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+<!--		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line> -->
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+<!--		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line> -->
+        <uta:line uta:comment="SALE				10/12" 					uta:esc='__BOLD_COMPR__'>rptBuf1</uta:line>		
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<!--ini rubahan ali-->
+		<!--<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf2</uta:line>-->
+		<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line>
+		
+<!--		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__COMPRESSED__'>cmbTraFmtAmt</uta:line> -->
+<!--		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line> -->
+	</uta:section>
+	
+	<uta:section uta:id="rloTrxBodyEMV" uta:comment="Transaction Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+<!--		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line> -->
+        <uta:line uta:comment="SALE				10/12" 					uta:esc='__BOLD_COMPR__'>rptBuf1</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="AID  :A000000000031010                   "   uta:esc='__COMPRESSED__'> cmbEmvAid</uta:line>
+		<!--ini rubahan ali-->
+		<!--<uta:line uta:comment="APP  :CREDITO DE VISA                    "   uta:esc='__COMPRESSED__'> cmbEmvAppType</uta:line>-->
+		<uta:line uta:comment="TC   :09CDFA2DAF4B0D2F                   "   uta:esc='__COMPRESSED__'> cmbEmvTc</uta:line>
+		<uta:line uta:comment="TVR  :0000080000                         "   uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<!--ini rubahan ali-->
+		<!--<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf2</uta:line>-->
+		<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line>
+<!--		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__COMPRESSED__'>cmbTraFmtAmt</uta:line> -->
+<!--		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line> -->
+	</uta:section>	
+
+
+      <uta:section uta:id="rloTrxBodyEMV2" uta:comment="Transaction Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+<!--		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line> -->
+        <uta:line uta:comment="SALE				10/12" 					uta:esc='__BOLD_COMPR__'>rptBuf1</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line>
+<!--		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__COMPRESSED__'>cmbTraFmtAmt</uta:line> -->
+<!--		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line> -->
+	</uta:section>	
+
+	
+	<uta:section uta:id="rloOfflineSaleBody" uta:comment="Offline Sale Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<!--<uta:line uta:comment="REF NO: 515151515151     "  					uta:esc='__COMPRESSED__'>cmbRef</uta:line>-->
+		<uta:line uta:comment="APPROVAL CODE 		123456     " 				uta:esc='__COMPRESSED__'>cmbAutCodOff</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="AMOUNT          Rp. 500" 					uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line>
+		<!--
+		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__BOLD_COMPR__'>cmbTraFmtAmt</uta:line>
+		<uta:line uta:comment="TIP                                      $100.00"   			uta:esc='__BOLD_COMPR__'>cmbIfTrxLogIsTip</uta:line>
+		<uta:line uta:comment="                                  ______________"   		uta:esc='__BOLD_COMPR__'>rptEqualAmt</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line>
+		-->
+	</uta:section>
+
+	<uta:section uta:id="rloManualSaleBody" uta:comment="Manual Sale Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>emvAppPrfNam</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>traPan</uta:line>
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151     "  					uta:esc='__COMPRESSED__'>cmbRef</uta:line>
+		<uta:line uta:comment="APPROVAL CODE 		123456     " 				uta:esc='__COMPRESSED__'>cmbAutCod</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__BOLD_COMPR__'>cmbTraFmtAmt</uta:line>
+		<uta:line uta:comment="TIP                                      $100.00"   			uta:esc='__BOLD_COMPR__'>cmbIfTrxLogIsTip</uta:line>
+		<uta:line uta:comment="                                  ______________"   		uta:esc='__BOLD_COMPR__'>rptEqualAmt</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloRefundBody2" uta:comment="Refund Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>        cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>           cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>           rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>            cmbCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__BOLD__'>		       cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'>					traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>			     cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        	 cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>			     cmbTrxRefApprv</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            cmbTotAmt</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloRefundBody" uta:comment="Refund Receipt Body">
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRI</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRI</uta:line>
+		<uta:line uta:comment="                                                     ">rptSpaces</uta:line>	
+		<uta:line uta:comment="CARD TYPE : MASTERCARD"        uta:esc='__COMPRESSED__'>cmbCardTxnTypeBRI</uta:line>
+		<uta:line uta:comment="XXXXXXXXXXXX0122(chip)"        uta:esc='__COMPRESSED__'>cmbCardNumBRI</uta:line>
+		<uta:line uta:comment="REQ01 MasterCard. 80A"         uta:esc='__COMPRESSED__'>emvChdNam</uta:line>
+		<uta:line uta:comment="                                                     ">rptSpaces</uta:line>
+		<uta:line uta:comment="SALE    EXP:12/14"             uta:esc='__BOLD__'>cmbTransTypeExpDateBRI</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            cmbTotAmt</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloVoidBody" uta:comment="Void Receipt Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="Test Card                     "						uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="SALE				10/12" 					uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="SALE                                    $1000.00"  			uta:esc='__COMPRESSED__'>cmbTraFmtAmt</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   		uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line>
+	</uta:section>
+<!--
+	<uta:section uta:id="rloVoidBody" uta:comment="Void Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>        cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>           cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>           rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>            cmbVoidCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'>		       cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'>					traTrk1</uta:line>		
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>			     cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        	 cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>			     cmbTrxRefApprv</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            cmbTotAmt</uta:line>
+	</uta:section>
+-->
+	<uta:section uta:id="rloPreAuthBody" uta:comment="Pre Authorization Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>        cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>           cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>           rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>            cmbCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__BOLD__'>		       cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'>					traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>		       cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>           cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>		       cmbRefNumApprvCde</uta:line>
+<!--		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            cmbTotAmt</uta:line> -->
+        <uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            rptBuf1</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloCrdVrfyBody" uta:comment="Card Verify Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>        cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>        	 cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>           rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>            cmbCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__BOLD__'>		       cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'>					traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>		       cmbTrxInvBat</uta:line>		
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>           cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>		       cmbRefNumApprvCde</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>            cmbTotAmt</uta:line>
+	</uta:section>
+
+<!-- @@OA - mulai -->	
+	<uta:section uta:id="rloDetailData" uta:comment=" ">
+		<uta:line uta:comment="------------------------------------------------"   uta:esc='__COMPRESSED__'>	rptSep1</uta:line>
+		<uta:line uta:comment="TRANSACTION NAME                        RP. 1000"   uta:esc='__COMPRESSED__'>	cmbTrxNmAmtDetail</uta:line>
+		<uta:line uta:comment="KARTU CS                        4172037641051717"   uta:esc='__COMPRESSED__'>	rptBuf10</uta:line>
+		<uta:line uta:comment="KARTU NASABAH                   4172037641051717"   uta:esc='__COMPRESSED__'>	rptBuf11</uta:line>
+		<uta:line uta:comment="4172037641051717                            1208"   uta:esc='__COMPRESSED__'>	cmbCardNumExpDateDetail</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>	cmbTrxStanInvDetail</uta:line>		
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>	cmbTrxDateTimeBRIDetail</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>	cmbRefNumApprvCdeDetail</uta:line>
+	</uta:section>
+<!-- @@OA - selesai -->	
+
+<!-- [[ BRI -->	
+<!--  BRI2 -->	
+	<uta:section uta:id="rloDuplicateLine2" uta:comment="Signature Details">
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:line uta:comment="* DUPLICATE COPY *"                               uta:esc='__COMPR_CENTER__'>        rptDupCpy</uta:line>
+		<uta:block>rloFeed</uta:block>
+<!--		<uta:block>rptSpaces</uta:block> -->
+	</uta:section>
+	
+	<uta:section uta:id="rloBRIHeader1" uta:comment="BRI header 1">
+<!-- @@OA - mulai 	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->
+<!-- @@OA		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line> -->
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+<!-- @@OA		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line> -->
+<!-- @@OA		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line> -->
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="VISA                                        SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31                             "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S                               "   uta:esc='__BOLD__'> 		cmbCardNumBRI2</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbTrxInvApprvCdeBRI</uta:line>
+		<uta:line uta:comment="BATCH#: 000001              REF NO: 515151515151"   uta:esc='__COMPRESSED__'> cmbBatRefNumBRI</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+<!-- 
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+@@OA - selesai -->		
+    </uta:section>
+    
+    <uta:section uta:id="rloBRIHeaderDouble" uta:comment="BRI header 1">
+<!-- @@OA - mulai 	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->
+<!-- @@OA		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line> -->
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+<!-- @@OA		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line> -->
+<!-- @@OA		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line> -->
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="VISA                                        SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31                             "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S                               "   uta:esc='__BOLD__'> 		cmbCardNumBRI2</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbTrxInvApprvCdeBRI</uta:line>
+		<uta:line uta:comment="BATCH#: 000001              REF NO: 515151515151"   uta:esc='__COMPRESSED__'> cmbBatRefNumBRI</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul1</uta:line>
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul2</uta:line>
+<!-- 
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+@@Adrian - selesai -->		
+    </uta:section>
+    
+	<uta:section uta:id="rloBRIHeader2" uta:comment="BRI header 2">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJenisRekening</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__BOLD__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloBRIHeader3" uta:comment="BRI header 3">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__BOLD__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+    </uta:section>        
+
+<!-- [[ BRI report -->
+	<uta:section uta:id="rloBRIHeader4" uta:comment="BRI header 1">
+	    <uta:line uta:comment="TID  :00000000"              uta:esc='__COMPRESSED__'> cmbTidBRIBlocked</uta:line>
+	    <uta:line uta:comment="MID  :000000000000000"       uta:esc='__COMPRESSED__'> cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>
+		<uta:line uta:comment="REPORT DATE: 01 JAN 1980                   09:47"   uta:esc='__COMPRESSED__'> rptBuf1</uta:line>	
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>	
+		<uta:line uta:comment="            SUMMARY REPORT                      "   uta:esc='__BOLD_CENTER__'> rptJudul</uta:line>	
+    </uta:section>
+
+	<uta:section uta:id="rloBRIHeader5" uta:comment="BRI header 1">
+	    <uta:line uta:comment="TID  :00000000"              uta:esc='__COMPRESSED__'> cmbTidBRIBlocked</uta:line>
+	    <uta:line uta:comment="MID  :000000000000000"       uta:esc='__COMPRESSED__'> cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>
+		<uta:line uta:comment="REPORT DATE: 01 JAN 1980                   09:47"   uta:esc='__COMPRESSED__'> cmbDateTimeReport</uta:line>	
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>	
+		<uta:line uta:comment="            SUMMARY REPORT                      "   uta:esc='__BOLD_CENTER__'> rptJudul</uta:line>	
+    </uta:section>
+    
+<uta:section uta:id="rloBRIHeader6" uta:comment="BRI header 6">
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+	    <uta:line uta:comment="">                             rptSpaces</uta:line>
+		<uta:line uta:comment="VISA (SWIPE)"                  uta:esc='__COMPRESSED__'>       cmbCardMode</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31   "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S      "       uta:esc='__BOLD__'> 		cmbCardNumBRI2</uta:line>
+		<uta:line uta:comment="Test Card              "       uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="              APPROVAL:" 	  uta:esc='__COMPRESSED_RIGHT__'>cmbAutCod2</uta:line>
+        <uta:line uta:comment="">                             rptSpaces</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>        rptJudul</uta:line>
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>        rptBuf17</uta:line>	 
+    </uta:section>  
+    
+	<uta:section uta:id="rloBRIHeader7" uta:comment="BRI header 7">
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+	    <uta:line uta:comment="">                             rptSpaces</uta:line>
+		<uta:line uta:comment="VISA (SWIPE)"                  uta:esc='__COMPRESSED__'>       cmbCardMode</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31   "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S      "       uta:esc='__BOLD__'> 		cmbCardNumBRI2</uta:line>
+    </uta:section>    
+    
+	<uta:section uta:id="rloBRIHeader8" uta:comment="BRI header 7">
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+	    <uta:line uta:comment="">                             rptSpaces</uta:line>
+		<uta:line uta:comment="VISA (SWIPE)"                  uta:esc='__BOLD__'>       cmbCardMode</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31   "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S      "       uta:esc='__COMPRESSED__'> 		cmbCardNumBRI2</uta:line>
+		<uta:line uta:comment="BATCH#: 000001         " 		uta:esc='__COMPRESSED__'>   cmbBatchNo</uta:line>
+    </uta:section>        
+
+	<uta:section uta:id="rloBRIHeader9" uta:comment="BRI header 1">
+	    <uta:line uta:comment="23 OCT 2008 15:20:31   "                    uta:esc='__COMPRESSED__'> cmbTrxDateTimeBRIHdr</uta:line>
+        <uta:line uta:comment="TID  :00000000     MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+        <uta:line uta:comment="BATCH NUM: 000001  HOST :00001" 		       uta:esc='__COMPRESSED__'> cmbBatchHost</uta:line>
+		<uta:line uta:comment="                                        "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>	
+        <uta:line uta:comment="REPORT DATE: 01 JAN 1980                   09:47"   uta:esc='__COMPRESSED__'> rptBuf1</uta:line>
+        <uta:line uta:comment="                                        "   uta:esc='__COMPRESSED__'> rptSpaces</uta:line>		
+		<uta:line uta:comment="            SUMMARY REPORT              "   uta:esc='__BOLD_CENTER__'> rptJudul</uta:line>	
+    </uta:section>
+
+    <uta:section uta:id="rloBRIHeader10" uta:comment="BRI header 1">
+		<uta:line uta:comment="TID  :00000000"                uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="TID  :0000000000000000000"     uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="VISA                                        SALE"       uta:esc='__COMPRESSED__'>       traCardType</uta:line>
+		<uta:line uta:comment="23 OCT 2008 15:20:31                             "       uta:esc='__COMPRESSED__'>       cmbTrxDateTimeBRIHdr</uta:line>
+		<uta:line uta:comment="4172037641051717S                               "   uta:esc='__BOLD__'> 		cmbCardNumBRI2</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__BOLD__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbTrxInvApprvCdeBRI</uta:line>
+		<uta:line uta:comment="BATCH#: 000001              REF NO: 515151515151"   uta:esc='__COMPRESSED__'> cmbBatRefNumBRI</uta:line>
+		<uta:line uta:comment="">                             rptSpaces</uta:line>
+    </uta:section>
+    
+<!-- ]] BRI report -->        
+
+    <uta:section uta:id="rloReceiptFeed" uta:comment="">
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeMerchantBRITrans" uta:comment="Receipt Type Merchant">
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY "    uta:esc='__COMPR_CENTER__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloReceiptTypeBankBRITrans" uta:comment="Receipt Type Bank">
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="* BANK COPY "    uta:esc='__COMPR_CENTER__'>   rptBankCpy</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeCustomerBRITrans" uta:comment="Receipt Type Customer">
+	       <uta:line uta:comment="">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="* CUSTOMER COPY "    uta:esc='__COMPR_CENTER__'>   rptCusCpy</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeJustMerchantBRITrans" uta:comment="Receipt Type Merchant">
+        	<uta:line uta:comment="">                               rptSpaces</uta:line>
+        	<uta:line uta:comment=" "    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+        	<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+        	<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+        	<uta:line uta:comment="">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY "    uta:esc='__COMPR_CENTER__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeJustMerchantBRITransSign" uta:comment="Receipt Type Merchant">
+		<uta:block>rloSignatureLine</uta:block>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+		<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="                                                "   				uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY "    uta:esc='__COMPR_CENTER__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloReceiptTypeJustBankBRITrans" uta:comment="Receipt Type Bank">
+        	<uta:line uta:comment="">                               rptSpaces</uta:line>
+        	<uta:line uta:comment=" "    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+        	<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+        	<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+        	<uta:line uta:comment="">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="* BANK COPY "    uta:esc='__COMPR_CENTER__'>   rptBankCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloReceiptTypeJustCustomerBRITrans" uta:comment="Receipt Type Customer">
+	       <uta:line uta:comment="">                               	  rptSpaces</uta:line>
+	       <uta:line uta:comment=" "    uta:esc='__COMPR_CENTER__'>   rptCusNoSig</uta:line>
+	       <uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow1</uta:line>
+        	<uta:line uta:comment=""    uta:esc='__COMPR_CENTER__'>   rptAcknow2</uta:line>
+        	<uta:line uta:comment="">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="* CUSTOMER COPY "    uta:esc='__COMPR_CENTER__'>   rptCusCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	
+	
+<!-- INFO SALDO -->
+
+	<uta:section uta:id="rloInfoSaldoBody" uta:comment="Info Saldo Body">
+<!--	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudulInfoSaldo</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line> -->
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNamaNasabah</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloBawah" uta:comment="Bawah">
+        <uta:line uta:comment="Informasi lebih lanjut, silahkan hubungi Call"   uta:esc='__COMPR_CENTER__'>      	rptBawah1</uta:line>
+        <uta:line uta:comment="      BRI di 14017, 021-500017, atau 021-    "   uta:esc='__COMPR_CENTER__'>      	rptBawah2</uta:line>
+        <uta:line uta:comment="                57987400                     "   uta:esc='__COMPR_CENTER__'>      	rptBawah3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment="          *** Terima Kasih ***               "   uta:esc='__COMPR_CENTER__'>      	rptBawah4</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawah5" uta:comment="Bawah">
+        <uta:line uta:comment="Informasi lebih lanjut, silahkan hubungi Call"   uta:esc='__COMPR_CENTER__'>      	rptBawah1</uta:line>
+        <uta:line uta:comment="      BRI di 14017, 021-500017, atau 021-    "   uta:esc='__COMPR_CENTER__'>      	rptBawah2</uta:line>
+        <uta:line uta:comment="                57987400                     "   uta:esc='__COMPR_CENTER__'>      	rptBawah3</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawah51" uta:comment="Bawah">
+        <uta:line uta:comment="Informasi Hubungi Call Center : 123"   uta:esc='__COMPR_CENTER__'>      	rptBawah6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>      	rptBawah7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>      	rptBawah8</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawah1" uta:comment="Bawah 1">
+        <uta:line uta:comment="  BRI menyatakan struk ini sebagai bukti     "   uta:esc='__COMPR_CENTER__'>      	rptBawah11</uta:line>
+        <uta:line uta:comment="         pembayaran yang sah                 "   uta:esc='__COMPR_CENTER__'>      	rptBawah12</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment="          *** Terima Kasih ***               "   uta:esc='__COMPR_CENTER__'>      	rptBawah4</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawah2" uta:comment="Bawah 2">
+        <uta:line uta:comment="    BRI menyatakan struk ini sebagai bukti   "   uta:esc='__COMPR_CENTER__'>      	rptBawah11</uta:line>
+        <uta:line uta:comment="     pembayaran setoran simpanan yang sah    "   uta:esc='__COMPR_CENTER__'>      	rptBawah15</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment="          *** Terima Kasih ***               "   uta:esc='__COMPR_CENTER__'>      	rptBawah4</uta:line>
+	</uta:section>			
+
+	<uta:section uta:id="rloBawah3" uta:comment="Bawah 3">
+        <uta:line uta:comment="          *** Terima Kasih ***               "   uta:esc='__COMPR_CENTER__'>      	rptBawah4</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawah4" uta:comment="Bawah 4">
+        <uta:line uta:comment="    BRI menyatakan struk ini sebagai bukti   "   uta:esc='__COMPR_CENTER__'>      	rptBawah11</uta:line>
+        <uta:line uta:comment="     pembayaran setoran pinjaman yang sah    "   uta:esc='__COMPR_CENTER__'>      	rptBawah16</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment="          *** Terima Kasih ***               "   uta:esc='__COMPR_CENTER__'>      	rptBawah4</uta:line>
+	</uta:section>			
+
+	<uta:section uta:id="rloInfoSaldo" uta:comment="Info saldo receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloInfoSaldoBody</uta:block>
+		<uta:block>rloBawah3</uta:block>
+		<uta:block>0</uta:block>
+	</uta:section>
+
+<!-- INFO SALDO BANK LAIN -->
+	<uta:section uta:id="rloInfoSaldoBankLainBody" uta:comment="Info Saldo Bank Lain Body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudulInfoSaldoBankLain</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNamaNasabahBank</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptJenisRekening</uta:line>
+   <!--     <uta:line uta:comment=""   uta:esc='__BOLD__'>          cmbRpInfoSaldoAmt</uta:line> -->
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>	
+
+	<uta:section uta:id="rloInfoSaldoBankLain" uta:comment="Info saldo Bank Lain receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloInfoSaldoBankLainBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		<uta:block>0</uta:block>
+	</uta:section>
+
+	<!-- Mini Statement-->	
+	<uta:section uta:id="rloMiniStatementBody" uta:comment="Mini Staement">   
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>          
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf11</uta:line>          
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf12</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf13</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf14</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line> 
+
+       
+       
+       
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+
+<uta:section uta:id="rloTrxBodyEMVRedeem" uta:comment="Transaction Receipt Body"> 
+	<uta:line uta:comment="TERM.ID : %d" uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line> 
+	<uta:line uta:comment="MER.ID : %d" uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<uta:line uta:comment="4172037641051717S " uta:esc='__BOLD__'>cmbCard_Type</uta:line> 
+	<uta:line uta:comment="4172037641051717S " uta:esc='__BOLD__'>cmbIfCustCopy</uta:line> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<uta:line uta:comment="Test Card " uta:esc='__BOLD__'>traTrk1</uta:line> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<!-- <uta:line uta:comment="SALE 10/12" uta:esc='__COMPRESSED__'>cmbTxnTypeExpDate</uta:line> --> 
+	<uta:line uta:comment="SALE 10/12" uta:esc='__BOLD_COMPR__'>rptBuf1</uta:line> 
+	<uta:line uta:comment="JUL 26, 2010 09:53 " uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line> 
+	<uta:line uta:comment="BATCH#: 000001 TRC#:00001" uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line> 
+	<uta:line uta:comment="REF NO: 515151515151 APRV : SALE51" uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line> 
+	<!-- @agmr --> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<uta:line uta:comment="AID :A000000000031010 " uta:esc='__COMPRESSED__'> cmbEmvAid</uta:line> 
+	<!--ini rubahan ali--> 
+	<!--<uta:line uta:comment="APP :CREDITO DE VISA " uta:esc='__COMPRESSED__'> cmbEmvAppType</uta:line>--> 
+	<uta:line uta:comment="TC :09CDFA2DAF4B0D2F " uta:esc='__COMPRESSED__'> cmbEmvTc</uta:line> 
+	<uta:line uta:comment="TVR :0000080000 " uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<!--ini rubahan ali--> 
+	<!--<uta:line uta:comment="AMOUNT Rp. 500" uta:esc='__BOLD_COMPR__'>rptBuf2</uta:line>--> 
+	<uta:line uta:comment="Informasi Redemtion " uta:esc='__COMPRESSED__'>rptBuf5</uta:line> 
+	<uta:line uta:comment="Salese Amount " uta:esc='__COMPRESSED__'>rptBuf6</uta:line> 
+	<uta:line uta:comment="Redeem Amount " uta:esc='__COMPRESSED__'>rptBuf7</uta:line> 
+	<uta:line uta:comment="Net Sale Amount " uta:esc='__COMPRESSED__'>rptBuf8</uta:line> 
+	<uta:line uta:comment=" " uta:esc='__SPACES__'>rptSpaces</uta:line> 
+	<uta:line uta:comment="Point Redeem " uta:esc='__COMPRESSED__'>rptBuf9</uta:line> 
+	<uta:line uta:comment="Point Balance " uta:esc='__COMPRESSED__'>rptBuf10</uta:line> 
+	<uta:line uta:comment="AMOUNT Rp. 500" uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line> 
+	<!-- <uta:line uta:comment="SALE $1000.00" uta:esc='__COMPRESSED__'>cmbTraFmtAmt</uta:line> --> 
+	<!-- <uta:line uta:comment="TOTAL $1100.00" uta:esc='__BOLD_COMPR__'>cmbTotAmt</uta:line> -->  
+</uta:section>
+
+<uta:section uta:id="rloTrxEMVRedeem" uta:comment="Transaction receipt">
+   	<uta:block>rloHeader</uta:block> <uta:line uta:comment=" ">rptSpaces</uta:line> 
+   	<uta:block>rloTrxBodyEMVRedeem</uta:block> 
+</uta:section>
+	
+	<uta:section uta:id="rloMiniStatement" uta:comment="Mini Staement">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloMiniStatementBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+	
+<!-- TRANSFER SESAMA BRI -->
+	<uta:section uta:id="rloTransferSesamaBRIBody" uta:comment="Transfer Sesama BRI body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudulTransferSesamaBRI</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>         cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>            cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>            rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>                  traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'>		    cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'>		    traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>		    cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>            cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>		    cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      	rptTransferKeBRI</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      	rptNomorRekeningPenerima</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      	rptNamaPenerima</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptBuf1</uta:line>        
+<!--        <uta:line uta:comment="TOTAL      $1100.00"   uta:esc='__COMPRESSED__'>            cmbTotAmtSmall</uta:line> -->
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>	
+
+     		        
+	<uta:section uta:id="rloTransferSesamaBRI" uta:comment="Transfer Sesama BRI receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloTransferSesamaBRIBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- TRANSFER ANTAR BANK  -->													
+	<uta:section uta:id="rloTransferAntarBankBody" uta:comment="Transfer Antar Bank body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudulTransferSesamaAntarBank1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJenisRekening</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      rptJenisTransfer</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->		    
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>    rptJenisRekening</uta:line>
+        <uta:line uta:comment="                                                ">rptSpaces</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptJenisTransfer</uta:line>
+        <uta:line uta:comment="                                                ">rptSpaces</uta:line>				
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptAsal</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBankAsal</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNamaPengirim</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNomorRekeningPengirim</uta:line>    
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptTujuan</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBankTujuan</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNamaPenerima</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNomorRekeningPenerima</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptCustomerRef</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptBuf1</uta:line>                
+<!--        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    cmbJumlahAmt</uta:line> -->
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>          rptBerhasil</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+        	
+	<uta:section uta:id="rloTransferAntarBank" uta:comment="Transfer Antar Bank receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+<!--		<uta:line uta:comment="                                                ">rptSpaces</uta:line> -->
+		<uta:block>rloTransferAntarBankBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- PEMBAYARAN PLN  -->	
+	<uta:section uta:id="rloPembayaranPLNBody" uta:comment="Pembayaran PLN body">  
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>    		rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>    		rptBuf2</uta:line>
+	    <uta:line uta:comment="">                             	rptSpaces</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line>               
+        <uta:line uta:comment="">                               rptSpaces</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptPLNMsg1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptPLNMsg2</uta:line>
+              
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf11</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf12</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf13</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf14</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf15</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf16</uta:line>
+       <uta:line uta:comment="">                                rptSpaces</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPLN" uta:comment="Pembayaran PLN receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloPembayaranPLNBody</uta:block>
+	</uta:section>
+
+
+	<uta:section uta:id="rloPreAuthenticBody" uta:comment="PreAuthentic body">  
+		<uta:line uta:comment=""   uta:esc='__BOLD__'>    		rptBuf1</uta:line>
+		<uta:line uta:comment="">                             	rptSpaces</uta:line>
+	    	<uta:line uta:comment=""   uta:esc='__BOLD__'>    	rptBuf2</uta:line>  
+	</uta:section>	
+	
+	<uta:section uta:id="rloPreAuthentic" uta:comment="PreAuthentic receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<!--<uta:block>rloBRIHeader1</uta:block>-->	
+		<uta:block>rloTrxBodyEMV2</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloPembayaranPLNPraBody" uta:comment="Pembayaran PLN Pra body">    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>    		rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>    		rptBuf2</uta:line>
+	    <uta:line uta:comment="">                             	rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf3</uta:line>    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf7</uta:line>                      
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>  	rptBuf8</uta:line>  
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>     rptBuf10</uta:line>
+        <uta:line uta:comment="">                             	rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf11</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf12</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf13</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf14</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf15</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf16</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf17</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf18</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf19</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPLNPra" uta:comment="Pembayaran PLN receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader10</uta:block>		
+		<uta:block>rloPembayaranPLNPraBody</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloPembayaranPLNTokenBody" uta:comment="Pembayaran PLN Pra body">    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>          rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>          rptBuf2</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>               
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf11</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf12</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf13</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf14</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf15</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf16</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf17</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>          rptBuf18</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf19</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf20</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf21</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPLNToken" uta:comment="Pembayaran PLN receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader10</uta:block>	
+ 		<uta:block>rloPembayaranPLNTokenBody</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxPhoneBankingBody" uta:comment="Registrasi Trx Phone Banking body">    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf3</uta:line>    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      rptBuf7</uta:line>               
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>      rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf11</uta:line>        
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf12</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf13</uta:line>
+       <uta:line uta:comment="">                                  rptSpaces</uta:line>
+	</uta:section>	
+
+	<uta:section uta:id="rloTrxPhoneBanking" uta:comment="Registrasi Trx Phone Banking">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloTrxPhoneBankingBody</uta:block>
+		<uta:block>rloBawah5</uta:block>
+	</uta:section>
+	
+<!-- PEMBAYARAN CICILAN  -->	
+	<uta:section uta:id="rloPembayaranCicilanBody" uta:comment="Pembayaran Cicilan Body">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>        
+      <uta:line uta:comment="">                               rptSpaces</uta:line>        
+       <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptPLNMsg1</uta:line>
+       <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptPLNMsg2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranCicilan" uta:comment="Pembayaran cicilan receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranCicilanBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+	
+<!-- PEMBAYARAN DPLK  -->	
+	<uta:section uta:id="rloPembayaranDplkBody" uta:comment="Pembayaran Dplk Body">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>        
+      <uta:line uta:comment="">                               rptSpaces</uta:line>        
+
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranDplk" uta:comment="Pembayaran Dplk receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranDplkBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- PEMBAYARAN SIM  -->	
+	<uta:section uta:id="rloPembayaranSimBody" uta:comment="Pembayaran sim Body">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>        
+      <uta:line uta:comment="">                               rptSpaces</uta:line>        
+
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranSim" uta:comment="Pembayaran Sim receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeaderDouble</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranSimBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- PEMBAYARAN TIKET  -->	
+	<uta:section uta:id="rloPembayaranTiketBody" uta:comment="Pembayaran Tiket Body">   
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>        
+      <uta:line uta:comment="">                               rptSpaces</uta:line>    
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line>
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+       <uta:line uta:comment="">                               rptSpaces</uta:line> 
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptPLNMsg1</uta:line>
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptPLNMsg2</uta:line>
+       
+       
+       
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranTiket" uta:comment="Pembayaran Tiket receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranTiketBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+	<!-- PEMBAYARAN SETOR PASTI  -->	
+	<uta:section uta:id="rloPembayaranPastiBody" uta:comment="Pembayaran Tiket Body">   
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>  
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>            
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf11</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line> 
+       <uta:line uta:comment=""  uta:esc='__COMPR_CENTER__'>    rptPLNMsg1</uta:line>
+       <uta:line uta:comment=""  uta:esc='__COMPR_CENTER__'>    rptBuf12</uta:line>
+       <uta:line uta:comment=""  uta:esc='__COMPR_CENTER__'>    rptBuf13</uta:line>
+       
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPasti" uta:comment="Pembayaran Pasti receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeaderDouble</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPastiBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+<!-- PEMBAYARAN BRIVA  -->	
+	<uta:section uta:id="rloPembayaranBrivaBody" uta:comment="Pembayaran Cicilan Body">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line> 
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>                
+       <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>
+       <uta:line uta:comment="">                               rptSpaces</uta:line>
+       <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranBriva" uta:comment="Pembayaran Briva receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranBrivaBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		
+	</uta:section>
+
+	<!-- PEMBAYARAN PDAM  -->	
+	<uta:section uta:id="rloPembayaranPdamBody" uta:comment="Pembayaran Pdam">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line> 
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	  <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line> 
+		<uta:line uta:comment="">                               rptSpaces</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPdam" uta:comment="Pembayaran Pdam receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPdamBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		
+	</uta:section>
+
+
+
+<!-- PEMBAYARAN PULSA  -->	
+	<uta:section uta:id="rloPembayaranPulsaBody" uta:comment="Pembayaran pulsa Body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      		rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>        
+	</uta:section>	
+
+	<uta:section uta:id="rloPembayaranPulsaBodySimpati" uta:comment="Pembayaran pulsa Body">
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>	
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__CENTER__'>    rptPLNMsg1</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line>	   	 		
+	</uta:section>		
+			
+	<uta:section uta:id="rloPembayaranPulsaSimpati" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPulsaBody</uta:block>
+		<uta:block>rloPembayaranPulsaBodySimpati</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloPembayaranPulsaBodyMentari" uta:comment="Pembayaran pulsa Body">
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__CENTER__'>    rptPLNMsg1</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line>	   	 		
+	</uta:section>		
+			
+	<uta:section uta:id="rloPembayaranPulsaMentari" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPulsaBody</uta:block>
+		<uta:block>rloPembayaranPulsaBodyMentari</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPulsaBodyIM3" uta:comment="Pembayaran pulsa Body">
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__CENTER__'>    rptPLNMsg1</uta:line>
+      <uta:line uta:comment="">                               rptSpaces</uta:line>	   	 		
+	</uta:section>		
+			
+	<uta:section uta:id="rloPembayaranPulsaIM3" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPulsaBody</uta:block>
+		<uta:block>rloPembayaranPulsaBodyIM3</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	
+	
+	<uta:section uta:id="rloPembayaranPulsaBodyXL" uta:comment="Pembayaran pulsa Body">
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__CENTER__'>        rptPLNMsg1</uta:line>
+      <uta:line uta:comment="">                                rptSpaces</uta:line>	  
+	</uta:section>		
+			
+	<uta:section uta:id="rloPembayaranPulsaXL" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranPulsaBody</uta:block>
+		<uta:block>rloPembayaranPulsaBodyXL</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>		
+
+<!-- PEMBAYARAN ZAKAT  -->	
+	<uta:section uta:id="rloPembayaranZakatBody" uta:comment="Pembayaran Zakat Body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudulPembayaranZakat</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>      	rptNamaPenerima</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptNomorRekeningPenerima</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    cmbJumlahAmt</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+   </uta:section>	
+		
+	<uta:section uta:id="rloPembayaranZakat" uta:comment="Pembayaran Zakat receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloPembayaranZakatBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- SETORAN PINJAMAN  -->	
+	<uta:section uta:id="rloSetorSimpananBody" uta:comment="Setoran Body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+	
+	<uta:section uta:id="rloSetorSimpanan" uta:comment="Setoran  Simpanan receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloSetorSimpananBody</uta:block>
+		<uta:block>rloBawah2</uta:block>
+	</uta:section>
+
+	
+	<uta:section uta:id="rloSetorPinjaman" uta:comment="Setoran  Pinjaman receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloSetorSimpananBody</uta:block>
+		<uta:block>rloBawah4</uta:block>
+	</uta:section>
+
+<!-- TARIK TUNAI  -->	
+	<uta:section uta:id="rloTarikTunaiBody" uta:comment="Info Saldo Body">
+<!--	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+      <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    
+      <uta:line uta:comment="">                               rptSpaces</uta:line> 	    
+	</uta:section>	
+	
+	<uta:section uta:id="rloTarikTunai" uta:comment="Tarik Tunai receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloTarikTunaiBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- REGISTRASI INTERNET BANKING  -->	
+	<uta:section uta:id="rloRegistrasiInternetBankingBody" uta:comment="Registrasi Internet banking body">
+<!--	    
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	   <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	   
+<!-- @@OA	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    <uta:line uta:comment=""   uta:esc='__BOLD_COMPR__'>      rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>    	    
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 	
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf11</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf12</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf13</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line>   
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf14</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf15</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf16</uta:line>	   
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+	
+	<uta:section uta:id="rloRegistrasiInternetBanking" uta:comment="Registrasi Internet Banking receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRegistrasiInternetBankingBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- REGISTRASI PHONE BANKING  -->	
+	<uta:section uta:id="rloRegistrasiPhoneBankingBody" uta:comment="Registrasi Phone Banking Body">
+<!--	    	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    
+	    <uta:line uta:comment=""   uta:esc='__DBLWIDTH__'>      rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf3</uta:line>    	    	    
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf4</uta:line> 	
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line>            	        
+	</uta:section>	
+	
+	<uta:section uta:id="rloRegistrasiPhoneBanking" uta:comment="Phone Banking receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRegistrasiPhoneBankingBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	
+
+	<!--changed by ali-->
+	<uta:section uta:id="rloRegistrasiSmsBankingBody" uta:comment="Registrasi Phone Banking Body">	    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>  rptSpaces</uta:line>    	    	               	        
+	</uta:section>	
+	
+	<uta:section uta:id="rloRegistrasiSmsBanking" uta:comment="Phone Banking receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRegistrasiSmsBankingBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	
+
+<!-- AKTIVASI KARTU  -->	
+
+	<uta:section uta:id="rloAktivasiKartuBody" uta:comment="Aktivasi Kartu Body">
+<!--	    
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+	    
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line> 
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf4</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>    	    	    
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+	
+	<uta:section uta:id="rloAktivasiKartu" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloAktivasiKartuBody</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+	
+<!-- RENEWAL KARTU  -->	
+
+	<uta:section uta:id="rloRenewalKartuBody" uta:comment="Renewal Kartu Body">
+<!--	    
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line> 
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	        
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>  
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf11</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf12</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf13</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf14</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf15</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf16</uta:line>                       
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+<!-- @@OA	
+	<uta:section uta:id="rloRenewalKartuBodyBufAwal" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+
+	<uta:section uta:id="rloRenewalKartuBodyBuf8" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+
+	<uta:section uta:id="rloRenewalKartuBodyBuf9" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+
+	<uta:section uta:id="rloRenewalKartuBodyBuf11" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf11</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+
+	<uta:section uta:id="rloRenewalKartuBodyBuf12" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf11</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf12</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+
+	<uta:section uta:id="rloRenewalKartuBodyBuf15" uta:comment="Renewal Kartu Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf8</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf9</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf10</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf11</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf12</uta:line> 
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf13</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf14</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>    rptBuf15</uta:line> 
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+-->
+	<uta:section uta:id="rloRenewalKartu" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBody</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+<!-- @@OA		
+	<uta:section uta:id="rloRenewalKartuBuf8" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBodyBufAwal</uta:block>
+		<uta:block>rloRenewalKartuBodyBuf8</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+		
+	<uta:section uta:id="rloRenewalKartuBuf9" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBodyBufAwal</uta:block>
+		<uta:block>rloRenewalKartuBodyBuf9</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+		
+	<uta:section uta:id="rloRenewalKartuBuf11" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBodyBufAwal</uta:block>
+		<uta:block>rloRenewalKartuBodyBuf11</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+		
+	<uta:section uta:id="rloRenewalKartuBuf12" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBodyBufAwal</uta:block>
+		<uta:block>rloRenewalKartuBodyBuf12</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+		
+	<uta:section uta:id="rloRenewalKartuBuf15" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuBodyBufAwal</uta:block>
+		<uta:block>rloRenewalKartuBodyBuf15</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+-->		
+	<uta:section uta:id="rloRenewalKartuNCBody" uta:comment="Aktivasi Kartu NC Body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf4</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>  
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf7</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf8</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf9</uta:line> 
+<!--        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf10</uta:line>  -->
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	        
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>          rptBuf11</uta:line>
+        <uta:line uta:comment=""   uta:esc='__CENTER__'>        rptBuf16</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__CENTER__'>        rptBuf17</uta:line>      	    
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>		    
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf12</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf13</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf14</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf15</uta:line> 
+                    
+        <uta:line uta:comment="">                               rptSpaces</uta:line> 
+	</uta:section>	
+	
+	<uta:section uta:id="rloRenewalKartuNC" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloRenewalKartuNCBody</uta:block>
+		<uta:block>rloBawah</uta:block>		
+	</uta:section>		
+
+<!-- REISSUE PIN  -->	
+	<uta:section uta:id="rloReissuePINBody" uta:comment="Reissue PIN Body">
+<!--	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line> -->
+<!--	    <uta:line uta:comment="">                               rptSpaces</uta:line> -->
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>	rptBuf3</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>	rptBuf4</uta:line>
+        
+	</uta:section>	
+	
+	<uta:section uta:id="rloReissuePIN" uta:comment="Reissue PIN receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+		<uta:block>rloReissuePINBody</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+
+<!-- GANTI PIN  -->		
+	<uta:section uta:id="rloGantiPINBody" uta:comment="Ganti PIN Body">
+<!--	    
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000"   uta:esc='__COMPRESSED__'> cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'> cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'> rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"       uta:esc='__BOLD__'>       traCardType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'> cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="Test Card                                       "   uta:esc='__COMPRESSED__'> traTrk1</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'> cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'> cmbTrxDateTime</uta:line>		
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'> cmbRefNumApprvCde</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	 
+-->	       
+<!-- @@OA	    <uta:line uta:comment=""   uta:esc='__BOLD__'>      	rptJudul</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+-->	    <uta:line uta:comment=""   uta:esc='__BOLD_CENTER__'>   rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	</uta:section>	
+	
+	<uta:section uta:id="rloGantiPIN" uta:comment="Ganti PIN receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloGantiPINBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>		
+
+<!-- GANTI PASSWORD SPV  -->		
+	<uta:section uta:id="rloGantiPasswordSPVBody" uta:comment="Ganti Password SPV Body">    
+	    <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>   rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>	    
+	</uta:section>	
+	
+	<uta:section uta:id="rloGantiPasswordSPV" uta:comment="Ganti Password SPV receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloGantiPasswordSPVBody</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>		
+
+<!-- INSTALLMENT  -->	
+	<uta:section uta:id="rloInstallmentEMVBody" uta:comment="Installment Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                               " uta:esc='__SPACES__'>rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						    uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						    uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+<!--		<uta:line uta:comment="                                               " >rptSpaces</uta:line> -->
+		<uta:line uta:comment="Test Card                     "					uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                               " uta:esc='__SPACES__'>rptSpaces</uta:line>
+        <uta:line uta:comment="SALE				10/12" 					        uta:esc='__COMPRESSED__'>rptBuf1</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151             APRV  : SALE51" uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+		<uta:line uta:comment="AID  :A000000000031010                   "       uta:esc='__COMPRESSED__'> cmbEmvAid</uta:line>
+		<!--ini rubahan ali-->
+		<!--<uta:line uta:comment="APP  :CREDITO DE VISA                    "       uta:esc='__COMPRESSED__'> cmbEmvAppType</uta:line>-->
+		<uta:line uta:comment="TC   :09CDFA2DAF4B0D2F                   "       uta:esc='__COMPRESSED__'> cmbEmvTc</uta:line>
+		<uta:line uta:comment="TVR  :0000080000                         "       uta:esc='__COMPRESSED__'> cmbEmvTvr</uta:line>
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+
+	    <uta:line uta:comment="Amount"                                          uta:esc='__BOLD_COMPR__'> rptBuf4</uta:line>
+        <!--<uta:line uta:comment="TOTAL           Rp. 500" 					    uta:esc='__BOLD_COMPR__'>rptBuf3</uta:line>-->	    
+	    <uta:line uta:comment=""                                                >rptSpaces</uta:line> 
+	    <uta:line uta:comment="INFORMASI CICILAN BRING"                          uta:esc='__COMPRESSED__'>       rptBuf5</uta:line>
+	    <uta:line uta:comment="Pokok          Rp.xxx.xxx"                       uta:esc='__COMPRESSED__'> rptBuf6</uta:line>
+	    <uta:line uta:comment="Jangka Waktu     xx Bulan"                       uta:esc='__COMPRESSED__'> rptBuf7</uta:line>
+	    <uta:line uta:comment="Cicilan        Rp.xxx.xxx"                       uta:esc='__COMPRESSED__'> rptBuf8</uta:line>
+        <uta:line uta:comment=""                                                >rptSpaces</uta:line>
+     </uta:section>	
+
+<!--	
+	<uta:section uta:id="rloInstallment" uta:comment="Installment receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloInstallmentBody</uta:block>
+	</uta:section>		
+-->
+	<uta:section uta:id="rloInstallmentEMV" uta:comment="Installment receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloInstallmentEMVBody</uta:block>
+	</uta:section>   
+	
+	
+	<uta:section uta:id="rloInstallmentBody" uta:comment="Installment Body">
+		<uta:line uta:comment="TERM.ID : %d"    								uta:esc='__COMPRESSED__'>cmbTidBRIBlocked</uta:line>
+		<uta:line uta:comment="MER.ID  : %d"    								uta:esc='__COMPRESSED__'>cmbMidBRIBlocked</uta:line>
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						    uta:esc='__BOLD__'>cmbCard_Type</uta:line>
+		<uta:line uta:comment="4172037641051717S     " 						    uta:esc='__BOLD__'>cmbIfCustCopy</uta:line>
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+		<uta:line uta:comment="Test Card                     "					uta:esc='__BOLD__'>traTrk1</uta:line>
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+        <uta:line uta:comment="SALE				10/12" 					        uta:esc='__BOLD__'>rptBuf1</uta:line>
+		<uta:line uta:comment="JUL 26, 2010			09:53 " 			  		uta:esc='__COMPRESSED__'>cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="BATCH#: 000001                 TRC#:00001" 		uta:esc='__COMPRESSED__'>cmbBatchInv</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151             APRV  : SALE51" uta:esc='__COMPRESSED__'>cmbTrxRefApprv</uta:line>	<!-- @agmr -->	
+		<uta:line uta:comment="                                               " >rptSpaces</uta:line>
+
+	    <uta:line uta:comment="Amount"                                          uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>
+	    <uta:line uta:comment=""                                                >rptSpaces</uta:line> 
+	    <uta:line uta:comment="INFORMASI CICILAN BRING"                          uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+	    <uta:line uta:comment="Pokok          Rp.xxx.xxx"                       uta:esc='__COMPRESSED__'>    rptBuf4</uta:line>
+	    <uta:line uta:comment="Jangka Waktu     xx Bulan"                       uta:esc='__COMPRESSED__'>    rptBuf5</uta:line>
+	    <uta:line uta:comment="Cicilan        Rp.xxx.xxx"                       uta:esc='__COMPRESSED__'>    rptBuf6</uta:line>
+        <uta:line uta:comment=""                                                >rptSpaces</uta:line>
+     </uta:section>	
+
+
+	<uta:section uta:id="rloInstallment" uta:comment="Installment receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloInstallmentBody</uta:block>
+	</uta:section>   	
+	
+	 
+<!-- PEMBAYARAN PASCA BAYAR  -->	
+	<uta:section uta:id="rloPembayaranPascaBayarBody" uta:comment="Pembayaran Pasca Bayar Body">   
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf1</uta:line>
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf2</uta:line>  
+	   <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>    rptBuf3</uta:line>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	   
+	   <uta:line uta:comment=""   uta:esc='__BOLD_CENTER__'>   rptBuf4</uta:line>    
+	</uta:section>	
+
+	<uta:section uta:id="rloBawahPembayaranPascaBayarHalo" uta:comment="Bawah Pembayaran Pasca Bayar">
+	    <uta:line uta:comment="                                                ">rptSpaces</uta:line>
+        <uta:line uta:comment="INDOSAT Menyatakan struk ini"   uta:esc='__COMPR_CENTER__'>      	rptBawahHalo</uta:line>
+        <uta:line uta:comment="sebagai bukti pembayaran yang sah"   uta:esc='__COMPR_CENTER__'>      	rptBawahPascaBayar</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>	
+	
+	<uta:section uta:id="rloBawahPembayaranPascaBayarMatrix" uta:comment="Bawah Pembayaran Pasca Bayar">
+	    <uta:line uta:comment="                                                ">rptSpaces</uta:line>
+        <uta:line uta:comment="TELKOMSEL Menyatakan struk ini"      uta:esc='__COMPR_CENTER__'>      	rptBawahMatrix</uta:line>
+        <uta:line uta:comment="sebagai bukti pembayaran yang sah"   uta:esc='__COMPR_CENTER__'>      	rptBawahPascaBayar</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+ 	</uta:section>		
+	
+	<uta:section uta:id="rloBawahPembayaranPascaBayarSedangProses" uta:comment="Bawah Pembayaran Pasca Bayar">
+        <uta:line uta:comment="Silahkan Cek Saldo Anda"   uta:esc='__COMPR_CENTER__'>      	rptBawahCekSaldo</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+	</uta:section>		
+			
+	<uta:section uta:id="rloPembayaranPascaBayarHalo" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloPembayaranPascaBayarBody</uta:block>
+		<uta:block>rloBawahPembayaranPascaBayarHalo</uta:block>
+		<uta:block>rloBawah3</uta:block> 
+	</uta:section>
+	
+	<uta:section uta:id="rloPembayaranPascaBayarMatrix" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloPembayaranPascaBayarBody</uta:block>
+		<uta:block>rloBawahPembayaranPascaBayarMatrix</uta:block>
+		<uta:block>rloBawah3</uta:block>
+	</uta:section>	
+
+	<uta:section uta:id="rloPembayaranPascaBayarSedangProses" uta:comment="Pembayaran pulsa receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloBRIHeader1</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloPembayaranPascaBayarBody</uta:block>
+		<uta:block>rloBawahPembayaranPascaBayarSedangProses</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+	
+<!-- TOTAL SUMMARY REPORT -->
+	<uta:section uta:id="rloTotalSummaryReport" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader4</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+	</uta:section>		
+	
+<!-- DETAIL REPORT HEADER-->
+	<uta:section uta:id="rloDetailReportHeader" uta:comment="Aktivasi Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader5</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:line uta:comment="" uta:esc='__COMPRESSED__'>cmbDateTimeDetailDay</uta:line>
+	</uta:section>		
+	
+<!-- PREPAID PAYMENT -->
+	<uta:section uta:id="rloPrepaidPaymentBody" uta:comment="Prepaid payment body">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf1</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidPayment" uta:comment="Prepaid sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidPaymentBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloPrepaidPaymentDiscBody" uta:comment="Prepaid payment body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf4</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidPaymentDisc" uta:comment="Prepaid sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidPaymentDiscBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+<!-- PREPAID TOP UP -->
+	<uta:section uta:id="rloPrepaidTopUpBody" uta:comment="Prepaid Top Up body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf4</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>        
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidTopUp" uta:comment="Top Up receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidTopUpBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- PREPAID DEPOSIT -->
+	<uta:section uta:id="rloPrepaidDepositBody" uta:comment="Top Up Deposit body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidDeposit" uta:comment="Top Up Deposit receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidDepositBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>
+
+<!-- PREPAID AKTIVASI -->
+
+	<uta:section uta:id="rloPrepaidAktivasiBody" uta:comment="Prepaid Aktivasi body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf5</uta:line>
+        <uta:line uta:comment="                             ">rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf6</uta:line>		
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidAktivasi" uta:comment="Prepaid Aktivasi receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidAktivasiBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	
+	
+<!-- PREPAID REDEEM -->
+	<uta:section uta:id="rloPrepaidRedeemBody" uta:comment="Prepaid Redeem body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+<!--        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf2</uta:line> -->
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf6</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf7</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf8</uta:line>        
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidRedeem" uta:comment="Prepaid Aktivasi receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidRedeemBody</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	    	
+	
+<!-- PREPAID INFO KARTU -->
+	<uta:section uta:id="rloPrepaidInfoKartuBody" uta:comment="Info Kartu body">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf5</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidInfoKartu" uta:comment="Info Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader7</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidInfoKartuBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>		
+
+<!-- PREPAID INFO SALDO -->
+	<uta:section uta:id="rloPrepaidInfoSaldoBody" uta:comment="Info Kartu body">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	        rptBuf3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidInfoSaldo" uta:comment="Info Kartu receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader7</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidInfoSaldoBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>	
+	
+<!-- PREPAID TRANS LOG -->
+	<uta:section uta:id="rloPrepaidTransLogAtas" uta:comment="Trans log atas">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptSep1</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidTransLog" uta:comment="Trans log">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader7</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidTransLogAtas</uta:block>
+	</uta:section>		
+	
+	<uta:section uta:id="rloPrepaidTransLogIsi" uta:comment="Trans log Isi">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf5</uta:line>
+	</uta:section>		
+
+	<uta:section uta:id="rloPrepaidTransLogBawah" uta:comment="Trans log Bawah">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptSep1</uta:line>
+	    <uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloBawah</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+<!-- PREPAID SETTLEMENT -->
+	<uta:section uta:id="rloPrepaidSettlementBody" uta:comment="Prepaid Settlement body">
+	    <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf1</uta:line>
+	    <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__BOLD__'>	rptBuf4</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidSettlement" uta:comment="Prepaid settlement receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader8</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidSettlementBody</uta:block>
+		<uta:block>rloBawah</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>			
+
+	
+<!-- PREPAID SUMMARY REPORT -->
+	<uta:section uta:id="rloPrepaidSummaryReport" uta:comment="Prepaid summary report">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader9</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+	</uta:section>	
+	
+<!-- PREPAID DETAIL REPORT -->
+	<uta:section uta:id="rloPrepaidDetailHeader" uta:comment="Prepaid detail report">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader9</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>	
+	</uta:section>	
+	
+	<uta:section uta:id="rloPrepaidDetailData" uta:comment=" ">
+		<uta:line uta:comment="------------------------------------------------"   uta:esc='__COMPRESSED__'>	rptSep1</uta:line>
+		<uta:line uta:comment="4172037641051717                 "   uta:esc='__COMPRESSED__'>	rptBuf11</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>	cmbTrxDateTimeBRIDetail</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>	cmbRefNumApprvCdeDetail</uta:line>
+	</uta:section>	
+
+	<!-- [[agmr - brizzi2 -->
+<!-- PREPAID REAKTIVASI -->
+	<uta:section uta:id="rloPrepaidReaktivasiBody" uta:comment="Prepaid Reaktivasi body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line> 
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf4</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf5</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf6</uta:line>
+        <uta:line uta:comment="">                               rptSpaces</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPR_CENTER__'>	rptBuf7</uta:line>        
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidReaktivasi" uta:comment="Prepaid Aktivasi receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidReaktivasiBody</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloBawah</uta:block>
+	</uta:section>	  
+	
+<!-- PREPAID VOID -->
+	<uta:section uta:id="rloPrepaidVoidBody" uta:comment="Prepaid Reaktivasi body">
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf1</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf2</uta:line>
+	    <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf3</uta:line>
+        <uta:line uta:comment=""   uta:esc='__COMPRESSED__'>	rptBuf4</uta:line>        
+    </uta:section>
+    
+	<uta:section uta:id="rloPrepaidVoid" uta:comment="Prepaid Aktivasi receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>		
+		<uta:block>rloBRIHeader6</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloPrepaidVoidBody</uta:block>
+		<uta:line uta:comment="                             ">rptSpaces</uta:line>	
+		<uta:block>rloBawah</uta:block>
+	</uta:section>		 
+
+<!-- ]]agmr - brizzi2 -->
+
+
+<!-- ]]BRI -->	
+	
+
+	<uta:section uta:id="rloTrx" uta:comment="Transaction receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloTrxBody</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloTrxEMV" uta:comment="Transaction receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloTrxBodyEMV</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>	
+
+	<uta:section uta:id="rloOfflineSale" uta:comment="Offline Sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloOfflineSaleBody</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloManualSale" uta:comment="Manual Sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloManualSaleBody</uta:block>
+		<uta:block>rloSignatureLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloRefund" uta:comment="Refund receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+ 		<uta:block>rloRefundBody</uta:block>
+ 		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloVoid" uta:comment="Void receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloVoidBody</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloPreAuth" uta:comment="Pre-Authorization receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloPreAuthBody</uta:block>
+		<!--
+		<uta:block>rloSignatureLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+		-->
+	</uta:section>
+	
+	<uta:section uta:id="rloCrdVrfy" uta:comment="Card Verify receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloCrdVrfyBody</uta:block>
+		<!--
+		<uta:block>rloSignatureLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+		-->
+	</uta:section>
+
+	<uta:section uta:id="rloTrxDup" uta:comment="Transaction receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloTrxBody</uta:block>
+<!--		<uta:block>rloDuplicateLine</uta:block> -->
+<!--		<uta:block>rloFeed</uta:block> -->
+	</uta:section>
+
+	<uta:section uta:id="rloOfflineSaleDup" uta:comment="Offline Sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloOfflineSaleBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloManualSaleDup" uta:comment="Manual Sale receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloManualSaleBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloRefundDup" uta:comment="Refund receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloRefundBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloVoidDup" uta:comment="Void receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloVoidBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloPreAuthDup" uta:comment="Pre-Authorization receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloPreAuthBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+	
+	<uta:section uta:id="rloCrdVrfyDup" uta:comment="Card Verify receipt">
+		<uta:block>rloHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloCrdVrfyBody</uta:block>
+		<uta:block>rloDuplicateLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogHdr" uta:comment="Transaction Log Receipt Header">
+		<uta:line uta:comment="***          TRANSASCTION LOG            ***    "   uta:esc='__BOLD__'>              rptTxnLog</uta:line>		
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+		<uta:line uta:comment="TID  : 123456		MID  : 123456"     uta:esc='__COMPRESSED__'>    cmbInitTidMid2</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>        rptSep2</uta:line>	
+	
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'>        cmbRptLogTerminalId</uta:line>
+		<uta:line uta:comment="                                                "   uta:esc='__COMPRESSED__'>        cmbAcqDet</uta:line>		
+	</uta:section>
+	
+	<uta:section uta:id="rloTrxLogBody" uta:comment="Transaction Log Receipt Body">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogLine1</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogLine2</uta:line>
+		<!--
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogLine2</uta:line>
+		-->
+		<uta:line uta:comment="________________________________________________"   uta:esc='__COMPRESSED__'>        rptSep01</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloRptHeaderLog" uta:comment="Header">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptHeaderLogTransaction</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloTrxLogTotalsSale" uta:comment="Sale Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsSale</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsPrecom" uta:comment="Precom Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsPrecom</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloTrxLogTotalsRefund" uta:comment="Refund Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsRefund</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsTip" uta:comment="Tip Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsTip</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsVoid" uta:comment="Void Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsVoid</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsManual" uta:comment="Manual Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsManual</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsVoidManual" uta:comment="Manual Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsVoidManual</uta:line>
+		<uta:line uta:comment="                                                ">  rptSpaces</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsVoidRefund" uta:comment="Void Refund Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsVoidRefund</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTrxLogTotalsVoidPrecom" uta:comment="Void Precom Totals Format">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbRptLogTotalsVoidPrecom</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloSep" uta:comment="Tip Totals Format">
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>        rptSep1</uta:line>		
+		<!--<uta:line uta:comment="                                                ">  rptSpaces</uta:line>-->
+	</uta:section>
+
+	<uta:section uta:id="rloSetConfirm" uta:comment="Settlement Confirm">
+		<!--<uta:line uta:comment="                                                ">  rptSpaces</uta:line>-->
+		<uta:line uta:comment="                                                " uta:esc='__BOLD__'>  rptSetConfirm</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloSetHdr" uta:comment="Settlement Receipt Header">
+		<uta:line uta:comment="***          SETTLEMENT            ***"   uta:esc='__BOLD__'>        rptSettlement</uta:line>	
+		<uta:line uta:comment="                                                ">  rptSpaces</uta:line>
+		<uta:line uta:comment="TID  : 123456		MID  : 123456"     uta:esc='__COMPRESSED__'>    cmbInitTidMid2</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>        rptSep2</uta:line>	
+	</uta:section>
+	
+	<uta:section uta:id="rloSetAcqDet" uta:comment="Settlement Acq Details Header">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByAcq</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbAcqDet</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbSettleBatchSOC</uta:line>		
+	</uta:section>
+
+	<uta:section uta:id="rloSetAcqDetLog" uta:comment="Settlement Acq Details Header">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByAcq</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbAcqDet</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbSettleBatchSOCLog</uta:line>		
+	</uta:section>
+
+
+	<uta:section uta:id="rloSetIssDetDb" uta:comment="Settlement Iss Details Header">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByIss</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByIssDb</uta:line>			
+	</uta:section>
+
+	<uta:section uta:id="rloSetIssDetCr" uta:comment="Settlement Iss Details Header">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByIss</uta:line>
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptTotByIssCr</uta:line>			
+	</uta:section>
+
+	<uta:section uta:id="rloSetTotalsByCard" uta:comment="Settlement Receipt 'Totals by Card'">
+		<uta:line uta:comment="________________________________________________"   uta:esc='__COMPRESSED__'>        rptSep01</uta:line>		
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptSetTotalsByCard</uta:line>		
+	</uta:section>
+
+	<uta:section uta:id="rloSetTotalsByCardWoSep" uta:comment="Settlement Receipt 'Totals by Card'">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        rptSetTotalsByCard</uta:line>		
+	</uta:section>
+
+	<uta:section uta:id="rloTotalsByHost" uta:comment="Receipt 'Totals by Host'">
+		<uta:line uta:comment="________________________________________________"   uta:esc='__COMPRESSED__'>        rptSep01</uta:line>		
+		<uta:line uta:comment=""       >   rptTotByHost</uta:line>		
+	</uta:section>
+
+	<uta:section uta:id="rloSetCardName" uta:comment="Settlement Receipt Card Name Totals">
+		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        cmbSettleCardNameHdr</uta:line>		
+		<uta:line uta:comment="                                                ">  rptSpaces</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloBatTotHdr" uta:comment="Batch Totals Receipt Header">
+<!--		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        acqMID</uta:line> -->
+		<uta:line uta:comment="***   GRAND TOTALS   ***"   uta:esc='__BOLD__'>                                      rptGrandTot</uta:line>		
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+		<uta:line uta:comment="TID  : 123456		MID  : 123456"     uta:esc='__COMPRESSED__'>    cmbInitTidMid2</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>        rptSep2</uta:line>	
+	</uta:section>
+
+	<uta:section uta:id="rloHostTotHdr" uta:comment="Host Totals Receipt Header">
+<!--		<uta:line uta:comment=""   uta:esc='__COMPRESSED__'>        acqMID</uta:line>	-->	
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>        rptSep2</uta:line>	
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="***    HOST TOTALS   ***"   uta:esc='__BOLD__'>                                      rptHostTot</uta:line>		
+	</uta:section>
+
+	<uta:section uta:id="rloHostTotAcqDet" uta:comment="Host Totals Acquirer Details">
+		<uta:line uta:comment="TERMINAL 00000000                               "   uta:esc='__COMPRESSED__'>        cmbRptLogTerminalId</uta:line>
+		<uta:line uta:comment="HOST 0415 ING6ACQ                               "   uta:esc='__COMPRESSED__'>        cmbAcqDet</uta:line>		
+		<uta:line uta:comment="                                                ">  rptSpaces</uta:line>
+	</uta:section>
+	
+	<uta:section uta:id="rloCommsConfig" uta:comment="Print Communication Configuration">
+		<uta:line uta:comment="--------========--------"   >        										rptSep4</uta:line>		
+		<uta:line uta:comment="  COMMS CONFIGURATION   "   >        										rptCmmConfig</uta:line>	
+		<uta:line uta:comment="--------========--------"   >        										rptSep4</uta:line>
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+		<uta:line uta:comment="LINE SETTINGS           "   uta:esc='__BOLD__'>        	rptHeaderLine</uta:line>		
+		<uta:line uta:comment="-------------           "   uta:esc='__BOLD__'>        	rptHeaderLineSep</uta:line>
+		<uta:line uta:comment="TYPE        :  TONE     "   >				        						cmbPrtType</uta:line>
+		<uta:line uta:comment="TONE DETECT :  ON       "   >        										cmbPrtToneDet</uta:line>
+		<uta:line uta:comment="PABX #      :  9        "   >        										cmbPrtPabx</uta:line>
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+		<uta:line uta:comment="IP SETTINGS             "   uta:esc='__BOLD__'>        	rptHeaderIp</uta:line>		
+		<uta:line uta:comment="-----------             "   uta:esc='__BOLD__'>        	rptHeaderIpSep</uta:line>
+		<uta:line uta:comment="PRI IP : 000.000.000.000"   uta:esc='__COMPRESSED__'>		cmbPriIpSrvTMS</uta:line>
+		<uta:line uta:comment="SEC IP : 000.000.000.000"   uta:esc='__COMPRESSED__'>    cmbSecIpSrvTMS</uta:line>
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+		<uta:line uta:comment="GPRS IP SETTINGS        "   uta:esc='__BOLD__'>        	rptHeaderGprsIp</uta:line>		
+		<uta:line uta:comment="----------------        "   uta:esc='__BOLD__'>        	rptHeaderGprsIpSep</uta:line>
+		<uta:line uta:comment="IP     : NONE           "  		uta:esc='__COMPRESSED__'>     						cmbPrtGPRSIP</uta:line>
+		<uta:line uta:comment="SUBNET : NONE		   "   uta:esc='__COMPRESSED__'>        												cmbPrtGPRSSubnet</uta:line>
+		<uta:line uta:comment="GATEWAY: NONE		   "   uta:esc='__COMPRESSED__'>        												cmbPrtGPRSGateway</uta:line>
+	</uta:section>
+	<uta:section uta:id="rloTMSCfgHdr" uta:comment="Print TMS Configuration Header">
+		<uta:line uta:comment="--------========--------"   >        					rptSep4</uta:line>		
+		<uta:line uta:comment="  TMS CONFIGURATION   "   >        					rptTmsConfig</uta:line>	
+		<uta:line uta:comment="--------========--------"   >        					rptSep4</uta:line>
+		<uta:line uta:comment="TRN  :  12345678     "   >				        	cmbPrtTMSRefNum</uta:line>
+		<uta:line uta:comment="NII  :  7       "   >        					cmbPrtTMSNII</uta:line>
+		<uta:line uta:comment="LINK :  DIAL UP        "   >        					cmbPrtTMSLink</uta:line>
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+	</uta:section>	
+	<uta:section uta:id="rloTMSCfgDialUp" uta:comment="Print TMS Configuration Dial Up Mode">
+		<uta:line uta:comment="DIAL UP SETTINGS           "   uta:esc='__BOLD__'>        	rptHeaderLine</uta:line>		
+		<uta:line uta:comment="-------------           "   uta:esc='__BOLD__'>        	rptHeaderLineSep</uta:line>
+		<uta:line uta:comment="PRI#:  1234567     "   >				        	cmbPrtTMSPriNum</uta:line>
+		<uta:line uta:comment="SEC#:  7654321       "   >        					cmbPrtTMSSecNum</uta:line>
+		<uta:line uta:comment="BAUD:  9 600       "   >        					cmbPrtTMSBaudRate</uta:line>
+		<uta:line uta:comment="BUFF :  900 bytes        "   >        					rptPrtTMSBuff500</uta:line>		
+		<uta:line uta:comment="                        "   uta:esc='__COMPRESSED__'>    rptSpaces</uta:line>
+	</uta:section>	
+	<uta:section uta:id="rloTMSCfgTcpIp" uta:comment="Print TMS Configuration Tcp Ip Mode">
+		<uta:line uta:comment="IP SETTINGS             "   uta:esc='__BOLD__'>        	rptHeaderIp</uta:line>		
+		<uta:line uta:comment="-----------             "   uta:esc='__BOLD__'>        	rptHeaderIpSep</uta:line>
+		<uta:line uta:comment="PRI  : 000.000.000.000"   >        					cmbPrtTMSPriIP</uta:line>
+		<uta:line uta:comment="PORT : 0000            "   >				        	cmbPrtTMSPriPort</uta:line>
+		<uta:line uta:comment="SEC  : 000.000.000.000"   >        					cmbPrtTMSSecIP</uta:line>
+		<uta:line uta:comment="PORT : 0000            "   >				        	cmbPrtTMSSecPort</uta:line>
+		<uta:line uta:comment="BUFF :  900 bytes       "   >        					rptPrtTMSBuff500</uta:line>				
+	</uta:section>		
+	<!--
+	Test receipt for monospace printer font
+		-->
+		
+	<uta:section uta:id="rloTestHeader" uta:cperomment="Receipt Header">
+	  <uta:line uta:comment="                                                ">rptSpaces</uta:line>
+    <uta:block uta:comment="     INGENICO Logo      ">rloEnd</uta:block>
+		<uta:line uta:comment="EMV CREDIT 00.02"                                   uta:esc='__DBLHEIGHT__'>				  rptNameVersion</uta:line>
+		<uta:line uta:comment="                                                ">                               		rptSpaces</uta:line>
+		<uta:line uta:comment="Ingenico Template"                                  uta:esc='__COMPRESSED__'>        rptHdrSiteName</uta:line>
+		<uta:line uta:comment="17F Pearl Bank Center													 "	 uta:esc='__COMPRESSED__'>        rptHdrSiteAddr1</uta:line>
+		<uta:line uta:comment="146 Valero																			 "	 uta:esc='__COMPRESSED__'>        rptHdrSiteAddr2</uta:line>
+	</uta:section>
+			
+	<uta:section uta:id="rloTestTrxBody" uta:comment="Transaction Receipt Body">
+		<uta:line uta:comment="TID  :00000000             MID  :000000000000000   "   uta:esc='__COMPRESSED__'>      	cmbTidMid</uta:line>
+		<uta:line uta:comment="HOST  0069  TestAcq                             "   uta:esc='__COMPRESSED__'>     	    cmbAcqDet</uta:line>
+		<uta:line uta:comment="================================================"   uta:esc='__COMPRESSED__'>       		rptSep2</uta:line>
+		<uta:line uta:comment="VISA                                    SALE"   	   uta:esc='__DBLHEIGHT__'>        	  cmbCardTxnType</uta:line>
+		<uta:line uta:comment="4172037641051717S                           1208"   uta:esc='__COMPRESSED__'>					cmbCardNumExpDate</uta:line>
+		<uta:line uta:comment="INV#  : 000006                    BATCH#: 000001"   uta:esc='__COMPRESSED__'>					cmbTrxInvBat</uta:line>
+		<uta:line uta:comment="DATE: 23 OCT 2008                    TIME: 09:47"   uta:esc='__COMPRESSED__'>        	cmbTrxDateTime</uta:line>
+		<uta:line uta:comment="REF NO: 515151515151              APRV  : SALE51"   uta:esc='__COMPRESSED__'>					cmbTrxRefApprv</uta:line>
+		<uta:line uta:comment="SALE                                    $1000.00"   uta:esc='__BOLD__'>			      cmbTraAmt</uta:line>
+		<uta:line uta:comment="TIP                                      $100.00"   uta:esc='__BOLD__'>			      cmbTipAmt</uta:line>
+		<uta:line uta:comment="                                  ______________"   uta:esc='__BOLD__'>			      rptEqualAmt</uta:line>
+		<uta:line uta:comment="TOTAL                                   $1100.00"   uta:esc='__BOLD__'>			      cmbTotAmt</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTestSignatureLine" uta:comment="Signature Details">
+		<uta:line uta:comment="                                                ">                               	  rptSpaces</uta:line>
+		<uta:line uta:comment="________________________________________________"    uta:esc='__COMPRESSED__'>		rptSep0</uta:line>
+		<uta:line uta:comment="CARDHOLDER SIGNATURE     											 "    uta:esc='__COMPRESSED__'>   rptCrdSig</uta:line>
+		<uta:line uta:comment="* MERCHANT COPY *															 "    uta:esc='__COMPRESSED__'>   rptMerCpy</uta:line>
+		<uta:line uta:comment="Version"    uta:esc='__COMPRESSED__'>   rptBufVers</uta:line>
+	</uta:section>
+
+	<uta:section uta:id="rloTestTrx" uta:comment="Transaction receipt">
+		<uta:block>rloTestHeader</uta:block>
+		<uta:line uta:comment="                                                ">rptSpaces</uta:line>
+		<uta:block>rloTestTrxBody</uta:block>
+		<uta:block>rloTestSignatureLine</uta:block>
+		<uta:block>rloFeed</uta:block>
+	</uta:section>
+
+	<uta:section uta:id="rloSpace" uta:comment="Ganti baris">
+        <uta:line uta:comment="                                                ">rptSpaces</uta:line>
+	</uta:section>
+		
+	<!--
+	Test receipt end
+		-->	
+</uta:rptLayout>
+

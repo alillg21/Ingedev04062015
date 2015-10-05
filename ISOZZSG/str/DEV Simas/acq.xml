@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/acq.xml $
+$Id: acq.xml 1929 2009-04-27 04:04:10Z ajloreto $
+-->
+<uta:record uta:id="acq" uta:dim="dimAcq" uta:comment="Acquirer Structure" xmlns:uta="http://www.ingenico.com/xml/uta">
+    <uta:field uta:id="acqID" uta:type="byte" uta:comment='Acquirer ID' />
+    <uta:field uta:id="acqName"  uta:type="ASCII" uta:length="lenName" uta:comment='Acquirer Name' />
+
+    <uta:field uta:id="acqPriTxnSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Transaction Server Phone Number or IP address/port' />
+    <uta:field uta:id="acqPriTxnAtt" uta:type="byte" uta:comment='Primary Transaction Server Connect attempts' />
+    <uta:field uta:id="acqSecTxnSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Secondary Transaction Server Phone Number or IP address/port' />
+    <uta:field uta:id="acqSecTxnAtt" uta:type="byte" uta:comment='Secondary Transaction Server Connect attempts' />
+
+    <uta:field uta:id="acqPriStlSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Settle Phone Number' />
+    <uta:field uta:id="acqPriStlAtt" uta:type="byte" uta:comment='Primary Settle Phone Number Dial attempts' />
+    <uta:field uta:id="acqSecStlSrv" uta:type="ASCII" uta:length="lenSrv"  uta:comment='Secondary Settle Phone Number' />
+    <uta:field uta:id="acqSecStlAtt" uta:type="byte" uta:comment='Secondary Settle Phone Number Dial attempts' />
+
+    <uta:field uta:id="acqTxnDialOpt" uta:type="byte" uta:comment="Transaction Dial Options" />
+    <uta:field uta:id="acqStlDialOpt" uta:type="byte" uta:comment="Settle Dial Options" />
+    <uta:field uta:id="acqTxnOpt" uta:type="byte" uta:comment='Transaction Option' />
+    <uta:field uta:id="acqStlOpt" uta:type="byte" uta:comment='Settle Option' />
+
+    <uta:field uta:id="acqTxnRxTO" uta:type="word" uta:comment="Transaction Rx Timeout" />
+    <uta:field uta:id="acqTxnICTO" uta:type="word" uta:comment="Transaction Inter Character Timeout" />
+    <uta:field uta:id="acqTxnConTO" uta:type="word" uta:comment='Connection Timeout' />
+    <uta:field uta:id="acqStlRxTO" uta:type="word" uta:comment="Settle Rx Timeout" />
+    <uta:field uta:id="acqStlICTO" uta:type="word" uta:comment="Settle Inter Character Timeout" />
+    <uta:field uta:id="acqStlConTO" uta:type="word" uta:comment='Connection Timeout' />
+    
+    <uta:field uta:id="acqOpt2" uta:type="byte" uta:comment='Acquirer Option 2' />
+    <uta:field uta:id="acqNII" uta:type="ASCII" uta:length="lenNII" uta:comment='Acquirer NII' />
+    <uta:field uta:id="acqTID" uta:type="ASCII" uta:length="lenTid" uta:comment='Acquirer Terminal ID' />
+    <uta:field uta:id="acqMID" uta:type="ASCII" uta:length="lenMid" uta:comment='Acquirer Merchant ID' />
+    <uta:field uta:id="acqCurBat" uta:type="ASCII" uta:length="lenInvNum" uta:comment='Current Batch Number' />
+<!--
+    <uta:field uta:id="acqTransDev" uta:type="byte" uta:comment='Transaction Device to be used' />
+    <uta:field uta:id="acqSetlDev" uta:type="byte" uta:comment='Settlement Device to be used' />
+    <uta:field uta:id="acqTxnMdmMod" uta:type="byte" uta:comment='Transaction Modem Mode' />
+    <uta:field uta:id="acqTxnProt" uta:type="byte" uta:comment="Transaction Protocol" />
+    <uta:field uta:id="acqSetlMdmMod" uta:type="byte" uta:comment='Settle Modem Mode' />
+    <uta:field uta:id="acqSetlProt" uta:type="byte" uta:comment="Settle Protocol" />
+-->
+  <uta:field uta:id='acqTotAppDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Debit amount for acquirer' /> 
+  <uta:field uta:id='acqTotAppDbCnt'  uta:type='word'                         uta:comment='Number Debits for acquirer' /> 
+  <uta:field uta:id='acqTotAppCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Credit amount for acquirer' /> 
+  <uta:field uta:id='acqTotAppCrCnt'  uta:type='word'                         uta:comment='Number Credits for acquirer' /> 
+  <uta:field uta:id='acqTotAppTpAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Tip amount for acquirer' /> 
+  <uta:field uta:id='acqTotAppTpCnt'  uta:type='word'                         uta:comment='Number Tip for acquirer' /> 
+  <uta:field uta:id='acqTotAppSaleAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of acquirer' />   
+  <uta:field uta:id='acqTotAppSaleCnt'  uta:type='word'                         uta:comment='Number of Sale in application' />       
+  <uta:field uta:id='acqTotAppRefundAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Refund amount of acquirer' />   
+  <uta:field uta:id='acqTotAppRefundCnt'  uta:type='word'                         uta:comment='Number of refund in application' />       
+  <uta:field uta:id='acqTotAppOfflineAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Offline amount of acquirer' />   
+  <uta:field uta:id='acqTotAppOfflineCnt'  uta:type='word'                         uta:comment='Number of Offline in application' />       
+  <uta:field uta:id='acqTotAppManualAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Manual amount of acquirer' />   
+  <uta:field uta:id='acqTotAppManualCnt'  uta:type='word'                         uta:comment='Number of Manual in application' />       
+  <uta:field uta:id='acqTotAppVoidAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of acquirer' />   
+  <uta:field uta:id='acqTotAppVoidCnt'  uta:type='word'                         uta:comment='Number of Void in application' />     
+  <uta:field uta:id='acqTotAppVoidRefundAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of acquirer' />   
+  <uta:field uta:id='acqTotAppVoidRefundCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' /> 
+  <uta:field uta:id='acqTotAppVoidManualAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Manual amount of acquirer' />   
+  <uta:field uta:id='acqTotAppVoidManualCnt'  uta:type='word'                         uta:comment='Number of Void Manual in application' />     
+
+
+    <uta:field uta:id="acqPriTxnPhnSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Transaction Phone Number' />
+    <uta:field uta:id="acqSecTxnPhnSrv" uta:type="ASCII" uta:length="lenSrv"  uta:comment='Secondary Transaction Phone Number' />
+   
+    <uta:field uta:id="acqPriStlPhnSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Settle Phone Number' />
+    <uta:field uta:id="acqSecStlPhnSrv" uta:type="ASCII" uta:length="lenSrv"  uta:comment='Secondary Settle Phone Number' />
+    
+    <uta:field uta:id="acqPriTxnIPSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Transaction IP Server and Port' />
+    <uta:field uta:id="acqSecTxnIPSrv" uta:type="ASCII" uta:length="lenSrv"  uta:comment='Secondary Transaction IP Server and Port' />
+
+    <uta:field uta:id="acqPriStlIPSrv" uta:type="ASCII" uta:length="lenSrv" uta:comment='Primary Settle IP Server and Port' />
+    <uta:field uta:id="acqSecStlIPSrv" uta:type="ASCII" uta:length="lenSrv"  uta:comment='Secondary Settle IP Server and Port' />
+
+<!-- [[ @agmr -->
+    <uta:field uta:id="acqUMK" uta:type="ASCII" uta:length="lenUMK"  uta:comment='TLE UMK' />
+    <uta:field uta:id="acqIsPendingSettlement" uta:type="byte" uta:comment='pending settlement Flag' />
+<!-- ]] @agmr -->
+<!--  @@AS-SIMAS Start -->
+		<uta:field uta:id="acqTMK" uta:type="ASCII" uta:length="lenKEY"  uta:comment='Terminal Master Key - Cardworks' />
+		<uta:field uta:id="acqTAKLogon" uta:type="ASCII" uta:length="lenKEY"  uta:comment='Terminal Authentication Key For Logon - Cardworks' />
+		<uta:field uta:id="acqTAK" uta:type="ASCII" uta:length="lenKEY"  uta:comment='Terminal Authentication Key For Transaction - Cardworks' />
+		<uta:field uta:id="acqTLE" uta:type="ASCII" uta:length="lenKEY"  uta:comment='Terminal Line Encryption Key - Cardworks' />
+		<uta:field uta:id="acqTMKRefNo" uta:type="ASCII" uta:length="lenTMKRefNo"  uta:comment='TMK Reference Number - CardWorks' />
+<!--  @@AS-SIMAS End -->
+
+   <!--<uta:field uta:id="acqMasterKey" uta:type="ASCII" uta:length="lenMKey"  uta:comment='Master Key' />-->
+
+    <uta:data>
+        <uta:instance>
+            <uta:col uta:data='1' />					<!-- acqID: Acquirer ID-->
+            <uta:col uta:data='"CREDITBRI"' />			<!-- acqName: Acquirer Name-->
+            
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqPriTxnSrv: Primary Transaction Server Phone Number or IP address/port-->
+            <uta:col uta:data='2' />					<!-- acqPriTxnAtt: Primary Transaction Server Connect attempts-->
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqSecTxnSrv: Secondary Transaction Server Phone Number or IP address/port-->
+            <uta:col uta:data='2' />					<!-- acqSecTxnAtt: Secondary Transaction Server Connect attempts-->
+
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqPriStlSrv: Primary Settle Server Phone Number or IP address/port-->
+            <uta:col uta:data='2' />					<!-- acqPriStlAtt: Primary Settle Server Connect attempts-->
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqSecStlSrv: Secondary Settle Server Phone Number or IP address/port-->
+            <uta:col uta:data='2' />					<!-- acqSecStlAtt: Secondary Settle Server Connect attempts-->
+            
+            <uta:col uta:data='0' />					<!-- acqTxnDialOpt: Txn Dial Options-->
+            <uta:col uta:data='0' />					<!-- acqStlDialOpt: Settle Dial Options-->
+            <uta:col uta:data='0' />					<!-- acqTxnOpt: Transaction Options-->
+            <uta:col uta:data='0' />					<!-- acqStlOpt: Settle Options-->
+            
+            <uta:col uta:data='300' />				<!-- acqTxnRxTO: Transaction Rx Timeout-->
+            <uta:col uta:data='300' />				<!-- acqTxnICTO: Transaction Inter Character Timeout-->
+            <uta:col uta:data='3000' />				<!-- acqTxnConTO: Connection Timeout-->
+            <uta:col uta:data='3000' />				<!-- acqStlRxTO: Settle Rx Timeout-->
+            <uta:col uta:data='300' />				<!-- acqStlICTO: Settle Inter Character Timeout-->
+            <uta:col uta:data='3000' />				<!-- acqStlConTO: Settle Connection Timeout-->
+
+            <uta:col uta:data='0' />					    <!-- acqOpt2: Acquirer Options 2-->
+            <uta:col uta:data='"015"' />  		            <!-- acqNII: Acquirer NII-->             
+<!--            <uta:col uta:data='"051"' />  -->	          <!-- acqNII: Acquirer NII-->             
+            <uta:col uta:data='__DFT_TID_CREDIT__' />			<!-- acqTID: Acquirer TID-->
+            <uta:col uta:data='__DFT_MID_CREDIT__' />	<!-- acqMID:	Acquirer MID-->
+            <uta:col uta:data='"000001"' />					<!-- acqCurBat: Current Batch Number-->
+            
+            <uta:col uta:data='"0"' />				<!-- acqTotAppDbAmt: Total Debit amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppDbCnt: Number Debits for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppCrAmt: Total Credit amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppCrCnt: Number Credits for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppTpAmt: Total Tip amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppTpCnt: Number tip for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppSaleAmt: Total Sale amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppSaleCnt: Number Sale for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppRefundAmt: Total Refund amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppRefundCnt: Number Refund for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppOfflineAmt: Total Offline amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppOfflineCnt: Number Offline for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppManualAmt: Total Manual amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppManualCnt: Number Manual for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppVoidAmt: Total Void amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppVoidCnt: Number Void for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppVoidRefundAmt: Total Void Refund amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppVoidRefundCnt: Number Void Refund for acquirer-->
+            <uta:col uta:data='"0"' />				<!-- acqTotAppVoidManualAmt: Total Manual amount for acquirer-->
+            <uta:col uta:data='0' />					<!-- acqTotAppVoidManualCnt: Number Manual for acquirer-->
+
+           <uta:col uta:data='"957933020"' />			<!-- acqPriTxnPhnSrv: Primary Transaction Server Phone Number-->
+           <uta:col uta:data='"957933020"' />			<!-- acqSecTxnPhnSrv: Secondary Transaction Server Phone Number-->
+           <uta:col uta:data='"957933020"' />			<!-- acqPriStlPhnSrv: Primary Settle Server Phone Number-->
+           <uta:col uta:data='"957933020"' />			<!-- acqSecStlPhnSrv: Secondary Settle Server Phone Number-->
+
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqPriTxnIPSrv: Primary Transaction IP address/port-->
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqSecTxnIPSrv: Secondary Transaction IP address/port-->
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqPriStlIPSrv: Primary Settle IP address/port-->
+            <uta:col uta:data='__DFTSRV__' />			<!-- acqSecStlIPSrv: Secondary Settle IP address/port-->
+            <uta:col uta:data='__DFTUMK__' />			<!-- UMK -->
+            <uta:col uta:data='0' />				<!-- acqIsPendingSettlement -->
+                <uta:col uta:data='__DFTTLE__' />				<!-- acqTMK -->
+            <uta:col uta:data='__DFTTLE__' />				<!-- acqTAKLogon -->
+            <uta:col uta:data='__DFTTLE__' />				<!-- acqTAK -->
+	    <uta:col uta:data='__DFTTLE__' />			<!-- acqTLE -->
+	    <uta:col uta:data='__DFTTMKREFNO__' />				<!-- acqTMKRefNo -->				                     
+        </uta:instance>                                          
+    </uta:data>            
+
+</uta:record>

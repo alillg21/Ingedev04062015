@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/bin.xml $
+$Id: bin.xml 1324 2009-01-19 06:43:44Z kdelacruz $
+-->
+<uta:record uta:id="bin" uta:dim="dimBin" uta:comment="Card Range multirecord"
+ xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id="binID" uta:type="byte" uta:comment='Card Prefix ID' />
+  <uta:field uta:id="binName" uta:type="ASCII" uta:length="lenName" uta:comment='Card Range Name' />
+  <uta:field uta:id="binLo" uta:type='binary' uta:length="lenBinPrefix" uta:comment='Low Prefix (BCD Format)' />
+  <uta:field uta:id="binHi" uta:type='binary' uta:length="lenBinPrefix" uta:comment="High Prefix (BCD Format)" />
+  <uta:field uta:id="binCrIssID" uta:type="byte" uta:comment="Credit Issuer ID" />
+  <uta:field uta:id="binCrAcqID" uta:type="byte" uta:comment="Credit Acquirer ID" />
+  <uta:field uta:id="binPanLen" uta:type="byte" uta:comment="Pan Length Set" />
+  <uta:field uta:id="binDbIssID" uta:type="byte" uta:comment="Debit Issuer ID" />
+  <uta:field uta:id="binDbAcqID" uta:type="byte" uta:comment="Debit Acquirer ID" />
+  <uta:field uta:id="binLogoID" uta:type="byte" uta:comment="Logo ID to use" />
+  <uta:field uta:id='binTotAppDbAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Debit amount for acquirer' /> 
+  <uta:field uta:id='binTotAppDbCnt' uta:type='word' uta:comment='Number Debits for acquirer' /> 
+  <uta:field uta:id='binTotAppCrAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Credit amount for acquirer' /> 
+  <uta:field uta:id='binTotAppCrCnt' uta:type='word' uta:comment='Number Credits for acquirer' /> 
+  <uta:field uta:id='binTotAppTpAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Tip amount for acquirer' /> 
+  <uta:field uta:id='binTotAppTpCnt' uta:type='word' uta:comment='Number Tip for acquirer' /> 
+</uta:record>

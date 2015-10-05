@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ISOZZSG_TELIUM</name>
+	<comment></comment>
+	<projects>
+		<project>uta100407</project>
+		<project>ISOZZSG</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.ingenico.ingedev.uta.utaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.ingenico.ingedev.telium.core.ingedevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.ingenico.ingedev.uta.utaProjectNature</nature>
+		<nature>com.ingenico.ingedev.telium.core.teliumNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>.links/projLinks/ISOZZSG</name>
+			<type>2</type>
+			<locationURI>com.ingenico.ingedev.filesystem.workspaceLink:/ISOZZSG</locationURI>
+		</link>
+		<link>
+			<name>.links/projLinks/uta100407</name>
+			<type>2</type>
+			<locationURI>com.ingenico.ingedev.filesystem.workspaceLink:/uta100407</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

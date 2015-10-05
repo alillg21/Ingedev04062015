@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:record uta:id="scr" uta:multi="inf" uta:cache="yes" uta:comment="user screen structure"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id="scrCmd" uta:type="char" uta:comment="command 'b'(beep)|'s'(show)|'i'(ignore)" />
+  <uta:field uta:id="scrMsg0" uta:type="word" uta:comment="to be displayed on 1st line" />
+  <uta:field uta:id="scrMsg1" uta:type="word" uta:comment="to be displayed on 2nd line" />
+  <uta:field uta:id="scrMsg2" uta:type="word" uta:comment="to be displayed on 3rd line" />
+  <uta:field uta:id="scrMsg3" uta:type="word" uta:comment="to be displayed on 4th line" />
+  <uta:field uta:id="scrDly" uta:type="byte" uta:comment="waiting delay" />
+  <uta:data>
+    <uta:instance uta:id="infConfirmReset">
+      <uta:col uta:data="'b'" />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgMemoryReset' />
+      <uta:col uta:data='msgAreYouSure' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infProcessingError">
+      <uta:col uta:data="'b'" />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgProcessingError' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infWrongPin">
+      <uta:col uta:data="'b'" />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgWrongPin' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infPwdInput">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgPwdInput' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infDialing">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='traCtx' />
+      <uta:col uta:data='msgDialing' />
+      <uta:col uta:data='msgWait' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infSendReq">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='traCtx' />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgSend' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infRecvRsp">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='traCtx' />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgEmpty' />
+      <uta:col uta:data='msgReceive' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infAmtInput">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='traCtx' />
+      <uta:col uta:data='msgEnterAmount' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infCardInput">
+      <uta:col uta:data="'s'" />
+      <uta:col uta:data='traCtx' />
+      <uta:col uta:data='msgEnterCard' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='msgSpaces' />
+      <uta:col uta:data='0' />
+    </uta:instance>
+  </uta:data>
+</uta:record>

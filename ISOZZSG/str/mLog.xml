@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rev.xml $
+$Id: rev.xml 1439 2009-01-27 02:42:02Z kdelacruz $
+-->
+<uta:record uta:id='mLog'
+            uta:dim='dimMLog'
+            uta:cache="no"
+            uta:comment='BRI Mini ATM log table'
+            xmlns:uta="http://www.ingenico.com/xml/uta">    
+
+    <uta:field uta:id='mLogVoidFlag'
+               uta:type='byte'
+               uta:comment='Void flag' />
+
+    <uta:field uta:id='mLogTipFlag' 	uta:type='byte'    uta:comment='Tip indicator' />
+
+     <uta:field uta:id='mLogMTI'      uta:type='ASCII'      uta:length='lenMti'        uta:comment='Message Type' />
+               
+    <uta:field uta:id='mLogMnuItm'
+               uta:type='word'
+               uta:comment='menu item selected' />
+    <uta:field uta:id='mLogDatTim'
+               uta:type='ASCII'
+               uta:length='lenDatTim'
+               uta:comment='transaction date and time CCYYMMDDhhmmss' />
+    <uta:field uta:id='mLogBinIdx' 
+               uta:type='byte' 
+               uta:comment='index in Bin multirecord' />
+    <uta:field uta:id='mLogAcqIdx' 
+               uta:type='byte' 
+               uta:comment='index in Acq multirecord' />
+    <uta:field uta:id='mLogIssIdx' 
+               uta:type='byte' 
+               uta:comment='index in Iss multirecord' />
+    <uta:field uta:id='mLogPan'
+               uta:type='ASCII'
+               uta:length='lenPan'
+               uta:comment='PAN' />
+    <uta:field uta:id='mLogExpDat' 
+               uta:type='ASCII'
+               uta:length='lenExpDat'
+               uta:comment='Expiry Date' />
+
+    <uta:field uta:id='mLogExpDatFmt'        uta:type='ASCII'      uta:length='lenExpDat'         uta:comment='Expiry Date' />
+               
+    <uta:field uta:id='mLogTrk2'
+               uta:type='ASCII'
+               uta:length='lenTrk2'
+               uta:comment='track 2 of the card' />
+    <uta:field uta:id='mLogAutCod'
+               uta:type='ASCII'
+               uta:length='lenAutCod'
+               uta:comment='Authorization code' />
+
+    <uta:field uta:id='mLogAutCodOff' uta:type='ASCII' uta:length='lenAutCod' uta:comment='Authorization (approval) code' />
+               
+    <uta:field uta:id='mLogBatNum' 
+               uta:type='ASCII'
+               uta:length='lenBatNum'
+               uta:comment='Batch Number' />
+    <uta:field uta:id='mLogTraAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Transaction Amount' />
+
+    <uta:field uta:id='mLogFmtAmt'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Amount'/>
+               
+    <uta:field uta:id='mLogTipAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Tip Amount' />
+
+    <uta:field uta:id='mLogFmtTip'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Tip'/>
+
+    <uta:field uta:id='mLogEmvICC' uta:type='ASCII' uta:length='lenEmvICC' uta:comment='message of bit 55' />
+               
+    <uta:field uta:id='mLogSTAN'
+               uta:type='card'
+               uta:comment='system trace audit number' />
+               
+    <uta:field uta:id='mLogRrn'
+               uta:type='ASCII'
+               uta:length='lenRrn'
+               uta:comment='Retrieval Reference Number' />
+
+    <uta:field uta:id='mLogRspCod' uta:type='ASCII' uta:length='lenRspCod' uta:comment='Response code' />
+    <uta:field uta:id='mLogPinBlk' uta:type='binary' uta:length='lenPinBlk' uta:comment='Pin block' />                              
+ 
+    <uta:field uta:id='mLogROC'
+               uta:type='card'
+               uta:comment='ROC/Invoice' />
+    <uta:field uta:id='mLogEntMod'
+               uta:type='byte'
+               uta:comment='POS Entry Mode' />
+    <uta:field uta:id='mLogConCode'
+               uta:type='byte'
+               uta:comment='POS Condition Code' />
+    <uta:field uta:id='mLogCardType'
+               uta:type='ASCII'
+               uta:length='lenCardTransType'
+               uta:comment='Card Type' />  
+
+    <uta:field uta:id='mLogSubType'     	         uta:type='byte'   uta:comment='sub type untuk cicilan dan pembayaran'/>  
+    <uta:field uta:id='mLogInquiryAmt'             uta:comment='inquiry amount'        uta:type='ASCII' uta:length='lenInquiryAmt' />  
+
+<!--  <uta:field uta:id='bLogBankId'                 uta:comment='Bank Id'               uta:type='ASCII' uta:length='lenBankId' />     -->
+  <uta:field uta:id='mLogNomorRekeningTujuan'    uta:comment='Nomor rekening tujuan umum = 20' uta:type='ASCII' uta:length='lenNomorRekening' />
+  <uta:field uta:id='mLogNomorRekeningTujuanBRI' uta:comment='Nomor rekening tujuan BRI = 15' uta:type='ASCII' uta:length='lenNomorRekeningBRI' />
+  <uta:field uta:id='mLogNamaPenerima'           uta:comment='Nama penerima/rek. tujuan'  uta:type='ASCII' uta:length='lenNamaPemilik' />
+  <uta:field uta:id='mLogNomorRekeningAsal'      uta:comment='Nomor rekening asal umum = 20' uta:type='ASCII' uta:length='lenNomorRekening' />
+  <uta:field uta:id='mLogNomorRekeningAsalBRI'   uta:comment='Nomor rekening asal BRI = 15' uta:type='ASCII' uta:length='lenNomorRekeningBRI' />
+  <uta:field uta:id='mLogNamaPengirim'           uta:comment='Nama rekening Sumber'  uta:type='ASCII' uta:length='lenNamaPemilik' /> 
+  <uta:field uta:id='mLogCustomerRefNumber'      uta:comment='Customer reference number' uta:type='ASCII' uta:length='lenCustomerRefNumber' />
+  <uta:field uta:id='mLogNamaBankAsal' uta:comment='Nama bank asal'        uta:type='ASCII' uta:length='lenNamaBank' /> 
+  <uta:field uta:id='mLogNamaBankTujuan'         uta:comment='Nama bank Tujuan'      uta:type='ASCII' uta:length='lenNamaBank' /> 
+  <uta:field uta:id='mLogJenisRekening'          uta:type='byte'  uta:comment='Jenis rekening 1 = tabungan 2 = giro'/> 
+  <uta:field uta:id='mLogJenisTransfer'          uta:comment='Transfer 00- BRI 01- LINK 02- PRIMA 03- BERSAMA'      uta:type='ASCII' uta:length='lenJenisTransfer' /> 
+  
+  <uta:field uta:id='mLogKodeWilayah'            uta:comment='Kode wilayah PLN'  uta:type='ASCII' uta:length='lenKodeWilayah' />
+  <uta:field uta:id='mLogNamaPelangganPLN'       uta:comment='Nama pelanggan PLN' uta:type='ASCII' uta:length='lenNamaPelangganPLN' />
+  <uta:field uta:id='mLogPelangganId'            uta:comment='ID pelanggan PLN'  uta:type='ASCII' uta:length='lenPelangganId' />
+  <uta:field uta:id='mLogLWBP'                   uta:comment='LWBP PLN terakhir' uta:type='ASCII' uta:length='lenLWBP' />
+  <uta:field uta:id='mLogMPLO'                   uta:comment='MPLO ref PLN dan cicilan' uta:type='ASCII' uta:length='lenMPLO' />
+  <uta:field uta:id='mLogMeter1'                 uta:comment='Meter 1'           uta:type='ASCII' uta:length='lenMeter' />
+  <uta:field uta:id='mLogBillPeriod1'            uta:comment='Bill Period1 date(mmyy) ' uta:type='ASCII' uta:length='lenBillPeriod' />
+  <uta:field uta:id='mLogBillPeriod2'            uta:comment='Bill Period2 date(mmyy) ' uta:type='ASCII' uta:length='lenBillPeriod' />
+  <uta:field uta:id='mLogBillPeriod3'            uta:comment='Bill Period3 date(mmyy) ' uta:type='ASCII' uta:length='lenBillPeriod' />
+  <uta:field uta:id='mLogBillPeriod4'            uta:comment='Bill Period4 date(mmyy) ' uta:type='ASCII' uta:length='lenBillPeriod' />    
+  <uta:field uta:id='mLogCustomerSegment'        uta:comment='Customer segment'         uta:type='ASCII' uta:length='lenCustomerSegment' />  
+  <uta:field uta:id='mLogPowerConsuming'         uta:comment='Power consuming'          uta:type='ASCII' uta:length='lenPowerConsuming' />  
+
+  <uta:field uta:id='mLogTotalOutstanding'       uta:comment='Total outstanding cicilan'  uta:type='ASCII' uta:length='lenTotalOutstanding' />
+  <uta:field uta:id='mLogBillStatus'             uta:comment='Bill status cicilan'     uta:type='ASCII' uta:length='lenBillStatus' />
+  <uta:field uta:id='mLogPaymentStatus'          uta:comment='payment status cicilan'  uta:type='ASCII' uta:length='lenPaymentStatus' />
+  <uta:field uta:id='mLogCustomerName'           uta:comment='Nama pelanggan cicilan'  uta:type='ASCII' uta:length='lenCustomerName' />
+  <uta:field uta:id='mLogContractNumber'         uta:comment='Nomor kontrak cicilan'   uta:type='ASCII' uta:length='lenContractNumber' />
+  <uta:field uta:id='mLogCustomerType'           uta:comment='Tipe pelanggan cicilan'  uta:type='ASCII' uta:length='lenCustomerType' />
+  <uta:field uta:id='mLogAdminCharge'            uta:comment='Biaya Admin cicilan'     uta:type='ASCII' uta:length='lenAdminCharge' />
+  <uta:field uta:id='mLogPaymentNumber'          uta:comment='Angsuran ke'             uta:type='ASCII' uta:length='lenPaymentNumber' />
+  <uta:field uta:id='mLogDueDate'                uta:comment='Due date/jatuh tempo'    uta:type='ASCII' uta:length='lenDueDate' />
+  <uta:field uta:id='mLogTotalAmount'            uta:comment='Total amount cicilan'    uta:type='ASCII' uta:length='lenTotalAmount' />
+  <uta:field uta:id='mLogPokokHutang'            uta:comment='Pokok hutang cicilan'    uta:type='ASCII' uta:length='lenPokokHutang' />
+  <uta:field uta:id='mLogBunga'                  uta:comment='Bunga cicilan'           uta:type='ASCII' uta:length='lenBunga' />
+  <uta:field uta:id='mLogPenaltyFee'             uta:comment='Denda cicilan'           uta:type='ASCII' uta:length='lenPenaltyFee' />
+    
+  <uta:field uta:id='mLogNoTelpon'               uta:comment='No hp'                   uta:type='ASCII' uta:length='lenNoTelpon' />
+  <uta:field uta:id='mLogNominalVoucher'         uta:comment='Nominal voucher TIDAK DIKALI 100' uta:type='ASCII' uta:length='lenNominalVoucher' />
+  <uta:field uta:id='mLogPeriode'                uta:comment='Periode'                 uta:type='ASCII' uta:length='lenPeriode' />
+  <uta:field uta:id='mLogNoVoucher'              uta:comment='Nomor voucher'           uta:type='ASCII' uta:length='lenNoVoucher' />  
+  <uta:field uta:id='mLogKodeMRP'                uta:comment='Kode MRP'                uta:type='ASCII' uta:length='lenKodeMRP' /> 
+  
+  <uta:field uta:id='mLogSisaSaldo'              uta:comment='Sisa saldo'              uta:type='ASCII' uta:length='lenSisaSaldo' />
+  <uta:field uta:id='mLogFee'                    uta:comment='Fee'                     uta:type='ASCII' uta:length='lenFee' />
+  <uta:field uta:id='mLogJenisKartu'             uta:type='byte'  uta:comment='Jenis Acc 1 = Credit 2 = Debit'/> 
+    
+  </uta:record>

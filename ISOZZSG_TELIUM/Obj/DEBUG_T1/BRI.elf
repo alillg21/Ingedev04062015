@@ -1,0 +1,20 @@
+Obj/DEBUG_T1/BRI.axf  :
+section              size      addr
+.text              731180         0
+.ctors                  0    731180
+.dtors                  0    731180
+.rodata            106525    731180
+.data               47000   2097152
+.bss               178124   2144152
+.debug_abbrev       28704         0
+.debug_info        329489         0
+.debug_line         63508         0
+.debug_frame        41116         0
+.debug_pubnames     23456         0
+.debug_aranges       3072         0
+.debug_str           8911         0
+.comment             3078         0
+.debug_ranges          64         0
+Total             1564227
+
+

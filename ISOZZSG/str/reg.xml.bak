@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/reg.xml $
+$Id: reg.xml 1900 2009-04-21 05:10:43Z ajloreto $
+-->
+<uta:record uta:id='reg' uta:comment='registry record' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='regTrxNo'     uta:type='word'                            uta:comment='transaction number' />
+  <uta:field uta:id='regSTAN'      uta:type='card'  uta:data='0'                          uta:comment='System Trace Audit Number 1..999999' />
+  <uta:field uta:id='regInvNum'    uta:type='card'   uta:data='1'                         uta:comment='invoice number (R.O.C.)' /> 
+  <uta:field uta:id='regBatNum'    uta:type='ASCII' uta:length='lenInvNum'    uta:data='"000001"'          uta:comment='Batch number' /> 
+  <uta:field uta:id='regBinCnt'	   uta:type='byte'  uta:data='1'              uta:comment='Transaction Approval Code' />
+  <uta:field uta:id='regIssCnt'    uta:type='byte'  uta:data='1'              uta:comment='Transaction Approval Code' />
+  <uta:field uta:id='regAcqCnt'    uta:type='byte'  uta:data='0'              uta:comment='Transaction Approval Code' />
+  <uta:field uta:id='regReqSent'   uta:type='byte'  uta:data='0'              uta:comment='Is there request sent and response is not received yet?' />
+  <uta:field uta:id='regLocType'  uta:type='byte'  uta:data='84'              uta:comment=' T = (dec)84 Location on where to get certain info: L - log, T - tra' />
+  <uta:field uta:id='regAidCnt'    uta:type='byte'  uta:data='0'              uta:comment='Number of AID records in database' />  
+  <uta:field uta:id='regPubCnt'    uta:type='byte'  uta:data='0'              uta:comment='Number of Pub key records in database' />
+  <uta:field uta:id='regTmsRefNum' uta:type='ASCII' uta:length='lenTmsRefNum' uta:data='""' uta:comment='TMS Refence Number'/>
+  <uta:field uta:id='regSTANContext'      uta:type='card'                            uta:comment='System Trace Audit Number 1..999999' />
+  <uta:field uta:id='regInvNumContext'    uta:type='card'                            uta:comment='invoice number (R.O.C.)' /> 
+  <uta:field uta:id='regBatNumContext'    uta:type='ASCII' uta:length='lenInvNum'    uta:comment='Batch number' /> 
+  <uta:field uta:id='regCurrIdxPtr'   uta:type='word'                            uta:comment='transaction log index storage for tracking previous last transaction. This applies in voided transactions'/>
+  <uta:field uta:id='regDupSTAN'      uta:type='card'                            uta:comment='Duplicate Copy for System Trace Audit Number' />
+  <uta:field uta:id='regDupInvNum'    uta:type='card'                            uta:comment='Duplicate Copy for Invoice number (R.O.C.)' /> 
+  <uta:field uta:id='regDupCurBat'    uta:type="ASCII" 	uta:length="lenInvNum" uta:comment='Duplicate Current Batch Number' />
+  <uta:field uta:id='regToneDetect' 	uta:type='ASCII'   uta:length='3'  uta:data='"ON "' uta:comment='display ON/OFF for Tone Detect'/>
+  <uta:field uta:id='regTonePulse' 		uta:type='ASCII'   uta:length='5' uta:data='"TONE "' uta:comment='display TONE or PULSE'/>
+  <uta:field uta:id='regDHCP' 			uta:type='ASCII'   uta:length='3' uta:data='"OFF"'    uta:comment='display ON/OFF DHCP'/>
+  <uta:field uta:id='regOfflineCnt'  uta:type='word'   uta:data='0'                        uta:comment='Number of Offline in application' /> 
+  <uta:field uta:id='regAutCodOff'  uta:type='card'   uta:data='0'                        uta:comment='Number of AutCode Offline in application' /> 
+  <uta:field uta:id='regInvNumTemp'    uta:type='card'   uta:data='1'                         uta:comment='temp invoice number (R.O.C.)' /> 
+<!-- [[ @agmr - BRI report -->  
+  <uta:field uta:id='regCLogIdx'     uta:type='word'   uta:data='0'                       uta:comment='Card service log index' />
+  <uta:field uta:id='regCLogSize'     uta:type='word'   uta:data='0'                       uta:comment='Card service log Size' />
+  
+  <uta:field uta:id='regMLogIdx'     uta:type='word'   uta:data='0'                       uta:comment='Mini ATM log index' />
+  <uta:field uta:id='regMLogSize'     uta:type='word'   uta:data='0'                       uta:comment='Mini ATM log Size' />
+  
+  <uta:field uta:id='regTLogIdx'     uta:type='word'   uta:data='0'                       uta:comment='Tunai log index' />
+  <uta:field uta:id='regTLogSize'     uta:type='word'   uta:data='0'                       uta:comment='Tunai log Size' /> 
+
+  <uta:field uta:id='regTCashLogIdx'     uta:type='word'   uta:data='0'                       uta:comment='T-Cash log index' />
+  <uta:field uta:id='regTCashLogSize'     uta:type='word'   uta:data='0'                       uta:comment='T-Cash log Size' /> 
+<!-- ]] @agmr - BRI report -->   
+  
+  <uta:field uta:id='regPrepaidRefNum'      uta:type='card'  uta:data='1'                     uta:comment='Prepaid reference number 1..999999' />
+  <uta:field uta:id='regPrepaidBatchNum'    uta:type='byte'  uta:data='1'                     uta:comment='Prepaid batch number 1..99' />
+  
+  <uta:field uta:id='regTrxTempNo'     uta:type='word'                            uta:comment='transaction number' /> <!-- @agmr - multi settle -->
+  <uta:field uta:id='regUnmarkTrxNo'   uta:type='word'                            uta:comment='unmark transaction number' /> <!-- @agmr - multi settle -->
+  
+  </uta:record>

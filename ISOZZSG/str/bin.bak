@@ -1,0 +1,86 @@
+<uta:instance>
+      <uta:col uta:data='1' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"UP ONUS"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x62\x14\x45\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x62\x14\x45\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='2' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppRefundAmt: Total Refund amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppRefundCnt: Number Refund for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidAmt: Total Void amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidCnt: Number Void for acquirer-->
+     
+      <uta:col uta:data='"0"' />				<!-- binTotAppManualAmt: Total Manual amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppManualCnt: Number Manual for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidRefundAmt: Total Void Refund amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidRefundCnt: Number Void Refund for acquirer-->
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidManualAmt: Total Void Manual amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidManualCnt: Number Void Manual for acquirer-->      
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppPrecomAmt: Total Void Precom amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppPrecomCnt: Number Void Precom for acquirer-->      
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidPrecomAmt: Total Void Precom amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidPrecomCnt: Number Void Precom for acquirer-->      
+    </uta:instance>
+
+
+	<uta:instance>
+      <uta:col uta:data='2' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"ON US"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x48\x47\x77\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x48\x47\x77\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='2' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppRefundAmt: Total Refund amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppRefundCnt: Number Refund for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidAmt: Total Void amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidCnt: Number Void for acquirer-->
+     
+      <uta:col uta:data='"0"' />				<!-- binTotAppManualAmt: Total Manual amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppManualCnt: Number Manual for acquirer-->
+      
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidRefundAmt: Total Void Refund amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidRefundCnt: Number Void Refund for acquirer-->
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidManualAmt: Total Void Manual amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidManualCnt: Number Void Manual for acquirer-->   
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppPrecomAmt: Total Void Precom amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppPrecomCnt: Number Void Precom for acquirer-->      
+
+      <uta:col uta:data='"0"' />				<!-- binTotAppVoidPrecomAmt: Total Void Precom amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppVoidPrecomCnt: Number Void Precom for acquirer-->      
+    </uta:instance>

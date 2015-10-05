@@ -1,0 +1,446 @@
+
+#ifndef __BRI_H__
+#define __BRI_H__
+
+#include "str.h"
+
+//@@AS0.0.29 - start
+enum {
+	OPT1_IDX,
+	OPT2_IDX,
+	OPT3_IDX,
+	OPT4_IDX,
+	OPT5_IDX,
+	OPT6_IDX,
+	OPT7_IDX,
+	OPT8_IDX,
+	OPT9_IDX,
+	OPT10_IDX,
+	OPT11_IDX,
+	OPT12_IDX
+};
+
+#define OPT1_MNUL1_CARDSERVICES		0x01
+#define OPT1_MNUL1_TUNAI			0x02
+#define OPT1_MNUL1_PEMBELIAN		0x04
+#define OPT1_MNUL1_MINIATM			0x08
+#define OPT1_MNUL1_BRIZZI			0x10
+#define OPT1_MNUL1_ABSENSI			0x20
+#define OPT1_RFU3					0x40
+#define OPT1_RFU4					0x80
+//@@AS0.0.29 - end
+
+#define CICILAN_FIF 0
+#define CICILAN_BAF 1
+#define CICILAN_OTO 2
+#define CICILAN_FNS 3
+#define CICILAN_VER 4
+#define CICILAN_WOM 5
+
+/*Changed By Ali*/
+#define TV_INDOVISION 	0
+#define TV_TOPTV		1
+#define TV_OKTV			2
+#define PEMB_TELKOM     3
+/*End Of Changed By Ali*/
+
+#ifdef ABSENSI
+/*Changed By Ali*/
+#define SHIFTIA     0
+#define SHIFTIB     1
+#define SHIFTIIA    2
+#define SHIFTIIB    3
+#define SHIFTIIIA   4
+#define SHIFTIIIB   5
+#define DATANG		6
+#define PULANG		7
+#define ISTIMUL		8
+#define ISTIAKH		9
+#define LEMTANG		10
+#define LEMLANG		11
+/*End Of Changed By Ali*/
+#endif
+
+#define SIMPATI_50      10
+#define SIMPATI_100     11
+#define SIMPATI_150     12
+#define SIMPATI_200     13
+#define SIMPATI_300     14
+#define SIMPATI_500     15
+#define SIMPATI_1000    16
+
+#define MENTARI_50      21
+#define MENTARI_100     22
+#define MENTARI_250     23
+#define MENTARI_500     24
+#define MENTARI_1000    25
+
+#define IM3_25      31
+#define IM3_50      32
+#define IM3_75      33
+#define IM3_100     34
+#define IM3_150     35
+#define IM3_200     36
+#define IM3_500     37
+#define IM3_1000    38
+
+#define XL_25       41
+#define XL_50       42
+#define XL_75		43
+#define XL_100      44
+#define XL_150      45
+#define XL_200      46
+#define XL_300      47
+#define XL_500      48
+
+#define ESIA_25     50
+#define ESIA_50     51
+#define ESIA_75	 	52
+#define ESIA_100    53
+#define ESIA_150    54
+#define ESIA_200    55
+
+#define SMART_20    60
+#define SMART_50    61
+#define SMART_100 	62
+#define SMART_200   63
+
+#define FREN_20     70
+#define FREN_25     71
+#define FREN_50 	72
+#define FREN_100    73
+#define FREN_150    74
+#define FREN_200    75
+#define FREN_300 	76
+#define FREN_500    77
+
+#define THREE_20    80
+#define THREE_50    81
+#define THREE_75    82
+#define THREE_100   83
+#define THREE_150   84
+#define THREE_300 	85
+#define THREE_500   86
+
+#define AXIS_25		91
+#define AXIS_50		92
+#define AXIS_75		93
+#define AXIS_100	94	
+#define AXIS_150	95
+#define AXIS_200	96
+#define AXIS_300	97
+//#define XLBEBAS_50  45
+//#define XLBEBAS_100 46
+
+#define ZAKAT_DHUAFA    51
+#define ZAKAT_YBM       52
+
+#define INFAQ_DHUAFA    61
+#define INFAQ_YBM       62
+
+#define DPLK_DHUAFA     71
+#define DPLK_YBM        72
+
+#define PASCA_BAYAR_HALO 1
+#define PASCA_BAYAR_MATRIX 2
+
+#define REK_TABUNGAN 1
+#define REK_GIRO     2
+
+#define INQUIRY_AMT_LEN 8
+#define NAMA_NASABAH_LEN 30
+
+//++ BRI report
+#define CARD_SERVICE_LOG    1
+#define MINI_ATM_LOG        2
+#define TUNAI_LOG           3
+#define NORMAL_LOG          4
+#define BRIZZI_LOG          5
+
+#define CREDIT_CARD 1
+#define DEBIT_CARD  2
+//#define NON_BRI_CARD  3 //NON BRI CARD
+#define NON_BRI_DEBIT_CARD  3
+#define NON_BRI_CREDIT_CARD 4
+
+#define MAX_TAGIHAN_PLN 4
+#define MAX_PREPAID_SETTLEMENT 15
+
+typedef struct
+{
+    char totAmt[lenTotAmt + 1];
+    word count;
+    char transName[21];
+} TOTAL_T;
+//-- BRI report
+
+
+typedef struct
+{
+    char tid[9];
+    byte acqIdx;
+    char acqName[lenName+1];
+} ACQ_T;
+
+void hapusAwalan(char* str,char c);
+void trimRight(char* buf, byte chr);
+void trimLeft(char* buf, byte chr);
+char* convertBulan(byte jenis, char* bulanHuruf, byte bulanAngka);
+
+char scrollDisplay(char (*msg)[21],byte jumlahMsg, byte jumlahBaris,char* atas, char* bawah);
+char scrollDisplay8(char (*msg)[22],byte jumlahMsg, byte jumlahBaris,char* atas, char* bawah);
+int displayLongText(char *txtInput, int txtLen, char* baris1, char* baris2, int maxKolom);
+
+int parseField48(const byte* val, word len);
+int parseField60(const byte * val, word len);
+int parseField61(const byte* val, word len);
+int parseField13(const byte* val, word len);
+
+int pmtBRIKonfirmasiTanpaInquiry(byte txnType);
+int pmtBRIKonfirmasiSesudahInquiry();
+int pmtNewPinInput(void);
+int pmtBRICustomInput();
+
+int inputInfoSaldoBankLain();
+int inputTransferSesamaBRI();
+int inputTransferAntarBank();
+int inputPembayaranPLN();
+int inputPembayaranCicilan();
+int inputPembayaranPulsa();
+int inputSetoran(byte txnType);
+int inputTarikTunai();
+int inputPembayaranZakat();
+int inputInstallment();
+int inputPembayaranPascaBayar();
+int inputReissuePIN();
+int inputGantiPasswordSPV();
+int inputInternetBankingPin();
+//int inputAktivasiKartu();
+//int inputRenewalKartu();
+/*Changed By Ali*/
+int inputPembayaranTV();
+int inputPembayaranTelkom();
+int inputSmsBanking();
+int inputTrxTransfer();
+int inputTrxPulsa();
+int inputPembayaranKKBRI();
+int inputPembayaranKKANZ();
+int inputPembayaranKKCITI();
+int inputPembayaranKKHSBC();
+int inputPembayaranKKRBS();
+int inputPembayaranKKStanChar();
+/*End Of Changed By Ali*/
+int KonfirmasiAktivasiKartu();
+//int KonfirmasiRenewalKartu();
+//nt KonfirmasiReissuePIN();
+int KonfirmasiPembayaranPulsa();
+int KonfirmasiPembayaranCicilan();
+int KonfirmasiPembayaranCicilan8();
+int KonfirmasiSetoran(byte txnType);
+int KonfirmasiTarikTunai();
+int KonfirmasiPembayaranZakat();
+int KonfirmasiRegistrasiInternetBanking();
+int KonfirmasiRegistrasiPhoneBanking();
+int KonfirmasiKartuOtorisasi();
+int KonfirmasiPembayaranPLN();
+/*Changed By Ali*/
+int KonfirmasiPembayaranTV();
+int KonfirmasiPembayaranTelkom();
+int KonfirmasiRegistrasiSmsBanking();
+int KonfirmasiTrxTransfer();
+int KonfirmasiTrxPulsa();
+int KonfirmasiPembayaranKKBRI();
+int KonfirmasiPembayaranKKANZ();
+int KonfirmasiPembayaranKKCITI();
+int KonfirmasiPembayaranKKHSBC();
+int KonfirmasiPembayaranKKRBS();
+int KonfirmasiPembayaranKKStanChar();
+int KonfirmasiPembayaranKKBRIBayar();
+/*End Of Changed By Ali*/
+#ifdef ABSENSI
+int KonfirmasiAbsensi();
+#endif
+int KonfirmasiTransferAntarBank();
+int KonfirmasiTransferSesamaBRI();
+int KonfirmasiInstallment();
+int KonfirmasiPembayaranPascaBayar();
+int KonfirmasiInfoSaldo8();
+int KonfirmasiInfoSaldoLain8();
+int KonfirmasiPembayaranPascaBayar8();
+int KonfirmasiVoidTarikTunai();
+
+int isBRIPrint(void);
+int isBRITransaction (void);
+
+int getField48(tBuffer *req);
+int getIso57(tBuffer * req);
+int getField61(tBuffer *req);
+int getField60(tBuffer *req);
+int getField63(tBuffer *req);
+
+int isBRIInquiryTransaction(void);
+int inputInfoSaldoBankLain(void);
+int isBRITransaction(void);
+int isBRIPaymentTransaction(void);
+int isBRISaveToBatch(void);
+int doBRIReversal(void);
+int whichBRITransaction (void); //@agmr - BRI1
+int isPembelianTransaction (void);
+
+int briPrintData(word txnType, word *rlo, byte *isOneReceipt,byte isDuplicate); //BRI2
+int briGetAcq(byte cardType, byte* acqId); //@agmr - BRI3
+#ifndef REVERSAL_TERPISAH
+int getBriReversalIdx();
+int setBriReversalIdx();
+#endif
+int getJenisLog();
+
+int parseField62(const byte* val, word len); //@@AS0.0.26
+int resetLogonDateTime(); //AS0.0.26
+int setFirstPowerOnFlag(byte flag_value);//AS0.0.26
+
+int strFormatDatTimBRI2(char* datTim, char* fmtDatTim);
+
+extern int infoKodeBank(void);
+
+extern void hapusAwalan(char* str,char c);
+extern void trimRight(char* buf, byte chr);
+extern void trimLeft(char* buf, byte chr);
+
+extern char scrollDisplay(char (*msg)[21],byte jumlahMsg, byte jumlahBaris,char* atas, char* bawah);
+extern char scrollDisplay8(char (*msg)[22],byte jumlahMsg, byte jumlahBaris,char* atas, char* bawah);
+
+extern int parseField48(const byte* val, word len);
+extern int parseField60(const byte * val, word len);
+extern int parseField13(const byte* val, word len);
+
+extern int pmtBRIKonfirmasiTanpaInquiry(byte txnType);
+extern int pmtBRIKonfirmasiSesudahInquiry();
+extern int inputInfoSaldoBankLain();
+extern int inputTransferSesamaBRI();
+extern int inputTransferAntarBank();
+extern int inputPembayaranPLN();
+extern int inputPembayaranCicilan();
+extern int inputPembayaranPulsa();
+extern int inputSetoran(byte txnType);
+extern int inputTarikTunai();
+extern int inputPembayaranZakat();
+extern int inputInstallment();
+extern int inputPembayaranPascaBayar();
+extern int KonfirmasiPembayaranPulsa();
+extern int KonfirmasiPembayaranCicilan();
+extern int KonfirmasiPembayaranCicilan8();
+extern int KonfirmasiSetoran(byte txnType);
+extern int KonfirmasiTarikTunai();
+extern int KonfirmasiPembayaranZakat();
+extern int KonfirmasiRegistrasiInternetBanking();
+extern int KonfirmasiRegistrasiPhoneBanking();
+extern int KonfirmasiKartuOtorisasi();
+
+#ifdef PREPAID
+extern int inputPrepaidDeposit();
+extern word uploadedPrepaidIdx[MAX_PREPAID_SETTLEMENT+1];
+
+#endif
+
+extern int getField48(tBuffer *req);
+extern int getIso57(tBuffer * req);
+extern int getField61(tBuffer *req);
+extern int getField63(tBuffer *req);
+
+extern int openCom(void);
+extern int closeCom(void);
+extern int downloadKey(byte* msg, int msgLen);
+
+int display_text(int line, int y, char *text, int alignment);
+
+//++ BRI report
+extern int briLogSave(byte jenisLog);
+extern int briLogUpdate(byte jenisLog);
+extern int briLogLoadByRoc(byte jenisLog);
+extern int briLogLoadByIndex(byte jenisLog, card index);
+extern int briLogLoadByDate(byte jenisLog, char *dateTime);
+
+extern int fmtAmtReceipt2(word key, char *amt); //BRI2
+
+int viewBatch1(byte jenisLog,byte flag);
+int viewBatch2(byte jenisLog,byte flag);
+//int viewBatch3(byte jenisLog);
+void briViewBat(byte jenisLog, byte posisiLog);
+extern void briViewBat(byte jenisLog, byte posisiLog);
+
+//++BRI2
+void getBriTransTypeName(word *txnType, char *transName, word key); //BRI2
+extern void getBriTransTypeName(word *txnType, char *transName, word key); //BRI2
+
+int briLogLoadCurContext(byte jenisLog);
+int briLogSaveCurContext(byte jenisLog);
+void briLogPrintTxn(byte jenisLog);
+void briLogDuplicata(byte jenisLog);
+//--BRI2
+
+//void getBriTransName(char *transName, word key);
+//extern void getBriTransName(char *transName, word key);
+
+int briLogCalcTotal(byte jenisLog, TOTAL_T *total, char* dateTime);
+int briLogPrintTotal(byte jenisLog,char* dateTime);
+extern int briLogPrintTotal(byte jenisLog,char* dateTime);
+int briLogPrintDetail(byte jenisLog, char* dateTime);
+void briPrintDetail(byte jenisLog);
+void briPrintDetailToday(byte jenisLog);
+void briPrintTotal(byte jenisLog);
+void briPrintTotalToday(byte jenisLog);
+//-- BRI report
+
+int getAllTid(ACQ_T* acq);
+int getAllAcq(ACQ_T* acq);
+int selectAcquirer();
+int selectAcquirer1();
+int selectTerminalId(ACQ_T *acq, byte* jumlahTid);
+void pmtEchoTest(void);
+
+void cLogReset(void);
+void mLogReset(void);
+void tLogReset(void);
+
+void viewCardServiceLog(void);
+void viewMiniAtmLog(void);
+void viewTunaiLog(void);
+
+int checkPendingSettlement();
+
+void ShowData(byte* txt, word len, int mode, int awalKolom, int banyakKolom);
+
+void isIct220();
+
+byte OptionEnabled(byte idx, byte optflag); //@@AS0.0.29
+void modifyMnuLayout(void); //@@AS0.0.29
+int adaTransPembelian();
+
+#ifdef TEST_BRI
+void testBacaNvmRoc();
+void testBacaNvmDate();
+void testBacaNvmIndex();
+void testTulisNvm();
+void testBacaLogSemua();
+void testPrintTotal();
+void testPrintDetail();
+void testPrintTotalHariSemua();
+void testPrintTotalHariIni();
+void testReprintLastMiniAtm();
+void testReprintMiniAtm();
+#endif
+
+#ifdef DEBUG_PREPAID_DATA
+void setDebugData();
+#endif
+
+#ifdef DUMP_ISO_MESSAGE
+extern void setDumpIsoMessage(void);
+#endif
+
+int briModifyPinEntry();
+
+#endif
+
+

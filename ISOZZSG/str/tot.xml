@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/tot.xml $
+$Id: tot.xml 1888 2009-04-17 08:09:51Z ajloreto $
+-->
+<uta:record uta:id='tot' uta:comment='totals record' xmlns:uta="http://www.ingenico.com/xml/uta">
+	<uta:field uta:id='totAppDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Debit amount of application' /> 
+  	<uta:field uta:id='totAppDbCnt'  uta:type='word'                         uta:comment='Number Debits of application' /> 
+  	<uta:field uta:id='totAppCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Credit amount of application' /> 
+  	<uta:field uta:id='totAppCrCnt'  uta:type='word'                         uta:comment='Number Credits of application' /> 
+	<uta:field uta:id='totAppSaleAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of application' />   
+	<uta:field uta:id='totAppSaleDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of application' /> 
+	<uta:field uta:id='totAppSaleCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of application' /> 
+  	<uta:field uta:id='totAppSaleCnt'  uta:type='word'                         uta:comment='Number of Sale in application' />   
+  	<uta:field uta:id='totAppSaleDbCnt'  uta:type='word'                         uta:comment='Number of Sale in application' />    
+  	<uta:field uta:id='totAppSaleCrCnt'  uta:type='word'                         uta:comment='Number of Sale in application' />    
+
+	<uta:field uta:id='totAppPrecomAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Precom amount of application' />   
+  	<uta:field uta:id='totAppPrecomCnt'  uta:type='word'                         uta:comment='Number of Precom in application' />  
+  	<uta:field uta:id='totAppPrecomDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Db Precom amount of application' />   
+  	<uta:field uta:id='totAppPrecomDbCnt'  uta:type='word'                         uta:comment='Number of Db Precom in application' />  
+  	<uta:field uta:id='totAppPrecomCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Cr Precom amount of application' />   
+  	<uta:field uta:id='totAppPrecomCrCnt'  uta:type='word'                         uta:comment='Number of Cr Precom in application' />  
+
+
+  	<uta:field uta:id='totAppRefundAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Refund amount of application' />   
+  	<uta:field uta:id='totAppRefundCnt'  uta:type='word'                         uta:comment='Number of refund in application' />       
+	<uta:field uta:id='totAppRefundDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Db Refund amount of application' />   
+  	<uta:field uta:id='totAppRefundDbCnt'  uta:type='word'                         uta:comment='Number of Db refund in application' />       
+  	<uta:field uta:id='totAppRefundCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Cr Refund amount of application' />   
+  	<uta:field uta:id='totAppRefundCrCnt'  uta:type='word'                         uta:comment='Number of Cr refund in application' />       
+
+  	<uta:field uta:id='totAppVoidAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of application' />   
+  	<uta:field uta:id='totAppVoidCnt'  uta:type='word'                         uta:comment='Number of Void in application' />     
+	<uta:field uta:id='totAppVoidDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of application' />   
+  	<uta:field uta:id='totAppVoidDbCnt'  uta:type='word'                         uta:comment='Number of Void in application' />     
+	<uta:field uta:id='totAppVoidCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of application' />   
+  	<uta:field uta:id='totAppVoidCrCnt'  uta:type='word'                         uta:comment='Number of Void in application' />     
+
+  	<uta:field uta:id='totAppVoidPrecomAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Precom amount of application' />   
+  	<uta:field uta:id='totAppVoidPrecomCnt'  uta:type='word'                         uta:comment='Number of Void Precom in application' />  
+  	<uta:field uta:id='totAppVoidPrecomDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Precom amount of application' />   
+  	<uta:field uta:id='totAppVoidPrecomDbCnt'  uta:type='word'                         uta:comment='Number of Void Precom in application' />  
+  	<uta:field uta:id='totAppVoidPrecomCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Precom amount of application' />   
+  	<uta:field uta:id='totAppVoidPrecomCrCnt'  uta:type='word'                         uta:comment='Number of Void Precom in application' />  
+
+  	<uta:field uta:id='totAppVoidRefundAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of application' />   
+  	<uta:field uta:id='totAppVoidRefundCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' />       
+	<uta:field uta:id='totAppVoidRefundDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of application' />   
+  	<uta:field uta:id='totAppVoidRefundDbCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' />       
+  	<uta:field uta:id='totAppVoidRefundCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of application' />   
+  	<uta:field uta:id='totAppVoidRefundCrCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' />       
+  
+  	<uta:field uta:id='totAppTpAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Tip amount of application' /> 
+  	<uta:field uta:id='totAppTpCnt'  uta:type='word'                         uta:comment='Number Tip of application' />     
+     
+  
+  	<uta:field uta:id='totAppOfflineAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Offline amount of application' />   
+  	<uta:field uta:id='totAppOfflineCnt'  uta:type='word'                         uta:comment='Number of Offline in application' />       
+  	
+  	<uta:field uta:id='totAppManualAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Manual amount of application' />   
+  	<uta:field uta:id='totAppManualCnt'  uta:type='word'                         uta:comment='Number of Manual in application' />       
+    
+  
+  	<uta:field uta:id='totAppVoidManualAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Manual amount of application' />   
+  	<uta:field uta:id='totAppVoidManualCnt'  uta:type='word'                         uta:comment='Number of Void Manual in application' />  
+  
+  
+  	<uta:field uta:id='totDatTim'  uta:type='ASCII'   uta:length='lenDatTim'  uta:comment='Batch date and time CCYYMMDDhhmmss' />
+  	<uta:field uta:id='totBatNum'    uta:type='ASCII'   uta:length='lenBatNum'   uta:comment='Batch Number' />
+</uta:record>

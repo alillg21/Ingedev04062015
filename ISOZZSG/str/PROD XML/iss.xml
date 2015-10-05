@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/iss.xml $
+$Id: iss.xml 1281 2009-01-16 07:22:46Z ajloreto $
+-->
+<uta:record uta:id="iss"
+            uta:dim="dimIss"
+            uta:comment="Issuer Structure"
+            xmlns:uta="http://www.ingenico.com/xml/uta">
+    <uta:field uta:id="issID"
+               uta:type="byte"
+               uta:comment='Issuer ID' />
+    <uta:field uta:id="issRef"
+               uta:type="ASCII"
+               uta:length="lenIssRef"
+               uta:comment='Issuer Referral Number' />
+    <uta:field uta:id="issOpt1"
+               uta:type="byte"
+               uta:comment='Issuer Options 1' />
+    <uta:field uta:id="issOpt2"
+               uta:type="byte"
+               uta:comment='Issuer Options 2' />
+    <uta:field uta:id="issOpt3"
+               uta:type="byte"
+               uta:comment='Issuer Options 3' />
+    <uta:field uta:id="issOpt4"
+               uta:type="byte"
+               uta:comment='Issuer Options 4' />
+    <uta:field uta:id="issDefAcct"
+               uta:type="byte"
+               uta:comment='Issuer Default Account' />
+    <uta:field uta:id="issFloorLimit"
+               uta:type="word"
+               uta:comment="Floor Limit" />
+    <uta:field uta:id="issOpt5"
+               uta:type="byte"
+               uta:comment='Issuer Options 5' />
+    <uta:field uta:id="issPinOpt"
+               uta:type="byte"
+               uta:comment="Pin option" />
+
+</uta:record>

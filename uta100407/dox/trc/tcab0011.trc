@@ -1,0 +1,9 @@
+/// \file tcab0011.trc
+1	dspStart
+2	dspLS loc=00 str=emvInit...
+3	emvInit: 0
+4					verSel= INGENICO        U32_EMV_SELECT  02.000
+5					verTra= INGENICO        U32_EMV_TXNFLOW 02.000
+6	emvInit que:
+7	dspLS loc=00 str=emvInit OK
+8	dspStop

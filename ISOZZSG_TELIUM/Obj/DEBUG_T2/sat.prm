@@ -1,0 +1,38 @@
+[SAT]
+CertificateAppliDir=C:\Program Files\Ingenico\IngeDev_722\plugins\com.ingenico.ingedev.telium.core_7.22.2.1\defaultSystemFiles
+SignedSchemaDir=C:\Users\z\AppData\Local\Temp\Telium
+ApplicationDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\DEBUG_T2
+ParametersDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\DEBUG_T2
+DestinationDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\DEBUG_T2
+TempDir=C:\Users\z\AppData\Local\Temp\Telium
+
+[Schemas]
+NbSchemas=18
+Schema1=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\IngeCrypt.sgn
+Schema2=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\ScCplutlTlv.sgn
+Schema3=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\STLList_Tlv.sgn
+Schema4=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvAESCiph.sgn
+Schema5=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvCipherDa.sgn
+Schema6=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvDukpTDes.sgn
+Schema7=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvFirstKey.sgn
+Schema8=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvFree.sgn
+Schema9=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvHaMcS224.sgn
+Schema10=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvHMac.sgn
+Schema11=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvIso9564.sgn
+Schema12=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvKeyVerif.sgn
+Schema13=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvLoadData.sgn
+Schema14=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvLoadHMAC.sgn
+Schema15=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvLoadKey.sgn
+Schema16=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvLoadTR31.sgn
+Schema17=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvMacTDes.sgn
+Schema18=C:\Program Files\SDK30\SDK 9.20.0.01\Component\Schemes\DEBUGSigned\T2\TlvMAKeyGen.sgn
+
+[Application]
+ParameterFile=SIMAS_T2.TXT
+ApplicationFile=SIMAS.BIN
+CertificateFile=sat.C13
+CatalogFileExtension=XX
+
+[Error]
+Code=0
+msg=files correctly signed.

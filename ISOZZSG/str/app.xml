@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/app.xml $
+$Id: app.xml 1883 2009-04-16 14:03:09Z ajloreto $
+-->
+<uta:record uta:id='app' uta:comment='application parameters record' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='appCmpDat'
+             uta:type='ASCII'
+             uta:length='lenCmpDat'
+             uta:comment='compile date' />
+  <uta:field uta:id='appCmpTim'
+             uta:type='ASCII'
+             uta:length='lenCmpTim'
+             uta:comment='compile time' />
+<uta:field uta:id='appEndTime'
+               uta:type='ASCII'
+               uta:length='lenEndTime'
+               uta:data='"2000"'
+               uta:comment='time of automatic day close hhmm' />  
+  <uta:field uta:id='appGprsApn' uta:type='ASCII' uta:length='lenApn' uta:data='__DFTAPN__' uta:comment='Communication channel settings' />
+  <uta:field uta:id='appChn' uta:type='ASCII' uta:length='lenChn' uta:data='__DFTCHN__' uta:comment='Communication channel settings' />
+  <uta:field uta:id='appSrv' uta:type='ASCII' uta:length='lenSrv' uta:data='__DFTSRV__' uta:comment='TMS server phone number' />
+  <uta:field uta:id="appSrvAtt" 
+ 		uta:type="byte" 
+		uta:data='2'
+ 		uta:comment='TMS Server Connect attempts' />
+  <uta:field uta:id='appPabx'
+             uta:type='ASCII'
+             uta:length='lenPabx'
+             uta:data='""'
+             uta:comment='Phone PABX' />
+  <uta:field uta:id='appTonePulse'
+  			 uta:type='byte'
+  			 uta:data='1'
+  			 uta:comment='Tone Pulse' />
+  <uta:field uta:id='appToneDetect'
+  			 uta:type='byte'
+  			 uta:data='1'
+  			 uta:comment='Tone Detect' />  
+  <uta:field uta:id='appPrefix'
+             uta:type='ASCII'
+             uta:length='lenPrefix'
+             uta:data='""'
+             uta:comment='Phone Prefix' />
+  <uta:field uta:id='appMrcPwd'
+             uta:type='ASCII'
+             uta:length='lenPwd'
+             uta:data='"0000"'
+             uta:comment='Merchant password' />
+  <uta:field uta:id='appAdmPwd'
+             uta:type='ASCII'
+             uta:length='lenPwd'
+             uta:data='"0000"'
+             uta:comment='Administrator password' />
+  <uta:field uta:id='appExp'
+             uta:type='byte' 
+             uta:data='0' 
+             uta:comment='Currency exponent' />
+  <uta:field uta:id='appTid'
+             uta:type='ASCII'
+             uta:length='lenTid'
+             uta:data='"10000002"'
+             uta:comment='Terminal Identifier' />
+  <uta:field uta:id='appMid'
+             uta:type='ASCII'
+             uta:length='lenMid'
+             uta:data='"000001019100001"'
+             uta:comment='Merchant ID' />
+  <uta:field uta:id='appAmtFmt'
+             uta:type='byte'
+             uta:data='0x03'
+             uta:comment='Amount Formatting to be used' />
+  <uta:field uta:id='appDefTra'
+             uta:type='byte'
+             uta:data='0'
+             uta:comment='Default Transaction' />
+  <uta:field uta:id='appTermOpt1'
+             uta:type='byte'
+             uta:data='0x02'
+             uta:comment='Terminal Options 1: 0x04 (Tips enabled Option), 0x02 (Display Pan Option), 0x01 (MOTO Enabled option) are used' />
+  <uta:field uta:id='appTermOpt2'
+             uta:type='byte'
+             uta:data='0x22'
+             uta:comment='Terminal Options 2: bits 0x20 (Base Total Entry option), 0x02 (Printer Enabled Option) are used' />
+   <uta:field uta:id='appTermOpt5'
+             uta:type='byte'
+             uta:data='0xC0'
+             uta:comment='Terminal Options 5: bits 0x80 (Display Name Option), 0x40 Confirm Amount Entry Option) are used' />
+
+   <uta:field uta:id='appLocOpt'
+             uta:type='byte'
+             uta:data='0x0F'
+             uta:comment='Local Options: bits 0x08 (ROC Search Password option), 0x04 (Refund Password Required Option), 0x02 (Void Password Required Option) are used' />
+
+  <uta:field uta:id='appCurrSign'
+             uta:type='ASCII'
+             uta:length='lenCurrSign'
+             uta:data='"Rp."'
+             uta:comment='Currency Sign used for amount' />
+
+  <uta:field uta:id='appConnType' uta:type='byte' uta:data='__DFT_CON_TYPE__' uta:comment='Connection Type: Dialup / TCPIP / GPRS / RS232 (to follow wifi)' />
+  <uta:field uta:id='appComType' uta:type='byte' uta:data='1' uta:comment='COM Type: COM1 / COM2' />
+  
+  <uta:field uta:id='appVoidPwd' uta:type='ASCII' uta:length='lenPwd' uta:data='"0000"' uta:comment='Void Transaction password' />
+  <uta:field uta:id='appRefPwd' uta:type='ASCII' uta:length='lenPwd' uta:data='"0000"' uta:comment='Refund Transaction password' />
+  <uta:field uta:id='appSetlPwd' uta:type='ASCII' uta:length='lenPwd' uta:data='"0000"' uta:comment='Settle Transaction password' />
+             
+  <uta:field uta:id='appEMSale' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Sale' />
+  <uta:field uta:id='appEMRefund' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Refund' />
+  <uta:field uta:id='appEMOffline' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Offline Transaction' />
+  <uta:field uta:id='appEMCash' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Cash' />
+  <uta:field uta:id='appEMPreAuth' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Pre Authorization' />
+  <uta:field uta:id='appEMCrdVrfy' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Card Verification' />
+  <uta:field uta:id='appEMBalance' uta:type='byte' uta:data='0xF7' uta:comment='Entry Mode For Balance Transaction' />
+
+  <uta:field uta:id="appGPRSFlag" uta:type="byte" uta:data='0' uta:comment='gprs flag' />
+  <uta:field uta:id='appNII' uta:type='ASCII' uta:length='lenNII' uta:data='"997"'  uta:comment='TMS Connection NII, format length and value' />
+  <uta:field uta:id="appPriSrv" uta:type="ASCII" uta:length="lenSrv" uta:data='__DFTSRV__' uta:comment='Primary TMS Server Phone Number or IP address/port' />
+  <uta:field uta:id="appPriAtt" uta:type="byte" uta:data='2' uta:comment='Primary TMS Server Connect attempts' />
+  <uta:field uta:id="appSecSrv" uta:type="ASCII" uta:length="lenSrv" uta:data='__DFTSRV__' uta:comment='Secondary TMS Server Phone Number or IP address/port' />
+  <uta:field uta:id="appSecAtt" uta:type="byte" uta:data='2' uta:comment='Secondary TMS Server Connect attempts' />
+  <uta:field uta:id="appDialOpt" uta:type="byte" uta:data='2' uta:comment='TMS Dial Options' />
+  <uta:field uta:id="appRefNum" uta:type="ASCII" uta:length="lenMid" uta:comment='TMS Reference number' />
+  <uta:field uta:id="appBaudRate" uta:type="byte" uta:data='1' uta:comment='TMS Baud Rate' />
+  <uta:field uta:id="appTmsBufSize" uta:type="byte" uta:data='1' uta:comment='TMS Buffer size' />
+  <uta:field uta:id="appTmsDhcp" uta:type="byte" uta:comment='DHCP flag' />
+  <uta:field uta:id="appIpAdd" uta:type="ASCII" uta:length="lenSrv" uta:data='__DFTSRV__' uta:comment='ip address' />
+  <uta:field uta:id="appSecIpAdd" uta:type="ASCII" uta:length="lenSrv" uta:data='__DFTSRV__' uta:comment='Secondary ip address' />
+  <uta:field uta:id="appSubMask" uta:type="ASCII" uta:length="lenSrv" uta:comment='subnet mask' />
+  <uta:field uta:id="appDefGateway" uta:type="ASCII" uta:length="lenSrv" uta:comment='default gateway' />
+
+    <uta:field uta:id='appCrdInpCtl' uta:type='ASCII' uta:length='lenCrdInpCtl'   uta:data='"mck"' uta:comment='Card Input Control String' />
+    <uta:field uta:id='appPinKeyLoc' uta:type='byte'  uta:data='__appPinKeyLoc__' uta:comment='Pin Key Location' />
+    <uta:field uta:id='appMKeyLoc'   uta:type='byte'  uta:data='__appMKeyLoc__'   uta:comment='Master Key Location' />
+               
+    <uta:field uta:id="appDefRxTO" uta:type="word" uta:data='30' uta:comment="Default Rx Timeout" />
+    <uta:field uta:id="appDefICTO" uta:type="word" uta:data='3' uta:comment="Default Inter Character Timeout" />
+    <uta:field uta:id="appDefConTO" uta:type="word" uta:data='180' uta:comment='Default Connection Timeout' />
+
+  <!-- Transaction Name --> 
+  <uta:field uta:id='apptraSale' 	 uta:type='ASCII'  uta:data='"SALE"'      uta:length='lenTraName'  uta:comment='Sale Transaction' />
+  <uta:field uta:id='apptraOSale' 	 uta:type='ASCII'  uta:data='"O/SALE"'  uta:length='lenTraName'  uta:comment='Offline Sale Transaction' />
+  <uta:field uta:id='apptraOffline'  uta:type='ASCII'  uta:data='"OFFLINE"' uta:length='lenTraName'  uta:comment='Offline Transaction' />
+  <uta:field uta:id='apptraPreAuth'  uta:type='ASCII'  uta:data='"PREAUTH"' uta:length='lenTraName'  uta:comment='PreAuthorization Transaction' />
+  <uta:field uta:id='apptraVoid'     uta:type='ASCII'  uta:data='"VOID"'    uta:length='lenTraName'  uta:comment='Voided Transactions'/>
+  <uta:field uta:id='apptraRefund'   uta:type='ASCII'  uta:data='"REFUND"'  uta:length='lenTraName'  uta:comment='Refund Transactions'/>
+  <uta:field uta:id='apptraAdjust'   uta:type='ASCII'  uta:data='"ADJUST"'  uta:length='lenTraName'  uta:comment='Adjust Transactions'/>
+  <uta:field uta:id='apptraManual'   uta:type='ASCII'  uta:data='"MANUAL"'  uta:length='lenTraName'  uta:comment='Manual Transactions'/>
+  
+  <!-- TPDU value -->
+  <uta:field uta:id='apptpduHead' 	uta:type='ASCII' 	uta:length='1'		uta:data='"\x60"'                 uta:comment='Standard TPDU Header' />
+  <uta:field uta:id='apptpduModem' 	uta:type='ASCII'	uta:length='2'		uta:data='"\x30\x00"'             uta:comment='Destination NII (Standard 30) for Modem' />
+  <uta:field uta:id='apptpduTCPIP' 	uta:type='ASCII'	uta:length='2'		uta:data='"\x30\x00"'            uta:comment='Destination NII (Standard 80) for TCPIP' /> 
+<!--  <uta:field uta:id='apptpduTCPIP' 	uta:type='ASCII'	uta:length='2'		uta:data='"\xB0\x00"'             uta:comment='Destination NII (Standard 80) for TCPIP' />-->
+  <uta:field uta:id='apptpduRS232' 	uta:type='ASCII'	uta:length='2'		uta:data='"\x06\x65"'             uta:comment='NII (Standard 665) for RS232' />    
+    
+ <!-- all EMV tags are stored as binary (the first byte is the data length) -->
+  <!-- closed by irfan for testing -->
+  <!--
+  <uta:field uta:id='emvTrnCurCod'  uta:type='binary' uta:length='lenTrnCurCod'  uta:data='"\x02\x06\x08"'                 uta:comment='5F2A Transaction Currency Code' />
+  <uta:field uta:id='emvTrnCurExp'  uta:type='binary' uta:length='lenTrnCurExp'  uta:data='"\x01\x03"'                     uta:comment='5F36 Transaction Currency Exponent' />
+  <uta:field uta:id='emvMrcCatCod'  uta:type='binary' uta:length='lenMrcCatCod'  uta:data='"\x02\x53\x11"'                 uta:comment='9F15 Merchant Category Code' />
+  <uta:field uta:id='emvTrmCntCod'  uta:type='binary' uta:length='lenTrmCntCod'  uta:data='"\x02\x06\x08"'                 uta:comment='9F1A Terminal Country Code' />
+  <uta:field uta:id='emvTrmId'      uta:type='binary' uta:length='lenTID'        uta:data='"\x08""00000211"'               uta:comment='9F1C Terminal Identification' />
+  <uta:field uta:id='emvTrmCap'     uta:type='binary' uta:length='lenTrmCap'     uta:data='"\x03\xE0\xF8\xC8"'             uta:comment='9F33 Terminal Capabilities' />
+  <uta:field uta:id='emvTrmTyp'     uta:type='binary' uta:length='lenEmvTrmTyp'  uta:data='"\x01\x22"'                     uta:comment='9F35 Terminal Type' />
+  <uta:field uta:id='emvAddTrmCap'  uta:type='binary' uta:length='lenAddTrmCap'  uta:data='"\x05\xF1\x00\xF0\xA0\x01"'     uta:comment='9F40 Additional Terminal Capabilities' />
+  <uta:field uta:id='emvVlpSupInd'  uta:type='binary' uta:length='lenVlpSupInd'  uta:data='"\x01\x00"'                     uta:comment='9F7A VLP Terminal Support Indicator' />
+  <uta:field uta:id='emvVlpTrmLim'  uta:type='binary' uta:length='lenVlpTrmLim'  uta:data='"\x06\x00\x00\x00\x00\x00\x00"' uta:comment='9F7B VLP Terminal Transaction Limit' />
+  <uta:field uta:id='emvLstRspCod'  uta:type='binary' uta:length='lenLstRspCod'  uta:data='"\x14""Y1Z1Y2Z2Y3Z300050104"'   uta:comment='DF16 List of possible response codes' />
+  <uta:field uta:id='emvIFDSerNum'  uta:type='binary' uta:length='lenIFDSerNum'  uta:data='"\x08""28725422"'               uta:comment='9F1E Interface Device (IFD) Serial Number' />  
+  -->
+
+  <!-- add by irfan, 21042010 -->
+  <uta:field uta:id='emvTrnCurCod'  uta:type='binary' uta:length='lenTrnCurCod'  uta:data='"\x02\x03\x60"'                 uta:comment='5F2A Transaction Currency Code' />
+  <uta:field uta:id='emvTrnCurExp'  uta:type='binary' uta:length='lenTrnCurExp'  uta:data='"\x01\x03"'                     uta:comment='5F36 Transaction Currency Exponent' />
+  <uta:field uta:id='emvMrcCatCod'  uta:type='binary' uta:length='lenMrcCatCod'  uta:data='"\x02\x53\x11"'                 uta:comment='9F15 Merchant Category Code' />
+  <uta:field uta:id='emvTrmCntCod'  uta:type='binary' uta:length='lenTrmCntCod'  uta:data='"\x02\x03\x60"'                 uta:comment='9F1A Terminal Country Code' />
+  <uta:field uta:id='emvTrmId'      uta:type='binary' uta:length='lenTID'        uta:data='"\x08""00000211"'               uta:comment='9F1C Terminal Identification' />
+  <uta:field uta:id='emvTrmCap'     uta:type='binary' uta:length='lenTrmCap'     uta:data='"\x03\xE0\xF8\xC8"'             uta:comment='9F33 Terminal Capabilities' />
+  <uta:field uta:id='emvTrmTyp'     uta:type='binary' uta:length='lenEmvTrmTyp'  uta:data='"\x01\x22"'                     uta:comment='9F35 Terminal Type' />
+  <uta:field uta:id='emvAddTrmCap'  uta:type='binary' uta:length='lenAddTrmCap'  uta:data='"\x05\xF0\x00\xF0\xA0\x01"'     uta:comment='9F40 Additional Terminal Capabilities' />
+  <uta:field uta:id='emvVlpSupInd'  uta:type='binary' uta:length='lenVlpSupInd'  uta:data='"\x01\x00"'                     uta:comment='9F7A VLP Terminal Support Indicator' />
+  <uta:field uta:id='emvVlpTrmLim'  uta:type='binary' uta:length='lenVlpTrmLim'  uta:data='"\x06\x00\x00\x00\x00\x00\x00"' uta:comment='9F7B VLP Terminal Transaction Limit' />
+  <uta:field uta:id='emvLstRspCod'  uta:type='binary' uta:length='lenLstRspCod'  uta:data='"\x14""Y1Z1Y2Z2Y3Z300050104"'   uta:comment='DF16 List of possible response codes' />
+  <uta:field uta:id='emvIFDSerNum'  uta:type='binary' uta:length='lenIFDSerNum'  uta:data='"\x08""28725422"'               uta:comment='9F1E Interface Device (IFD) Serial Number' />  
+  <uta:field uta:id='emvTRMOverpassAIP'  uta:type='binary' uta:length='2'  uta:data='"\x01\x01"'          	 uta:comment='TRM over AIP' />  
+
+  <uta:field uta:id='appServiceCode'   	uta:type='byte' 	uta:data='1'  	uta:comment='Service Code dari Entry Mode TMS' />
+  <uta:field uta:id='appFallBackMod'   	uta:type='byte' 	uta:data='0'  	uta:comment='Mode Fallback for Magneticstripe' />
+   <uta:field uta:id='appPPPNbr' uta:type='ASCII' uta:length='128' uta:data='__DFTPPP__' uta:comment='Communication channel settings' />
+
+  <uta:field uta:id='appBfKey' 
+		uta:type='ASCII' 
+		uta:length='16'
+		uta:data='"3333333333333333"' 
+		uta:comment='Set Blowfish Key' />
+
+  <uta:field uta:id='appBlowFish' 
+    	uta:type='byte' 
+    	uta:data='1' 
+    	uta:comment='On/Off Blowfish' />
+		
+  <uta:field uta:id='appICT220'   	uta:type='byte' 	uta:data='0'  	uta:comment='ON/OFF ICT 220' />
+  <uta:field uta:id='appBf' uta:type='ASCII' uta:length='6' uta:data='"0"' uta:comment='Blowfish settings' />
+
+  <uta:field uta:id="appPANBlockBegin" uta:type="word" uta:data='12' uta:comment='Block PAN from the beginning' />
+  <uta:field uta:id="appPANBlockEnd" uta:type="word" uta:data='0' uta:comment='Block PAN from the end' />
+<!--  <uta:field uta:id='appCurrSignSpaces'     uta:type='ASCII'     uta:length='lenCurrSign+2'       uta:data='"Rp.  "'        uta:comment='Currency Sign used for amount' /> -->
+    <uta:field uta:id='appCurrSignSpaces'     uta:type='ASCII'     uta:length='lenCurrSign+2'       uta:data='"Rp.  "'        uta:comment='Currency Sign used for amount' />
+  	<uta:field uta:id='appRequest'  uta:type='ASCII'  uta:length='700'   uta:comment='iso msg request' />
+    <uta:field uta:id="appReqLen"   uta:type="word"   uta:comment='Len Request' />
+  	<uta:field uta:id='appRespon'  uta:type='ASCII'  uta:length='700'   uta:comment='iso msg response' />
+    <uta:field uta:id="appRspLen"   uta:type="word"   uta:comment='Len Response' />
+    <uta:field uta:id='appPassTel'  uta:type='ASCII'  uta:length='4'  uta:data='"1210"' uta:comment='pass EDC Tel' />
+   
+  <uta:field uta:id='appAppPrfNam'  uta:type='binary' uta:length='lenAppPrfNam' uta:comment='9F12 Application Preferred Name' />
+  <uta:field uta:id='emvPAN'       uta:type='binary' uta:length='lenEmvPAN'    uta:comment='5A   Application Primary Account Number' />
+  <uta:field uta:id='emvTrnDat'    uta:type='binary' uta:length='lenTrnDat'    uta:comment='9A Transaction Date YYMMDD' />
+  <uta:field uta:id='emvTrnTim'    uta:type='binary' uta:length='lenTrnTim'    uta:comment='9F21 Transaction Time hhmmss' />
+  <uta:field uta:id='emvTrnTyp'    uta:type='binary' uta:length='lenTrnTyp'    uta:comment='9C Transaction Type' />
+  <uta:field uta:id='emvAmtBin'    uta:type='binary' uta:length='lenAmtBin'    uta:comment='81   Transaction Amount Binary' />
+  <uta:field uta:id='emvAmtOthNum' uta:type='binary' uta:length='lenAmtNum'    uta:comment='9F03 Amount other numeric' />
+  <uta:field uta:id='emvAmtOthBin' uta:type='binary' uta:length='lenAmtBin'    uta:comment='9F04 Amount other binary' />
+  <uta:field uta:id='emvPANSeq'    uta:type='binary' uta:length='lenPANSeq'    uta:comment='5F34 PAN sequence number' />
+  <uta:field uta:id='emvIACDft'     uta:type='binary' uta:length='lenTVR'           uta:comment='IACDft' />
+  <uta:field uta:id='emvIACDnl'     uta:type='binary' uta:length='lenTVR'          uta:comment='IACDen' />
+  <uta:field uta:id='emvIACOnl'     uta:type='binary' uta:length='lenTVR'            uta:comment='IAC Online' />
+  <uta:field uta:id='emvAIP'       uta:type='binary' uta:length='lenAIP'       uta:comment='82   Application interchange profile' />
+  <uta:field uta:id='emvTVR'       uta:type='binary' uta:length='lenTVR'       uta:comment='95   Terminal verification results' />
+  <uta:field uta:id='emvTSI'       uta:type='binary' uta:length='lenTSI'       uta:comment='9B   Transaction Status Information' />
+  <uta:field uta:id='emvCVMRes'    uta:type='binary' uta:length='lenCVMRes'    uta:comment='9F34 Cardholder Verification Method Results' />
+  <uta:field uta:id='emvIAD'       uta:type='binary' uta:length='lenIAD'       uta:comment='9F10 Issuer Application Data' />
+  <uta:field uta:id='emvRspCod'    uta:type='binary' uta:length='lenRspCod'    uta:comment='8A   Authorization response code' />
+  <uta:field uta:id='emvACReq1'     uta:type='binary' uta:length='2'           uta:comment='1st Gen AC Req' />
+  <uta:field uta:id='emvACReq2'     uta:type='binary' uta:length='261'            uta:comment='2nd Gen AC Req' />
+  <uta:field uta:id='traACReq2'     uta:type='ASCII'     uta:length='2'  uta:comment='2nd Gen AC Req' />
+  <uta:field uta:id='emvACRsp1'     uta:type='binary' uta:length='2'           uta:comment='1st Gen AC Rsp' />
+  <uta:field uta:id='emvACRsp2'     uta:type='binary' uta:length='2'            uta:comment='2nd Gen AC Rsp' />
+  <uta:field uta:id='emvLstCmdRsp'  uta:type='binary' uta:length='7'            uta:comment='Final' />
+  <uta:field uta:id='traLstCmdRsp'  uta:type='binary' uta:length='4'            uta:comment='Final' />
+  <uta:field uta:id='emvIssTrnCrt' uta:type='binary' uta:length='lenIssTrnCrt' uta:comment='9F26 Issuer Transaction Certificate' />
+  <uta:field uta:id='emvATC'       uta:type='binary' uta:length='lenATC'       uta:comment='9F36 Application Transaction Counter (ATC)' />
+  <uta:field uta:id='emvUnpNum'    uta:type='binary' uta:length='lenUnpNum'    uta:comment='9F37 Unpredictable Number' /> 
+  <uta:field uta:id='emvAmtNum'    uta:type='binary' uta:length='lenAmtNum'    uta:comment='9F02 Transaction Amount Numeric' />
+  <uta:field uta:id='emvAmtPrv'    uta:type='binary' uta:length='lenAmtBin'    uta:comment='DF25 Amount found in the transaction file, in a previous transaction performed with the same card' />
+  <uta:field uta:id='emvCapkIdx'   uta:type='binary' uta:length='lenCapkIdx'   uta:comment='8F   CAPK index' />
+  <uta:field uta:id='emvAppTraAmt' 		uta:comment='transaction amount' uta:type='ASCII' uta:length='lenAmt' />
+  
+<!-- **DUMP_ISO_MESSAGE -->  
+  <uta:field uta:id='appDumpIsoMessageFlag'  uta:type='byte' uta:length='1'  uta:data='0'    uta:comment='Flag untuk dump iso message 0 - mati  1- nyala ' />    
+<!-- ==DUMP_ISO_MESSAGE -->  
+
+<!-- **BRIZI_DISCOUNT_FLAG -->  
+  <uta:field uta:id='appBriziDiscFlag'  uta:type='byte' uta:length='1'  uta:data='0'    uta:comment='Flag untuk Brizi Discount 1 - Rp  2- persen ' />    
+<!-- ==BRIZI_DISCOUNT_FLAG -->  
+
+<!-- **BRIZI_DISCOUNT_VALUE --> 
+<uta:field uta:id='appBriziDiscValue'  uta:comment='value untuk Brizi Discount ' uta:type='ASCII' uta:data='"000"'  uta:length='lenROC' />
+<!-- ==BRIZI_DISCOUNT_VALUE -->  
+
+<!-- **TEMP STAN FLAG -->  
+  <uta:field uta:id='appTempStanFlag'  uta:type='byte' uta:length='1'  uta:data='0'    uta:comment='Flag untuk temp Stan ' />    
+<!-- ==TEMP STAN FLAG -->  
+
+<!-- **TEMP STAN VOID FLAG -->  
+  <uta:field uta:id='appTempStanVoidFlag'  uta:type='byte' uta:length='1'  uta:data='0'    uta:comment='Flag untuk temp Stan Void ' />    
+<!-- ==TEMP STAN VOID FLAG -->  
+
+<!-- **DEBUG_PREPAID_DATA -->
+<uta:field uta:id='appDebugDataFlag'  uta:type='byte' uta:length='1'  uta:data='0'    uta:comment='Flag untuk dump iso message 0 - mati  1- nyala ' />    
+<!-- ==DEBUG_PREPAID_DATA -->
+
+<!-- **SAM INIT PARAM -->
+<uta:field uta:id='appMinPrepaid'  uta:type='ASCII' uta:length='lenMinPrepaid'  uta:data='__DFTMINPREPAIDINIT__'    uta:comment='Min amount untuk prepaid' />    
+<uta:field uta:id='appMaxPrepaid'  uta:type='ASCII' uta:length='lenMaxPrepaid'  uta:data='__DFTMAXPREPAIDINIT__'    uta:comment='MAX amount untuk prepaid' />
+<!-- ==SAM INIT PARAM -->
+
+<!-- [[ @agmr - BRI - TLE -->
+
+  <uta:field uta:id='appPublicKeyModulus' uta:type='ASCII' uta:length='lenPublicKeyModulus' uta:data='__DFTMODULUS__' uta:comment='TLE Public key modulus' />  
+  <uta:field uta:id='appPublicKeyExponent' uta:type='ASCII' uta:length='lenPublicKeyExponent' uta:data='"000"' uta:comment='TLE Public key exponent' /> 
+  <uta:field uta:id='appPrivateKeyModulus' uta:type='ASCII' uta:length='lenPrivateKeyModulus' uta:data='__DFTMODULUS__' uta:comment='TLE Private key modulus' />  
+  <uta:field uta:id='appPrivateKeyExponent' uta:type='ASCII' uta:length='lenPrivateKeyExponent' uta:data='"000"' uta:comment='TLE Private key exponent' />
+<!--   <uta:field uta:id='appUMK' uta:type='ASCII' uta:length='lenUMK' uta:data='"00000000000000000000000000000000"' uta:comment='TLE UMK' /> -->
+<!-- ]] @agmr - BRI - TLE -->  
+
+<!-- [[ @agmr -->
+  <uta:field uta:id="appBriRevIndex"   uta:type="byte"   uta:data='0' uta:comment='Revesal index' />
+
+  <uta:field uta:id="appNeedToBatchCopy"   uta:type="byte"   uta:data='0' uta:comment='Batch copy flag 2 - Belum dicopy ke batch, 1 - belum dicopy ke temporary, 0 - sudah selesai' />
+  <uta:field uta:id="appAcqSettlementIdx"   uta:type="byte"   uta:data='0' uta:comment='acquirer index untuk proses settlement' />
+  <uta:field uta:id="appPrintLastTransIdx"      uta:type="word"   uta:data='0' uta:comment='last Trans index untuk reprint last' />
+  
+  <uta:field uta:id="appPrepaidPrintLastTransIdx"      uta:type="word"   uta:data='0' uta:comment='last Prepaid Trans index untuk reprint last' />  
+<!-- ]] @agmr -->
+
+<!-- @@AS0.0.26 - start -->
+    <uta:field uta:id='appLogonDT'  uta:type='ASCII'   uta:length='lenDatTim'  uta:comment='Last Logon Date/Time' />
+    <uta:field uta:id="appIsFirstPowerOn" uta:type="byte" uta:comment='First Power-On Flag' />
+    <uta:field uta:id='appIsECR' uta:type='byte' uta:comment='First Power-On Flag - _USE_ECR ' />
+    <uta:field uta:id='appAmtECR' uta:comment='transaction amount from ECR - _USE_ECR ' uta:type='ASCII' uta:length='lenAmt' />
+<!-- @@AS0.0.26 - end -->
+
+     <uta:field uta:id='emvIssCountryCode'    uta:type='binary' uta:length='lenTrnCurCod'    uta:comment='5F28 Issuer Country Code' /> <!-- @@REPAIR -->
+     <uta:field uta:id='emvScriptResult'    uta:type='binary' uta:length='lenEMVScriptRes'    uta:comment='Issuer Script Result' /> <!-- @@REPAIR -->
+
+  
+<!-- **MQPS_VEPS_FLAG -->  
+    <uta:field uta:id='appMQPSVEPSFlag'  uta:type='byte' uta:length='1'  uta:data='2'    uta:comment='Flag untuk MQPS_VEPS ' />    
+<!-- ==MQPS_VEPS_FLAG -->  
+
+<!-- **MQPS_VEPS_VALUE -->  
+    <uta:field uta:id='appMQPSVEPSValue'  uta:comment='appMQPSVEPS  Value' uta:type='ASCII' uta:data='"200000"'  uta:length='lenAmt'  />    
+<!-- ==MQPS_VEPS_VALUE -->  
+
+<!-- **CHECK_PIN_DEBIT_FLAG -->  
+    <uta:field uta:id='appPINDebitFlag'  uta:type='byte' uta:length='1'  uta:data='2'    uta:comment='Flag untuk Check PIN Debit ' />    
+<!-- ==CHECK_PIN_DEBIT_FLAG -->
+
+<!-- **CHECK_PIN_DEBIT_FLAG -->  
+    <uta:field uta:id='appPINCreditFlag'  uta:type='byte' uta:length='1'  uta:data='2'    uta:comment='Flag untuk Check PIN Credit ' />    
+<!-- ==CHECK_PIN_DEBIT_FLAG -->
+
+    <uta:field uta:id='appManualPreauthFlag'  uta:type='byte' uta:length='1'  uta:data='2'    uta:comment='Flag untuk manual Preauth' /> 
+    <uta:field uta:id='appIsDisable' uta:type='byte' uta:comment='Disable Menu Flag' />
+    <uta:field uta:id="appIsPrepaidEnable" uta:type="byte" uta:data='0' uta:comment='Prepaid enable/disable' />
+
+
+<uta:field uta:id='appmnuBeg' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMainMenu' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCardService' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAktivasiKartu' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRenewalKartu' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuReissuePIN' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuGantiPIN' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuGantiPasswordSPV' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCLastTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCAnyTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCReport' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCTodaySummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCTodayDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCPastSummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCPastDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTunai' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTarikTunai' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuVoidTarikTunai' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSetorSimpanan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSetorPinjaman' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTLastTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTAnyTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTReport' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTTodaySummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTTodayDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTPastSummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTPastDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembelian' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSale' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSaleRedeem' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInstallment' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuVoid' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRefund' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAut' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSettlement' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcPrnTra' uta:type='byte' uta:comment='Disable Menu Flag' />
+            <uta:field uta:id='appmnuMrcLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewTxn' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewBat' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcSetDup' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcHostTot' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcDetails' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcBatTot' uta:type='byte' uta:comment='Disable Menu Flag' />
+            <uta:field uta:id='appmnuMiniATM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInformasi' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInfoSaldo' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInfoSaldoBankLain' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMiniStatement' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInfoKodeBank1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTransfer' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTransferSesamaBRI' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTransferAntarBank' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInfoKodeBank' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaran' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranBriva' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTelkom' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPostPaid' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranHalo' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMatrix' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranDPLKR' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTvBerlangganan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTvInd' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTvOkTv' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTvTopTv' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTiketPesawat' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTiketGaruda' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTiketLionAir' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTiketSriwijaya' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranTiketMandala' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPdam' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPdamSby' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPLN' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPLNPasca' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPLNPra' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPLNToken' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKBRI' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKCITI' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKCITIKK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKCITIKTA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKStanChar' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKStanCharKK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKStanCharKTA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKHSBC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKHSBCKK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKHSBCKTA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKRBS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKRBSKK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKRBSKTA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKKANZ' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranPendidikan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSPP' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranKodeUniv' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanFIF' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanBAF' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanOTO' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanFinansia' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanVerena' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranCicilanWOM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranZakat' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranZakatDhuafa' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranZakatYBM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranInfaq' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranInfaqDhuafa' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranInfaqYBM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranDPLK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranDPLKDhuafa' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranDPLKYBM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuIsiUlang' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati300' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSimpati1000' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari25' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari250' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranMentari1000' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm3' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm325' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm350' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm375' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm3100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm3150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm3200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm3500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranIm31000' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia25' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia75' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranEsia200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSmart' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSmart20' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSmart50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSmart100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranSmart200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren20' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren25' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren300' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranFren500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree20' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree75' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree300' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranThree500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis25' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis75' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranAxis300' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl25' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl50' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl75' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl100' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl150' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl200' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl300' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPembayaranXl500' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasi' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiInternetBanking' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiPhoneBanking' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiTrxBanking' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiTrxTransfer' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiTrxPulsa' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuRegistrasiSmsBanking' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMReprintReview' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPOS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMLastTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMAnyTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMReview' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMVLastTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMVAnyTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMReport' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMTodaySummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMTodayDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMPastSummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMPastDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMReportEnd' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTLEKeyDownload' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuDebitLogon' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBrizzi' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInitialize' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidInfoSaldo' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuInfoDeposit' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidPayment' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidPaymentDisc' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTopUpOnline' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTopUpDeposit' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAktivasiDeposit' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidSettlement' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidRedeem' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidReaktivasi' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidVoid' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidInfoKartu' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidPrintLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidReprint' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPRLastTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPRAnyTrx' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPrepaidReport' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPDateSummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPAllSummary' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPDateDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPDateDetailPayment' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPDateDetailAll' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPAllDetail' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPAllDetailPayment' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPAllDetailAll' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBrizziEnd' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAbsen' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuDatang' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPulangs' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuIstirahatA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuIstirahatB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuLemburA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuLemburB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShifts' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsI' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsII' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIIA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIIB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIII' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIIIA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuShiftsIIIB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSSB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIM' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaru' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMBaruD' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjang' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPanjangD' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPeningkatanB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMPenurunanB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasi' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiGolSam' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMGolSamD' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPeningkatanB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMMutasiPenurunanB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilang' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangGolSam' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangD' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPeningkatanB2U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunanA' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunanAU' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunanB1' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunanB1U' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSIMHilangPenurunanB2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuUjiSim' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKB' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBBaru' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBBaruRoda2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBBaruRoda4' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBGanti' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBGantiRoda2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBPKBGantiRoda4' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSTCK' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMutasiRan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMutasiRanRoda2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMutasiRanRoda4' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuLogon' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCustomer' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuPreaut' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuOffline' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAdjust' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuBalance' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuReversal' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTCUpload' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuLogOn' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuEchoTest' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMerchant' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcInfo' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcInitRpt' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewTot' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcSWver' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcBatStan' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewRoc' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcSetRoc' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewBatNum' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcSetBatNum' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcViewSTAN' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcSetSTAN' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuSettlementMain' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcChgPwd' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcTogDBG' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcReset' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuMrcResetRev' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuAdmin' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMSLP' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMSLS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMSVC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMSPC' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMSConfig' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTerm' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTerm2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTDT' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTermAppli' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTMKey' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuEDCFunction' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmm' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmm2' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmmVS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmmPS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmmLS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmmGS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuCmmCS' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuFn99' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuFn99MrcReset' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuFn99MrcResetRev' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuDeleteCLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuDeleteMLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuDeleteTLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuFn99TMKey' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuFn99End' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuViewLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuViewCardService' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuViewMiniAtm' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuViewTunai' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTest' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestData' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestReceipts' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCvtCmb' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestUsrInf' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestSaveLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestPrintLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestAppTotalsLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestVoidLog' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestReversal' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIso' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoRqs' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoSale' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoPreAuth' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoRefund' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoCashAdv' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoBalance' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoVerify' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoLogOn' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoEMVSale' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoEMVRefund' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoSettlement' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoRsp' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoParseSale' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoParsePreAut' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoParseLogOn' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoParseSettlement' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoOflBfrStl' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoParseDnl' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestIsoTMSLOGON' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmm' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmmSale' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmmSaleIP' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmmTMSLP' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmmTMSDnl' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+            <uta:field uta:id='appmnuTestCmmMpGprs' uta:type='byte' uta:comment='Disable Menu Flag' /> 
+        <uta:field uta:id='appmnuEnd' uta:type='byte' uta:comment='Disable Menu Flag' />
+
+<!-- @@SIMAS-INIT_DB - start -->        
+<uta:field uta:id="appIsFirstPowerOnTemp" uta:type="byte" uta:comment='First Power-On Flag' />
+<!-- @@SIMAS-INIT_DB - end --> 
+
+
+
+    
+</uta:record>
+

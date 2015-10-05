@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/enum.xml $
+$Id: enum.xml 1931 2009-04-27 09:49:34Z ajloreto $
+-->
+<uta:enum uta:id='len' uta:comment='Field Lengths' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='lenCmpDat' uta:data='16'/>
+  <uta:enumKey uta:id='lenCmpTim' uta:data='8'/>
+  <uta:enumKey uta:id='wdtPrt' uta:data='2+2*prtW'/>
+  <uta:enumKey uta:id='lenDatTim' uta:data='14'/>
+  <uta:enumKey uta:id='lenEndTime' uta:data='6'/>  
+  <uta:enumKey uta:id='lenDat' uta:data='4'/>
+  <uta:enumKey uta:id='lenDatBCD' uta:data='(lenDat+1)/2'/>
+  <uta:enumKey uta:id='lenTim' uta:data='6'/>
+  <uta:enumKey uta:id='lenTimBCD' uta:data='(lenTim+1)/2'/>
+  <uta:enumKey uta:id='lenMnu' uta:data='(2+dspW)'/>
+  <uta:enumKey uta:id='lenTrk2' uta:data='40'/>
+  <uta:enumKey uta:id='lenTrk2Bcd' uta:data='(lenTrk2+1)/2'/>
+  <uta:enumKey uta:id='lenPan' uta:data='19'/>
+  <uta:enumKey uta:id='lenExpDat' uta:data='4'/>
+  <uta:enumKey uta:id='lenAmt' uta:data='12'/>
+  <uta:enumKey uta:id='lenAmtBcd' uta:data='(lenAmt+1)/2'/>
+  <uta:enumKey uta:id='lenTotAmt' uta:data='16'/>
+  <uta:enumKey uta:id='lenChn' uta:data='16'/>
+  <uta:enumKey uta:id='lenApn' uta:data='128'/>
+  <uta:enumKey uta:id='lenPabx' uta:data='4'/>
+  <uta:enumKey uta:id='lenPhone' uta:data='17'/>
+  <uta:enumKey uta:id='lenPrefix' uta:data='4'/>
+  <uta:enumKey uta:id='lenPwd' uta:data='4'/>
+  <uta:enumKey uta:id='lenTid' uta:data='8'/>
+  <uta:enumKey uta:id='lenMid' uta:data='15'/>
+  <uta:enumKey uta:id='lenSrv' uta:data='32'/>
+  <uta:enumKey uta:id='lenNII' uta:data='3'/>
+  <uta:enumKey uta:id='lenHostName' uta:data='15'/>
+  <uta:enumKey uta:id='lenCardTransType' uta:data='15'/>
+  <uta:enumKey uta:id='lenTrnRefNum' uta:data='12'/>
+  <uta:enumKey uta:id='lenTrnApprv' uta:data='6'/>
+  <uta:enumKey uta:id='lenBatNum' uta:data='6'/>
+  <uta:enumKey uta:id='lenInvNum' uta:data='6'/>
+  <uta:enumKey uta:id='lenBitmap' uta:data='8'/>
+  <uta:enumKey uta:id='lenMti' uta:data='2'/>
+  <uta:enumKey uta:id='lenPrcCod' uta:data='3'/>
+  <uta:enumKey uta:id='lenRspCod' uta:data='2'/>
+  <uta:enumKey uta:id='lenAutCod' uta:data='6'/>
+  <uta:enumKey uta:id='lenRrn' uta:data='12'/>
+  <uta:enumKey uta:id='lenCurrSign' uta:data='3'/>
+  <uta:enumKey uta:id='lenBinPrefix' uta:data='5'/>
+  <uta:enumKey uta:id='lenName' uta:data='10'/>
+  <uta:enumKey uta:id='lenIssRef' uta:data='24'/>
+  <uta:enumKey uta:id='lenkeyData' uta:data='254'/>
+  <uta:enumKey uta:id='lenTPDU' uta:data='5'/>
+  <uta:enumKey uta:id='lenSTAN' uta:data='3'/>
+  <uta:enumKey uta:id='lenPOSE' uta:data='4'/>
+  <uta:enumKey uta:id='lenPOSEBCD' uta:data='(lenPOSE+1)/2'/>  
+  <uta:enumKey uta:id='lenNii' uta:data='2'/>
+  <uta:enumKey uta:id='lenROC' uta:data='6'/>
+  <uta:enumKey uta:id='lenAIDTxnType' uta:data='2'/>
+  <uta:enumKey uta:id='lenAIDTxnTags' uta:data='254'/>
+  <uta:enumKey uta:id='lenPIN' uta:data='8'/>  
+  <uta:enumKey uta:id='lenBCDMsg' uta:data='2'/>
+  <uta:enumKey uta:id='lenICCData' uta:data='264'/>
+  <uta:enumKey uta:id='lenICCDataBCD' uta:data='(lenICCData+1)/2'/>
+  <uta:enumKey uta:id='lenCrdSeq' uta:data='3'/>
+  <uta:enumKey uta:id='lenCrdSeqBCD' uta:data='(lenCrdSeq+1)/2'/>
+  <uta:enumKey uta:id='lenCrdInpCtl'  uta:data='3'/>
+  <uta:enumKey uta:id='lenPinBlk'  uta:data='8'/>
+  <uta:enumKey uta:id='lenTmsRefNum'  uta:data='8' uta:comment='Tms Reference Number Length'/>
+  <uta:enumKey uta:id='lenTmsFleChkSze'  uta:data='444' uta:comment='Tms File Chunk Size'/>
+  <uta:enumKey uta:id='lenTmsIssDatSze'  uta:data='26' uta:comment='Tms Issuer Data Size'/>
+  <uta:enumKey uta:id='lenTmsBinDatSze'  uta:data='28' uta:comment='Tms Bin Data Size'/>
+  <uta:enumKey uta:id='lenFleNme' uta:data='30'/>
+  <uta:enumKey uta:id='lenAID' uta:data='16' uta:comment='AID Length max 16'/> 
+  <uta:enumKey uta:id='lenAppNam' uta:data='16'/>
+  <uta:enumKey uta:id='lenAppPrfNam' uta:data='16'/>
+  <uta:enumKey uta:id='lenTrnCurCod' uta:data='2'/>  
+  <uta:enumKey uta:id='lenAmtBin' uta:data='4'/>                                                   
+  <uta:enumKey uta:id='lenTrnTyp' uta:data='1'/>
+  <uta:enumKey uta:id='lenAmtNum' uta:data='6'/>
+  <uta:enumKey uta:id='lenTrnCurExp' uta:data='1'/>
+  <uta:enumKey uta:id='lenTrnDat' uta:data='3'/>
+  <uta:enumKey uta:id='lenAcqId' uta:data='6'/>
+  <uta:enumKey uta:id='lenTrmAvn' uta:data='2'/>
+  <uta:enumKey uta:id='lenMrcCatCod' uta:data='2'/>
+  <uta:enumKey uta:id='lenTrmCntCod' uta:data='2'/>  
+  <uta:enumKey uta:id='lenTrmFlrLim' uta:data='4'/> 
+  <uta:enumKey uta:id='lenTID' uta:data='8'/>
+  <uta:enumKey uta:id='lenTrnTim' uta:data='3'/> 
+  <uta:enumKey uta:id='lenTrmCap' uta:data='3'/>
+  <uta:enumKey uta:id='lenEmvTrmTyp' uta:data='1'/>
+  <uta:enumKey uta:id='lenAddTrmCap' uta:data='5'/>
+  <uta:enumKey uta:id='lenTrnSeqCnt' uta:data='4'/> 
+  <uta:enumKey uta:id='lenThrVal' uta:data='4'/>
+  <uta:enumKey uta:id='lenTarPer' uta:data='2'/>
+  <uta:enumKey uta:id='lenMaxTarPer' uta:data='2'/>
+  <uta:enumKey uta:id='lenLstRspCod' uta:data='20'/>
+  <uta:enumKey uta:id='lenTCC' uta:data='1'/>                 
+  <uta:enumKey uta:id='lenIFDSerNum' uta:data='8'/>
+  <uta:enumKey uta:id='lenDftValDDOL' uta:data='254'/>
+  <uta:enumKey uta:id='lenDftValTDOL' uta:data='254'/>
+  <uta:enumKey uta:id='lenTVR' uta:data='5'/>
+  <uta:enumKey uta:id='lenVlpSupInd' uta:data='1'/>
+  <uta:enumKey uta:id='lenVlpTrmLim' uta:data='6'/>
+  <uta:enumKey uta:id='lenCardType' uta:data='2'/>  
+  <uta:enumKey uta:id='lenFloorLimit' uta:data='9'/>
+  <uta:enumKey uta:id='lenTSI' uta:data='2'/>
+  <uta:enumKey uta:id='lenEmvPAN' uta:data='10'/>
+  <uta:enumKey uta:id='lenPANSeq' uta:data='1'/>
+  <uta:enumKey uta:id='lenAIP' uta:data='2'/>
+  <uta:enumKey uta:id='lenCapkIdx' uta:data='1'/>
+  <uta:enumKey uta:id='lenEmvTrk2' uta:data='31'/>
+  <uta:enumKey uta:id='lenEmvExpDat' uta:data='3'/>
+  <uta:enumKey uta:id='lenCVM' uta:data='252'/>
+  <uta:enumKey uta:id='lenCrdAvn' uta:data='2'/>
+  <uta:enumKey uta:id='lenChdNam' uta:data='26'/> 
+  <uta:enumKey uta:id='lenLanPrf' uta:data='8'/>
+  <uta:enumKey uta:id='lenRid' uta:data='5'/>
+  <uta:enumKey uta:id='lenMod' uta:data='254'/>
+  <uta:enumKey uta:id='lenRSAKeyExp' uta:data='3'/>
+  <uta:enumKey uta:id='lenRSAKey' uta:data='254'/>
+  <uta:enumKey uta:id='lenCVMOutRes' uta:data='2'/>
+  <uta:enumKey uta:id='lenCVMRes' uta:data='3'/>
+  <uta:enumKey uta:id='lenFrcOnl' uta:data='1'/>
+  <uta:enumKey uta:id='lenHotLst' uta:data='1'/>
+  <uta:enumKey uta:id='lenIAD' uta:data='32'/>
+  <uta:enumKey uta:id='lenIssTrnCrt' uta:data='8'/>
+  <uta:enumKey uta:id='lenCID' uta:data='1'/>
+  <uta:enumKey uta:id='lenUnpNum' uta:data='4'/>
+  <uta:enumKey uta:id='lenTrmDcs' uta:data='1'/>
+  <uta:enumKey uta:id='lenATC' uta:data='2'/>
+  <uta:enumKey uta:id='lenOnlSta' uta:data='1'/>
+  <uta:enumKey uta:id='lenCommOk' uta:data='1'/>
+  <uta:enumKey uta:id='lenAuthRes' uta:data='1'/>
+  <uta:enumKey uta:id='lenEmvRspDat' uta:data='64'/>
+  <uta:enumKey uta:id='lenIssAutDta' uta:data='16'/>
+  <uta:enumKey uta:id='lenIssSc1' uta:data='254'/>
+  <uta:enumKey uta:id='lenIssSc2' uta:data='254'/>
+<!--  <uta:enumKey uta:id='lenDFNam' uta:data='7'/>  -->
+  <uta:enumKey uta:id='lenDFNam' uta:data='16'/> <!-- update -->
+  <uta:enumKey uta:id='lenLogTotalTxn' uta:data='3'/>    
+  <uta:enumKey uta:id='lenFleHdl' uta:data='4'/>
+  <uta:enumKey uta:id='txnTypeTip' uta:data='500' uta:comment='Tip transaction equivalent'/>
+  <uta:enumKey uta:id='lenMon' uta:data='3'/>
+  <uta:enumKey uta:id='lenTraName' uta:data='8'/>
+  <uta:enumKey uta:id='lenLogo' uta:data='6' uta:comment='issuer log width in characters'/>
+  <uta:enumKey uta:id='lenMKey' uta:data='16' uta:comment='len Master Key'/>
+  <uta:enumKey uta:id='lenEmvICC' uta:data='256'/>
+  
+<!-- [[ @agmr - BRI -->  
+  <uta:enumKey uta:id='lenInquiryAmt' uta:data='12'/>
+  <uta:enumKey uta:id='lenBankId' uta:data='3'/>
+  <uta:enumKey uta:id='lenNomorRekeningBRI' uta:data='15'/>
+  <uta:enumKey uta:id='lenNomorRekening' uta:data='20'/>
+  <uta:enumKey uta:id='lenCustomerRefNumber' uta:data='16'/>
+  <uta:enumKey uta:id='lenNamaBank' uta:data='15'/>
+  <uta:enumKey uta:id='lenNamaPemilik' uta:data='30'/>
+  <uta:enumKey uta:id='lenField63' uta:data='20'/>
+  <uta:enumKey uta:id='lenField48' uta:data='512'/>
+  <uta:enumKey uta:id='lenField57' uta:data='10'/>
+  <uta:enumKey uta:id='lenSaldo' uta:data='16'/>
+  <uta:enumKey uta:id='lenJenisTransfer' uta:data='3'/>
+  
+  <uta:enumKey uta:id='lenPelangganId' uta:data='12'/>
+  <uta:enumKey uta:id='lenNamaPelangganPLN' uta:data='20'/> <!-- @agmr - diganti dari 22 -->
+  <uta:enumKey uta:id='lenKodeWilayah' uta:data='3'/>
+  <uta:enumKey uta:id='lenLWBP' uta:data='17'/>
+  <uta:enumKey uta:id='lenMPLO' uta:data='19'/>
+  <uta:enumKey uta:id='lenMeter' uta:data='16'/>
+  <uta:enumKey uta:id='lenBillPeriod' uta:data='4'/>
+  <uta:enumKey uta:id='lenCustomerSegment' uta:data='4'/>
+  <uta:enumKey uta:id='lenPowerConsuming' uta:data='9'/>
+  
+  <uta:enumKey uta:id='lenTotalOutstanding' uta:data='2'/>
+  <uta:enumKey uta:id='lenBillStatus' uta:data='1'/>
+  <uta:enumKey uta:id='lenPaymentStatus' uta:data='1'/>
+  <uta:enumKey uta:id='lenCustomerName' uta:data='20'/>
+  <uta:enumKey uta:id='lenContractNumber' uta:data='16'/>
+  <uta:enumKey uta:id='lenCustomerType' uta:data='5'/>
+  <uta:enumKey uta:id='lenAdminCharge' uta:data='9'/>
+  <uta:enumKey uta:id='lenPaymentNumber' uta:data='4'/>
+  <uta:enumKey uta:id='lenDueDate' uta:data='8'/>
+  <uta:enumKey uta:id='lenTotalAmount' uta:data='12'/>
+  <uta:enumKey uta:id='lenPokokHutang' uta:data='12'/>
+  <uta:enumKey uta:id='lenBunga' uta:data='12'/>
+  <uta:enumKey uta:id='lenPenaltyFee' uta:data='9'/>
+  
+  <uta:enumKey uta:id='lenNoTelpon' uta:data='13'/>
+  <uta:enumKey uta:id='lenNominalVoucher' uta:data='12'/>  
+  
+  <uta:enumKey uta:id='lenPeriode' uta:data='8'/>
+  <uta:enumKey uta:id='lenNoVoucher' uta:data='16'/>
+  <uta:enumKey uta:id='lenNoVoucherMitra' uta:data='20'/>
+  <uta:enumKey uta:id='lenKodeMRP' uta:data='2'/>   
+  <uta:enumKey uta:id='lenSisaSaldo' uta:data='16'/>
+  <uta:enumKey uta:id='lenFee' uta:data='8'/>
+
+  <uta:enumKey uta:id='lenEMVScriptRes' uta:data='21'/>   <!-- @@REPAIR -->
+
+  <uta:enumKey uta:id='lenNoKartuInternetBanking' uta:data='16'/>
+  <uta:enumKey uta:id='lenPINInternetBanking' uta:data='6'/>
+  <uta:enumKey uta:id='lenUserId' uta:data='10'/>
+  <uta:enumKey uta:id='lenNomorKartuLama' uta:data='16'/>
+  <uta:enumKey uta:id='lenKodeUker' uta:data='4'/>
+  <uta:enumKey uta:id='lenStatusKartu' uta:data='2'/>
+  
+  <uta:enumKey uta:id='lenNomorKartuPetugas' uta:data='16'/>
+  <uta:enumKey uta:id='lenPasswordPetugas' uta:data='6'/>
+  <uta:enumKey uta:id='lenPINBaru' uta:data='16'/>
+  <uta:enumKey uta:id='lenTanggalLahir' uta:data='8'/>  
+  
+  <uta:enumKey uta:id='lenInstallmentPlan' uta:data='2'/>
+  <uta:enumKey uta:id='lenInstallmentTerm' uta:data='2'/>
+  <uta:enumKey uta:id='lenInstallmentPokok' uta:data='12'/>
+  <uta:enumKey uta:id='lenInstallmentCicilan' uta:data='9'/>
+  
+  <uta:enumKey uta:id='lenPPPConn' uta:data='128'/>
+  <uta:enumKey uta:id='lenPPPPhoneNumber' uta:data='16'/>
+  <uta:enumKey uta:id='lenPPPUserName' uta:data='25'/>
+  <uta:enumKey uta:id='lenPPPPassword' uta:data='25'/>
+  <uta:enumKey uta:id='lenPPPDestination' uta:data='50'/>
+  
+  <uta:enumKey uta:id='lenTLEData' uta:data='100'/>
+  <uta:enumKey uta:id='lenTLEKeyDownload' uta:data='128'/>
+  <uta:enumKey uta:id='lenPublicKeyModulus' uta:data='128'/>
+  <uta:enumKey uta:id='lenPublicKeyExponent' uta:data='3'/>
+  <uta:enumKey uta:id='lenPrivateKeyModulus' uta:data='128'/>
+  <uta:enumKey uta:id='lenPrivateKeyExponent'  uta:data='128'/>
+  <uta:enumKey uta:id='lenTLEUserId'  uta:data='8'/>
+  <uta:enumKey uta:id='lenTLEPwd'  uta:data='8'/>
+  <uta:enumKey uta:id='lenUMK'  uta:data='32'/>
+  <uta:enumKey uta:id='lenBulanTagihan'  uta:data='1'/>
+  
+  <uta:enumKey uta:id='lenMinPrepaid'  uta:data='10'/>
+  <uta:enumKey uta:id='lenMaxPrepaid'  uta:data='10'/>
+  
+  <uta:enumKey uta:id='lenBuffer1'  uta:data='25'/>
+  <uta:enumKey uta:id='lenBuffer2'  uta:data='2'/> <!-- agmr - brizzi2 -->
+  <uta:enumKey uta:id='lenBuffer3'  uta:data='40'/>
+  <uta:enumKey uta:id='lenBuffer4'  uta:data='23'/> <!-- agmr - brizzi2 -->
+  <uta:enumKey uta:id='lenBuffer5'  uta:data='28'/>
+  <uta:enumKey uta:id='lenBuffer6'  uta:data='128'/>
+  <uta:enumKey uta:id='lenBuffer7'  uta:data='256'/>
+<!-- ]] @agmr - BRI -->   
+   <!-- @@AS-SIMAS Start -->
+  <uta:enumKey uta:id='lenTMKRefNo'  uta:data='8'/>
+  <uta:enumKey uta:id='lenKEY'  	 uta:data='16'/>
+<!-- @@AS-SIMAS End -->
+</uta:enum>
+
+<uta:enum uta:id='tms' uta:comment='TMS Messages' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='tmsLogin' uta:data='1'/>
+  <uta:enumKey uta:id='tmsDnlConTbl' uta:data='2'/>
+  <uta:enumKey uta:id='tmsDnlBinTbl' uta:data='3'/>
+  <uta:enumKey uta:id='tmsDnlIssTbl' uta:data='4'/>
+  <uta:enumKey uta:id='tmsDnlAcqTbl' uta:data='5'/>
+  <uta:enumKey uta:id='tmsLogOff' uta:data='6'/>
+  <uta:enumKey uta:id='tmsEmvReq' uta:data='7'/>
+  <uta:enumKey uta:id='tmsEmvFileDnl' uta:data='8'/>
+  <uta:enumKey uta:id='tmsEmvFileOpn' uta:data='9'/>
+  <uta:enumKey uta:id='tmsEmvFileRed' uta:data='10'/>
+  <uta:enumKey uta:id='tmsEmvFileCls' uta:data='11'/>
+</uta:enum>
+
+<uta:enum uta:id='dim' uta:comment='Multirecord dimensions' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='dimBin' uta:data='30'/>
+  <uta:enumKey uta:id='dimAcq' uta:data='15'/>
+  <uta:enumKey uta:id='dimIss' uta:data='10'/>
+  <uta:enumKey uta:id='dimPub' uta:data='20'/>
+  <uta:enumKey uta:id='dimAID' uta:data='10'/>
+<!--  <uta:enumKey uta:id='dimLog' uta:data='300'/>  -->
+  <uta:enumKey uta:id='dimLog' uta:data='300'/>  <!-- agmr - DIKECILKAN DARI 300-->  
+  <uta:enumKey uta:id='dimLogTemp' uta:data='300'/> <!-- agmr - multi settle -->  
+  <uta:enumKey uta:id='dimMLog' uta:data='500'/><!-- agmr - BRI report MINI ATM-->   
+  <uta:enumKey uta:id='dimCLog' uta:data='200'/>  <!-- agmr - BRI report CARD SERVICES-->   
+  <uta:enumKey uta:id='dimTLog' uta:data='500'/> <!-- agmr - BRI report TUNAI-->    
+  <uta:enumKey uta:id='dimTCashLog' uta:data='300'/> <!-- agmr - BRI report T-CASH-->    
+</uta:enum>
+
+<uta:enum uta:id='trt' uta:comment='Transaction types' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='trtSale'/>
+  <uta:enumKey uta:id='trtSaleRedeem'/> <!-- ar - BRI5 -->
+  <uta:enumKey uta:id='trtPreAut'/>
+  <uta:enumKey uta:id='trtAut'/>  <!-- agmr - BRI5 -->
+  <uta:enumKey uta:id='trtRefund'/>
+  <uta:enumKey uta:id='trtPreAuth'/>
+  <uta:enumKey uta:id='trtPreCancel'/>
+  <uta:enumKey uta:id='trtPreCom'/>
+  <uta:enumKey uta:id='trtCash'/>
+  <uta:enumKey uta:id='trtBalance'/>
+  <uta:enumKey uta:id='trtVerify'/>
+  <uta:enumKey uta:id='trtVoid'/>
+  <uta:enumKey uta:id='trtCompletion'/>
+  <uta:enumKey uta:id='trtSettlement'/>
+  <uta:enumKey uta:id='trtSettlementReconcile'/>
+  <uta:enumKey uta:id='trtBatchUpload'/>
+  <uta:enumKey uta:id='trtTMSLOGON'/>
+  <uta:enumKey uta:id='trtTMSDnlTbl'/>
+  <uta:enumKey uta:id='trtTMSLOGOFF'/>
+  <uta:enumKey uta:id='trtTMSEmvReq'/>
+  <uta:enumKey uta:id='trtTMSEmvFleDnl'/>
+  <uta:enumKey uta:id='trtOffline'/>
+  <uta:enumKey uta:id='trtManual'/>
+  <uta:enumKey uta:id='trtAdjust'/>
+  <uta:enumKey uta:id='trtReversal'/>
+  <uta:enumKey uta:id='trtLogOn'/>
+  <uta:enumKey uta:id='trtEchoTest'/>
+  <uta:enumKey uta:id='trtTCUpload'/>
+  
+<!-- [[ @agmr - BRI -->
+
+  <uta:enumKey uta:id='trtInfoSaldo'/>  
+  <uta:enumKey uta:id='trtInfoSaldoBankLain'/>
+  <uta:enumKey uta:id='trtMiniStatement'/>  
+  <uta:enumKey uta:id='trtMutRek'/>  
+  <uta:enumKey uta:id='trtPrevilege'/>  
+  
+
+  <uta:enumKey uta:id='trtTransferSesamaBRIInquiry'/> 
+  <uta:enumKey uta:id='trtTransferSesamaBRI'/>  
+  
+  <uta:enumKey uta:id='trtTransferAntarBankInquiry'/> 
+  <uta:enumKey uta:id='trtTransferAntarBank'/>
+
+  <uta:enumKey uta:id='trtPembayaranTVBerlanggananInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranTVBerlangganan'/>
+
+  <uta:enumKey uta:id='trtPembayaranTiketPesawatInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranTiketPesawat'/>
+
+  <uta:enumKey uta:id='trtPembayaranPdamInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranPdam'/>
+    
+  <uta:enumKey uta:id='trtPembayaranPLNPascaInquiry'/>   
+  <uta:enumKey uta:id='trtPembayaranPLNPasca'/>
+
+  <uta:enumKey uta:id='trtPembayaranPLNPraInquiry'/>   
+  <uta:enumKey uta:id='trtPembayaranPLNPra'/>
+
+  <uta:enumKey uta:id='trtPembayaranPLNToken'/>
+
+  <uta:enumKey uta:id='trtPembayaranSPPInquiry'/>   
+  <uta:enumKey uta:id='trtPembayaranSPP'/>
+
+  <uta:enumKey uta:id='trtPembayaranTelkomInquiry'/>   
+  <uta:enumKey uta:id='trtPembayaranTelkom'/>
+
+  <uta:enumKey uta:id='trtPembayaranDPLKR'/>
+    
+  <uta:enumKey uta:id='trtPembayaranCicilanInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranCicilan'/>  
+
+  <uta:enumKey uta:id='trtPembayaranKKBRIInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranKKBRI'/>
+  <uta:enumKey uta:id='trtPembayaranKKANZ'/>
+  <uta:enumKey uta:id='trtPembayaranKKCITIKTA'/>
+  <uta:enumKey uta:id='trtPembayaranKKCITIKK'/>
+  <uta:enumKey uta:id='trtPembayaranKKHSBCKTA'/>
+  <uta:enumKey uta:id='trtPembayaranKKHSBCKK'/>
+  <uta:enumKey uta:id='trtPembayaranKKRBSKTA'/>
+  <uta:enumKey uta:id='trtPembayaranKKRBSKK'/>
+  <uta:enumKey uta:id='trtPembayaranKKStanCharKTA'/>
+  <uta:enumKey uta:id='trtPembayaranKKStanCharKK'/>
+       
+  <uta:enumKey uta:id='trtPembayaranPulsa'/>  
+  
+  <uta:enumKey uta:id='trtPembayaranZakat'/>
+
+  <uta:enumKey uta:id='trtSetorPasti'/>
+  
+  <uta:enumKey uta:id='trtSetorPinjamanInquiry'/>
+  <uta:enumKey uta:id='trtSetorPinjaman'/>  
+    
+  <uta:enumKey uta:id='trtSetorSimpananInquiry'/>
+  <uta:enumKey uta:id='trtSetorSimpanan'/>
+            
+  <uta:enumKey uta:id='trtTarikTunai'/>  
+  <uta:enumKey uta:id='trtVoidTarikTunai'/>
+
+  <uta:enumKey uta:id='trtTCash'/>  
+  <uta:enumKey uta:id='trtTCashOut'/>  
+  
+  <uta:enumKey uta:id='trtRegistrasiInternetBanking'/>  
+  <uta:enumKey uta:id='trtRegistrasiPhoneBanking'/>  
+  <!--/*Changed By Ali*/-->
+  <uta:enumKey uta:id='trtTrxPhoneBankingTransferInquiry'/> 
+  <uta:enumKey uta:id='trtTrxPhoneBankingTransfer'/> 
+  <uta:enumKey uta:id='trtTrxPhoneBankingPulsa'/> 
+  <uta:enumKey uta:id='trtRegistrasiSmsBanking'/>
+  
+  <uta:enumKey uta:id='trtPembayaranBrivaInquiry'/>   
+  <uta:enumKey uta:id='trtPembayaranBriva'/>
+  <!--/*End Of Changed By Ali*/-->  
+  <uta:enumKey uta:id='trtGantiPIN'/>
+  
+  <uta:enumKey uta:id='trtGantiPasswordSPV'/>
+  
+  <uta:enumKey uta:id='trtAktivasiKartuOtorisasi'/>
+  <uta:enumKey uta:id='trtAktivasiKartuInquiry'/>
+  <uta:enumKey uta:id='trtAktivasiKartu'/>
+
+  <uta:enumKey uta:id='trtRenewalKartuOtorisasi'/>  
+  <uta:enumKey uta:id='trtRenewalKartuInquiry'/>
+  <uta:enumKey uta:id='trtRenewalKartu'/>
+ 
+  <uta:enumKey uta:id='trtReissuePINOtorisasi'/>  
+  <uta:enumKey uta:id='trtReissuePIN'/>  
+  
+  <uta:enumKey uta:id='trtInstallment'/>  
+  
+  <uta:enumKey uta:id='trtPembayaranPascaBayarInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranPascaBayar'/>
+
+<!-- [[ @agmr - Prepaid  -->
+  <uta:enumKey uta:id='trtPrepaidInfoDeposit'/>
+  <uta:enumKey uta:id='trtPrepaidPayment'/>
+  <uta:enumKey uta:id='trtPrepaidPaymentDisc'/>
+  <uta:enumKey uta:id='trtPrepaidTopUp'/>
+  <uta:enumKey uta:id='trtPrepaidDeposit'/>  
+  <uta:enumKey uta:id='trtPrepaidAktivasi'/>
+
+  <!-- [[ @agmr - brizzi2 -->
+  <uta:enumKey uta:id='trtPrepaidReaktivasiInquiry'/>
+  <uta:enumKey uta:id='trtPrepaidReaktivasi'/>
+  <uta:enumKey uta:id='trtPrepaidVoidInquiry'/>
+  <uta:enumKey uta:id='trtPrepaidVoid'/>  
+<!-- ]] @agmr - brizzi2 -->
+
+  <uta:enumKey uta:id='trtPrepaidRedeemInquiry'/>
+  <uta:enumKey uta:id='trtPrepaidRedeem'/>
+  <uta:enumKey uta:id='trtPrepaidSettlement'/>
+<!-- ]] @agmr - Prepaid  -->
+
+  <uta:enumKey uta:id='trtAbsensi'/>
+   <uta:enumKey uta:id='trtDummy'/>
+  <!-- @ar - SSB -->
+  <uta:enumKey uta:id='trtPembayaranSSBInquiry'/>
+  <uta:enumKey uta:id='trtPembayaranSSB'/>
+  <!-- @ar - SSB -->
+  
+<!--  AS0.0.26 - Add Logon feature - Start -->
+	<uta:enumKey uta:id='trtDebitLogon'/>	
+<!--  AS0.0.26 - Add Logon feature - End -->
+  
+  <uta:enumKey uta:id='trtTLEKeyDownload'/>  
+ 
+  <uta:enumKey uta:id='trtInfoKodeBank'/>
+    
+<!-- ]] @agmr - BRI -->  
+  </uta:enum>
+
+<uta:enum uta:id='tet' uta:comment='Tms Emv Tags' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='tetEmvKey'/>
+  <uta:enumKey uta:id='tetEmvKeyRid'/>
+  <uta:enumKey uta:id='tetEmvKeyIdx'/>
+  <uta:enumKey uta:id='tetEmvKeyDta'/>
+  <uta:enumKey uta:id='tetEmvKeyExp'/>
+  <uta:enumKey uta:id='tetEmvKeyAlg'/>
+  <uta:enumKey uta:id='tetEmvDefPar'/>
+  <uta:enumKey uta:id='tetEmvDefAprLvl'/>
+  <uta:enumKey uta:id='tetEmvDefTag'/>
+  <uta:enumKey uta:id='tetEmvAidPar'/>
+  <uta:enumKey uta:id='tetEmvAid'/>
+  <uta:enumKey uta:id='tetEmvAidPri'/>
+  <uta:enumKey uta:id='tetEmvAppSelIdx'/>
+  <uta:enumKey uta:id='tetEmvAidTag'/>
+  <uta:enumKey uta:id='tetEmvTxnType'/>
+  <uta:enumKey uta:id='tetEmvAidTxnTag'/>
+</uta:enum>

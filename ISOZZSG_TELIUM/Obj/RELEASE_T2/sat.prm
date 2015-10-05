@@ -1,0 +1,21 @@
+[SAT]
+CertificateAppliDir=C:\Program Files\Ingenico\IngeDev_722\plugins\com.ingenico.ingedev.telium.core_7.22.2.1\defaultSystemFiles
+SignedSchemaDir=C:\Users\z\AppData\Local\Temp\Telium
+ApplicationDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\RELEASE_T2
+ParametersDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\RELEASE_T2
+DestinationDir=C:\Users\z\IngeDev7_workspace2\ISOZZSG_TELIUM\Bin\RELEASE_T2
+TempDir=C:\Users\z\AppData\Local\Temp\Telium
+
+[Schemas]
+NbSchemas=0
+
+
+[Application]
+ParameterFile=SIMAS_T2.TXT
+ApplicationFile=SIMAS.BIN
+CertificateFile=sat.C13
+CatalogFileExtension=XX
+
+[Error]
+Code=0
+msg=files correctly signed.

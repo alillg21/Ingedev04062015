@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/mnu.xml $
+$Id: mnu.xml 1598 2009-02-26 10:52:18Z jlapara $
+-->
+<uta:table uta:id="mnu" uta:type='ASCII' uta:length="lenMnu" uta:cache="yes" uta:comment="menu tree"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:row uta:id="mnuMainMenu"     uta:data='"0 EDC BRI         "' />
+  
+<!-- awal AGM - BRI --> 
+    <uta:row uta:id="mnuCardService"                uta:data='"1 CARD SERVICES>       "' />    
+        <uta:row uta:id="mnuAktivasiKartu"          uta:data='"2 AKTIVASI KARTU  "' /> 
+        <uta:row uta:id="mnuRenewalKartu"           uta:data='"2 RENEWAL CARD  "' /> 
+        <uta:row uta:id="mnuReissuePIN"             uta:data='"2 REISSUE PIN     "' />
+        <uta:row uta:id="mnuGantiPIN"               uta:data='"2 UBAH PIN     "' />
+        <uta:row uta:id="mnuGantiPasswordSPV"       uta:data='"2 UBAH PASS SPV  "' />
+          
+	    <uta:row uta:id="mnuCReprint"         	    uta:data='"2 REPRINT>"' />
+	        <uta:row uta:id="mnuCLastTrx"         	uta:data='"3aLAST TRANSACTION"' />
+	        <uta:row uta:id="mnuCAnyTrx"         	uta:data='"3aANY TRANSACTION"' /> 
+	    <uta:row uta:id="mnuCReport"         	    uta:data='"2 REPORT>"' />
+	        <uta:row uta:id="mnuCTodaySummary"      uta:data='"3aTODAY SUMMARY"' />
+	        <uta:row uta:id="mnuCTodayDetail"       uta:data='"3aTODAY DETAIL"' /> 
+	        <uta:row uta:id="mnuCPastSummary"      	uta:data='"3aPAST SUMMARY"' />
+	        <uta:row uta:id="mnuCPastDetail"        uta:data='"3aPAST DETAIL"' /> 
+	        
+        <uta:row uta:id="mnuTunai"                  uta:data='"1 TUNAI>       "' />    
+        <uta:row uta:id="mnuTarikTunai"             uta:data='"2 TARIK TUNAI     "' />
+        <uta:row uta:id="mnuVoidTarikTunai"         uta:data='"2 VOID TRK TUNAI"' />
+        <uta:row uta:id="mnuSetorSimpanan"          uta:data='"2 SETOR SIMPANAN "' />
+        <uta:row uta:id="mnuSetorPinjaman"          uta:data='"2 SETOR PINJAMAN "' />
+	    <uta:row uta:id="mnuTReprint"         	    uta:data='"2 REPRINT>"' />
+	        <uta:row uta:id="mnuTLastTrx"         	uta:data='"3aLAST TRANSACTION"' />
+	        <uta:row uta:id="mnuTAnyTrx"         	uta:data='"3aANY TRANSACTION"' /> 
+	    <uta:row uta:id="mnuTReport"         	    uta:data='"2 REPORT>"' />
+	        <uta:row uta:id="mnuTTodaySummary"      uta:data='"3aTODAY SUMMARY"' />
+	        <uta:row uta:id="mnuTTodayDetail"       uta:data='"3aTODAY DETAIL"' /> 
+	        <uta:row uta:id="mnuTPastSummary"      	uta:data='"3aPAST SUMMARY"' />
+	        <uta:row uta:id="mnuTPastDetail"        uta:data='"3aPAST DETAIL"' /> 
+        
+    <uta:row uta:id="mnuPembelian"                  uta:data='"1 PEMBELIAN>      "' />
+    	<uta:row uta:id="mnuSale"                   uta:data='"2 SALE            "' />
+	    <uta:row uta:id="mnuInstallment"            uta:data='"2 CICILAN BRING   "' />    
+	    <uta:row uta:id="mnuVoid"                   uta:data='"2 VOID            "' />
+		<uta:row uta:id="mnuRefund"         		uta:data='"2 REFUND          "' />
+        <uta:row uta:id="mnuAut"                    uta:data='"2 CARD VER        "' />		
+        <uta:row uta:id="mnuSettlement"             uta:data='"2 SETTLEMENT      "' />   
+	    <uta:row uta:id="mnuPReprint"				uta:data='"2 REPRINT>     "' />    
+        <uta:row uta:id="mnuMrcReprint"				uta:data='"3 LAST TRANSACTION"' uta:comment="F72"/>
+        <uta:row uta:id="mnuMrcPrnTra"				uta:data='"3 ANY TRANSACTION "' uta:comment="JJ"/>
+        
+        <uta:row uta:id="mnuMrcLog"                uta:data='"2 LOG>           "'/>
+            <uta:row uta:id="mnuMrcViewTxn"         uta:data='"3 VIEW TXN        "' uta:comment="JJ"/>
+            <uta:row uta:id="mnuMrcViewBat"         uta:data='"3 VIEW BATCH      "' uta:comment="F50"/>
+            <uta:row uta:id="mnuMrcSetDup"          uta:data='"3 SETTLE DUPLICATE"' uta:comment="F73"/>
+            <uta:row uta:id="mnuMrcHostTot"         uta:data='"3 HOST TOTALS     "' uta:comment="+F74 HC"/>
+            <uta:row uta:id="mnuMrcDetails"         uta:data='"3 PRINT LOG       "' uta:comment="+F75 HC"/>
+            <uta:row uta:id="mnuMrcBatTot"          uta:data='"3 BATCH TOTALS    "' uta:comment="+F76 HC"/>        
+
+    <uta:row uta:id="mnuMiniATM"                    uta:data='"1 Mini ATM>       "' />
+        <uta:row uta:id="mnuInformasi"              uta:data='"2 INFORMASI>     "' />  
+            <uta:row uta:id="mnuInfoSaldo"          uta:data='"3 SALDO       "' /> 
+            <uta:row uta:id="mnuInfoSaldoBankLain"      uta:data='"3 SALDO BANK LAIN"' /> 
+            <uta:row uta:id="mnuInfoKodeBank1"          uta:data='"? KODE BANK   "' /> 
+      
+        <uta:row uta:id="mnuTransfer"               uta:data='"2 TRANSFER>     "' />
+            <uta:row uta:id="mnuTransferSesamaBRI"  uta:data='"3 SESAMA BRI     "' />
+            <uta:row uta:id="mnuTransferAntarBank"  uta:data='"3 ANTAR BANK     "' />
+            <uta:row uta:id="mnuInfoKodeBank"       uta:data='"3 KODE BANK "' /> 
+      
+        <uta:row uta:id="mnuPembayaran"                 uta:data='"2 PEMBAYARAN>     "' />
+            <uta:row uta:id="mnuPembayaranTelkom"       uta:data='"? TELKOM            "' />
+            <uta:row uta:id="mnuPembayaranPostPaid"     uta:data='"3 PASCA BAYAR>            "' />
+                <uta:row uta:id="mnuPembayaranHalo"     uta:data='"4 KARTU HALO         "' />
+                <uta:row uta:id="mnuPembayaranMatrix"   uta:data='"4 KARTU MATRIX         "' />                
+                
+            <uta:row uta:id="mnuPembayaranTvBerlangganan" uta:data='"? TV BERLANGGANAN>            "' />
+                <uta:row uta:id="mnuPembayaranTvInd"     uta:data='"4 INDOVISION         "' />
+                <uta:row uta:id="mnuPembayaranTvOkTv"    uta:data='"4 OK TV         "' />
+                <uta:row uta:id="mnuPembayaranTvTopTv"   uta:data='"4 TOP TV         "' />
+                
+            <uta:row uta:id="mnuPembayaranPLN"          uta:data='"3 PLN            "' />
+            <!-- Changed By Ali-->
+            <uta:row uta:id="mnuPembayaranKK"            uta:data='"? KRTU KREDIT/KTA>            "' />
+            <uta:row uta:id="mnuPembayaranKKBRI"		 uta:data='"4 BRI            "' />
+            <uta:row uta:id="mnuPembayaranKKCITI"		 uta:data='"4 CITIBANK>      "' />
+            <uta:row uta:id="mnuPembayaranKKCITIKK"		 uta:data='"5 KK             "' />
+            <uta:row uta:id="mnuPembayaranKKCITIKTA"	 uta:data='"5 KTA            "' />
+            <uta:row uta:id="mnuPembayaranKKStanChar"	 uta:data='"4 SCB>"' />
+            <uta:row uta:id="mnuPembayaranKKStanCharKK"	 uta:data='"5 KK"' />
+            <uta:row uta:id="mnuPembayaranKKStanCharKTA" uta:data='"5 KTA"' />
+            <uta:row uta:id="mnuPembayaranKKHSBC"		 uta:data='"4 HSBC>"' />
+            <uta:row uta:id="mnuPembayaranKKHSBCKK"		 uta:data='"5 KK"' />
+            <uta:row uta:id="mnuPembayaranKKHSBCKTA"	 uta:data='"5 KTA"' />
+            <uta:row uta:id="mnuPembayaranKKRBS"		 uta:data='"4 RBS>"' />
+            <uta:row uta:id="mnuPembayaranKKRBSKK"		 uta:data='"5 KK"' />
+            <uta:row uta:id="mnuPembayaranKKRBSKTA"		 uta:data='"5 KTA"' />
+            <uta:row uta:id="mnuPembayaranKKANZ"		 uta:data='"4 ANZ"' />
+            <uta:row uta:id="mnuPembayaranUT"            uta:data='"? UNIV. TERBUKA   "' />
+            <!--End Of Changed By Ali-->
+                        
+            <uta:row uta:id="mnuPembayaranCicilan"      uta:data='"3 CICILAN>     "' />
+                <uta:row uta:id="mnuPembayaranCicilanFIF"      uta:data='"4 FIF            "' />
+                <uta:row uta:id="mnuPembayaranCicilanBAF"      uta:data='"4 BAF            "' />
+                <uta:row uta:id="mnuPembayaranCicilanOTO"      uta:data='"4 OTO            "' />
+                <uta:row uta:id="mnuPembayaranCicilanFinansia" uta:data='"4 FINANSIA"' />
+                <uta:row uta:id="mnuPembayaranCicilanVerena"   uta:data='"4 VERENA         "' />
+                <uta:row uta:id="mnuPembayaranCicilanWOM"      uta:data='"4 WOM            "' />
+            <uta:row uta:id="mnuPembayaranZakat"               uta:data='"3 ZAKAT>     "' />
+                <uta:row uta:id="mnuPembayaranZakatDhuafa"     uta:data='"4 DOMPET DHUAFA"' />
+                <uta:row uta:id="mnuPembayaranZakatYBM"        uta:data='"4 YBM          "' />
+            <uta:row uta:id="mnuPembayaranInfaq"               uta:data='"3 INFAQ>     "' />
+                <uta:row uta:id="mnuPembayaranInfaqDhuafa"     uta:data='"4 DOMPET DHUAFA"' />
+                <uta:row uta:id="mnuPembayaranInfaqYBM"        uta:data='"4 YBM          "' />        
+            <uta:row uta:id="mnuPembayaranDPLK"                uta:data='"? DPLK>      "' />
+                <uta:row uta:id="mnuPembayaranDPLKDhuafa"      uta:data='"? DOMPET DHUAFA"' />
+                <uta:row uta:id="mnuPembayaranDPLKYBM"         uta:data='"? YBM          "' /> 
+
+        <uta:row uta:id="mnuIsiUlang"                   uta:data='"2 ISI ULANG>     "' />      
+            <uta:row uta:id="mnuPembayaranSimpati"        uta:data='"3 SIMPATI/AS>     "' />
+                <uta:row uta:id="mnuPembayaranSimpati50"      uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranSimpati100"     uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranSimpati150"     uta:data='"4 150.000        "' />
+                <uta:row uta:id="mnuPembayaranSimpati200"     uta:data='"4 200.000        "' />
+                <uta:row uta:id="mnuPembayaranSimpati300"     uta:data='"4 300.000        "' />
+                <uta:row uta:id="mnuPembayaranSimpati500"     uta:data='"4 500.000        "' />
+                <uta:row uta:id="mnuPembayaranSimpati1000"    uta:data='"4 1.000.000      "' />
+      
+            <uta:row uta:id="mnuPembayaranMentari"        uta:data='"3 MENTARI>     "' />
+                <uta:row uta:id="mnuPembayaranMentari50"      uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranMentari100"     uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranMentari250"     uta:data='"4 250.000        "' />
+                <uta:row uta:id="mnuPembayaranMentari500"     uta:data='"4 500.000        "' />
+                <uta:row uta:id="mnuPembayaranMentari1000"    uta:data='"4 1.000.000      "' />      
+      
+            <uta:row uta:id="mnuPembayaranIm3"            uta:data='"3 IM3>     "' />
+                <uta:row uta:id="mnuPembayaranIm325"          uta:data='"4 25.000         "' />
+                <uta:row uta:id="mnuPembayaranIm350"          uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranIm375"          uta:data='"4 75.000         "' />
+                <uta:row uta:id="mnuPembayaranIm3100"         uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranIm3150"         uta:data='"4 150.000        "' /> 
+                <uta:row uta:id="mnuPembayaranIm3200"         uta:data='"4 200.000        "' /> 
+                <uta:row uta:id="mnuPembayaranIm3500"         uta:data='"4 500.000        "' />
+                <uta:row uta:id="mnuPembayaranIm31000"        uta:data='"4 1.000.000      "' />
+
+           	<uta:row uta:id="mnuPembayaranEsia"              uta:data='"? ESIA>     "' />
+                <uta:row uta:id="mnuPembayaranEsia25"        uta:data='"4 25.000         "' />
+                <uta:row uta:id="mnuPembayaranEsia50"        uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranEsia75"        uta:data='"4 75.000         "' />
+                <uta:row uta:id="mnuPembayaranEsia100"       uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranEsia150"       uta:data='"4 150.000        "' /> 
+                <uta:row uta:id="mnuPembayaranEsia200"       uta:data='"4 200.000        "' /> 
+
+			<uta:row uta:id="mnuPembayaranSmart"             uta:data='"? SMART>     "' />
+                <uta:row uta:id="mnuPembayaranSmart20"       uta:data='"4 20.000         "' />
+                <uta:row uta:id="mnuPembayaranSmart50"       uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranSmart100"      uta:data='"4 100.000         "' />
+                <uta:row uta:id="mnuPembayaranSmart200"      uta:data='"4 200.000        "' />
+
+      		<uta:row uta:id="mnuPembayaranFren"             uta:data='"? FREN/MOBI/HEPI>     "' />
+                <uta:row uta:id="mnuPembayaranFren20"       uta:data='"4 20.000         "' />
+                <uta:row uta:id="mnuPembayaranFren25"       uta:data='"4 25.000         "' />
+                <uta:row uta:id="mnuPembayaranFren50"       uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranFren100"      uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranFren150"      uta:data='"4 150.000         "' />
+                <uta:row uta:id="mnuPembayaranFren200"      uta:data='"4 200.000         "' />
+                <uta:row uta:id="mnuPembayaranFren300"      uta:data='"4 300.000         "' />
+                <uta:row uta:id="mnuPembayaranFren500"      uta:data='"4 500.000        "' />
+
+            <uta:row uta:id="mnuPembayaranThree"            uta:data='"? THREE>     "' />
+                <uta:row uta:id="mnuPembayaranThree20"      uta:data='"4 20.000         "' />
+                <uta:row uta:id="mnuPembayaranThree50"      uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranThree75"      uta:data='"4 75.000         "' />
+                <uta:row uta:id="mnuPembayaranThree100"     uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranThree150"     uta:data='"4 150.000        "' />
+                <uta:row uta:id="mnuPembayaranThree300"     uta:data='"4 300.000        "' />
+                <uta:row uta:id="mnuPembayaranThree500"     uta:data='"4 500.000        "' />
+      
+            
+			<uta:row uta:id="mnuPembayaranAxis"             uta:data='"? AXIS>     "' />
+                <uta:row uta:id="mnuPembayaranAxis25"       uta:data='"4 25.000         "' />
+                <uta:row uta:id="mnuPembayaranAxis50"       uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranAxis75"       uta:data='"4 75.000         "' />
+                <uta:row uta:id="mnuPembayaranAxis100"      uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranAxis150"      uta:data='"4 150.000        "' />
+                <uta:row uta:id="mnuPembayaranAxis200"      uta:data='"4 200.000        "' />
+                <uta:row uta:id="mnuPembayaranAxis300"      uta:data='"4 300.000        "' />
+
+      
+            <uta:row uta:id="mnuPembayaranXl"             uta:data='"3 XL>     "' />
+<!-- @@OA - mulai -->
+                <uta:row uta:id="mnuPembayaranXl25"          uta:data='"4 25.000         "' />
+                <uta:row uta:id="mnuPembayaranXl50"          uta:data='"4 50.000         "' />
+                <uta:row uta:id="mnuPembayaranXl75"          uta:data='"4 75.000         "' />
+                <uta:row uta:id="mnuPembayaranXl100"         uta:data='"4 100.000        "' />
+                <uta:row uta:id="mnuPembayaranXl150"         uta:data='"4 150.000        "' /> 
+                <uta:row uta:id="mnuPembayaranXl200"         uta:data='"4 200.000        "' /> 
+                <uta:row uta:id="mnuPembayaranXl300"         uta:data='"4 300.000        "' /> 
+                <uta:row uta:id="mnuPembayaranXl500"         uta:data='"4 500.000        "' />
+
+        <uta:row uta:id="mnuRegistrasi"                     uta:data='"2 REGISTRASI>     "' />  
+        <uta:row uta:id="mnuRegistrasiInternetBanking"      uta:data='"3 INTERNET BANKING"' />  
+        <uta:row uta:id="mnuRegistrasiPhoneBanking"         uta:data='"? PhoneBanking"' /> 
+		<!-- Changed By Ali -->
+	    <uta:row uta:id="mnuRegistrasiTrxBanking"           uta:data='"? TRX PHONE BANKING"' />
+	    <uta:row uta:id="mnuRegistrasiTrxTransfer"          uta:data='"4 TRANSFER"' />
+	    <uta:row uta:id="mnuRegistrasiTrxPulsa"             uta:data='"4 BELI PULSA"' />
+	    <uta:row uta:id="mnuRegistrasiSmsBanking"           uta:data='"? SMS BANKING"' />
+		<!-- End Of Changed By Ali -->
+        
+	    <uta:row uta:id="mnuMReprintReview"         	    uta:data='"2 REPRINT/REVIEW>"' />
+	    <uta:row uta:id="mnuMReprint"                       uta:data='"3 REPRINT>     "' />     
+	        <uta:row uta:id="mnuMLastTrx"         	        uta:data='"4aLAST TRANSACTION"' />
+	        <uta:row uta:id="mnuMAnyTrx"         	        uta:data='"4aANY TRANSACTION"' />
+	    <uta:row uta:id="mnuMReview"                        uta:data='"3 REVIEW>     "' />
+	        <uta:row uta:id="mnuMVLastTrx"         	        uta:data='"4aLAST TRANSACTION"' />
+	        <uta:row uta:id="mnuMVAnyTrx"         	        uta:data='"4aANY TRANSACTION"' />	        
+	    <uta:row uta:id="mnuMReport"         	            uta:data='"2 REPORT>"' />
+	        <uta:row uta:id="mnuMTodaySummary"      	    uta:data='"3aTODAY SUMMARY"' />
+	        <uta:row uta:id="mnuMTodayDetail"               uta:data='"3aTODAY DETAIL"' /> 
+	        <uta:row uta:id="mnuMPastSummary"      	        uta:data='"3aPAST SUMMARY"' />
+	        <uta:row uta:id="mnuMPastDetail"                uta:data='"3aPAST DETAIL"' /> 
+	        <uta:row uta:id="mnuMReportEnd"                 uta:data='"?"' /> 
+
+        <uta:row uta:id="mnuTLEKeyDownload"   uta:data='"? KEY DOWNLOAD"' />
+
+        <!--  AS0.0.26 - Add Logon feature - Start -->
+        <uta:row uta:id="mnuDebitLogon"   uta:data='"? LOGON"' /> 
+        <!--  AS0.0.26 - Add Logon feature - end -->
+
+    <uta:row uta:id="mnuBrizzi"                uta:data='"1 BRIZZI>"' />    
+        <uta:row uta:id="mnuInitialize"        uta:data='"2 INITIALIZE"' /> 
+        <uta:row uta:id="mnuPrepaidInfoSaldo"  uta:data='"2 INFO SALDO"' /> 
+        <uta:row uta:id="mnuInfoDeposit"       uta:data='"2 INFO DEPOSIT"' />
+        <uta:row uta:id="mnuPrepaidPayment"    uta:data='"2 PAYMENT"' />
+        <uta:row uta:id="mnuTopUpOnline"       uta:data='"2 TOP UP ONLINE"' />   
+        <uta:row uta:id="mnuTopUpDeposit"      uta:data='"2 TOP UP DEPOSIT"' />   
+        <uta:row uta:id="mnuAktivasiDeposit"   uta:data='"2 AKTIVASI DEPOSIT"' />   
+        <uta:row uta:id="mnuPrepaidSettlement" uta:data='"2 SETTLEMENT"' />  
+        <uta:row uta:id="mnuPrepaidRedeem"     uta:data='"2 REDEEM KARTU"' />  
+        <uta:row uta:id="mnuPrepaidInfoKartu"  uta:data='"2 INFO KARTU"' />
+        <uta:row uta:id="mnuPrepaidPrintLog"   uta:data='"2 PRINT LOG"' />
+        <uta:row uta:id="mnuPrepaidReprint"    uta:data='"2 REPRINT>"' />
+	        <uta:row uta:id="mnuPRLastTrx"        uta:data='"3aLAST TRANSACTION"' />
+	        <uta:row uta:id="mnuPRAnyTrx"         uta:data='"3aANY TRANSACTION"' />	        
+        <uta:row uta:id="mnuPrepaidReport"     uta:data='"2 REPORT>"' />
+	        <uta:row uta:id="mnuPDateSummary"     uta:data='"3aDATE SUMMARY"' />
+	        <uta:row uta:id="mnuPAllSummary"      uta:data='"3aALL SUMMARY"' />
+	        <uta:row uta:id="mnuPDateDetail"      uta:data='"3aDATE DETAIL>"' /> 
+	            <uta:row uta:id="mnuPDateDetailPayment"  uta:data='"4 PEMBAYARAN TRX"' /> 
+	            <uta:row uta:id="mnuPDateDetailAll"      uta:data='"4 SEMUA TRX"' /> 
+	        <uta:row uta:id="mnuPAllDetail"       uta:data='"3aALL DETAIL>"' />
+	            <uta:row uta:id="mnuPAllDetailPayment"  uta:data='"4 PEMBAYARAN TRX"' />  
+	            <uta:row uta:id="mnuPAllDetailAll"      uta:data='"4 SEMUA TRX"' />  
+	        <uta:row uta:id="mnuBrizziEnd" uta:data='"?"' /> 
+<!-- akhir AGM - BRI -->     
+
+	<uta:row uta:id="mnuAbsen"                uta:data='"1 ABSENSI>       "' />    
+		<uta:row uta:id="mnuDatang"           uta:data='"2 DATANG  "' />
+		<uta:row uta:id="mnuPulangs"          uta:data='"2 PULANG  "' />
+		<uta:row uta:id="mnuIstirahatA"       uta:data='"2 ISTIRAHAT MULAI  "' />
+		<uta:row uta:id="mnuIstirahatB"       uta:data='"2 ISTIRAHAT SELESAI  "' />
+		<uta:row uta:id="mnuLemburA"          uta:data='"2 LEMBUR MULAI  "' />
+		<uta:row uta:id="mnuLemburB"          uta:data='"2 LEMBUR SELESAI  "' />
+		<uta:row uta:id="mnuShifts"           uta:data='"2 SHIFT>  "' />
+		<uta:row uta:id="mnuShiftsI"			  uta:data='"3 SHIFT I>"' />
+    	<uta:row uta:id="mnuShiftsIA"		  uta:data='"4 DATANG"' />  
+    	<uta:row uta:id="mnuShiftsIB"          uta:data='"4 PULANG"' />  
+    	<uta:row uta:id="mnuShiftsII"          uta:data='"3 SHIFT II>"' />
+    	<uta:row uta:id="mnuShiftsIIA"         uta:data='"4 DATANG"' />  
+    	<uta:row uta:id="mnuShiftsIIB"         uta:data='"4 PULANG"' />  
+    	<uta:row uta:id="mnuShiftsIII"         uta:data='"3 SHIFT III>"' />
+    	<uta:row uta:id="mnuShiftsIIIA"        uta:data='"4 DATANG"' />  
+    	<uta:row uta:id="mnuShiftsIIIB"        uta:data='"4 PULANG"' />  
+    	
+
+    <uta:row uta:id="mnuCustomer"               uta:data='"? CUSTOMER>       "' />
+    <uta:row uta:id="mnuPreaut"                 uta:data='"2 PREAUTHORIZATION"' /> 
+    <uta:row uta:id="mnuOffline"                uta:data='"2 OFFLINE         "' />
+    <uta:row uta:id="mnuAdjust"                 uta:data='"2 ADJUST          "' />
+    <uta:row uta:id="mnuBalance"                uta:data='"2 BALANCE          "' />
+    <uta:row uta:id="mnuReversal"               uta:data='"? REVERSAL          "' />
+    <uta:row uta:id="mnuTCUpload"               uta:data='"? REVERSAL          "' />
+    <uta:row uta:id="mnuLogOn"                  uta:data='"? LOG ON         "' />  
+	<uta:row uta:id="mnuLogon"         		    uta:data='"? LOGON"' />	
+    <uta:row uta:id="mnuEchoTest"     		    uta:data='"? ECHO TEST> "' />	    
+        
+    <uta:row uta:id="mnuMerchant"               uta:data='"? MERCHANT>       "' />
+      <uta:row uta:id="mnuMrcInfo"              uta:data='"2 INFO>            "'/>
+        <uta:row uta:id="mnuMrcInitRpt"         uta:data='"3 INIT RECEIPT    "' uta:comment="F1"/>
+        <uta:row uta:id="mnuMrcViewTot"         uta:data='"? VIEW TOTALS     "' uta:comment="F5"/>
+        <uta:row uta:id="mnuMrcSWver"           uta:data='"3mSOFTWARE VERSION"' uta:comment="F91 HC"/>
+        <uta:row uta:id="mnuMrcBatStan"         uta:data='"2 BATCH STAN>      "'/>
+        <uta:row uta:id="mnuMrcViewRoc"         uta:data='"3 VIEW ROC        "' uta:comment="F6"/>
+        <uta:row uta:id="mnuMrcSetRoc"          uta:data='"3mSET ROC         "' uta:comment="F7"/>
+        <uta:row uta:id="mnuMrcViewBatNum"      uta:data='"3 VIEW BATCH NUM  "' uta:comment="F8"/>
+        <uta:row uta:id="mnuMrcSetBatNum"       uta:data='"3mSET BATCH NUM   "' uta:comment=""/>
+        <uta:row uta:id="mnuMrcViewSTAN"        uta:data='"3 VIEW STAN       "' uta:comment="F18"/>
+        <uta:row uta:id="mnuMrcSetSTAN"         uta:data='"3mSET STAN        "' uta:comment="F19"/>        
+    <uta:row uta:id="mnuSettlementMain"  		uta:data='"? SETTLEMENT      "' />	    
+    <uta:row uta:id="mnuMrcChgPwd"              uta:data='"2 CHANGE PASSWORD "' uta:comment="F90"/>
+    <uta:row uta:id="mnuMrcTogDBG"              uta:data='"? TOGGLE DEBUG    "' uta:comment="F93"/>
+    <uta:row uta:id="mnuMrcReset"               uta:data='"? DELETE BATCH    "' uta:comment="F99"/>
+    <uta:row uta:id="mnuMrcResetRev"            uta:data='"? DELETE REVERSAL "' uta:comment="F99"/>
+    
+    <uta:row uta:id="mnuAdmin"                  uta:data='"? ADMIN>          "' />
+    <uta:row uta:id="mnuTMS"                    uta:data='"2aTMS>            "' />
+    <uta:row uta:id="mnuTMSLP"                  uta:data='"3 LOAD PARAMETERS"'/>
+    <uta:row uta:id="mnuTMSLS"                  uta:data='"? LOAD SOFTWARE"' />
+    <uta:row uta:id="mnuTMSVC"                  uta:data='"3 VIEW CONFIG"' uta:comment="JL"/>
+    <uta:row uta:id="mnuTMSPC"                  uta:data='"3 PRINT CONFIG"' uta:comment="JL HC"/>
+    <uta:row uta:id="mnuTMSConfig"              uta:data='"3 CONFIGURE"' uta:comment="JL"/>
+    <uta:row uta:id="mnuTerm"                   uta:data='"2 Terminal>       "' />
+    <uta:row uta:id="mnuTerm2"                  uta:data='"2aTerminal>       "' />
+    <uta:row uta:id="mnuTDT"                    uta:data='"3 Date time       "' />
+    <uta:row uta:id="mnuTermAppli"              uta:data='"? Application     "' />
+    <uta:row uta:id="mnuTMKey"    	            uta:data='"3 Master key load "' />
+    <uta:row uta:id="mnuEDCFunction"    	    uta:data='"3 EDC Function "' />
+    <uta:row uta:id="mnuCmm"                    uta:data='"2aCommunications> "' />
+    <uta:row uta:id="mnuCmm2"                   uta:data='"2aCommunications> "' />
+    <uta:row uta:id="mnuCmmVS"                  uta:data='"3 View Setting    "' uta:comment="JL"/>
+    <uta:row uta:id="mnuCmmPS"                  uta:data='"3 Print Setting   "' uta:comment="JL HC"/>
+    <uta:row uta:id="mnuCmmLS"                  uta:data='"3 Line Setup      "' uta:comment="JL"/>
+    <uta:row uta:id="mnuCmmGS"                  uta:data='"3 GPRS Setup      "' uta:comment="JL"/>
+    <uta:row uta:id="mnuCmmCS"                  uta:data='"3aConn. Setting   "' uta:comment="AL"/>
+
+	<uta:row uta:id="mnuFn99"          			uta:data='"2aSUPERVISOR MENU"' /> 
+    <uta:row uta:id="mnuFn99MrcReset"           uta:data='"3 DELETE BATCH    "' uta:comment="F99"/>
+    <uta:row uta:id="mnuFn99MrcResetRev"        uta:data='"3 DELETE REVERSAL "' uta:comment="F99"/>
+    <uta:row uta:id="mnuDeleteCLog"             uta:data='"3 CLEAR CARD SERV "' uta:comment="F99"/> 
+    <uta:row uta:id="mnuDeleteMLog"             uta:data='"3 CLEAR MINI ATM  "' uta:comment="F99"/> 
+    <uta:row uta:id="mnuDeleteTLog"             uta:data='"3 CLEAR TUNAI     "' uta:comment="F99"/>    
+    <uta:row uta:id="mnuFn99TMKey"				uta:data='"3 Master key load "' />
+    <uta:row uta:id="mnuFn99End"				uta:data='"?"' />
+
+	<uta:row uta:id="mnuViewLog"          		uta:data='"2aVIEW LOG"' /> 
+    <uta:row uta:id="mnuViewCardService"        uta:data='"3 CARD SERVICE    "' /> 
+    <uta:row uta:id="mnuViewMiniAtm"            uta:data='"3 MINI ATM        "' /> 
+    <uta:row uta:id="mnuViewTunai"              uta:data='"3 TUNAI           "' />    
+     
+    <uta:row uta:id="mnuTest"                   uta:data='__mnuTEST__' />
+    <uta:row uta:id="mnuTestData"               uta:data='"2 DATA>            "' />
+    <uta:row uta:id="mnuTestReceipts"           uta:data='"3 RECEIPTS        "' />
+    <uta:row uta:id="mnuTestCvtCmb"             uta:data='"3 CVT CMB         "' />
+    <uta:row uta:id="mnuTestUsrInf"             uta:data='"3 INFO SCREENS    "' />
+    <uta:row uta:id="mnuTestSaveLog"            uta:data='"3 TRA LOG SAVE "' />
+    <uta:row uta:id="mnuTestPrintLog"           uta:data='"3 TRA LOG PRINT"' />        
+    <uta:row uta:id="mnuTestAppTotalsLog"       uta:data='"3 TOT LOG CALC"' />                
+    <uta:row uta:id="mnuTestVoidLog"            uta:data='"3 LOG VOID"' />                        
+    <uta:row uta:id="mnuTestReversal"           uta:data='"3 REVERSAL"' />                                
+    <uta:row uta:id="mnuTestIso"                uta:data='"2 ISO>             "' />
+    <uta:row uta:id="mnuTestIsoRqs"             uta:data='"3 BUILD REQUEST>   "' />
+	<uta:row uta:id="mnuTestIsoSale"            uta:data='"4 SALE			 "' />  
+	<uta:row uta:id="mnuTestIsoPreAuth"         uta:data='"4 PREAUTH         "' />
+	<uta:row uta:id="mnuTestIsoRefund"          uta:data='"4 REFUND 		 "' />  
+	<uta:row uta:id="mnuTestIsoCashAdv"         uta:data='"4 CASH ADV       "' />
+	<uta:row uta:id="mnuTestIsoBalance"         uta:data='"4 BALANCE       "' />
+	<uta:row uta:id="mnuTestIsoVerify"          uta:data='"4 VERIFY       "' />
+	<uta:row uta:id="mnuTestIsoLogOn"           uta:data='"4 LOG ON       "' />	        
+	<uta:row uta:id="mnuTestIsoEMVSale"         uta:data='"4 EMV SALE        "' />
+	<uta:row uta:id="mnuTestIsoEMVRefund"       uta:data='"4 EMV REFUND      "' />
+	<uta:row uta:id="mnuTestIsoSettlement"      uta:data='"4 SETTLEMENT      "' />
+	<uta:row uta:id="mnuTestIsoRsp"             uta:data='"3 PARSE RESPONSE>   "' />
+	<uta:row uta:id="mnuTestIsoParseSale"       uta:data='"4 SALE      "' />
+	<uta:row uta:id="mnuTestIsoParsePreAut"     uta:data='"4 PREAUTH   "' />
+	<uta:row uta:id="mnuTestIsoParseLogOn"      uta:data='"4 LOG ON    "' />
+	<uta:row uta:id="mnuTestIsoParseSettlement" uta:data='"4 SETTLEMENT"' />
+	<uta:row uta:id="mnuTestIsoOflBfrStl"       uta:data='"4 ADVICES "' />
+	<uta:row uta:id="mnuTestIsoParseDnl"        uta:data='"4 DOWNLOAD "' />      
+    <uta:row uta:id="mnuTestIsoTMSLOGON"        uta:data='"3 TMS LOGON       "' />
+    <uta:row uta:id="mnuTestCmm"                uta:data='"2 Communications>  "' />
+    <uta:row uta:id="mnuTestCmmSale"            uta:data='"3 SALE			 "' />  
+	<uta:row uta:id="mnuTestCmmSaleIP"          uta:data='"3 SALE	IP		 "' /> 
+	<uta:row uta:id="mnuTestCmmTMSLP"           uta:data='"3 TMS LP TEST     "' /> 
+	<uta:row uta:id="mnuTestCmmTMSDnl"          uta:data='"3 TMS Full LP TEST"' /> 
+	<uta:row uta:id="mnuTestCmmMpGprs"          uta:data='"3 GPRS TEST"' /> 
+
+</uta:table>

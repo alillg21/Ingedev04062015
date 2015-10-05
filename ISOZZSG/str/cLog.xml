@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rev.xml $
+$Id: rev.xml 1439 2009-01-27 02:42:02Z kdelacruz $
+-->
+<uta:record uta:id='cLog'
+            uta:dim='dimCLog'
+            uta:cache="no"
+            uta:comment='BRI Card Service Transaction log table'
+            xmlns:uta="http://www.ingenico.com/xml/uta">    
+
+    <uta:field uta:id='cLogVoidFlag'
+               uta:type='byte'
+               uta:comment='Void flag' />
+
+    <uta:field uta:id='cLogTipFlag' 	uta:type='byte'    uta:comment='Tip indicator' />
+
+     <uta:field uta:id='cLogMTI'      uta:type='ASCII'      uta:length='lenMti'        uta:comment='Message Type' />
+               
+    <uta:field uta:id='cLogMnuItm'
+               uta:type='word'
+               uta:comment='menu item selected' />
+    <uta:field uta:id='cLogDatTim'
+               uta:type='ASCII'
+               uta:length='lenDatTim'
+               uta:comment='transaction date and time CCYYMMDDhhmmss' />
+    <uta:field uta:id='cLogBinIdx' 
+               uta:type='byte' 
+               uta:comment='index in Bin multirecord' />
+    <uta:field uta:id='cLogAcqIdx' 
+               uta:type='byte' 
+               uta:comment='index in Acq multirecord' />
+    <uta:field uta:id='cLogIssIdx' 
+               uta:type='byte' 
+               uta:comment='index in Iss multirecord' />
+    <uta:field uta:id='cLogPan'
+               uta:type='ASCII'
+               uta:length='lenPan'
+               uta:comment='PAN' />
+   <uta:field uta:id='cLogExpDat' 
+               uta:type='ASCII'
+               uta:length='lenExpDat'
+               uta:comment='Expiry Date' />
+
+  <uta:field uta:id='cLogExpDatFmt'        uta:type='ASCII'      uta:length='lenExpDat'         uta:comment='Expiry Date' />
+               
+  <uta:field uta:id='cLogTrk2'
+               uta:type='ASCII'
+               uta:length='lenTrk2'
+               uta:comment='track 2 of the card' />
+  <uta:field uta:id='cLogAutCod'
+               uta:type='ASCII'
+               uta:length='lenAutCod'
+               uta:comment='Authorization code' />
+
+  <uta:field uta:id='cLogAutCodOff' uta:type='ASCII' uta:length='lenAutCod' uta:comment='Authorization (approval) code' />
+               
+  <uta:field uta:id='cLogBatNum' 
+               uta:type='ASCII'
+               uta:length='lenBatNum'
+               uta:comment='Batch Number' />
+ <uta:field uta:id='cLogTraAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Transaction Amount' />
+
+  <uta:field uta:id='cLogFmtAmt'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Amount'/>
+               
+ <uta:field uta:id='cLogTipAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Tip Amount' />
+
+ <uta:field uta:id='cLogFmtTip'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Tip'/>
+
+ <uta:field uta:id='cLogEmvICC' uta:type='ASCII' uta:length='lenEmvICC' uta:comment='message of bit 55' />
+               
+ <uta:field uta:id='cLogSTAN'
+               uta:type='card'
+               uta:comment='system trace audit number' />
+ <uta:field uta:id='cLogRrn'
+               uta:type='ASCII'
+               uta:length='lenRrn'
+               uta:comment='Retrieval Reference Number' />
+
+  <uta:field uta:id='cLogRspCod' uta:type='ASCII' uta:length='lenRspCod' uta:comment='Response code' />
+ <uta:field uta:id='cLogPinBlk' uta:type='binary' uta:length='lenPinBlk' uta:comment='Pin block' />                              
+  <uta:field uta:id='cLogROC'
+               uta:type='card'
+               uta:comment='ROC/Invoice' />
+  <uta:field uta:id='cLogEntMod'
+               uta:type='byte'
+               uta:comment='POS Entry Mode' />
+  <uta:field uta:id='cLogConCode'
+               uta:type='byte'
+               uta:comment='POS Condition Code' />
+  <uta:field uta:id='cLogCardType'
+               uta:type='ASCII'
+               uta:length='lenCardTransType'
+               uta:comment='Card Type' />  
+
+  <uta:field uta:id='cLogNomorKartuPetugas'      uta:comment='Nomor kartu petugas'  uta:type='ASCII' uta:length='lenNomorKartuPetugas' /> 
+  <uta:field uta:id='cLogNomorRekeningAsalBRI'   uta:comment='Nomor rekening asal BRI = 15' uta:type='ASCII' uta:length='lenNomorRekeningBRI' />
+  <uta:field uta:id='cLogNamaPenerima'           uta:comment='Nama rekening Tujuan'  uta:type='ASCII' uta:length='lenNamaPemilik' />       
+  <uta:field uta:id='cLogTanggalLahir'           uta:comment='Tanggal Lahir'        uta:type='ASCII' uta:length='lenTanggalLahir' />
+  <uta:field uta:id='cLogNomorKartuLama'         uta:comment='Nomor kartu lama'        uta:type='ASCII' uta:length='lenNomorKartuLama' />
+  <uta:field uta:id='cLogKodeUkerLama'           uta:comment='Kode Uker lama'        uta:type='ASCII' uta:length='lenKodeUker' />
+  <uta:field uta:id='cLogKodeUkerBaru'           uta:comment='Kode Uker baru'        uta:type='ASCII' uta:length='lenKodeUker' />
+  <uta:field uta:id='cLogStatusKartu'            uta:comment='Status kartu'        uta:type='ASCII' uta:length='lenStatusKartu' />
+  
+
+  </uta:record>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:table uta:id="msg" uta:type='ASCII' uta:length="dspW" uta:cache="yes" uta:comment="screen messages"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:row uta:id="msgSpaces"          uta:data='"                "' />
+  <uta:row uta:id="msgAreYouSure"      uta:data='" Are you sure?  "' />
+  <uta:row uta:id="msgMemoryReset"     uta:data='"  Memory reset  "' />
+  <uta:row uta:id="msgProcessingError" uta:data='"Processing error"' />
+  <uta:row uta:id="msgWrongPin"        uta:data='"Invalid PIN code"' />
+  <uta:row uta:id="msgPwdInput"        uta:data='" ENTER PASWORD: "' />
+  <uta:row uta:id="msgDialing"         uta:data='"   Dialing...   "' />
+  <uta:row uta:id="msgWait"            uta:data='" Please Wait... "' />
+  <uta:row uta:id="msgSend"            uta:data='"    Sending...  "' />
+  <uta:row uta:id="msgReceive"         uta:data='"   Receiving... "' />
+  <uta:row uta:id="msgEnterAmount"     uta:data='"ENTER AMOUNT:   "' />
+  <uta:row uta:id="msgEnterCard"       uta:data='"ENTER CARD:     "' />
+  <uta:row uta:id="msgEmpty"           uta:data='""' />
+</uta:table>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:table uta:id="rpt"	uta:type='ASCII' uta:length="prtW" uta:comment="receipt formatting strings"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:row uta:id="rptSpaces" uta:data='"                        "' />
+  <uta:row uta:id="rptEmpty"  uta:data='""' />
+</uta:table>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/iss.xml $
+$Id: iss.xml 1281 2009-01-16 07:22:46Z ajloreto $
+-->
+<uta:record uta:id="iss"
+            uta:dim="dimIss"
+            uta:comment="Issuer Structure"
+            xmlns:uta="http://www.ingenico.com/xml/uta">
+    <uta:field uta:id="issID"
+               uta:type="byte"
+               uta:comment='Issuer ID' />
+    <uta:field uta:id="issRef"
+               uta:type="ASCII"
+               uta:length="lenIssRef"
+               uta:comment='Issuer Referral Number' />
+    <uta:field uta:id="issOpt1"
+               uta:type="byte"
+               uta:comment='Issuer Options 1' />
+    <uta:field uta:id="issOpt2"
+               uta:type="byte"
+               uta:comment='Issuer Options 2' />
+    <uta:field uta:id="issOpt3"
+               uta:type="byte"
+               uta:comment='Issuer Options 3' />
+    <uta:field uta:id="issOpt4"
+               uta:type="byte"
+               uta:comment='Issuer Options 4' />
+    <uta:field uta:id="issDefAcct"
+               uta:type="byte"
+               uta:comment='Issuer Default Account' />
+    <uta:field uta:id="issFloorLimit"
+               uta:type="word"
+               uta:comment="Floor Limit" />
+    <uta:field uta:id="issOpt5"
+               uta:type="byte"
+               uta:comment='Issuer Options 5' />
+    <uta:field uta:id="issPinOpt"
+               uta:type="byte"
+               uta:comment="Pin option" />
+               
+    <uta:field uta:id='issTotAppDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Debit amount for issuer' /> 
+    <uta:field uta:id='issTotAppDbCnt'  uta:type='word'                         uta:comment='Number Debits for issuer' /> 
+    <uta:field uta:id='issTotAppCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Credit amount for issuer' /> 
+    <uta:field uta:id='issTotAppCrCnt'  uta:type='word'                         uta:comment='Number Credits for issuer' /> 
+    <uta:field uta:id='issTotAppTpAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Tip amount for issuer' /> 
+    <uta:field uta:id='issTotAppTpCnt'  uta:type='word'                         uta:comment='Number Tip for issuer' /> 
+    <uta:field uta:id='issTotAppSaleDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of issuer' />   
+    <uta:field uta:id='issTotAppSaleDbCnt'  uta:type='word'                         uta:comment='Number of Sale in application' />    
+    <uta:field uta:id='issTotAppSaleCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Sale amount of issuer' />   
+    <uta:field uta:id='issTotAppSaleCrCnt'  uta:type='word'                         uta:comment='Number of Sale in application' /> 
+    <uta:field uta:id='issTotAppRefundDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Refund amount of issuer' />   
+    <uta:field uta:id='issTotAppRefundDbCnt'  uta:type='word'                         uta:comment='Number of refund in application' />    
+    <uta:field uta:id='issTotAppRefundCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Refund amount of issuer' />   
+    <uta:field uta:id='issTotAppRefundCrbCnt'  uta:type='word'                         uta:comment='Number of refund in application' />    
+    <uta:field uta:id='issTotAppOfflineDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Offline amount of issuer' />   
+    <uta:field uta:id='issTotAppOfflineDbCnt'  uta:type='word'                         uta:comment='Number of Offline in application' />     
+    <uta:field uta:id='issTotAppOfflineCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Offline amount of issuer' />   
+    <uta:field uta:id='issTotAppOfflineCrCnt'  uta:type='word'                         uta:comment='Number of Offline in application' />       
+    <uta:field uta:id='issTotAppManualDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Manual amount of issuer' />   
+    <uta:field uta:id='issTotAppManualDbCnt'  uta:type='word'                         uta:comment='Number of Manual in application' />  
+    <uta:field uta:id='issTotAppManualCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Manual amount of issuer' />   
+    <uta:field uta:id='issTotAppManualCrCnt'  uta:type='word'                         uta:comment='Number of Manual in application' />
+    <uta:field uta:id='issTotAppVoidDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidDbCnt'  uta:type='word'                         uta:comment='Number of Void in application' />  
+     <uta:field uta:id='issTotAppVoidCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidCrCnt'  uta:type='word'                         uta:comment='Number of Void in application' />  
+    <uta:field uta:id='issTotAppVoidRefundDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidRefundDbCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' /> 
+    <uta:field uta:id='issTotAppVoidRefundCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Refund amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidRefundCrCnt'  uta:type='word'                         uta:comment='Number of Void Refund in application' /> 
+    <uta:field uta:id='issTotAppVoidManualDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Manual amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidManualDbCnt'  uta:type='word'                         uta:comment='Number of Void Manual in application' />   
+    <uta:field uta:id='issTotAppVoidManualCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Manual amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidManualCrCnt'  uta:type='word'                         uta:comment='Number of Void Manual in application' />   
+    <uta:field uta:id='issTotAppPrecomDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Precom amount of issuer' />   
+    <uta:field uta:id='issTotAppPrecomDbCnt'  uta:type='word'                         uta:comment='Number of Precoml in application' /> 
+     <uta:field uta:id='issTotAppPrecomCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Precom amount of issuer' />   
+    <uta:field uta:id='issTotAppPrecomCrCnt'  uta:type='word'                         uta:comment='Number of Precoml in application' /> 
+    <uta:field uta:id='issTotAppVoidPrecomDbAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Precom amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidPrecomDbCnt'  uta:type='word'                         uta:comment='Number of Void Precom in application' />
+    <uta:field uta:id='issTotAppVoidPrecomCrAmt'  uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Void Precom amount of issuer' />   
+    <uta:field uta:id='issTotAppVoidPrecomCrCnt'  uta:type='word'                         uta:comment='Number of Void Precom in application' />
+    <uta:data>
+        <uta:instance uta:id="issIssuer1">
+            <uta:col uta:data='1' />				<!-- issID: Issuer ID (Saved in structure but not used in credit template) -->
+            <uta:col uta:data='"7519206"' />		<!-- issRef: Issuer Referral Number -->
+            <uta:col uta:data='0x9E' />				<!-- issOpt1: Issuer Options 1-->
+            <uta:col uta:data='0xDC' />				<!-- issOpt2: Issuer Options 2-->
+            <uta:col uta:data='0xD1' />				<!-- issOpt3: Issuer Options 3-->
+            <uta:col uta:data='0x01' />				<!-- issOpt4: Issuer Options 4-->
+            <uta:col uta:data='0' />				<!-- issDefAcct: Issuer Default Account-->
+            <uta:col uta:data='0' />				<!-- issFloorLimit: Floor Limit-->
+            <uta:col uta:data='0xF0' />				<!-- issOpt5: Issuer Options 5-->
+            <uta:col uta:data='0x32' />				<!-- issPinOpt: Pin Option-->
+
+            <uta:col uta:data='"0"' />				<!-- issTotAppDbAmt: Total Debit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppDbCnt: Number Debits for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppDbAmt: Total Debit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppDbCnt: Number Debits for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppCrAmt: Total Credit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppCrCnt: Number Credits for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppCrAmt: Total Credit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppCrCnt: Number Credits for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppTpAmt: Total Tip amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppTpCnt: Number tip for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppTpAmt: Total Tip amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppTpCnt: Number tip for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppSaleAmt: Total Sale amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppSaleCnt: Number Sale for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppSaleAmt: Total Sale amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppSaleCnt: Number Sale for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppRefundAmt: Total Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppRefundCnt: Number Refund for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppRefundAmt: Total Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppRefundCnt: Number Refund for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppOfflineAmt: Total Offline amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppOfflineCnt: Number Offline for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppOfflineAmt: Total Offline amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppOfflineCnt: Number Offline for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppManualCnt: Number Manual for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppManualCnt: Number Manual for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidAmt: Total Void amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidCnt: Number Void for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppVoidAmt: Total Void amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidCnt: Number Void for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidRefundAmt: Total Void Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidRefundCnt: Number Void Refund for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidRefundAmt: Total Void Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidRefundCnt: Number Void Refund for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidManualCnt: Number Manual for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidManualCnt: Number Manual for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppPrecomAmt: Total Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppPrecomCnt: Number Precom for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppPrecomAmt: Total Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppPrecomCnt: Number Precom for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidPrecomAmt: Total Void Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidPrecomCnt: Number Void Precom for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidPrecomAmt: Total Void Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidPrecomCnt: Number Void Precom for issuer-->
+
+
+        </uta:instance>
+        <uta:instance uta:id="issIssuer2">
+            <uta:col uta:data='2' />				<!-- issID: Issuer ID (Saved in structure but not used in credit template) -->
+            <uta:col uta:data='"7519206"' />		<!-- issRef: Issuer Referral Number -->
+            <uta:col uta:data='0x9E' />				<!-- issOpt1: Issuer Options 1-->
+            <uta:col uta:data='0xDE' />				<!-- issOpt2: Issuer Options 2-->
+            <uta:col uta:data='0xD1' />				<!-- issOpt3: Issuer Options 3-->
+            <uta:col uta:data='0x01' />				<!-- issOpt4: Issuer Options 4-->
+            <uta:col uta:data='0' />				<!-- issDefAcct: Issuer Default Account-->
+            <uta:col uta:data='0' />				<!-- issFloorLimit: Floor Limit-->
+            <uta:col uta:data='0xF0' />				<!-- issOpt5: Issuer Options 5-->
+            <uta:col uta:data='0x31' />				<!-- issPinOpt: Pin Option-->
+
+           <uta:col uta:data='"0"' />				<!-- issTotAppDbAmt: Total Debit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppDbCnt: Number Debits for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppDbAmt: Total Debit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppDbCnt: Number Debits for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppCrAmt: Total Credit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppCrCnt: Number Credits for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppCrAmt: Total Credit amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppCrCnt: Number Credits for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppTpAmt: Total Tip amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppTpCnt: Number tip for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppTpAmt: Total Tip amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppTpCnt: Number tip for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppSaleAmt: Total Sale amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppSaleCnt: Number Sale for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppSaleAmt: Total Sale amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppSaleCnt: Number Sale for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppRefundAmt: Total Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppRefundCnt: Number Refund for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppRefundAmt: Total Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppRefundCnt: Number Refund for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppOfflineAmt: Total Offline amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppOfflineCnt: Number Offline for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppOfflineAmt: Total Offline amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppOfflineCnt: Number Offline for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppManualCnt: Number Manual for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppManualCnt: Number Manual for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidAmt: Total Void amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidCnt: Number Void for issuer-->
+             <uta:col uta:data='"0"' />				<!-- issTotAppVoidAmt: Total Void amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidCnt: Number Void for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidRefundAmt: Total Void Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidRefundCnt: Number Void Refund for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidRefundAmt: Total Void Refund amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidRefundCnt: Number Void Refund for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidManualCnt: Number Manual for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidManualAmt: Total Manual amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidManualCnt: Number Manual for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppPrecomAmt: Total Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppPrecomCnt: Number Precom for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppPrecomAmt: Total Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppPrecomCnt: Number Precom for issuer-->
+            
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidPrecomAmt: Total Void Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidPrecomCnt: Number Void Precom for issuer-->
+            <uta:col uta:data='"0"' />				<!-- issTotAppVoidPrecomAmt: Total Void Precom amount for issuer-->
+            <uta:col uta:data='0' />					<!-- issTotAppVoidPrecomCnt: Number Void Precom for issuer-->
+
+        </uta:instance> 
+    </uta:data>
+</uta:record>

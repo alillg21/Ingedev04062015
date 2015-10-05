@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rev.xml $
+$Id: rev.xml 1439 2009-01-27 02:42:02Z kdelacruz $
+-->
+<uta:record uta:id='rev' uta:dim='dimAcq' uta:comment='reversal record' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='revReversalFlag'  uta:type='byte' uta:data='0x00' uta:comment='Reversal Flag Indicator' /> 
+  <uta:field uta:id='revPrcCod' uta:type="binary" uta:length="lenPrcCod" uta:comment="003: Processing Code" />
+  <uta:field uta:id='revSTAN'      uta:type='card'                            uta:comment='System Trace Audit Number 1..999999' />
+  <uta:field uta:id='revInvNum'    uta:type='card'                            uta:comment='invoice number (R.O.C.)' /> 
+  <uta:field uta:id='revDatTim' uta:type='ASCII' uta:length='lenDatTim' uta:comment='current date and time CCYYMMDDhhmmss' />
+  <uta:field uta:id='revAmt' uta:comment='transaction amount' uta:type='ASCII' uta:length='lenAmt' />
+  <uta:field uta:id='revEntMod' uta:type='char' uta:comment='card entry mode' />
+  <uta:field uta:id='revConCode' uta:type='byte' uta:comment='condition code' />
+  <uta:field uta:id='revPinBlk' uta:type='binary' uta:length='lenPinBlk' uta:comment='Pin block' />    
+  <uta:field uta:id='revAcqIdx' uta:type='byte' uta:comment='index in Acq multirecord' />  
+  <uta:field uta:id='revTrk2' uta:type='ASCII' uta:length='lenTrk2' uta:comment='track 2 of the card' />  
+  <uta:field uta:id='revTipAmt' uta:comment='Reversal Tip Amount' uta:type='ASCII' uta:length='lenAmt' />
+  <uta:field uta:id='revICC'    uta:type='ASCII'  uta:length='lenEmvICC'    uta:comment='ICC Data Bit 55' />
+  <uta:field uta:id='revBatNum'    uta:type='ASCII' uta:length='lenInvNum'    uta:comment='Batch number' />   
+  <uta:field uta:id='revBinIdx' uta:type='byte' uta:comment='index in Bin multirecord' />
+  <uta:field uta:id='revIssIdx' uta:type='byte' uta:comment='index in Iss multirecord' />
+<!-- [[ agmr - BRI - reversal Field -->
+  <uta:field uta:id='revField48'                uta:comment='field 48'           uta:type='ASCII' uta:length='lenField48' />  
+  <uta:field uta:id='revField48len' 		    uta:type='card'  	uta:data='0' uta:comment='field 48 length'/>
+  <uta:field uta:id='revField63'                uta:comment='field 63'           uta:type='ASCII' uta:length='lenField63' />  
+  <uta:field uta:id='revField63len' 		    uta:type='card'  	uta:data='0' uta:comment='field 63 length'/>
+  <uta:field uta:id='revField57'                uta:comment='field 57'           uta:type='ASCII' uta:length='lenField57' />  
+  <uta:field uta:id='revField57len' 		    uta:type='card'  	uta:data='0' uta:comment='field 57 length'/>
+  
+  <uta:field uta:id='revNII'                    uta:type='ASCII' uta:length='lenNII' uta:data='"000"'  uta:comment='NII for Mini ATM dan Tunai reversal' />
+<!-- [[  @agmr - BRI10 -->
+  <uta:field uta:id='revTxnType' uta:type='byte' uta:comment='Current Txn Type - used in rqs' />   
+  <uta:field uta:id='revPan' uta:comment='card number' uta:type='ASCII' uta:length='lenPan' />
+  <uta:field uta:id='revExpDat' uta:type='ASCII' uta:length='lenExpDat' uta:comment='expiry date' />
+<!-- ]]  @agmr - BRI10 -->  
+  
+<!-- ]] agmr - BRI - reversal Field -->   
+  </uta:record>
+

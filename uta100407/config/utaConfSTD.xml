@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<uta:templateProject xmlns:uta="http://www.ingenico.com/xml/uta">
+
+  <uta:confType> Standard Type</uta:confType>
+  <uta:confName> default</uta:confName>
+  <uta:confDescription> UTA default configuration</uta:confDescription>
+  <uta:confCompatibilityLevel>2.0</uta:confCompatibilityLevel>
+
+
+  <uta:components uta:srcPath="sys" uta:dstPath="sys" uta:usage="generic"> <!-- system components located in sys subdirectory -->
+    <uta:sourceFile uta:name="trc.c"/> 
+		<uta:sourceFile uta:name="tbx.c"/> 
+    <uta:sourceFile uta:name="i32.c" platform="UNICAPT"/> 
+    <uta:sourceFile uta:name="mem.c" platform="UNICAPT"/>
+    <uta:sourceFile uta:name="hmi.c" platform="UNICAPT"/>
+    <uta:sourceFile uta:name="tlm.c" platform="TELIUM"/> 
+    <uta:sourceFile uta:name="tlmhmi.c" platform="TELIUM"/> 
+    <uta:sourceFile uta:name="tlmmem.c" platform="TELIUM"/> 
+    <uta:headerFile uta:name="sys.h"/>
+    <uta:headerFile uta:name="def.h"/>
+  </uta:components>
+  <uta:components uta:srcPath="pri" uta:dstPath="pri" uta:usage="generic"> <!-- primitive components located in pri subdirectory -->
+    <uta:sourceFile uta:name="std.c"/> 
+    <uta:sourceFile uta:name="fmt.c"/>
+    <uta:sourceFile uta:name="dba.c"/>
+    <uta:sourceFile uta:name="drv.c"/>
+    <uta:sourceFile uta:name="dlg.c"/>
+    <uta:headerFile uta:name="pri.h"/>
+  </uta:components>
+  <uta:components uta:srcPath="app/tpl" uta:dstPath="uta" uta:usage= "private"> <!-- application private components located in app subdirectory -->
+    <uta:sourceFile uta:name="AppMain.c"  platform="UNICAPT"/> 
+    <uta:sourceFile uta:name="gma.c"  platform="UNICAPT"/> 
+    <uta:sourceFile uta:name="Main.c"  platform="TELIUM"/> 
+    <uta:sourceFile uta:name="sgm.c"  platform="TELIUM"/> 
+    <uta:headerFile uta:name="ctx.h"/>
+    <uta:headerFile uta:name="Message.h"/>
+  </uta:components>
+  <uta:components uta:srcPath="app/tpl/str" uta:dstPath="str" uta:usage= "container"> <!-- application structure components located in app/str subdirectory -->
+    <uta:xmlFile uta:name="dbs.xml"/>
+    <uta:xmlFile uta:name="enum.xml"/>
+    <uta:xmlFile uta:name="app.xml"/>
+    <uta:xmlFile uta:name="mnu.xml"/>
+    <uta:xmlFile uta:name="msg.xml"/>
+    <uta:xmlFile uta:name="rpt.xml"/>
+    <uta:xmlFile uta:name="reg.xml"/>
+    <uta:xmlFile uta:name="scr.xml"/>
+    <uta:xmlFile uta:name="tra.xml"/>
+    <uta:headerFile uta:name="key.h" uta:generate="true"/>
+    <uta:headerFile uta:name="map.h" uta:generate="true"/>
+    <uta:headerFile uta:name="dft.h" uta:generate="true"/>
+    <uta:sourceFile uta:name="map.c" uta:generate="true"/>
+    <uta:sourceFile uta:name="dft.c" uta:generate="true"/>
+    <uta:sourceFile uta:name="rpt.c" uta:generate="true"/>
+    <uta:sourceFile uta:name="scr.c"/>
+    <uta:sourceFile uta:name="str.c"/>
+    <uta:headerFile uta:name="str.h"/>
+  </uta:components>
+  <uta:components uta:srcPath="app/tpl/log" uta:dstPath="log" uta:usage= "container"> <!-- application logical components located in app/log subdirectory -->
+    <uta:sourceFile uta:name="hdl.c"/> 
+    <uta:sourceFile uta:name="val.c"/> 
+    <uta:headerFile uta:name="log.h"/>
+  </uta:components>
+ <uta:components uta:srcPath="app/tpl/tst" uta:dstPath="tst" uta:usage= "container"> <!-- application tst components located in tst subdirectory -->
+    <uta:headerFile uta:name="tst.h"/>
+  </uta:components>  
+ <uta:components uta:srcPath="" uta:dstPath="" uta:usage= "generic"> <!-- lib components must be located in the root of the FW-->
+    <uta:libFile uta:name="gmaLib"/> 
+  </uta:components>
+</uta:templateProject>

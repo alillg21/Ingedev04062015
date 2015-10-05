@@ -1,0 +1,3393 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/scr.xml $
+$Id: scr.xml 1931 2009-04-27 09:49:34Z ajloreto $
+-->
+<uta:record uta:id="scr" uta:multi="inf" uta:cache="yes" uta:comment="user screen structure"
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id="scrCmd" uta:type="char" uta:comment="command 'b'(beep)|'s'(show)|'i'(ignore)|'q'(query)" />
+  <uta:field uta:id="scrMsg0" uta:type="word" uta:repeat="4" uta:comment="messages to be displayed on each line" />
+  <uta:field uta:id="scrDly" uta:type="byte" uta:comment="waiting delay" />
+  <uta:data>
+    <uta:instance uta:id="infConfirmReset">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDeleteBat' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infProcessingError">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgProcessingError' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infDataAccessError">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgEmpty' />
+             <uta:col uta:data='msgEmpty' />
+             <uta:col uta:data='msgDataAccess' />
+             <uta:col uta:data='msgError' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infCryptoPeriphError">
+        <uta:col uta:data="'b'" />
+		<uta:span>
+		<uta:col uta:data='msgSpaces' />
+		<uta:col uta:data='msgCryptoPeriphError' />
+		<uta:col uta:data='msgSpaces' />
+		<uta:col uta:data='msgSpaces' />
+		</uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>       
+    <uta:instance uta:id="infMemoryError">
+        <uta:col uta:data="'b'" />
+            <uta:span>
+            <uta:col uta:data='msgEmpty' />
+            <uta:col uta:data='msgMemoryError' />
+            <uta:col uta:data='msgSpaces' />
+            <uta:col uta:data='msgSpaces' />
+            </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infNotAccepted">
+        <uta:col uta:data="'b'" />
+              <uta:span>
+              <uta:col uta:data='msgEmpty' />
+              <uta:col uta:data='msgNotAccepted' />
+              <uta:col uta:data='msgSpaces' />
+              <uta:col uta:data='msgSpaces' />
+              </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>    
+    <uta:instance uta:id="infWrongPin">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgWrongPin' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infValidPin">
+        <uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgValidPin' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+        <uta:col uta:data='1' />
+    </uta:instance>    
+    <uta:instance uta:id="infLastAttempt">
+	<uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgLastAttempt' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+	<uta:col uta:data='2' />
+	</uta:instance>    
+    <uta:instance uta:id="infPwdInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPwdInput' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infDialing">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgDialing' />
+	      <uta:col uta:data='msgWait' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infConnecting">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgConnecting' />
+	      <uta:col uta:data='msgWait' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infSendReq">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgSend' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infRecvRsp">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgReceive' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infAmtInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbCardType'/>
+	      <uta:col uta:data='cmbTransType'/>
+	      <uta:col uta:data='cmbMsgAmtInput'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTipInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbCardType' />
+	      <uta:col uta:data='cmbTransType' />
+	      <uta:col uta:data='cmbMsgTipInput' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infPinInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traIssName'/>
+	      <uta:col uta:data='cmbAmt'/>
+	      <uta:col uta:data='msgPin'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infCardInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='cmbTxnType' />
+	      <uta:col uta:data='msgSwipeInsert' />
+	      <uta:col uta:data='msgCard' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infFunction">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEnterFunction' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infFunctionMenu">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgFunction' />
+	      <uta:col uta:data='msgTMS' />
+	      <uta:col uta:data='msgTerminal' />
+	      <uta:col uta:data='msgCommunication' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSMenu">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMS' />
+	      <uta:col uta:data='msgConfigure' />
+	      <uta:col uta:data='msgLoadParam' />
+	      <uta:col uta:data='msgLoadSoft' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSRefNum">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTMSConfig' />
+	      <uta:col uta:data='msgTMSRefNo' />
+	      <uta:col uta:data='regTmsRefNum' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSNii">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTMSConfig' />
+	      <uta:col uta:data='msgTMSNii' />
+	      <uta:col uta:data='appNII' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSHostLink">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTMSConfig' />
+	      <uta:col uta:data='msgLinkSetup' />
+	      <uta:col uta:data='cmbIfDialOpt' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSPrimaryPhone">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgPriNo' />
+	      <uta:col uta:data='cmbPriNo' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSSecondaryPhone">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgSecNo' />
+	      <uta:col uta:data='cmbSecNo' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSBaudRate">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgBaudRate' />
+	      <uta:col uta:data='cmbIfBaudRate' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSBufferSize">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgBufferSize' />
+	      <uta:col uta:data='cmbIfBufSize' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewTMSBufferSize">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgBufferSize' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSLoadParams">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgLoadParamNow' />
+	      <uta:col uta:data='msgNow' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infHostLink">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgHostLink' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTermConfig">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEMVCredit' />
+	      <uta:col uta:data='msgTerminalConfig' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infCardRanges">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEMVCredit' />
+	      <uta:col uta:data='msgCardRanges' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infIssuer">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEMVCredit' />
+	      <uta:col uta:data='msgIssuer' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrAcquirer">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEMVCredit' />
+	      <uta:col uta:data='msgAcquirer' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infScrEMVParams">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEMVCredit' />
+	      <uta:col uta:data='msgEMVParam' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infScrCompleted">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgCompleted' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <!--uta:instance uta:id="infScrConfirmPan">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgVisaCard' />
+	      <uta:col uta:data='msgSale' />
+	      <uta:col uta:data='msgVCardNo' />
+	      <uta:col uta:data='msgExpDate' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance-->
+    <uta:instance uta:id="infConfirmPan">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbCardType'/>
+	      <uta:col uta:data='cmbTransType'/>
+	      <uta:col uta:data='traTrk21'/>
+	      <uta:col uta:data='traTrk22'/>
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrTxnTransmitting">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgVisaCardSale' />
+	      <uta:col uta:data='msgTotal' />
+	      <uta:col uta:data='msgTransaction' />
+	      <uta:col uta:data='msgTransmitting' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance> 
+    <uta:instance uta:id="infScrTxnReceiving">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgVisaCardSale' />
+	      <uta:col uta:data='msgTotal' />
+	      <uta:col uta:data='msgTransaction' />
+	      <uta:col uta:data='msgReceiving' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+  <uta:instance uta:id="infTleGo">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgTleGo' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+  </uta:instance>
+    <uta:instance uta:id="infInitPrinting">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPrinting' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSRsPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRs232' />
+	      <uta:col uta:data='msgPort' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSPriIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgPriIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSPriPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgPriHostPort' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSSecIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgSecIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSSecPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgSecHostPort' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSPriIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgPriIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSPriPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgPriHostPort' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSSecIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgSecIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSSecPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgSecHostPort' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSIPBuffSize">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgBufferSize' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infConfigPrinting">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='traCtx' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPrinting' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='1' />
+    </uta:instance>
+    <uta:instance uta:id="infScrTonePulse">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgLineParam' />
+	      <uta:col uta:data='msgTonePulse' />
+	      <uta:col uta:data='cmbIfTonePulse' />
+      </uta:span>
+      <uta:col uta:data='60' />
+    </uta:instance>
+    <uta:instance uta:id="infPabx">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgLineParam' />
+	      <uta:col uta:data='msgPabx' />
+	      <uta:col uta:data='cmbPabx' />
+      </uta:span>
+      <uta:col uta:data='60' />
+    </uta:instance>
+    <uta:instance uta:id="infScrToneDetect">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgLineParam' />
+	      <uta:col uta:data='msgToneDetect' />
+	      <uta:col uta:data='cmbToneDetect' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatch">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='cmbLogRef' />
+	      <uta:col uta:data='cmbLogAmt' />
+	      <uta:col uta:data='msgPrevNext' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatchTxn">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='cmbLogRef' />
+	      <uta:col uta:data='cmbLogAmt' />
+	      <uta:col uta:data='msgMore' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatch2">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='cmbApproval' />
+	      <uta:col uta:data='cmbPan' />
+	      <uta:col uta:data='msgPrevNext' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatchTxn2">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='cmbApproval' />
+	      <uta:col uta:data='cmbPan' />
+	      <uta:col uta:data='msgMore' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatch3">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='msgLogTraDatTim' />
+	      <uta:col uta:data='cmbLogTraDatTim' />
+	      <uta:col uta:data='msgPrevNext' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatchTxn3">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgViewBatch' />
+	      <uta:col uta:data='msgLogTraDatTim' />
+	      <uta:col uta:data='cmbLogTraDatTim' />
+	      <uta:col uta:data='msgMore' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infViewCurrentTrace">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgCurrentTrace' />
+	      <uta:col uta:data='cmbInvNum' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infSetTraceNum">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSetTrace' />
+	      <uta:col uta:data='cmbSetInvNum' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infEnterTrace">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEnterTrace' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infViewBatchNum">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgCurrentBatchNum' />
+	      <uta:col uta:data='cmbBatNum' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infViewStan">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgViewStan' />
+		    <uta:col uta:data='cmbStanNum' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infSetStan">
+	  <uta:col uta:data="'s'" />
+	  <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgSetStan' />
+		    <uta:col uta:data='cmbSetStanNum' />
+	  </uta:span>
+	  <uta:col uta:data='5' />
+    </uta:instance>    
+    <uta:instance uta:id="infViewTotal">
+	  <uta:col uta:data="'s'" />
+	  <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='cmbTxnTypeCount' />
+		    <uta:col uta:data='cmbTxnTypeTotal' />
+		    <uta:col uta:data='msgSpaces' />
+	  </uta:span>
+	  <uta:col uta:data='10' />
+    </uta:instance>    
+    <uta:instance uta:id="infAidListEmpty">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+        <uta:col uta:data='msgEmpty' />
+        <uta:col uta:data='msgAidListEmpty' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infApplicationConfirm">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+        <uta:col uta:data='msgEmpty' />
+        <uta:col uta:data='msgConfirm' />
+        <uta:col uta:data='msgYesVal' />
+        <uta:col uta:data='msgNoAnn' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>
+    <uta:instance uta:id="infApplicationSelect">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+        <uta:col uta:data='msgEmpty' />
+        <uta:col uta:data='msgApplicationSelect' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infEmvAppBlock">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+        <uta:col uta:data='traCtx' />
+        <uta:col uta:data='msgEmvAppBlock' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='12' />
+    </uta:instance>
+    <uta:instance uta:id="infEmvCrdBlock">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+        <uta:col uta:data='traCtx' />
+        <uta:col uta:data='msgEmvCrdBlock' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='12' />
+    </uta:instance>
+    <uta:instance uta:id="infFallBack2">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgShouldBeProcessed' />
+        <uta:col uta:data='msgEmvCard' />
+        <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>  
+    <uta:instance uta:id="infFallBack">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgFallback1' />
+        <uta:col uta:data='msgFallback2' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>
+   <uta:instance uta:id="infCardInputFB">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgSpaces' />
+        <uta:col uta:data='msgFallback1' />
+        <uta:col uta:data='msgFallback2' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+
+    <uta:instance uta:id="infNewPwdInput">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='traCtx' />
+          <uta:col uta:data='msgNewPwdInput' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infConfPwdInput">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='traCtx' />
+          <uta:col uta:data='msgConfPwdInput' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+    </uta:instance>      
+    <uta:instance uta:id="infPwdInvalid">
+            <uta:col uta:data="'b'" />
+            <uta:span>
+              <uta:col uta:data='traCtx' />
+              <uta:col uta:data='msgSpaces' />
+              <uta:col uta:data='msgPwdInvalid' />
+              <uta:col uta:data='msgSpaces' />
+            </uta:span>
+            <uta:col uta:data='3' />
+        </uta:instance>
+    <uta:instance uta:id="infTestKeyLoad">
+            <uta:col uta:data="'s'" />
+            <uta:span>
+              <uta:col uta:data='traCtx' />
+              <uta:col uta:data='msgSpaces' />
+              <uta:col uta:data='msgTestKeyLoad' />
+              <uta:col uta:data='msgSpaces' />
+            </uta:span>
+            <uta:col uta:data='3' />
+        </uta:instance>     
+    <uta:instance uta:id="infScrIpAdd">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgIpAdd' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance> 
+    <uta:instance uta:id="infScrSubMask">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgSubMask' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrGateway">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTCPIPprm' />
+	      <uta:col uta:data='msgGateway' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    <uta:instance uta:id="infScrEnableEdh">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEnableEdh' />
+	      <uta:col uta:data='msgOnOff' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>  
+    <uta:instance uta:id="infScrGprsApn">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprsApn' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0'/>
+    </uta:instance>    
+    <uta:instance uta:id="infScrGprsUsername">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprsUsername' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrGprsPin">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprsPin' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrGprsPassword">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprsPassword' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrGprsPhone">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprsPhone' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>    
+    <uta:instance uta:id="infScrGprsOnOff">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGprs' />
+	      <uta:col uta:data='msgOnOff' />
+	      <uta:col uta:data='msgSpaces' />
+       </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance> 
+    <uta:instance uta:id="infViewTMSPrimaryPhone">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgPriNo' />
+	      <uta:col uta:data='cmbTmsPriNumber' />
+       </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>    
+    <uta:instance uta:id="infViewTMSSecondaryPhone">
+      <uta:col uta:data="'s'" />
+       <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgModemParam' />
+	      <uta:col uta:data='msgSecNo' />
+	      <uta:col uta:data='cmbTmsSecNumber' />
+       </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>    
+	<uta:instance uta:id="infTleDone">
+       <uta:col uta:data="'s'" />
+       <uta:span>
+	       <uta:col uta:data='msgEmpty' />
+	       <uta:col uta:data='msgEmpty' />
+	       <uta:col uta:data='msgEmpty' />
+	       <uta:col uta:data='msgDone' />
+       </uta:span>
+       <uta:col uta:data='0' />
+    </uta:instance>
+	<uta:instance uta:id="infEmvContext">
+       <uta:col uta:data="'s'" />
+       <uta:span>
+	       <uta:col uta:data='traCtx' />
+	       <uta:col uta:data='msgEmvContext' />
+	       <uta:col uta:data='msgSpaces' />
+	       <uta:col uta:data='msgSpaces' />
+       </uta:span>
+       <uta:col uta:data='0' />
+    </uta:instance>           
+    <uta:instance uta:id="infEmvAuthenticate">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgEmpty' />
+          <uta:col uta:data='msgEmvAuthenticate' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+    </uta:instance>    
+	<uta:instance uta:id="infUserCancel">
+       <uta:col uta:data="'b'" />
+       <uta:span>
+	       <uta:col uta:data='traCtx' />
+	       <uta:col uta:data='msgUserCancel' />
+	       <uta:col uta:data='msgSpaces' />
+	       <uta:col uta:data='msgSpaces' />
+       </uta:span>
+       <uta:col uta:data='5' />
+    </uta:instance>           
+	<uta:instance uta:id="infBinNotFound">
+	    <uta:col uta:data="'b'" />
+	    <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgCardRefused' />
+		    <uta:col uta:data='msgBinNotFound' />
+		    <uta:col uta:data='msgSpaces' />
+	    </uta:span>
+	    <uta:col uta:data='3' />
+	</uta:instance>     
+	<uta:instance uta:id="infInvalidPan">
+	    <uta:col uta:data="'b'" />
+	    <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgInvalidPan' />
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgSpaces' />
+	    </uta:span>
+	    <uta:col uta:data='3' />
+	</uta:instance>     
+	<uta:instance uta:id="infInvalidLuhn">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgCardRefused' />
+	        <uta:col uta:data='msgInvalidLuhn' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance> 	
+	<uta:instance uta:id="infCardExpired">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgCardRefused' />
+	        <uta:col uta:data='msgCardExpired' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>      
+    <uta:instance uta:id="infInvalidInput">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgInvalidInput' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infOnlineResult">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='cmbDlgRspCod' />
+	        <uta:col uta:data='traRspDspLin1' />
+	        <uta:col uta:data='traRspDspLin2' />
+        </uta:span>
+        <uta:col uta:data='30' />
+     </uta:instance>     
+     <uta:instance uta:id="infConnConnected">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnConnected' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>
+     <uta:instance uta:id="infConnBusy">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnBusy' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infConnNoDialTone">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnNoDialTone' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infConnNoCarrier">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnNoCarrier' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infConnTimeout">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnTimeout' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>     
+    <uta:instance uta:id="infSendingFailed">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSendingFailed' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>      
+    <uta:instance uta:id="infReceivingFailed">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgReceivingFailed' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>            
+     <uta:instance uta:id="infConnFail">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgConnFail' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='2' />
+     </uta:instance>
+    <uta:instance uta:id="infBlank">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>     
+    <uta:instance uta:id="infRedialing">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgRedialing' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='2' />
+     </uta:instance>          
+    <uta:instance uta:id="infReConnecting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgReConnecting' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='2' />
+     </uta:instance> 
+     <uta:instance uta:id="infTxnTransmitting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgTransaction' />
+	        <uta:col uta:data='msgTransmitting' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infTrans">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgTransmitting' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infTxnRcving">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgTransaction' />
+	        <uta:col uta:data='msgReceive' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infRcving">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgReceive' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infMerCopyPrinting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+<!--	        <uta:col uta:data='cmbCardTransType' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgVerifySign' />
+	        <uta:col uta:data='msgMerchantCopy' />
+	        <uta:col uta:data='msgPrinting' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infDuplicatePrinting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgDuplicata' />
+	        <uta:col uta:data='msgPrinting' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infCustCopyConfirm">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+<!--	        <uta:col uta:data='cmbCardTransType' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgPrint' />
+	        <uta:col uta:data='msgCustomerCopy' />
+	        <uta:col uta:data='msgConfirmYN' />
+<!--	        <uta:col uta:data='msgPressEnter' />-->
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>
+     <uta:instance uta:id="infCustCopyPrinting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+<!--	        <uta:col uta:data='cmbCardTransType' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgCustomerCopy' />
+	        <uta:col uta:data='msgPrinting' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+
+	<uta:instance uta:id="infBankCopyConfirm"><!--For bank copy receipt -->
+        <uta:col uta:data="'s'" />
+        <uta:span>
+<!--	        <uta:col uta:data='cmbCardTransType' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgPrint' />
+	        <uta:col uta:data='msgBankCopy' />
+	        <uta:col uta:data='msgConfirmYN' />
+<!--	        <uta:col uta:data='msgPressEnter' />-->
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>
+   <uta:instance uta:id="infBankCopyPrinting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+<!--	        <uta:col uta:data='cmbCardTransType' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgBankCopy' />
+	        <uta:col uta:data='msgPrinting' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     
+     <uta:instance uta:id="infReversalTransmitting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgReversal' />
+	        <uta:col uta:data='msgTransmitting' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>     
+     <uta:instance uta:id="infTotal">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardType' />
+	        <uta:col uta:data='cmbTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='60' />
+     </uta:instance>     
+     <uta:instance uta:id="infVoidTotal">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='cmbVoidTotAmount' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>     
+     
+     <uta:instance uta:id="infReversalRcving">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgReversal' />
+	        <uta:col uta:data='msgTransmitting' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>     
+     <uta:instance uta:id="infApprove">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbIfTraRspCod' />
+	        <uta:col uta:data='cmbTraRspCodDsp' />
+	        <uta:col uta:data='cmbIfTraRspCodMsgDsp' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>          
+     <uta:instance uta:id="infAlreadyVoided">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='traCtx' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgAlreadyVoid' />
+	        <uta:col uta:data='msgPressCancel' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance> 
+     <uta:instance uta:id="infRefNotFound">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='traCtx' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgRefNotFound' />
+	        <uta:col uta:data='msgPressCancel' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infSoftwareVersion">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='cmbAppName' />
+	        <uta:col uta:data='cmbCurVer' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infSelectAcq">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgViewConfig' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSelectAcq' />
+	        <uta:col uta:data='cmbAcqName' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+     <uta:instance uta:id="infAcqDetails">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgTermConfig' />
+	        <uta:col uta:data='cmbAcqNameNii' />
+	        <uta:col uta:data='cmbTID' />
+	        <uta:col uta:data='cmbMID' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+     <uta:instance uta:id="infNoTran">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+<!-- @@OA	        <uta:col uta:data='msgEMVCredit' /> -->
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgNoTran' />
+	        <uta:col uta:data='msgPressStop' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+     <uta:instance uta:id="infTraceNotFound">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEMVCredit' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgTraceNotFound' />
+	        <uta:col uta:data='msgPressStop' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+     <uta:instance uta:id="infEMVCredit">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgEMVCredit' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>
+         <uta:instance uta:id="infLogEmpty">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgLogEmpty' />
+	        <uta:col uta:data='msgPressStop' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+         <uta:instance uta:id="infLogFull">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgLogFull' />
+	        <uta:col uta:data='msgPressStop' />
+        </uta:span>
+        <uta:col uta:data='10' />
+     </uta:instance>
+
+
+     <uta:instance uta:id="infSettlement">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgStl' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infBatUpl">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgBatUpl' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infTrmCon">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgTermConfig' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infCrdRng">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgCrdRng' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infIss">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgIss' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infAcq">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgAcq' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infEmvPrm">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmvPrm' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infVarLin0">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgVar' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infVarLin1">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgVar' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infVarLin2">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgVar' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>
+     <uta:instance uta:id="infVarLin3">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgVar' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+     <uta:instance uta:id="infEntDat">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEntDat' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+      <uta:instance uta:id="infEntTim">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEntTim' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+
+      <uta:instance uta:id="infLodMstKey">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLodMstKey' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+      <uta:instance uta:id="infLodWrkKey">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLodWrkKey' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+      <uta:instance uta:id="infCompleted">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgCompleted' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='1' />
+       </uta:instance>
+    <uta:instance uta:id="infEntPwd">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgEntPwd' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='0' />
+       </uta:instance>   
+    <uta:instance uta:id="infTerminalResetQ">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='traCtx' />
+          <uta:col uta:data='msgTerReset' />
+          <uta:col uta:data='msgYesNo' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='10' />
+       </uta:instance>   
+    <uta:instance uta:id="infTerminalReset">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgBatDelete' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='5' />
+       </uta:instance>   
+     <uta:instance uta:id="infOflSend">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgTleGo' />
+          <uta:col uta:data='msgOfltxn' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='5' />
+       </uta:instance>   
+        <uta:instance uta:id="infPanInput">
+            <uta:col uta:data="'s'" />
+            <uta:span>
+              <uta:col uta:data='traCtx' />
+              <uta:col uta:data='msgPanInput' />
+              <uta:col uta:data='msgSpaces' />
+              <uta:col uta:data='msgSpaces' />
+            </uta:span>
+            <uta:col uta:data='0' />
+        </uta:instance>
+        <uta:instance uta:id="infExpDatInput">
+            <uta:col uta:data="'s'" />
+            <uta:span>
+              <uta:col uta:data='traCtx' />
+              <uta:col uta:data='msgExpDatInput' />
+              <uta:col uta:data='msgSpaces' />
+              <uta:col uta:data='msgSpaces' />
+            </uta:span>
+            <uta:col uta:data='0' />
+        </uta:instance>    
+    
+     <uta:instance uta:id="infInvalidTrack">
+       <uta:col uta:data="'b'" />
+       <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgCardRefused' />
+          <uta:col uta:data='msgInvalidTrack' />
+          <uta:col uta:data='msgSpaces' />
+	   </uta:span>
+       <uta:col uta:data='5' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infScrEnableDhcp">
+      <uta:col uta:data="'s'" /> 
+      <uta:span>
+          <uta:col uta:data="msgSpaces" /> 
+          <uta:col uta:data="msgEnableDhcp" /> 
+          <uta:col uta:data="msgOnOff" /> 
+          <uta:col uta:data="cmbIfDhcp" /> 
+      </uta:span>
+      <uta:col uta:data="5" /> 
+    </uta:instance>
+    
+    <uta:instance uta:id="infScrGprsEncryption">
+      <uta:col uta:data="'s'" /> 
+      <uta:span>
+          <uta:col uta:data="msgSpaces" /> 
+          <uta:col uta:data="msgGprsParameter" /> 
+          <uta:col uta:data="msgEnableBlowfish" /> 
+          <uta:col uta:data="msgSpaces" /> 
+      </uta:span>
+      <uta:col uta:data="5" /> 
+    </uta:instance>
+    
+    <uta:instance uta:id="infRemoveCard">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgRmvCrd' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>      
+
+    <uta:instance uta:id="infDeclinedRemove">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgDeclined' />
+          <uta:col uta:data='msgRmvCrd' />
+          <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>      
+
+
+    <uta:instance uta:id="infUseMagStripe">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgRmvCrd' />
+          <uta:col uta:data='msgUseMag' />
+          <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>      
+
+       
+    <uta:instance uta:id="infEmvAppCvm">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgEmpty' />
+          <uta:col uta:data='msgEmvAppCvm' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+    </uta:instance>           				
+
+    <uta:instance uta:id="infEnterAppCod">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEnterAppCod' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+
+     <uta:instance uta:id="infManualBarred">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgManBarred' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infConnMethod">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnection' />
+	      <uta:col uta:data='cmbIfConnSet' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infInvalidAmount">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgInvalidAmount' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infFileMiss">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgFileMiss' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSUnAvail">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgServer' />
+	      <uta:col uta:data='msgUnavailable' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSQueryFailed">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgQueryFailed' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSDLTooLarge">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgDLLarge' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSVerErr">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgInvVer' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSBufOvrFlw">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgBufOvrFlw' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSInvDLReq">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgInvReq' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSRefNumInv">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgInvRefNum' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSUnknwnReq">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgUnknownReq' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSOutofBounds">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgOutBounds' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSFileError">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgErrorReq' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSUndefError">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgTMSError' />
+	      <uta:col uta:data='msgUndefError' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infPerformStl">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgBatNotEmpty' />
+	      <uta:col uta:data='msgPerformStl' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>       
+    <uta:instance uta:id="infConfirmResetRev">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDeleteRev' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTerminalResetRev">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgRevDelete' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='5' />
+       </uta:instance>  
+      <uta:instance uta:id="infPortSetting">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRs232' />
+	      <uta:col uta:data='msgPort' />
+	      <uta:col uta:data='cmbIfPortCom1' />
+      </uta:span>
+          <uta:col uta:data='5' />
+       </uta:instance>  
+    <uta:instance uta:id="infRs232BaudRate">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRs232' />
+	      <uta:col uta:data='msgBaudRate' />
+	      <uta:col uta:data='cmbIfRs232BaudRate' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSGPRSPriIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgPriIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSGPRSPriPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgPriHostPort' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSGPRSSecIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgSecIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infTMSGPRSSecPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgSecHostPort' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+   <uta:instance uta:id="infVTMSGprsPriIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgPriIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSGprsPriPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgPriHostPort' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSGprsSecIP">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgSecIP' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infVTMSGprsSecPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgGPRSprm' />
+	      <uta:col uta:data='msgSecHostPort' />
+	      <uta:col uta:data='cmbSrv' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <uta:instance uta:id="infNotInitialized">
+        <uta:col uta:data="'b'" />
+            <uta:span>
+            <uta:col uta:data='msgSpaces' />
+            <uta:col uta:data='msgNotInit' />
+            <uta:col uta:data='msgSpaces' />
+            <uta:col uta:data='msgSpaces' />
+            </uta:span>
+        <uta:col uta:data='5' />
+    </uta:instance>
+     <uta:instance uta:id="infEmvFileNotFound">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgNoEmvFile' />
+	        <uta:col uta:data='msgLoadedTms' />
+	        <uta:col uta:data='msgDefaultEMVParam' />
+        </uta:span>
+        <uta:col uta:data='3' />
+     </uta:instance>
+     <uta:instance uta:id="infDeclinedEMV">
+      <uta:col uta:data="'b'" />
+      <uta:span>	      
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTransaction' />
+	      <uta:col uta:data='msgDeclined' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance> 
+    <uta:instance uta:id="infEMVProcErr">
+      <uta:col uta:data="'b'" />
+      <uta:span>	      
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgOfflineDeclined' />
+	      <uta:col uta:data='msgCardProcErr' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infChipMalfunction">
+      <uta:col uta:data="'b'" />
+      <uta:span>	      
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgChipMalfunction' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infEMVChipDetect">
+      <uta:col uta:data="'b'" />
+      <uta:span>	      
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgChipDetect1' />
+	      <uta:col uta:data='msgChipDetect2' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='2' />
+   </uta:instance>
+   <uta:instance uta:id="infEMVCardDatErr">
+      <uta:col uta:data="'b'" />
+      <uta:span>	      
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgOfflineDeclined' />
+	      <uta:col uta:data='msgCardErr' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='30' />
+   </uta:instance>
+   <uta:instance uta:id="infScrGprsEncryption">
+      <uta:col uta:data="'s'" /> 
+      <uta:span>
+          <uta:col uta:data="msgSpaces" /> 
+          <uta:col uta:data="msgGprsParameter" /> 
+          <uta:col uta:data="msgEnableBlowfish" /> 
+          <uta:col uta:data="msgSpaces" /> 
+      </uta:span>
+      <uta:col uta:data="5" /> 
+    </uta:instance>
+                <!-- tambahan BlowFish -->
+   <uta:instance uta:id="infBlowfishMethod">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSetBf' />
+	      <uta:col uta:data='cmbIfBlowfishSet' />
+      </uta:span>
+      <uta:col uta:data='10' />
+    </uta:instance>
+    <!-- tambahan Test GPRS-->
+    <uta:instance uta:id="infComStartKO">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgStartingGPRS' />
+	      <uta:col uta:data='msgComStartKO' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infComSetKO">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgStartingGPRS' />
+	      <uta:col uta:data='msgComSetKO' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infComDialKO">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgStartingGPRS' />
+	      <uta:col uta:data='msgComDialKO' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infSuccConfig">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSuccessfully' />
+	      <uta:col uta:data='msgConfigured' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+
+   <!-- tambahan untuk response code -->
+     <uta:instance uta:id="inf01Declined">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msg01Declined1' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='30' />
+     </uta:instance>
+     <uta:instance uta:id="inf51Declined">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msg51Declined1' />
+	        <uta:col uta:data='msg51Declined2' />
+	        <uta:col uta:data='cmbDlgRspCod' />
+        </uta:span>
+        <uta:col uta:data='30' />
+     </uta:instance>   
+    <uta:instance uta:id="infRsp05">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDoNotHonour' />
+	      <uta:col uta:data='msgSpaces' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+<!-- @@OA - mulai -->
+    <uta:instance uta:id="infRsp14Pulsa">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgNoHp' />
+	      <uta:col uta:data='msgSalah' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp14Cicilan">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgNoKontrak' />
+	      <uta:col uta:data='msgNotFound' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRsp34">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgKartuExpired' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRsp38">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPinSalah3x' />
+	      <uta:col uta:data='msgKartuBlocked' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp53Tunai">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgNoRek' />
+	      <uta:col uta:data='msgTdkAda' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp61OverLimit">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgErrAmount' />
+	      <uta:col uta:data='msg51Declined2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp88">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTdkAda' />
+	      <uta:col uta:data='msgTghTrx' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRspQ4">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnTimeout' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRspQ1">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnTerputus' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp59">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgKartu' />
+	      <uta:col uta:data='msgTdkAktif' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp10">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgKartuDitutup' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp25">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgData' />
+	      <uta:col uta:data='msgNotFound' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    <uta:instance uta:id="infRsp41">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgKartuBlocked' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp50">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPinSalah' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp64IBank">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgAndaSudah' />
+	      <uta:col uta:data='msgRegistrasi' />
+	      <uta:col uta:data='msgInternetBank' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp64IBank">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgAndaSudah' />
+	      <uta:col uta:data='msgRegistrasi' />
+	      <uta:col uta:data='msgInternetBank' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRsp68PascaByr">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgBillerTO' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+        
+    <uta:instance uta:id="infRsp60RekeningSalah">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRekeningSalah' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp89PascaByr">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnPihak' />
+	      <uta:col uta:data='msgKetigaPutus' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRspIP">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgInvalidPass' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp09">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgAndaTidak' />
+	      <uta:col uta:data='msgMilikiOtor' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp16CardServ">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgKartuBaruTdk' />
+	      <uta:col uta:data='msgDapatReissue' />
+	      <uta:col uta:data='msgUkerAnda' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp68Transfer">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTrxSedang' />
+	      <uta:col uta:data='msgDiproses' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infRsp06TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPembayaranGagal' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+
+	<uta:instance uta:id="infRsp13TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgInvalidAmount' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+
+    <uta:instance uta:id="infRsp14TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgRsp04Pln1' />
+	      <uta:col uta:data='msgTidak' />
+	      <uta:col uta:data='msgDiTemukan' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+
+    <uta:instance uta:id="infRsp88TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTdkAda' />
+	      <uta:col uta:data='msgTghTrx' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+
+    <uta:instance uta:id="infRsp89TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnPihak' />
+	      <uta:col uta:data='msgKetigaPutus' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+
+	<uta:instance uta:id="infRsp68TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgConnPihak' />
+	      <uta:col uta:data='msgKetigaTimeOut' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+
+    <uta:instance uta:id="infRsp96TV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSysMal' />
+	      <uta:col uta:data='msgAirlineErr' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRsp04Pln">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgRsp04Pln1' />
+	      <uta:col uta:data='msgRsp04Pln2' />
+	      <uta:col uta:data='msgRsp04Pln3' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>  
+    
+    <uta:instance uta:id="infRsp06Pln">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgPembayaranGagal' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>  
+    
+    <uta:instance uta:id="infRsp08Pln">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgRsp08Pln1' />
+<!-- 	      <uta:col uta:data='msgRsp08Pln2' /> -->
+          <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgRsp08Pln3' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>  
+    
+    <uta:instance uta:id="infRsp13Pln">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgInvalidAmount' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>                
+
+    <uta:instance uta:id="infRsp14Pln">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRsp14Pln1' />
+	      <uta:col uta:data='msgRsp14Pln2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>      
+
+<!-- @@OA - selesai -->    
+    <uta:instance uta:id="infLastPinTry">
+	<uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgLastPrintTry' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+	<uta:col uta:data='2' />
+	</uta:instance>    
+    <uta:instance uta:id="infNotAvailable">
+	<uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgAppNot' />
+		<uta:col uta:data='msgAvailable' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+	<uta:col uta:data='2' />
+	</uta:instance>    
+    <uta:instance uta:id="infPinBlocked">
+	<uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgPinBlocked' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+	<uta:col uta:data='2' />
+	</uta:instance>    
+    <uta:instance uta:id="infCardErr">
+	<uta:col uta:data="'s'" />
+		<uta:span>
+		<uta:col uta:data='msgEmvOffline' />
+		<uta:col uta:data='msgDeclined' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgCardProcErr' />
+		</uta:span>
+	<uta:col uta:data='3' />
+	</uta:instance>    
+	<uta:instance uta:id="infCardNotAccepted">
+	<uta:col uta:data="'b'" />
+		<uta:span>
+		<uta:col uta:data='msgEmvOffline' />
+		<uta:col uta:data='msgDeclined' />
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgAidListEmpty' />
+		</uta:span>
+	<uta:col uta:data='3' />
+	</uta:instance>    
+	<uta:instance uta:id="infEmvError">
+	<uta:col uta:data="'b'" />
+		<uta:span>
+		<uta:col uta:data='msgEmpty' />
+		<uta:col uta:data='msgEmvDeclined' />
+		<uta:col uta:data='msgProcErr' />
+		<uta:col uta:data='msgEmpty' />
+		</uta:span>
+	<uta:col uta:data='3' />
+	</uta:instance>    
+
+     <uta:instance uta:id="infTotalAmt">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardType' />
+	        <uta:col uta:data='cmbTransType' />
+	        <uta:col uta:data='cmbTotalAmt' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='60' />
+     </uta:instance>     
+    <uta:instance uta:id="infUnknownAID">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgUnknownAID' />
+	      <uta:col uta:data='msgCardErr' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>
+
+    <uta:instance uta:id="infTrxDeclined">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDeclined' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>
+
+    <uta:instance uta:id="infConfirmResetTC">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDeleteTC' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    <uta:instance uta:id="infTerminalResetTC">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgTCDelete' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='5' />
+       </uta:instance>  
+
+    <uta:instance uta:id="infSearchingDisplay">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgSearchingSignal' />
+          <uta:col uta:data='msgPleaseWait' />
+          <uta:col uta:data='msgSpaces' />
+        </uta:span>
+          <uta:col uta:data='1' />
+       </uta:instance>  
+
+<!-- [[ @agmr - BRI  -->  
+    <uta:instance uta:id="infInfoSaldoBankLain">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgInformasi'/>
+	      <uta:col uta:data='msgJenisRekening'/>
+	      <uta:col uta:data='msgTabungan'/>
+	      <uta:col uta:data='msgGiro'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>    
+    
+    <uta:instance uta:id="infSaldoBalance">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTransType'/>
+	      <uta:col uta:data='msgJumlahSaldo'/>
+	      <uta:col uta:data='cmbInquiryAmt'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>     
+
+       
+    <uta:instance uta:id="infConfirmPayment">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTransType'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='cmbInquiryAmt'/>
+	      <uta:col uta:data='cmbMsgConfirm'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>     
+   
+    <uta:instance uta:id="infScrPPPphoneNumber">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgPPPConfig'/>
+	      <uta:col uta:data='msgPPPPhoneNumber'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>   
+    
+    <uta:instance uta:id="infScrPPPUserName">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgPPPConfig'/>
+	      <uta:col uta:data='msgPPPUserName'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>        
+   
+    <uta:instance uta:id="infScrPPPPassword">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgPPPConfig'/>
+	      <uta:col uta:data='msgPPPPassword'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>         
+    
+    <uta:instance uta:id="infScrPPPIpAddress">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgPPPDest'/>
+	      <uta:col uta:data='msgPPPIpAddress'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>         
+    
+    <uta:instance uta:id="infScrPPPPort">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgPPPDest'/>
+	      <uta:col uta:data='msgPPPPort'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>                   
+   
+    <uta:instance uta:id="infPINNotMatch">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgPinNotMatch'/>
+	      <uta:col uta:data='msgTryAgain'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>       
+    
+    <uta:instance uta:id="infCardPinNotRequired">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgPinNotRequired'/>
+	      <uta:col uta:data='msgUseOtherCard'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>           
+
+    <uta:instance uta:id="infPassword6Digit">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgPassword6Digit1'/>
+	      <uta:col uta:data='msgPassword6Digit2'/>
+	      <uta:col uta:data='msgTryAgain'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>       
+    
+    <uta:instance uta:id="infPasswordNotMatch">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces'/>
+	      <uta:col uta:data='msgPasswordNotMatch1'/>
+	      <uta:col uta:data='msgPasswordNotMatch2'/>
+	      <uta:col uta:data='msgTryAgain'/>
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>     
+    
+    <uta:instance uta:id="infCardPengawasInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTxnType' />
+	      <uta:col uta:data='msgKartuPetugas' />	<!-- @@OA -->
+	      <uta:col uta:data='msgSwipeCard' />		<!-- @@OA -->
+	      <uta:col uta:data='msgSpaces' />			<!-- @@OA -->
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infCardNasabahInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTxnType' />
+	      <uta:col uta:data='msgKartuNasabah' />
+	      <uta:col uta:data='msgSwipeInsert' />
+	      <uta:col uta:data='msgCard' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+
+    <uta:instance uta:id="infCardNasabahLamaInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTxnType' />
+	      <uta:col uta:data='msgKartuLamaNasabah' />
+	      <uta:col uta:data='msgSwipeInsert' />
+	      <uta:col uta:data='msgCard' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+
+    <uta:instance uta:id="infCardNasabahBaruInput">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='cmbTxnType' />
+	      <uta:col uta:data='msgKartuBaruNasabah' />
+	      <uta:col uta:data='msgSwipeInsert' />
+	      <uta:col uta:data='msgCard' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infOtorisasiBerhasil">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgOtorisasiBerhasil1' />
+	      <uta:col uta:data='msgOtorisasiBerhasil2' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>                     
+
+    <uta:instance uta:id="infRenewalBerhasilPINGagal">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRenewalBerhasil' />
+	      <uta:col uta:data='msgCreatePINGagal' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='2' />
+    </uta:instance>                           
+                     
+    <uta:instance uta:id="infAktifasiBerhasilPINGagal">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgAktifasiBerhasil' />
+	      <uta:col uta:data='msgCreatePINGagal' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='2' />
+    </uta:instance>                           
+
+<!-- BRI3 -->
+    <uta:instance uta:id="infSelectCardType">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSelectCardType' />
+	      <uta:col uta:data='msgCreditDebit' />
+      </uta:span>
+      <uta:col uta:data='20' />
+    </uta:instance>          
+    
+    
+	<uta:instance uta:id="infAcqNotFound">
+	    <uta:col uta:data="'b'" />
+	    <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgCardRefused' />
+		    <uta:col uta:data='msgAcqNotFound' />
+		    <uta:col uta:data='msgSpaces' />
+	    </uta:span>
+	    <uta:col uta:data='3' />
+	</uta:instance>         
+	
+     <uta:instance uta:id="infInvalidCard">
+       <uta:col uta:data="'b'" />
+       <uta:span>
+          <uta:col uta:data='msgSpaces' />
+          <uta:col uta:data='msgCardRefused' />
+          <uta:col uta:data='msgInvalidTransaction' />
+          <uta:col uta:data='msgSpaces' />
+	   </uta:span>
+       <uta:col uta:data='5' />
+    </uta:instance>	
+<!-- BRI3 -->
+
+     <uta:instance uta:id="infPrinting">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='msgPrinting' />
+	        <uta:col uta:data='msgSpaces' />
+        </uta:span>
+        <uta:col uta:data='0' />
+     </uta:instance>
+                
+    <uta:instance uta:id="infConfirmClearClog">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgClearClog' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infConfirmClearMlog">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgClearMlog' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infConfirmClearTlog">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgClearTlog' />
+	      <uta:col uta:data='msgAreYouSure' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>        
+ 
+     <uta:instance uta:id="infVoidTotal2">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgSpaces' />
+	        <uta:col uta:data='cmbMsgVoidAmtDisplay' />
+	        <uta:col uta:data='msgBuffer' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='30' />
+     </uta:instance> 
+<!--
+     <uta:instance uta:id="infTotal">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='cmbCardType' />
+	        <uta:col uta:data='cmbTransType' />
+	        <uta:col uta:data='cmbTraTotAmount' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='60' />
+     </uta:instance> 
+-->          
+     <uta:instance uta:id="infTotal2">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+ 	        <uta:col uta:data='cmbCardType' /> 
+<!--            <uta:col uta:data='traCardType' /> -->
+	        <uta:col uta:data='cmbTransType' />
+	        <uta:col uta:data='msgBuffer' />
+	        <uta:col uta:data='msgYesNo' />
+        </uta:span>
+        <uta:col uta:data='30' />
+     </uta:instance>       
+                       
+    <uta:instance uta:id="infDataError">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgDataError' />
+             <uta:col uta:data='msgSpaces' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>                       
+
+    <uta:instance uta:id="infPlsTryAgain">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgPlsTryAgain1' />
+             <uta:col uta:data='msgPlsTryAgain2' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>                           
+
+    <uta:instance uta:id="infMagEntryBarred">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgMagEntryBarred1' />
+             <uta:col uta:data='msgMagEntryBarred2' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>  
+    
+    <uta:instance uta:id="infChipEntryBarred">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgChipEntryBarred1' />
+             <uta:col uta:data='msgChipEntryBarred2' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>                            
+
+    <uta:instance uta:id="infPlsSwipeCard">
+      <uta:col uta:data="'b'" />
+             <uta:span>
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgSpaces' />
+             <uta:col uta:data='msgPlsSwipeCard1' />
+             <uta:col uta:data='msgPlsSwipeCard2' />
+             </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>    
+    
+    <uta:instance uta:id="infRsp53">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRsp53_1' />
+	      <uta:col uta:data='msgRsp53_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infTestKoneksiBerhasil">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgTestBerhasil_1' />
+	      <uta:col uta:data='msgTestBerhasil_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+
+    <uta:instance uta:id="infPressAnyKey">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />	
+	      <uta:col uta:data='msgPressAnyKey' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infSamInitFail">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSamInitFail' />
+	      <uta:col uta:data='msgSpaces' />	
+	      <uta:col uta:data='msgPressAnyKey' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>    
+    
+    <uta:instance uta:id="infSamInitSuccess">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSamInitSuccess' />
+	      <uta:col uta:data='msgSpaces' />	
+	      <uta:col uta:data='msgPressAnyKey' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>       
+    
+    <uta:instance uta:id="infDekatkanKartu">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgDekatkanKartu1' />
+	      <uta:col uta:data='msgDekatkanKartu2' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>        
+    
+    <uta:instance uta:id="infProcessToReaderFail">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='ProcessToReaderFail1' />
+	      <uta:col uta:data='ProcessToReaderFail2' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='2' />
+    </uta:instance>            
+    
+    <uta:instance uta:id="infProcessToReaderFailWait">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='ProcessToReaderFail1' />
+	      <uta:col uta:data='ProcessToReaderFail2' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>    
+    
+    <uta:instance uta:id="infRetrySettle">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRetrySettlement1' />
+	      <uta:col uta:data='msgRetrySettlement2' />	
+	      <uta:col uta:data='msgPressAnyKey' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>            
+    
+    <uta:instance uta:id="infProcessing">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgProcessing' />	
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>            
+    
+    <uta:instance uta:id="infBatchError">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgBatchError1' />
+	      <uta:col uta:data='msgBatchError2' />	
+	      <uta:col uta:data='msgPressAnyKey' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>          
+    
+    <uta:instance uta:id="infRspPrepaid05">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaid05_1' />
+	      <uta:col uta:data='msgRspPrepaid05_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRspPrepaidNF">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaidNF_1' />
+	      <uta:col uta:data='msgRspPrepaidNF_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRspPrepaidUI">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaidUI_1' />
+	      <uta:col uta:data='msgRspPrepaidUI_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRspPrepaid62">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaid62_1' />
+	      <uta:col uta:data='msgRspPrepaid62_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRspPrepaidOV">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaidOV_1' />
+	      <uta:col uta:data='msgRspPrepaidOV_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infRspPrepaidZB">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgRspPrepaidZB_1' />
+	      <uta:col uta:data='msgRspPrepaidZB_2' />	
+	      <uta:col uta:data='cmbDlgRspCod' />
+      </uta:span>
+      <uta:col uta:data='30' />
+    </uta:instance>
+    
+    <uta:instance uta:id="infEnterTrace">
+      <uta:col uta:data="'s'" />
+      <uta:span>
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgSpaces' />
+	      <uta:col uta:data='msgEnterTrace' />
+	      <uta:col uta:data='msgSpaces' />
+      </uta:span>
+      <uta:col uta:data='0' />
+    </uta:instance>    
+   
+    <uta:instance uta:id="infSetBatchNum">
+	  <uta:col uta:data="'s'" />
+	  <uta:span>
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgSpaces' />
+		    <uta:col uta:data='msgEnterBatchNum' />
+		    <uta:col uta:data='cmbSetBatchNum' />
+	  </uta:span>
+	  <uta:col uta:data='5' />
+    </uta:instance>  
+
+    <uta:instance uta:id="infConfirmPrint">
+      <uta:col uta:data="'b'" />
+      <uta:span>
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgEmpty' />
+	      <uta:col uta:data='msgPrintYesNo' />
+      </uta:span>
+      <uta:col uta:data='5' />
+    </uta:instance>
+
+     <uta:instance uta:id="infNoPrepaidPembayaran">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />	      
+	        <uta:col uta:data='msgNoPrepaidPembayaran1' />
+	        <uta:col uta:data='msgNoPrepaidPembayaran2' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='1' />
+     </uta:instance>
+     
+     <uta:instance uta:id="infTleKeyEmpty">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />	      
+	        <uta:col uta:data='msgTleKeyEmpty1' />
+	        <uta:col uta:data='msgNoPrepaidPembayaran2' />
+	        <uta:col uta:data='msgEmpty' />
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>     
+
+<!-- ]] @agmr - BRI  -->    
+
+<!-- @@AS0.0.26 : start -->
+	<uta:instance uta:id="infLodMstKeyOK">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLoadMKOK1' />
+	        <uta:col uta:data='msgLoadMKOK2' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>
+	<uta:instance uta:id="infLodWrkKeyOK">
+        <uta:col uta:data="'s'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLoadWKOK1' />
+	        <uta:col uta:data='msgLoadWKOK2' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='5' />
+     </uta:instance>
+	<uta:instance uta:id="infLodMstKeyFail">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLoadMKError1' />
+	        <uta:col uta:data='msgLoadMKError1' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='15' />
+     </uta:instance>	
+     <uta:instance uta:id="infLodWrkKeyFail">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLoadWKError1' />
+	        <uta:col uta:data='msgLoadWKError2' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='15' />
+     </uta:instance>
+     <uta:instance uta:id="infLodKeyFail">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLoadKeyError' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='15' />
+     </uta:instance>
+     <uta:instance uta:id="infLogonSuccess">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgLogonSuccess' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='15' />
+     </uta:instance>     
+     <uta:instance uta:id="infLogonFail">
+        <uta:col uta:data="'b'" />
+        <uta:span>
+	        <uta:col uta:data='msgEmpty' />	      
+	        <uta:col uta:data='msgLogonFail' />
+	        <uta:col uta:data='msgEmpty' />
+	        <uta:col uta:data='msgPressAnyKey' />
+        </uta:span>
+        <uta:col uta:data='15' />
+     </uta:instance>
+             
+<!-- @@AS0.0.26 : end -->   
+     </uta:data>
+</uta:record>
+

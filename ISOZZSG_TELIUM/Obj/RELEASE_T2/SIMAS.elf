@@ -1,0 +1,20 @@
+Obj/RELEASE_T2/SIMAS.axf  :
+section              size      addr
+.text              789744         0
+.ctors                  0    789744
+.dtors                  0    789744
+.rodata            109384    789744
+.data               49552   2097152
+.bss               179212   2146704
+.debug_abbrev       41449         0
+.debug_info        398751         0
+.debug_line         79591         0
+.debug_frame        44680         0
+.debug_pubnames     25698         0
+.debug_aranges       4384         0
+.debug_str          18756         0
+.comment             3906         0
+.debug_ranges         824         0
+Total             1745931
+
+

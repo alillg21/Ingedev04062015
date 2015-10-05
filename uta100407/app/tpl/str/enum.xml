@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:enum uta:id='len' uta:comment='Field Lengths' xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:enumKey uta:id='lenCmpDat' uta:data='16'/>
+  <uta:enumKey uta:id='lenCmpTim' uta:data='8'/>
+  <uta:enumKey uta:id='lenDatTim' uta:data='14'/>
+  <uta:enumKey uta:id='lenMnu' uta:data='(2+dspW)'/>
+  <uta:enumKey uta:id='lenTrk2' uta:data='40'/>
+  <uta:enumKey uta:id='lenPan' uta:data='19'/>
+  <uta:enumKey uta:id='lenExpDat' uta:data='4'/>
+  <uta:enumKey uta:id='lenAmt' uta:data='12'/>
+  <uta:enumKey uta:id='lenChn' uta:data='16'/>
+  <uta:enumKey uta:id='lenPabx' uta:data='4'/>
+  <uta:enumKey uta:id='lenPrefix' uta:data='4'/>
+  <uta:enumKey uta:id='lenPhone' uta:data='16'/>
+  <uta:enumKey uta:id='lenPwd' uta:data='4'/>
+</uta:enum>

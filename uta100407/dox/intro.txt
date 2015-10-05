@@ -1,0 +1,54 @@
+/** \mainpage UTA Programmer's Reference
+\htmlonly
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>UTA Programmer's Reference</title>
+</head>
+
+<body>
+</body>
+
+</html>
+\endhtmlonly
+
+
+Subversion reference
+
+$HeadURL: https://svn.ingenico.com/UTA/core/utaYYMMDD/dox/intro.txt $
+
+$Id: intro.txt 2217 2009-03-20 14:52:31Z abarantsev $
+
+The system component functions are declared in the header file sys.h in sys directory.
+
+They are implemented in the files:
+ - TBX.C - (ToolBoX) tracing and conversion functions, container methods and simple supplementary functions of generic usage. Part of them is enabled in simulation mode only
+ - I32.C - (Ingenico 32 bits) wrappers around U32 functions. These are the 32-specific implementations of functions declared in sys.h
+ - E32.C - (Emv 32 bits) wrappers around EMV Kernel.
+ - C32.C - (Crypto 32 bits) wrappers around SSA calls.
+ - CHN.C - (CHannel) communication channels
+ - MEM.C - (MEMory) non-volatile memory access functions
+
+The header file def.h defines several macros that modify the behavior of all the application.
+
+In particular, there are __DEBUG__ and __TEST__ macros that can be enabled during application development.
+
+To enable an application-specific behavior one of the macro __CTL4SAE__, __ACI4TTN__, etc
+should be defined (__CTL4SAE__ for the application number 4S developed for CTL server, __ACI4TTN__ 
+for the application number 4T developed for ACI server etc).
+
+The macro __PARIS__ should be defined if the testing is performed from Paris. 
+It should be disabled if testing is performed by a local team. Normally this macro activates country code dialing.
+
+The macro __FONT__ should be defined if a local font is used. In this case the related SSA version should be download
+
+The primitive component functions are declared in the header file pri.h in pri directory.
+They are implemented in the files:
+ - FMT.C - (ForMaT) string formatting functions useful in payment application context
+ - DLG.C - (DiaLoG) various dialogs
+ - DBA.C - (DataBaseAccess) data base access functions
+ - COM.C - (COMmunications) derived communication operations
+ - STD.C - (STanDard) some standard algorythms
+
+*/

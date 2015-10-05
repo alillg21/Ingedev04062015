@@ -1,0 +1,16 @@
+#include "bgd.c"
+#include "Fond.c"
+#include "ingenico.c"
+#include "logo.c"
+#include "moebius.c"
+#include "picto.c"
+#include "uta.c"
+
+#include "btnBak.c"
+#include "btnBak2.c"
+#include "btnCap.c"
+#include "btnKO.c"
+#include "btnNo.c"
+#include "btnOK.c"
+#include "btnSa0.c"
+

@@ -1,0 +1,40 @@
+[SST]
+ReaderName=<No smart card reader connected!>
+CertificateAppliDir=C:\Program Files\Ingenico\IngeDev_7\plugins\com.ingenico.ingedev.telium.core_7.4.1.4\defaultSystemFiles
+SignedSchemaDir=C:\Users\z\AppData\Local\Temp\Telium
+ApplicationDir=C:\Users\z\IngeDev7_workspace\ISOZZSG_TELIUM\Bin\DEBUG_EFT_930S
+ParametersDir=C:\Users\z\IngeDev7_workspace\ISOZZSG_TELIUM\Bin\DEBUG_EFT_930S
+DestinationDir=C:\Users\z\IngeDev7_workspace\ISOZZSG_TELIUM\Bin\DEBUG_EFT_930S
+TempDir=C:\Users\z\AppData\Local\Temp\Telium
+
+[Schemas]
+NbSchemas=19
+Schema1=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchCipherDa.sgn
+Schema2=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchCipherPR.sgn
+Schema3=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchDukpt.sgn
+Schema4=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchDukpTDes.sgn
+Schema5=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchFree.sgn
+Schema6=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchIso9564o.sgn
+Schema7=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchLoadData.sgn
+Schema8=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchMacIcvDu.sgn
+Schema9=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchutilTlv.sgn
+Schema10=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SchXOR.sgn
+Schema11=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\SloadKeyTlv.sgn
+Schema12=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvCipherDa.sgn
+Schema13=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvDukpt.sgn
+Schema14=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvDukpTDes.sgn
+Schema15=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvFree.sgn
+Schema16=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvIso9564.sgn
+Schema17=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvLoadData.sgn
+Schema18=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvLoadKey.sgn
+Schema19=C:\Program Files\SDK30\SDK 7.5.1\Component\Schemes\DEBUGSigned\T1\TlvLoadTR31.sgn
+
+[Application]
+ParameterFile=BRI_T1.TXT
+ApplicationFile=BRI.BIN
+CertificateFile=sst.V03
+CatalogFileExtension=3X
+
+[Error]
+Code=0
+msg=files correctly signed.

@@ -1,0 +1,21 @@
+dspStart
+dspLight val=100
+prtStart
+dspLS loc=00 str=Insert a card...
+iccStart rdr=0
+iccCommand rdr= 0 cmd=
+iccCommand rsp=3B E6 00 FF 81 31 FE 45 4A 43 4F 50 32 30 06
+prtS str=ATR:
+prtS str=3BE600FF8131FE454A434F50323006
+prtS str=323006
+dspLS loc=00 str=ATR printed
+dspLS loc=01 str=Wait...
+iccCommand rdr= 0 cmd=
+iccCommand rsp=6A 82
+prtS str=APPLICATION SELECT:
+prtS str=6A82
+dspLS loc=01 str=APP SELECT OK
+dspLS loc=02 str=Remove card...
+iccStop rdr=0
+prtStop
+dspStop

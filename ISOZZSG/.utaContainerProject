@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?utaContainerProject version="1.0"?><?ingedev version="7.5.0.6"?><projectDescription utaConfigurationFile="utaConfSTD.xml" utaFrameworkProject="uta100407">
+<generateFiles>
+<generateIncFile name="str\key.h"/>
+<generateIncFile name="str\map.h"/>
+<generateIncFile name="str\dft.h"/>
+<generateSrcFile name="str\map.c"/>
+<generateSrcFile name="str\dft.c"/>
+<generateSrcFile name="str\rpt.c"/>
+</generateFiles>
+</projectDescription>

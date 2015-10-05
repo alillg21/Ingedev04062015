@@ -1,0 +1,10 @@
+[Disk total size]
+exchange= 8388608
+storage= 6291456
+[Disk free size]
+exchange= 8387584
+storage=  148480
+[Trace activity]
+filename=TRACEFILE.LST
+[Running component list]
+filename=RUNNING.LST

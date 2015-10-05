@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+sample template
+-->
+<uta:record uta:id='tra' uta:comment='transaction related data situated in volatile memory'
+  xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id='traDatTim' uta:type='ASCII' uta:length='lenDatTim' uta:comment='current date and time CCYYMMDDhhmmss' />
+  <uta:field uta:id='traMnuItm' uta:type='word' uta:comment='current menu item selected' />
+  <uta:field uta:id='traCtx' uta:type='ASCII' uta:length='dspW' uta:comment='context message' />
+  <uta:field uta:id='traEntMod' uta:type='char' uta:comment='card entry mode' />
+  <uta:field uta:id='traTrk2' uta:type='ASCII' uta:length='lenTrk2' uta:comment='track 2 of the card' />
+  <uta:field uta:id='traPan' uta:comment='card number' uta:type='ASCII' uta:length='lenPan' />
+  <uta:field uta:id='traExpDat' uta:type='ASCII' uta:length='lenExpDat' uta:comment='expiry date' />
+  <uta:field uta:id='traAmt' uta:comment='transaction amount' uta:type='ASCII' uta:length='lenAmt' />
+</uta:record>

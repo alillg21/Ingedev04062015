@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rqs.xml $
+$Id: rqs.xml 1510 2009-02-06 10:26:14Z jelemia $
+-->
+<uta:record uta:id="rqs" uta:multi="rqt" uta:comment="request structure" xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id="rqsMti" uta:type="binary" uta:length="lenMti" uta:comment="Message Type Identifier" />
+  <uta:field uta:id="rqsBitmap" uta:type="binary" uta:length="lenBitmap" uta:comment="ISO8583 bit map" />
+  <uta:field uta:id="rqsDbCr" uta:type="byte" uta:comment="Debit/Credit control string: D=increment Debit,C=increment Credit, d=decrement Debit, c=decrement credit, space=do noting" />
+  <uta:field uta:id="rqsRpt" uta:export='S' uta:type="ASCII" uta:length="prtW" uta:comment="Transaction name on the receipt" />
+  <uta:field uta:id="rqsDisp" uta:export='S' uta:type="ASCII" uta:length="dspW" uta:comment="Transaction name on the display" />
+  <uta:field uta:id="rqsVDisp" uta:export='S' uta:type="ASCII" uta:length="dspW" uta:comment="Void Transaction name on the display" />
+  <uta:field uta:id="rqsEntMod" uta:export='S' uta:type="ASCII" uta:length='lenCrdInpCtl' uta:comment="Entry Mode for each transaction Type" />
+  <uta:field uta:id="rqsPrcCod" uta:type="binary" uta:length="lenPrcCod" uta:comment="003: Processing Code" />
+  <uta:data>
+        <uta:instance uta:id="rqtSale">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/SALE"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtPreAuth"> <!-- agmr - BRI - dijadikan auth/card ver -->
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->           
+             <uta:col uta:data='"PREAUTH"'/>                          		<!--STRING-->
+             <uta:col uta:data='"PREAUTH"'/>                          			<!--STRING-->
+			<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+<!-- [[agmr - BRI5  -->        
+        <uta:instance uta:id="rqtAuth"> 
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->           
+            <uta:col uta:data='"CARD VERIFY"'/>                        		<!--STRING-->
+            <uta:col uta:data='"CARD VERIFY"'/>                         			<!--STRING-->
+			<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>
+        </uta:instance>
+<!-- ]]agmr - BRI5  -->          
+        <uta:instance uta:id="rqtRefund">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x00\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="'C'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REFUND"'/>                          		<!--STRING-->
+            <uta:col uta:data='"REFUND"'/>                          		<!--STRING-->
+            <uta:col uta:data='"V/REFUND"'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x20\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtCash">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"CASH ADV"'/>                          		<!--STRING-->
+            <uta:col uta:data='"CASH ADV"'/>                          		<!--STRING-->
+			<uta:col uta:data='"V/CASHADV"'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtBalance">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x22\x38\x05\x80\x20\xC0\x10\x00"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"BALANCE"'/>                          		<!--STRING-->
+            <uta:col uta:data='"BALANCE"'/>                          		<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x31\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtVerify">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x00\x04"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"VERIFY"'/>                          		<!--STRING-->
+            <uta:col uta:data='"VERIFY"'/>                          		<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x38\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtVoid">
+        	<uta:col uta:data='(byte*)"\x02\x02\x00"' />
+            <uta:col uta:data='(byte*)"\x08\x70\x3C\x05\x80\x28\xC0\x00\x04"' />
+            <!--<uta:col uta:data='(byte*)"\x08\x70\x24\x05\x80\x08\xC0\x00\x04"' />-->
+            <uta:col uta:data="'d'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"VOID"'/>
+            <uta:col uta:data='"VOID"'/>
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x02\x00\x00"'/>
+        </uta:instance>
+        <uta:instance uta:id="rqtCompletion">
+        	<uta:col uta:data='(byte*)"\x02\x02\x00"' />
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x80\x28\xC0\x80\x02"' />
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"Completion"'/>
+            <uta:col uta:data='"Completion"'/>
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x02\x02\x10"'/>
+        </uta:instance>
+        <uta:instance uta:id="rqtReconcilInit">
+            <uta:col uta:data='(byte*)"\x02\x05\x00"' />
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x12"' />
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"\x1B""\x1C""SETTLEMENT"'/>
+            <uta:col uta:data='"SETTLEMENT"'/>
+  	     <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x92\x00\x00"'/>
+        </uta:instance>
+        <uta:instance uta:id="rqtReconcilSubs">
+        	<uta:col uta:data='(byte*)"\x02\x05\x00"' />
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x12"' />
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"\x1B""\x1C""SETTLEMENT"'/>
+            <uta:col uta:data='"SETTLEMENT"'/>
+     	     <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x96\x00\x00"'/>
+        </uta:instance>
+        <uta:instance uta:id="rqtBatchUpload">
+            <uta:col uta:data='(byte*)"\x02\x03\x20"' />
+            <uta:col uta:data='(byte*)"\x08\x70\x3C\x05\x80\x0E\xC0\x00\x14"' />
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"\x1B""\x1C""BATCH UPLOAD"'/>
+            <uta:col uta:data='"BATCH UPLOAD"'/>
+	     <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>
+        </uta:instance>
+        <uta:instance uta:id="rqtTMSLogon">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TMS LOGON"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TMS LOGON"'/>                          			<!--STRING-->
+			<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtTMSDnlTbl">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TMS Dnl Tables"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TMS Dnl Tables"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x01\x01"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtTMSLogoff">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TMS LOGOFF"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TMS LOGOFF"'/>                          			<!--STRING-->
+     		<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>        
+        <uta:instance uta:id="rqtTMSEmv">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TMS EMV REQUEST"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TMS EMV REQUEST"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x01\x02"'/>               			<!--Proc Code-->
+        </uta:instance>      
+        <uta:instance uta:id="rqtTMSFileDnl">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x21\x00\x01\x00\x00\xC0\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TMS EMV FILE REQUEST"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TMS EMV FILE REQUEST"'/>                          			<!--STRING-->
+			<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x06\x00"'/>               			<!--Proc Code-->
+        </uta:instance>      
+	    <uta:instance uta:id="rqtOflSale">
+            <uta:col uta:data='(byte*)"\x02\x02\x20"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"O/SALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"O/SALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/OSALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtManual">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"MANUAL"'/>                          			<!--STRING-->
+            <uta:col uta:data='"MANUAL"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/MSALE"'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtAdjust">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC0\x04\x04"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          						<!--rqsDbCr-->
+            <uta:col uta:data='"ADJUST"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ADJUST"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtReversal">
+            <uta:col uta:data='(byte*)"\x02\x04\x00"' />                        	<!--MTI-->
+<!--            <uta:col uta:data='(byte*)"\x08\x70\x24\x05\x80\x00\xC0\x00\x04"' /> -->	<!--BMP-->            
+<!--            <uta:col uta:data='(byte*)"\x08\x70\x24\x05\x80\x00\xC1\x00\x86"' />-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x00\x86"' />
+            <uta:col uta:data="'D'"/>                          						<!--rqsDbCr-->
+            <uta:col uta:data='"REVERSAL"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REVERSAL"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtLogOn">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x18\x01\x00\x00\x80\x00\x00"' />	<!--BMP-->            
+            <uta:col uta:data="' '"/>                          						<!--rqsDbCr-->
+            <uta:col uta:data='"LOG ON"'/>                          			<!--STRING-->
+            <uta:col uta:data='"LOG ON"'/>                          			<!--STRING-->
+     		<uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x90\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+         <uta:instance uta:id="rqtEchoTest">								<!-- ECHO - Server Test-->
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI -->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x00\x80\x00\x00"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          							<!--rqsDbCr-->
+            <uta:col uta:data='"TES KONEKSI"'/>                          				<!--STRING-->
+            <uta:col uta:data='"TES KONEKSI"'/>                          				<!--STRING-->
+            <uta:col uta:data='"V/TES KONEKSI"'/>                          				<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          								<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x99\x00\x00"'/>               					<!--Proc Code-->
+        </uta:instance>
+        <uta:instance uta:id="rqtTCUpload">
+            <uta:col uta:data='(byte*)"\x02\x03\x20"' />
+            <uta:col uta:data='(byte*)"\x08\x70\x3C\x07\x80\x0E\xC0\x02\x14"' />
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"\x1B""\x1C""TC UPLOAD"'/>
+            <uta:col uta:data='"TC UPLOAD"'/>
+	     <uta:col uta:data='" "'/>                          			<!--STRING-->
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x94\x00\x00"'/>
+        </uta:instance>
+        
+<!-- awal agm - BRI --> 
+        <uta:instance uta:id="rqtInfoSaldo">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+           <uta:col uta:data='(byte*)"\x08\x20\x20\x05\x80\x20\xC0\x10\x86"' />	<!--BMP-->
+<!--            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC0\x10\x86"' /> -->
+            <uta:col uta:data="'D'"/>                          			            <!--rqsDbCr-->
+            <uta:col uta:data='"INFO SALDO"'/>                          			<!--STRING-->
+            <uta:col uta:data='"INFO SALDO"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INFO SALDO"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x30\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtInfoSaldoBankLain">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x3C\x01\x00\x28\xC0\x14\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"INFO SALDO"'/>                          			<!--STRING-->
+            <uta:col uta:data='"INFO SALDO"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INFO SALDO"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtTransferSesamaBRIInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRANSFER SESAMA BRI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRANSFER SESAMA BRI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x40\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtTransferSesamaBRI">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRANSFER SESAMA BRI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRANSFER SESAMA BRI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TRANSFER"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x40\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtTransferAntarBankInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRANSFER ANTAR BANK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRANSFER ANTAR BANK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x40\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtTransferAntarBank">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x80\x28\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRANSFER ANTAR BANK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRANSFER ANTAR BANK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TRANSFER"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x40\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+		<uta:instance uta:id="rqtPembayaranTVBerlanggananInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TV BERLANGGAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TV BERLANGGAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x33\x10\x30"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranTVBerlangganan">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TV BERLANGGAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TV BERLANGGAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN TV BERLANGGAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranTiketPesawatInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TIKET PESAWAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TIKET PESAWAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x33\x10\x30"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranTiketPesawat">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TIKET PESAWAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TIKET PESAWAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN TIKET PESAWAT"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranPdamInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PDAM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PDAM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x35\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranPdam">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PDAM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PDAM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN PDAM"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x15\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+                
+        <uta:instance uta:id="rqtPembayaranPLNPascaInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PLN PASCA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PASCA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x38\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranPLNPasca">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PLN PASCA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PASCA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN PLN PASCA"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x18\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranPLNPraInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x37\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranPLNPra">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN PLN PRA"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x17\x00\x01"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranPLNToken">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x08\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA TOKEN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA TOKEN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN PLN PRA TOKEN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x17\x00\x02"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranSPPInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x20\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN SPP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN SPP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x35\x01\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranSPP">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN SPP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN SPP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN SPP"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x15\x01\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranTelkomInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TELKOM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TELKOM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x33\x10\x30"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranTelkom">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN TELKOM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN TELKOM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN TELKOM"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranDPLKR">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x0A\x81\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN DPLK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN DPLK"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN DPLK"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+                
+        <uta:instance uta:id="rqtPembayaranCicilanInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x00\x20\xC1\x14\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN CICILAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN CICILAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x38\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranCicilan">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x00\x28\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN CICILAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN CICILAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN CICILAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x17\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>                                                                        
+
+        <uta:instance uta:id="rqtPembayaranKKBRIInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/ISI ULANG"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x33\x10\x30"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKKBRI">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/ISI ULANG"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranKKANZ">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KK. ANZ"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KK. ANZ"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KK. ANZ"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKTACITI">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KTA. CITI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KTA. CITI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KTA. CITI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKKCITI">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KK. CITI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KK. CITI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KK. CITI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+	
+        <uta:instance uta:id="rqtPembayaranKTAHSBC">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KTA. HSBC"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KTA. HSBC"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KTA. HSBC"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKKHSBC">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KK. HSBC"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KK. HSBC"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KK. HSBC"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKTARBS">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KTA. RBS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KTA. RBS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KTA. RBS"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKKRBS">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KK. RBS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KK. RBS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KK. RBS"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKTAStanChar">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KTA. SCB"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KTA. SCB"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KTA. SCB"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranKKStanChar">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMB. KK. SCB"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMB. KK. SCB"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMB. KK. SCB"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranPulsa">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ISI ULANG"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/ISI ULANG"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranZakat">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x01\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"ZAKAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ZAKAT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/ZAKAT"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtSetorPinjamanInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SETOR PINJAMAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SETOR PINJAMAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x50\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtSetorPinjaman">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SETOR PINJAMAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SETOR PINJAMAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/SETOR PINJAMAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x02\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>                                                                        
+
+        <uta:instance uta:id="rqtSetorSimpananInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SETOR SIMPANAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SETOR SIMPANAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x40\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtSetorSimpanan">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SETOR SIMPANAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SETOR SIMPANAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/SETOR SIMPANAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x02\x20\x00"'/>               			<!--Proc Code-->
+        </uta:instance>    
+
+        <uta:instance uta:id="rqtTarikTunai">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TARIK TUNAI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TARIK TUNAI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TARIK TUNAI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x01\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        
+        <uta:instance uta:id="rqtVoidTarikTunai">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+<!--            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x80\x20\xC1\x10\x86"' /> -->	<!--BMP-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x80\x20\xC1\x00\x86"' />
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"VOID TARIK TUNAI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"VOID TARIK TUNAI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/VOID TARIK TUNAI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x21\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>          
+
+        <uta:instance uta:id="rqtRegistrasiInternetBanking">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REG INTERNET BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REG INTERNET BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REG INTERNET BANKING"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>    
+
+        <uta:instance uta:id="rqtRegistrasiPhoneBanking">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REG PHONE BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REG PHONE BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REG PHONE BANKING"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        <!-- Changed By Ali-->
+        <uta:instance uta:id="rqtTrxPhoneBankingTransferInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			   <!--rqsDbCr-->
+            <uta:col uta:data='"TRX PHONE TRANSFER"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRX PHONE TRANSFER"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x40\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtTrxPhoneBankingTransfer">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x14\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRX PHONE TRANSFER"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRX PHONE TRANSFER"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TRX PHONE TRANSFER"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtTrxPhoneBankingPulsa">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x14\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TRX PHONE PULSA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TRX PHONE PULSA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TRX PHONE PULSA"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtRegistrasiSmsBanking">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REG SMS BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REG SMS BANKING"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REG SMS BANKING"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+
+        <uta:instance uta:id="rqtPembayaranBrivaInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN BRIVA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN BRIVA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x35\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtPembayaranBriva">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x28\xC1\x10\x82"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN BRIVA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN BRIVA"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN BRIVA"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x15\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <!--End Of Changed By Ali-->
+        <uta:instance uta:id="rqtGantiPIN">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"UBAH PIN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"UBAH PIN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/UBAH PIN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        
+        <uta:instance uta:id="rqtGantiPasswordSPV">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"UBAH PASS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"UBAH PASS"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/UBAH PASS"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x01"'/>               			<!--Proc Code-->
+        </uta:instance>         
+
+        <uta:instance uta:id="rqtOtorisasi">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/OTORISASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance> 
+                
+        <uta:instance uta:id="rqtAktivasiKartuInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC0\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"AKTIVASI KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"AKTIVASI KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x10\x90"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        
+        <uta:instance uta:id="rqtAktivasiKartu">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"AKTIVASI KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"AKTIVASI KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/AKTIVASI KARTU"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x10\x10\x90"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        
+        <uta:instance uta:id="rqtOtorisasi1">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/OTORISASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>         
+                
+        <uta:instance uta:id="rqtRenewalKartuInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC0\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"RENEWAL KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"RENEWAL KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INQUIRY"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x10\x90"'/>               			<!--Proc Code-->
+        </uta:instance> 
+        
+        <uta:instance uta:id="rqtRenewalKartu">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"RENEWAL KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"RENEWAL KARTU"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/RENEWAL KARTU"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x10\x10\x90"'/>               			<!--Proc Code-->
+        </uta:instance>         
+        
+        <uta:instance uta:id="rqtOtorisasi2">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"OTORISASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/OTORISASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x50\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>         
+
+        <uta:instance uta:id="rqtReissuePIN">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x02"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REISSUE PIN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REISSUE PIN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REISSUE PIN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x10\x90"'/>               			<!--Proc Code-->
+        </uta:instance>             
+
+        <uta:instance uta:id="rqtInstallment">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x07\x00\x20\xC0\x00\x0C"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"CICILAN"'/>                 			<!--STRING-->
+            <uta:col uta:data='"CICILAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/CICILAN BRING"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>  
+        
+        <uta:instance uta:id="rqtPembayaranPascaBayarInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PASCA BAYAR"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PASCA BAYAR"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PASCA BAYAR"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x33\x10\x30"'/>               			<!--Proc Code-->
+        </uta:instance>          
+        
+       <uta:instance uta:id="rqtPembayaranPascaBayar">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x20\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			            <!--rqsDbCr-->
+            <uta:col uta:data='"PASCA BAYAR"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PASCA BAYAR"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PASCA BAYAR"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x11\x10\x00"'/>               			<!--Proc Code-->
+        </uta:instance>                  
+
+<!-- [[ @agmr - prepaid -->        
+        <uta:instance uta:id="rqtInfoDeposit">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x00\xC1\x00\x86"' />	<!--BMP-->
+            <uta:col uta:data="'D'"/>                          			            <!--rqsDbCr-->
+            <uta:col uta:data='"INFO DEPOSIT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"INFO DEPOSIT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/INFO DEPOSIT"'/>                          		<!--STRING-->            
+            <uta:col uta:data='"cmkt"'/>                          			        <!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x80\x00"'/>               			<!--Proc Code-->
+        </uta:instance>  
+
+        <uta:instance uta:id="rqtPrepaidPayment">
+            <uta:col uta:data='(byte*)"\x02\x00\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x00\x00\x00\x00\x00\x00\x00\x00"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmkt"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>      
+
+        <uta:instance uta:id="rqtPrepaidPaymentDisc">
+            <uta:col uta:data='(byte*)"\x02\x00\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x00\x00\x00\x00\x00\x00\x00\x00"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"PEMBAYARAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"PEMBAYARAN"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/PEMBAYARAN"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmkt"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x00\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>
+        
+        <uta:instance uta:id="rqtTopUp">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"TOP UP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"TOP UP"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/TOP UP"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x80\x00"'/>               			<!--Proc Code-->
+        </uta:instance>      
+        
+        <uta:instance uta:id="rqtDeposit">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x20\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"DEPOSIT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"DEPOSIT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/DEPOSIT"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmkt"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x81\x00"'/>               			<!--Proc Code-->
+        </uta:instance>      
+        
+        <uta:instance uta:id="rqtAktivasi">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x00\xC1\x00\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"AKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"AKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/AKTIVASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x82\x00"'/>               			<!--Proc Code-->
+        </uta:instance>   
+
+	<!-- [[ agmr - brizzi2 -->        
+        <uta:instance uta:id="rqtPrepaidReaktivasiInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x01\x00\x00\xC1\x00\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REAKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REAKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REAKTIVASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x86\x01"'/>               			<!--Proc Code-->
+        </uta:instance>  
+        
+        <uta:instance uta:id="rqtPrepaidReaktivasi">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x01\x00\x00\xC1\x00\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REAKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REAKTIVASI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REAKTIVASI"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x86\x00"'/>               			<!--Proc Code-->
+        </uta:instance>  
+        
+        <uta:instance uta:id="rqtPrepaidVoidInquiry">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x38\x01\x00\x00\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"VOID PAYMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"VOID PAYMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x80\x82\x01"'/>               			<!--Proc Code-->
+        </uta:instance>  
+        
+        <uta:instance uta:id="rqtPrepaidVoid">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x30\x05\x80\x00\xC1\x10\x86"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"VOID PAYMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"VOID PAYMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='" "'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x80\x82\x02"'/>               			<!--Proc Code-->
+        </uta:instance>                                  
+<!-- ]] agmr - brizzi2 -->  
+
+
+        <uta:instance uta:id="rqtPrepaidRedeemInquiry">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x00\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REDEEM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REDEEM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REDEEM"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x30\x83\x00"'/>               			<!--Proc Code-->
+        </uta:instance>          
+  
+  
+        <uta:instance uta:id="rqtPrepaidRedeem">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x01\x00\x00\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"REDEEM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"REDEEM"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/REDEEM"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x81\x83\x00"'/>               			<!--Proc Code-->
+        </uta:instance>          
+        
+        <uta:instance uta:id="rqtPrepaidSettlement">
+            <uta:col uta:data='(byte*)"\x02\x02\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x38\x01\x00\x00\xC1\x00\x82"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"SETTLEMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"SETTLEMENT"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/SETTLEMENT"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x80\x82\x00"'/>               			<!--Proc Code-->
+        </uta:instance>                                        
+                  
+<!-- ]] @agmr - prepaid --> 
+
+		<!-- Changed By Ali-->
+		<uta:instance uta:id="rqtAbsensi">
+            <uta:col uta:data='(byte*)"\x02\x01\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x30\x38\x05\x80\x20\xC1\x14\x82"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"ABSENSI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"ABSENSI"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/DATANG"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x31\x10\x00"'/> 
+        </uta:instance>	
+        <!--End Of Changed By Ali-->
+        
+<!--  AS0.0.26 - Add Logon feature - Start -->
+		<uta:instance uta:id="rqtDebitLogon">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x20\x01\x00\x00\xC0\x00\x00"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"LOGON"'/>                          			<!--STRING-->
+            <uta:col uta:data='"LOGON"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/LOGON"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x92\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>	
+<!--  AS0.0.26 - Add Logon feature - End -->
+
+        <uta:instance uta:id="rqtTLEKeyDownload">
+            <uta:col uta:data='(byte*)"\x02\x08\x00"' />                        	<!--MTI-->
+            <uta:col uta:data='(byte*)"\x08\x20\x38\x01\x00\x00\x81\x00\x10"' />	<!--BMP-->
+            <uta:col uta:data="' '"/>                          			<!--rqsDbCr-->
+            <uta:col uta:data='"KEY DOWNLOAD"'/>                          			<!--STRING-->
+            <uta:col uta:data='"KEY DOWNLOAD"'/>                          			<!--STRING-->
+            <uta:col uta:data='"V/KEY DOWNLOAD"'/>                          			<!--STRING-->            
+            <uta:col uta:data='"cmk"'/>                          			<!--Entry Mode-->
+            <uta:col uta:data='(byte*)"\x03\x97\x00\x00"'/>               			<!--Proc Code-->
+        </uta:instance>    
+       
+<!-- akhir agm - BRI -->         
+
+    </uta:data>
+</uta:record>
+

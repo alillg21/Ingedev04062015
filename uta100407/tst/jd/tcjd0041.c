@@ -1,0 +1,548 @@
+#include <stdio.h>
+#include <string.h>  // for memset, strcpy, etc
+
+#include <unicapt.h>
+
+
+//#include "tst.h"
+#include "tc.h"
+
+// for LNET
+#include <LNet.h>
+#include <LNetDns.h>
+#include <LNetFtp.h>
+#include <LNetSmtp.h>
+#include <LNetTcpip.h>
+#include <LNetSocket.h>
+
+// for GSM
+#include <gsm.h>
+
+#if 1
+#define dftPin "0000"
+#define dftAPN "orange.fr"
+#define dftLogin "danfr"
+#define dftPwd "mq36noqt"
+#else
+/** Milena public gsm network conf
+#define dftPin "3421"
+#define dftAPN "gprsinternet"
+#define dftLogin "mts"
+#define dftPwd "064"
+// ICCID 89381030000059632671
+**
+
+// JP gsm conf in Serbia for tc0177
+#define dftPin "7110"
+#define dftAPN "futuraplus"
+#define dftLogin "mts"
+#define dftPwd "064"
+// ICCID = 89381030000061101558, PUK1 = 20699285
+**/
+// JP gsm conf in Serbia for tc0041
+#define dftPin "8269"
+#define dftAPN "futuraplus"
+#define dftLogin "mts"
+#define dftPwd "064"
+// ICCID 89381030000061104982
+#endif
+
+/**
+#define dftPin "5670"
+#define dftAPN "futuraplus"
+#define dftLogin "mts"
+#define dftPwd "064"
+**/
+
+//free.fr
+//static const char *dftIP= "212.27.42.12";
+//static int dftPort= 110;
+//first message to be sent to free.fr
+//static const char *dftSendMsg= "stat\x0D\x0A";
+
+//serveur topup
+static int dftPort= 6789;
+
+// France
+static char *dftIP= "91.121.18.221";
+// DVK  static char *dftIP= "82.247.161.69";
+// Belgrade  static char *dftIP= "172.19.49.10";
+//first message to be sent to topup
+static const char *dftSendMsg= "\x00\x00\x00\x0C\x01\x01\x04\x00\x85\x05\x03\33\x00\x01\x0D\x0A";
+
+static const char *phone = "*99***1#";
+
+static uint32 hHmi = 0;
+static uint32 hPrt = 0;
+static void show(const char *str,int idx){
+    static uint16 row= 0;
+
+		if(idx==0) row=0;
+    hmiADClearLine(hHmi, row);
+    hmiADDisplayText(hHmi, row, 0, (char *)str);
+    row+=1;
+    if(row>=15) row= 0;
+}
+
+static void print(const char *str){
+    prnPrint(hPrt,(char *) str);
+}
+
+#define CHECK(CND,LBL,ERR) {if(!(CND)){show("*** ERROR ***",1); show(ERR,1); print("*** ERROR ***"); print(ERR); goto LBL;}}
+
+#define CID 2
+static gsmGprsContext_t GprsPdp= { //GPRS PDP context for orange.fr SIM
+	CID,    //uint8 cid;            //PDP context identifier. a numeric parameter (1-32)
+	                                //which specifies a particular PDP context definition
+	"IP", //uint8 PDPType[16+1];    //(Packet Data Protocol type) a string parameter
+                                  //which specifies the type of PDP. "IP" Internet
+                                  //Protocol or "PPP" Point to Point Protocol
+	dftAPN,      //uint8 APN[64+1]; //(Access Point Name) which is a logical name that
+                                  //is used to select GGSN or external packet data
+                                  //network. If the value is NULL or omitted, then
+                                  //the subscription value will be requested
+	"", //uint8 PDPAddress[16+1];   //A string parameter that identifies the Mobile in
+                                  //the address space applicable to the PDP (optional)
+	0, //uint8 dComp;               //To control PDP data compression 0:off (default), 1 on. (optional)
+	0  //uint8 hComp;               //To control PDP header compression 0:off (default),1 on. (optional)
+};
+
+//uint32 h;
+
+static gsmGprsProfile_t GprsProfile = {
+	CID, //uint8 cid;               //PDP context identifier
+	0, //uint8 precedence;          //Precedence class, 0: Subscribed by the Nwk / default if value is omitted
+	0, //uint8 delay;               //Delay class, 0: Subscribed by the Nwk / default if value is omitted
+	3, //uint8 reliability;         //Reliability class, Non real-time traffic, error sensitive application that can cope with data loss, GMM/SM, and SMS.
+	0, //uint8  peak                //Subscribed by the Nwk / default if value is omitted
+	0  //uint8  mean                //Subscribed by the Nwk / default if value is omitted
+};
+
+typedef struct{
+	int16	status;
+	uint16	length;
+	uint8	datas[1];
+}oneResult_t;
+
+static uint32 niHandle;
+static uint32 gsmHandle;
+static int socketHandle;
+
+static int startGPRSConnection(void){
+	int16 ret, err;
+	uint8 onOff, rssi, ber, pinstat, netStat, nbpin1, nbpin2, nbpuk1, nbpuk2, attachStat, status;
+	char buf[256];
+	int n;
+
+	hmiADClearLine(hHmi, HMI_ALL_LINES);
+
+	show("gsmOpen",0);
+	ret = gsmOpen(&gsmHandle, "MODEM3");
+	CHECK(ret==RET_OK,lblKO,"gsmOpen");
+
+	show("gsmOnOff",1);
+	onOff = 1;
+	ret = gsmOnOff(gsmHandle, GET, &onOff);   //Check if the GSM Device is turn on.
+	
+//    if((onOff != 1) || (ret == RET_OK))
+//        ret = gsmOnOff(gsmHandle, SET, &onOff);   //Turn on the GSM Device.
+
+	if((onOff != 1) && (ret == RET_OK))
+	{
+		onOff = 1;
+		ret = gsmOnOff(gsmHandle, SET, &onOff);   //Turn on the GSM Device.
+	}
+
+	CHECK(ret==RET_OK,lblClose,"gsmOnOff");
+/* //optional
+	show("gsmGetImei",1); //terminal ID
+	ret = gsmGetImei(gsmHandle, buf);
+	show(buf,1);
+	CHECK(ret==RET_OK,lblClose,"gsmGetImei");
+*/
+  show("gsmGetPinStatus",1);
+	gsmGetPinStatus(gsmHandle, &pinstat, &nbpin1, &nbpin2, &nbpuk1, &nbpuk2);
+	if (pinstat == 1){
+		ret = gsmEnterPin(gsmHandle, "", dftPin);
+		CHECK(ret==RET_OK,lblReadErrorAndClose,"gsmEnterPin");
+	}
+
+	show("gsmGetImsi",1); //sim ID
+	ret = gsmGetImsi(gsmHandle, buf);
+	show(buf,1);
+	CHECK(ret==RET_OK,lblReadErrorAndClose,"gsmGetImsi");
+
+	ret = gsmGetNetworkStatus(gsmHandle, &status);
+  //Force operator selection only if GSM module is not registered on network
+//  if((status != 1) || (status != 5) || (ret != RET_OK)) { //1 and 5 registered status
+  if((status != 1) && (status != 5) && (ret == RET_OK)) { //1 and 5 registered status
+      ret = gsmOperatorSelection(gsmHandle, 0, 2, "");
+      if(ret != RET_OK) {
+          psyTimerWakeAfter(SYS_TIME_SECOND * 3); //3 seconds, calibration test required
+          ret = gsmOperatorSelection(gsmHandle, 0, 2, "");
+          CHECK(ret==RET_OK,lblReadErrorAndClose,"gsmReadNetworkStatus");
+      }
+  }
+
+	psyTimerWakeAfter(SYS_TIME_SECOND);
+	show("SignalParameters",1);
+	ret = gsmGetSignalParameters(gsmHandle, &rssi, &ber);
+	sprintf(buf,"rssi=%d",rssi); show(buf,1);
+	sprintf(buf,"ber=%d",ber); show(buf,1);
+	CHECK(ret==RET_OK,lblKO,"SignalParameters");
+
+	hmiADClearLine(hHmi, HMI_ALL_LINES); //Clear screen
+	show("GetNetworkStatus",0);
+	netStat = 0;
+	ret = gsmGprsGetNetworkStatus (gsmHandle, &netStat);
+	sprintf(buf,"netStat=%d",netStat); show(buf,1);
+	CHECK(ret==RET_OK,lblReadError,"GetNetworkStatus");
+
+	if (netStat == 1){
+	  show("already connected!",1);
+	}else{
+		attachStat = 1;
+		show("gsmGprsAttachStatus SET",1);
+		ret = gsmGprsAttachStatus(gsmHandle, SET, &attachStat);
+		sprintf(buf,"attachStat=%d",attachStat); show(buf,1);
+		//CHECK(ret==RET_OK,lblReadError,"gsmGprsAttachStatus  SET");
+		if((attachStat==0)||(ret!=RET_OK)) {     //try to attach
+			for (n = 0; n < 60; ++n){
+				psyTimerWakeAfter(SYS_TIME_SECOND);
+				show("gsmGprsAttachStatus GET",1);
+				ret = gsmGprsAttachStatus(gsmHandle, GET, &attachStat);
+				sprintf(buf,"attachStat=%d",attachStat); show(buf,1);
+				if(ret == GSM_CME_ERROR){
+					gsmReadError(gsmHandle, &err);
+					if(err == 515)
+						continue;
+				}
+				CHECK(ret==RET_OK,lblReadError,"gsmGprsAttachStatus GET");
+				if (attachStat == 1) break;
+			}
+		}
+		show("gsmGprsSetPDPContext",1);
+		ret = gsmGprsSetPDPContext(gsmHandle, &GprsPdp);
+		CHECK(ret==RET_OK,lblReadError,"gsmGprsSetPDPContext");
+
+		show("gsmGprsSetQoSProfile",1);
+		ret = gsmGprsSetQoSProfile(gsmHandle, &GprsProfile);
+		CHECK(ret==RET_OK,lblReadError,"gsmGprsSetQoSProfile");
+	}
+  show("GPRS attached",1);
+
+	ret=0;
+	goto lblEnd;
+lblReadErrorAndClose:
+	if (ret == GSM_CME_ERROR){
+	  gsmReadError(gsmHandle, &err);
+	  sprintf(buf,"gsmReadError=%d",err); print(buf);
+	}
+	goto lblKO;
+lblReadError:
+	if (ret == GSM_CME_ERROR){
+	  gsmReadError(gsmHandle, &err);
+	  sprintf(buf,"gsmReadError=%d",err); print(buf);
+	}
+lblClose:
+	goto lblKO;
+lblKO:
+	ret=-1;
+	show("gsmClose",1);
+	gsmClose(gsmHandle);
+	print("KO!");
+lblEnd:
+	return ret;
+}
+
+// --------------------------------------------------------------------------------
+// Code to GET the local IP address --------------------------------------
+int getNIconfig(char *ipAdr, char *dns1, char *dns2)
+{
+	int ret;
+	netNiConfig_t config;
+	struct in_addr *addr;
+
+	CHECK(niHandle, lblKO, "getNIconfig");
+	
+	memset(&config, 0, sizeof(config));
+	config.ppp.fields = NI_PPP_F_LOCALIPADDRESS | NI_PPP_F_PPPCFG;
+	config.ppp.pppCfg.fields = NI_PPP_F_DNS1IPADDRESS | NI_PPP_F_DNS2IPADDRESS;
+	ret = netNiConfigGet(niHandle, NET_NI_LEVEL_1, &config);
+	CHECK(ret == RET_OK, lblKO, "netNiConfigGet");
+
+	ret = 0;
+	
+	if (ipAdr)
+	{
+		addr = (struct in_addr *) &config.ppp.localIpAddress;
+		inet_ntoa(*addr, ipAdr);
+		ret++;
+	}
+
+	if (dns1)
+	{
+		addr = (struct in_addr *) &config.ppp.pppCfg.dns1IpAddress;
+		inet_ntoa(*addr, dns1);
+		ret++;
+	}
+	
+	if (dns2)
+	{
+		addr = (struct in_addr *) &config.ppp.pppCfg.dns2IpAddress;
+		inet_ntoa(*addr, dns2);
+		ret++;
+	}
+
+	return ret;
+
+lblKO:
+	return -1;
+}
+
+static int startNI(void){
+	int16 ret, err;
+	netChannelList_t pBuffer[NET_CHANNEL_MAX];
+	netNiConfig_t config;
+	char buf[256];
+	char ipAdr[15 + 1];
+	char dns1[15 + 1];
+	char dns2[15 + 1];
+	int i;
+
+	hmiADClearLine(hHmi, HMI_ALL_LINES);
+
+  	show("netNiOpen",0);
+	ret = netNiOpen(NET_NI_PPP, &niHandle);
+	CHECK(ret==RET_OK,lblReadError,"netNiOpen");
+
+	show("netCfgIdentify",1);
+	ret = netCfgIdentify(NET_CHANNEL_LIST, NET_CHANNEL_LIST_SIZE, (void*) pBuffer);
+	CHECK(ret==RET_OK,lblKO,"netCfgIdentify");
+	for (i = 0; pBuffer[i].name[0] != '\0'; ++i)
+		if (!strcmp(pBuffer[i].name, "MODEM3")) break;
+	CHECK((pBuffer[i].name[0] != '\0'),lblKO,"MODEM3");
+
+	memset(&config, 0, sizeof(config));
+	config.ppp.fields = NI_PPP_F_CHANNEL | NI_PPP_F_PPPCFG | NI_PPP_F_PHONENUMBER|NI_PPP_F_LOCALIPADDRESS;
+	config.ppp.channel = i;
+	config.ppp.pppCfg.fields = NI_PPP_F_LCPFLAGS | NI_PPP_F_IPCPFLAGS | NI_PPP_F_VJMAX
+		| NI_PPP_F_LOCALUSERNAME | NI_PPP_F_LOCALPASSWORD | NI_PPP_F_INFLAGS;
+	config.ppp.pppCfg.lcpFlags = NI_PPP_LCP_PAP | NI_PPP_LCP_PCOMP | NI_PPP_LCP_ACOMP;
+	config.ppp.pppCfg.ipcpFlags = /*NI_PPP_IPCP_ADDR*/NI_PPP_IPCP_ACCEPT_LOCAL|NI_PPP_IPCP_ACCEPT_REMOTE| NI_PPP_IPCP_DNS1 | NI_PPP_IPCP_DNS2;
+	config.ppp.pppCfg.inFlags = NI_PPP_IN_DEFAULT_ROUTE;
+	config.ppp.pppCfg.vjMax = 48;
+
+	config.ppp.pppCfg.localUsername = dftLogin;
+	config.ppp.pppCfg.localPassword = dftPwd;
+	config.ppp.phoneNumber = (char *)phone;
+
+	show("netNiConfigSet",1);
+	ret = netNiConfigSet(niHandle, NET_NI_LEVEL_1, &config);
+	CHECK(ret==RET_OK,lblKO,"netNiConfigSet");
+
+	show("netNiStart",1);
+	ret = netNiStart(niHandle, 120 * SYS_TIME_SECOND);
+	CHECK(ret==RET_OK,lblKO,"netNiStart");
+
+/*********
+	// --------------------------------------------------------------------------------
+	// Code to GET the local IP address --------------------------------------
+	memset(&config, 0, sizeof(config));
+
+	config.ppp.fields = NI_PPP_F_LOCALIPADDRESS | NI_PPP_F_PPPCFG;
+	config.ppp.pppCfg.fields = NI_PPP_F_DNS1IPADDRESS | NI_PPP_F_DNS2IPADDRESS;
+	ret = netNiConfigGet(niHandle, NET_NI_LEVEL_1, &config);
+	CHECK(ret==RET_OK,lblKO,"netNiConfigGet");
+
+	{
+		struct in_addr *addr = (struct in_addr *) &config.ppp.localIpAddress;
+		inet_ntoa(*addr, buf);
+		print("local IP addr:");
+		print(buf);
+		sprintf(buf, "DNS1=%X", config.ppp.pppCfg.dns1IpAddress);
+		print(buf);
+		sprintf(buf, "DNS2=%X", config.ppp.pppCfg.dns2IpAddress);
+		print(buf);
+	}
+*******/
+
+	ret = getNIconfig(ipAdr, dns1, dns2);
+	CHECK(ret >= 0, lblKO, "netNiConfigGet");
+	print("local IP addr:"); print(ipAdr);
+	print("DNS1:"); print(dns1);
+	print("DNS2:"); print(dns2);		
+	ret=0;
+	goto lblEnd;
+	
+lblReadError:
+	if (ret == GSM_CME_ERROR){
+		gsmReadError(gsmHandle, &err);
+		sprintf(buf,"gsmReadError=%d",err); print(buf);
+	}
+lblKO:
+	ret=-1;
+lblEnd:
+	return ret;
+}
+
+static int testPing(void){
+  int ret;
+  icmpPingResult_t result;
+  char buf[256];
+
+  hmiADClearLine(hHmi, HMI_ALL_LINES);
+
+  show("ping 1...",0);
+  ret= icmpPingEx((char *)dftIP, 1000, 54,32,&result);
+  if(ret>0) sprintf(buf,"1: %d",result.time); else strcpy(buf,"ping failed");
+  show(buf,1);
+
+  show("ping 2...",1);
+  ret= icmpPingEx((char *)dftIP, 1000, 54,32,&result);
+  if(ret>0) sprintf(buf,"2: %d",result.time); else strcpy(buf,"ping failed");
+  show(buf,1);
+
+  show("ping 3...",1);
+  ret= icmpPingEx((char *)dftIP, 1000, 54,32,&result);
+  if(ret>0) sprintf(buf,"3: %d",result.time); else strcpy(buf,"ping failed");
+  show(buf,1);
+
+  return 1;
+}
+
+
+static void stopGPRSConnection(void){
+	uint8 sta;
+	int16 ret;
+	char buf[256];
+	hmiADClearLine(hHmi, HMI_ALL_LINES);
+
+	show("netNiStop",0);
+	netNiStop(niHandle);
+
+	show("netNiClose",1);
+	netNiClose(niHandle);
+	niHandle=0;
+	//psyTimerWakeAfter(2*SYS_TIME_SECOND);
+// Disconnect the PDP context to avoid GSM Data problem
+// Not required if you want to do several GPRS without GSM data
+	show("PDP DEActivate",1);
+	gsmGprsSetPDPActivate (gsmHandle , 0 , 255 );
+
+	show("gsmHangUp",2);
+	ret = gsmHangUp(gsmHandle);
+	if(ret != RET_OK)
+		print("gsmHangUp fail");
+	
+	show("GPRS detach",0);
+	sta = 0;
+	ret = gsmGprsAttachStatus(gsmHandle,SET,&sta);
+	if(ret != RET_OK)
+		print("Detach GPRS fail");
+	ret = gsmGprsGetNetworkStatus(gsmHandle, &sta);
+	if(ret != RET_OK)
+		print("GPRS NetStat fail");
+	if((sta != 1) && (sta != 5))
+		print("GPRS NetStat detached");
+	sprintf(buf,"GetNetSta: %d",sta);
+	print(buf);
+	
+	show("gsmClose",0);
+	gsmClose(gsmHandle);
+	gsmHandle=0;
+
+	//JP! no need to put a delay here : this is the end
+}
+
+static int startIPConnection(void){
+	struct sockaddr_in addr;
+
+	hmiADClearLine(hHmi, HMI_ALL_LINES);
+
+  show("socket",0);
+  socketHandle = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (socketHandle == -1){
+		print("Error Socket");
+		return -1;
+  }
+
+    addr.sin_addr.s_addr = inet_addr(dftIP);
+    addr.sin_port = htons((uint16)dftPort);
+
+    addr.sin_family = AF_INET;
+    memset(&addr.sin_zero, 0, sizeof(addr.sin_zero));
+
+    show("connect",1);
+    if (connect(socketHandle, (struct sockaddr *) &addr, sizeof(addr)) != 0){
+				print("Error Connect");
+				return -1;
+			}
+		show("Connected",1);
+
+		return 1;
+}
+
+static int testSendReceive(void){
+  char data[256];
+	int16 errorCode;
+
+	show("utaGprsSend..",1);
+	errorCode = send(socketHandle, dftSendMsg,strlen(dftSendMsg),0);
+	if (errorCode == -1){
+		print("write error -1");
+		return -1;
+	}
+  else{
+		show("write OK",1);
+  }
+
+	show("read",1);
+	errorCode = read(socketHandle, data, 256);
+	show("read Done",1);
+	if (errorCode == -1){
+		print("read Error -1");
+		return -1;
+	}
+  else{
+		print("read OK:");
+		print(data);
+  }
+
+	show("close",1);
+  close(socketHandle);
+
+  show("testSendReceive OK",1);
+
+  // Delay between closing of the socket and netNiStop
+  // as adviced by Mohammed
+  psyTimerWakeAfter(200);
+
+  return 1;
+}
+
+void tcjd0041(void){
+//void tcjd0041 (void){
+  int ret;
+  hmiOpen("DEFAULT", &hHmi);
+  prnOpen("DEFAULT", &hPrt, PRN_IMMEDIATE);
+	ret= startGPRSConnection();	CHECK(ret>=0,lblKO,"KO");
+	psyTimerWakeAfter(SYS_TIME_SECOND);
+	ret= startNI();	CHECK(ret>=0,lblKO,"KO");
+	//psyTimerWakeAfter(SYS_TIME_SECOND);
+	//ret= testPing(); CHECK(ret>=0,lblKO,"KO");
+	psyTimerWakeAfter(SYS_TIME_SECOND);
+	ret= startIPConnection();	CHECK(ret>=0,lblKO,"KO");
+	psyTimerWakeAfter(SYS_TIME_SECOND);
+	ret= testSendReceive(); CHECK(ret>=0,lblKO,"KO");
+	//psyTimerWakeAfter(SYS_TIME_SECOND); better put the delay in lower level functions
+	goto lblEnd;
+lblKO:
+	goto lblEnd;
+lblEnd:
+	//Beep();
+	stopGPRSConnection();
+  hmiClose(hHmi);
+  prnClose(hPrt);
+}
+

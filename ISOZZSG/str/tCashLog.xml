@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/rev.xml $
+$Id: rev.xml 1439 2009-01-27 02:42:02Z kdelacruz $
+-->
+<uta:record uta:id='tCashLog'
+            uta:dim='dimTCashLog'
+            uta:cache="no"
+            uta:comment='BRI Transaction log table'
+            xmlns:uta="http://www.ingenico.com/xml/uta">    
+
+    <uta:field uta:id='tCashLogVoidFlag'
+               uta:type='byte'
+               uta:comment='Void flag' />
+
+    <uta:field uta:id='tCashLogTipFlag' 	uta:type='byte'    uta:comment='Tip indicator' />
+
+    <uta:field uta:id='tCashLogMTI'      uta:type='ASCII'      uta:length='lenMti'        uta:comment='Message Type' />
+               
+    <uta:field uta:id='tCashLogMnuItm'
+               uta:type='word'
+               uta:comment='menu item selected' />
+    <uta:field uta:id='tCashLogDatTim'
+               uta:type='ASCII'
+               uta:length='lenDatTim'
+               uta:comment='transaction date and time CCYYMMDDhhmmss' />
+    <uta:field uta:id='tCashLogBinIdx' 
+               uta:type='byte' 
+               uta:comment='index in Bin multirecord' />
+    <uta:field uta:id='tCashLogAcqIdx' 
+               uta:type='byte' 
+               uta:comment='index in Acq multirecord' />
+    <uta:field uta:id='tCashLogIssIdx' 
+               uta:type='byte' 
+               uta:comment='index in Iss multirecord' />
+    <uta:field uta:id='tCashLogPan'
+               uta:type='ASCII'
+               uta:length='lenPan'
+               uta:comment='PAN' />
+    <uta:field uta:id='tCashLogExpDat' 
+               uta:type='ASCII'
+               uta:length='lenExpDat'
+               uta:comment='Expiry Date' />
+
+    <uta:field uta:id='tCashLogExpDatFmt'        uta:type='ASCII'      uta:length='lenExpDat'         uta:comment='Expiry Date' />
+               
+    <uta:field uta:id='tCashLogTrk2'
+               uta:type='ASCII'
+               uta:length='lenTrk2'
+               uta:comment='track 2 of the card' />
+    <uta:field uta:id='tCashLogAutCod'
+               uta:type='ASCII'
+               uta:length='lenAutCod'
+               uta:comment='Authorization code' />
+
+    <uta:field uta:id='tCashLogAutCodOff' uta:type='ASCII' uta:length='lenAutCod' uta:comment='Authorization (approval) code' />
+               
+    <uta:field uta:id='tCashLogBatNum' 
+               uta:type='ASCII'
+               uta:length='lenBatNum'
+               uta:comment='Batch Number' />
+    <uta:field uta:id='tCashLogTraAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Transaction Amount' />
+
+    <uta:field uta:id='tCashLogFmtAmt'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Amount'/>
+               
+    <uta:field uta:id='tCashLogTipAmt' 
+               uta:type='ASCII'
+               uta:length='lenAmt'
+               uta:comment='Tip Amount' />
+
+    <uta:field uta:id='tCashLogFmtTip'    uta:type='ASCII'   uta:length='20' uta:comment='Display formatted Tip'/>
+
+    <uta:field uta:id='tCashLogEmvICC' uta:type='ASCII' uta:length='lenEmvICC' uta:comment='message of bit 55' />
+               
+    <uta:field uta:id='tCashLogSTAN'
+               uta:type='card'
+               uta:comment='system trace audit number' />
+    <uta:field uta:id='tCashLogRrn'
+               uta:type='ASCII'
+               uta:length='lenRrn'
+               uta:comment='Retrieval Reference Number' />
+
+    <uta:field uta:id='tCashLogRspCod' uta:type='ASCII' uta:length='lenRspCod' uta:comment='Response code' />
+    <uta:field uta:id='tCashLogPinBlk' uta:type='binary' uta:length='lenPinBlk' uta:comment='Pin block' />                              
+    <uta:field uta:id='tCashLogROC'
+               uta:type='card'
+               uta:comment='ROC/Invoice' />
+    <uta:field uta:id='tCashLogEntMod'
+               uta:type='byte'
+               uta:comment='POS Entry Mode' />
+    <uta:field uta:id='tCashLogConCode'
+               uta:type='byte'
+               uta:comment='POS Condition Code' />
+    <uta:field uta:id='tCashLogCardType'
+               uta:type='ASCII'
+               uta:length='lenCardTransType'
+               uta:comment='Card Type' />  
+    
+    <uta:field uta:id='tCashLogTraTrk1' uta:type='ASCII' uta:length='lenTrk2' uta:comment='track 1 of the card' />  <!-- @agmr - BRI -->
+
+    <uta:field uta:id='tCashLogNomorRekeningAsalBRI'   uta:comment='Nomor rekening asal BRI = 15' uta:type='ASCII' uta:length='lenNomorRekeningBRI' />
+    <uta:field uta:id='tCashLogNamaPenerima'           uta:comment='Nama penerima/rek. tujuan'  uta:type='ASCII' uta:length='lenNamaPemilik' />
+    <uta:field uta:id='tCashLogSisaSaldo'              uta:comment='Sisa saldo'              uta:type='ASCII' uta:length='lenSisaSaldo' />
+    <uta:field uta:id='tCashLogFee'                    uta:comment='Fee'                     uta:type='ASCII' uta:length='lenFee' />
+  
+</uta:record>

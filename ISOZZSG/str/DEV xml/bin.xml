@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/bin.xml $
+$Id: bin.xml 1324 2009-01-19 06:43:44Z kdelacruz $
+-->
+<uta:record uta:id="bin" uta:dim="dimBin" uta:comment="Card Range multirecord"
+ xmlns:uta="http://www.ingenico.com/xml/uta">
+  <uta:field uta:id="binID" uta:type="byte" uta:comment='Card Prefix ID' />
+  <uta:field uta:id="binName" uta:type="ASCII" uta:length="lenName" uta:comment='Card Range Name' />
+  <uta:field uta:id="binLo" uta:type='binary' uta:length="lenBinPrefix" uta:comment='Low Prefix (BCD Format)' />
+  <uta:field uta:id="binHi" uta:type='binary' uta:length="lenBinPrefix" uta:comment="High Prefix (BCD Format)" />
+  <uta:field uta:id="binCrIssID" uta:type="byte" uta:comment="Credit Issuer ID" />
+  <uta:field uta:id="binCrAcqID" uta:type="byte" uta:comment="Credit Acquirer ID" />
+  <uta:field uta:id="binPanLen" uta:type="byte" uta:comment="Pan Length Set" />
+  <uta:field uta:id="binDbIssID" uta:type="byte" uta:comment="Debit Issuer ID" />
+  <uta:field uta:id="binDbAcqID" uta:type="byte" uta:comment="Debit Acquirer ID" />
+  <uta:field uta:id="binLogoID" uta:type="byte" uta:comment="Logo ID to use" />
+  <uta:field uta:id='binTotAppDbAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Debit amount for acquirer' /> 
+  <uta:field uta:id='binTotAppDbCnt' uta:type='word' uta:comment='Number Debits for acquirer' /> 
+  <uta:field uta:id='binTotAppCrAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Credit amount for acquirer' /> 
+  <uta:field uta:id='binTotAppCrCnt' uta:type='word' uta:comment='Number Credits for acquirer' /> 
+  <uta:field uta:id='binTotAppTpAmt' uta:type='ASCII' uta:length='lenTotAmt' uta:comment='Total Tip amount for acquirer' /> 
+  <uta:field uta:id='binTotAppTpCnt' uta:type='word' uta:comment='Number Tip for acquirer' /> 
+  <uta:data>
+    <uta:instance>
+      <uta:col uta:data='1' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"BRIDEBIT"' />              		<!-- Card Prefix Name -->
+      <uta:col uta:data='(byte *)"\x05\x52\x21\x84\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x52\x21\x84\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='0' />									<!-- Credit Issuer ID-->   
+      <uta:col uta:data='0' />									<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />									<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />									<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />									<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    <uta:instance>
+      <uta:col uta:data='2' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"PRIORITAS"' />              		<!-- Card Prefix Name -->
+      <uta:col uta:data='(byte *)"\x05\x53\x26\x59\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x53\x26\x59\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='0' />									<!-- Credit Issuer ID-->   
+      <uta:col uta:data='0' />									<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />									<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />									<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />									<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    <uta:instance>
+      <uta:col uta:data='3' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"PRIVATE"' />              		<!-- Card Prefix Name -->
+      <uta:col uta:data='(byte *)"\x05\x60\x13\x01\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x60\x13\x01\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='0' />									<!-- Credit Issuer ID-->   
+      <uta:col uta:data='0' />									<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />									<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />									<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />									<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    <uta:instance>
+      <uta:col uta:data='4' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER1STAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x01\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x01\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='5' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER1"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x02\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x02\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='6' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER2STAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x21\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x21\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='7' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER2"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x22\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x22\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='8' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER3STAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x41\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x41\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='9' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTER3"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x42\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x42\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='10' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCHYUNDAI"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x91\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x28\x91\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='11' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCHIPMI"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x13\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x13\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='12' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCTELKOM"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x03\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x03\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='13' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCGOLD1STAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x01\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x01\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='14' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCGOLD1"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x02\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x02\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='15' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCGOLD2STAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x21\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x21\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='16' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCGOLD2"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x22\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x22\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='17' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCPLATSTAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x55\x20\x02\x01\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x55\x20\x02\x01\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='18' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MCPLAT"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x02\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x51\x88\x56\x02\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='19' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"VISASTAFF"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x43\x65\x02\x01\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x43\x65\x02\x01\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='0' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='0' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    
+    <uta:instance>
+      <uta:col uta:data='20' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"VISA"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x43\x65\x02\x02\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x43\x65\x02\x02\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='0' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='0' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    
+    <uta:instance>
+      <uta:col uta:data='21' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"VISACARDS"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x40\x00\x00\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x49\x99\x99\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    <uta:instance>
+      <uta:col uta:data='22' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"MASTERCARD"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x50\x00\x00\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x59\x99\x99\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='1' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='1' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='2' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='1' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+    <uta:instance>
+      <uta:col uta:data='23' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"VISA2"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x60\x34\x39\x90\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x05\x60\x34\x39\x90\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='2' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='2' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='0' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='0' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />                  <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+
+    <uta:instance>
+      <uta:col uta:data='6' />							<!-- Card Prefix ID-->     
+      <uta:col uta:data='"ALL CARD"' />              		<!-- Card Prefix Name -->  
+      <uta:col uta:data='(byte *)"\x05\x00\x00\x00\x00\x00"' />  		<!-- Bin Low -->           
+      <uta:col uta:data='(byte *)"\x09\x99\x99\x99\x99\x99"' />   		<!-- Bin High -->          
+      <uta:col uta:data='2' />                        			<!-- Credit Issuer ID-->   
+      <uta:col uta:data='2' />                       			<!-- Credit Acquirer ID--> 
+      <uta:col uta:data='0' />                        			<!-- Pan Length Set-->     
+      <uta:col uta:data='1' />                        			<!-- Debit Issuer ID-->    
+      <uta:col uta:data='2' />                        			<!-- Debit Acquirer ID-->  
+      <uta:col uta:data='1' />          <!-- binLogoID -->
+      <uta:col uta:data='"0"' />				<!-- binTotAppDbAmt: Total Debit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppDbCnt: Number Debits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppCrAmt: Total Credit amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppCrCnt: Number Credits for acquirer-->
+      <uta:col uta:data='"0"' />				<!-- binTotAppTpAmt: Total Tip amount for acquirer-->
+      <uta:col uta:data='0' />					<!-- binTotAppTpCnt: Number Tip for acquirer-->
+    </uta:instance>
+  </uta:data>
+</uta:record>

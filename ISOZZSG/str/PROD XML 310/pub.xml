@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!--
+Subversion reference
+$HeadURL: https://svn.ingenico.com/UTAPROJECTS/sea-partner/5W/trunk/ISO5WPH/str/pub.xml $
+$Id: pub.xml 1917 2009-04-22 13:24:29Z abarantsev $
+-->
+<uta:record uta:id="pub"
+            uta:dim="dimPub"
+            uta:comment="Certification Authority Public Keys"
+            xmlns:uta="http://www.ingenico.com/xml/uta">
+    <uta:field uta:id='pubRid'
+               uta:type='binary'
+               uta:length='lenRid'
+               uta:comment='rid is the first 5 bytes of aid' />
+    <uta:field uta:id='pubIdx'
+               uta:type='byte'
+               uta:comment='public key index, retrieved from the card' />
+    <uta:field uta:id='pubkeyData'
+               uta:type='binary'
+               uta:length='lenkeyData'
+               uta:comment='public key Data' />
+    <uta:field uta:id='pubExp'
+               uta:type='card'
+               uta:comment='exponent' />
+    <uta:field uta:id='pubAlgo'
+               uta:type='byte'
+               uta:comment='public key Algorithm' />
+    
+</uta:record>
+

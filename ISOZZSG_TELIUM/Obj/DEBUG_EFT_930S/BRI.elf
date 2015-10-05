@@ -1,0 +1,20 @@
+Obj/DEBUG_EFT_930S/BRI.axf  :
+section              size      addr
+.text              661888         0
+.ctors                  0    661888
+.dtors                  0    661888
+.rodata            100350    661888
+.data               43284   2097152
+.bss               173436   2140436
+.debug_abbrev       18117         0
+.debug_info        260432         0
+.debug_line         50829         0
+.debug_frame        35996         0
+.debug_pubnames     19846         0
+.debug_aranges       1792         0
+.debug_str           5628         0
+.comment             2286         0
+.debug_ranges          64         0
+Total             1373948
+
+
